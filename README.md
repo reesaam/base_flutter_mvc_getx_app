@@ -95,17 +95,17 @@ with Rename:
 dart global activate rename
 ```
 ```
-rename getAppName --targets ios,android,macos,windows,linux
+dart run rename getAppName --targets ios,android,macos,windows,linux
 ```
 ```
-rename setAppName --targets ios,android --value "AppName"
+dart run rename setAppName --targets ios,android,macos,windows,linux --value "AppName"
 ```
 ```
-rename setBundleId --targets android --value "com.resam.bundleId
+dart run rename setBundleId --targets android --value "com.resam.bundleId"
 ```
 with Change Package Name:
 ```
-flutter pub run change_app_package_name:main com.new.package.name
+dart run change_app_package_name:main com.new.package.name
 ```
 
 ### MISC

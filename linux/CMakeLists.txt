@@ -4,7 +4,7 @@ project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "base_flutter_clean_getx_app")
+set(BINARY_NAME "Base Flutter MVC GetX App")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 set(APPLICATION_ID "ir.resam.base1.base_flutter_clean_getx_app")

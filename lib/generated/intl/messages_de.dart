@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appExit": MessageLookupByLibrary.simpleMessage("App Exit"),
         "app_name":
-            MessageLookupByLibrary.simpleMessage("Base Flutter Clean GetX App"),
+            MessageLookupByLibrary.simpleMessage("Base Flutter MVC GetX App"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure ?"),
         "areYouSureDataExport": MessageLookupByLibrary.simpleMessage(
             "Are you sure?\nData will be exported and exposed."),

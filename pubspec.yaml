@@ -1,5 +1,5 @@
-name: flutter_base_clean_getx_app
-description: Flutter Base App with Clean GetX
+name: flutter_base_mvc_getx_app
+description: Flutter Base App with MVC GetX
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 0.0.1
@@ -15,11 +15,6 @@ dependencies:
 
   #State Manager
   get: ^4.6.6
-  #bloc: ^8.1.4
-  #flutter_bloc: ^8.1.5
-
-  #Dependency Injection
-  #get_it: ^7.6.7
 
   #Code Generator
   freezed: ^2.4.7

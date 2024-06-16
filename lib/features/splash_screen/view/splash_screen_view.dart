@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_getx_app/core/core_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../app/components/general_widgets/app_progress_indicator.dart';
+import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
-import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_text_styles.dart';
 import '../controller/splash_screen_controller.dart';
 

@@ -1,4 +1,4 @@
-package ir.resam.base1.base_flutter_clean_getx_app
+package com.resam.base_flutter_mvc_getx_app
 
 import io.flutter.embedding.android.FlutterActivity
 

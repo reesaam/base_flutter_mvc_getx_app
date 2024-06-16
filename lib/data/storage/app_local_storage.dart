@@ -12,7 +12,7 @@ import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../../features/settings/model/models/app_setting_data/app_setting_data.dart';
 import '../../features/version/model/models/app_version/app_version.dart';
-import '../models/app_data_model/app_data_model.dart';
+import '../app_models/app_data_model/app_data_model.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_texts.dart';
 import 'app_shared_preferences.dart';

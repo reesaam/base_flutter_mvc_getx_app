@@ -7,7 +7,7 @@ import '../../../core/app_routing/routing.dart';
 import '../../../core/core_functions.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
-import '../../../data/models/app_page_detail/app_page_detail.dart';
+import '../../../data/app_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_logos.dart';
 import '../../../data/resources/app_paddings.dart';

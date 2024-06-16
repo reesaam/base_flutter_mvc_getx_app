@@ -1,5 +1,5 @@
 import '../../core/app_localization.dart';
-import '../models/app_page_detail/app_page_detail.dart';
+import '../app_models/app_page_detail/app_page_detail.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_icons.dart';
 

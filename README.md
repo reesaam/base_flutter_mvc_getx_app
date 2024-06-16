@@ -1,7 +1,7 @@
 # Base Flutter MVC GetX App
 
 A Flutter Base Project using:
- - Clean Architecture
+ - MVC Architecture
  - GetX State Manager (also BloC for some features or Special Usages)
  - Freezed, Dartz
  - Dependency Injection

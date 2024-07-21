@@ -1,0 +1,11 @@
+#Flutter Launcher Icon Pub Config File
+flutter_icons:
+  image_path: 'assets/logos/app_logo.png'
+  android: true
+  ios: true
+  web:
+    generate: true
+  windows:
+    generate: true
+  macos:
+    generate: true

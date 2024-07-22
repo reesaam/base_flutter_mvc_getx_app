@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_getx_app/core/app_extensions/data_models_extensions/extension_settings.dart';
-import 'package:flutter_base_clean_getx_app/features/settings/domain/entities/app_settings_data_entity/app_setting_data_entity.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/app_extensions/data_models_extensions/extension_settings.dart';
 import '../../../../core/app_extensions/data_types_extensions/extension_app_languages.dart';
-import '../data/storage/app_local_storage.dart';
+import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
 
 class AppLocalization {
@@ -30,12 +29,12 @@ class AppLocalization {
   TextDirection defaultTextDirection = TextDirection.ltr;
 
   Locale getDefaultLocale() {
-    var appSettings = const AppSettingDataEntity().loadFromStorage;
+    var appSettings = const AppSettingData().loadFromStorage;
     return appSettings.language.getLocale;
   }
 
   TextDirection getTextDirection() {
-    var appSettings =  const AppSettingDataEntity().loadFromStorage;
+    var appSettings =  const AppSettingData().loadFromStorage;
     return appSettings.language.getLocale == persian
         ? TextDirection.rtl
         : defaultTextDirection;

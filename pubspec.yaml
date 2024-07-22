@@ -1,5 +1,5 @@
-name: flutter_base_clean_getx_app
-description: Flutter Base App with Clean GetX
+name: flutter_base_mvc_getx_app
+description: Flutter Base App with MVC GetX
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 0.0.1

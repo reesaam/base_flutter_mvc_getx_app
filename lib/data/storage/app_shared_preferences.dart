@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../data_models/app_data_model/app_data_model.dart';
+import '../models/app_data/app_data.dart';
 import '../resources/app_enums.dart';
 
 class AppSharedPreferences {
@@ -23,13 +23,13 @@ class AppSharedPreferences {
     return data == null ? null : json.decode(data);
   }
 
-  void saveData(AppDataModel appData) async {
+  void saveData(AppData appData) async {
     _saveFunction(appData, _keyAppData);
   }
 
-  Future<AppDataModel?> loadData() async {
+  Future<AppData?> loadData() async {
     var jsonAppData = await _loadFunction(_keyAppData);
-    return jsonAppData == null ? null : AppDataModel.fromJson(json.decode(jsonAppData));
+    return jsonAppData == null ? null : AppData.fromJson(json.decode(jsonAppData));
   }
 
   void clearData() async {

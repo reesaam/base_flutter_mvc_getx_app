@@ -36,7 +36,7 @@ class SettingsController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.settings;
+    pageDetail = AppPageDetails().settings;
   }
 
   @override
@@ -48,9 +48,6 @@ class SettingsController extends CoreController {
   void onCloseFunction() {
     saveSettings();
     appSettingDataListener.cancel();
-    darkMode.close();
-    selectedLanguage.close();
-    updateAvailableVersion.close();
   }
 
   _fillData() {
@@ -69,16 +66,14 @@ class SettingsController extends CoreController {
     saveSettings();
     popPage();
     Get.updateLocale(selectedLanguage.value.getLocale);
-    Get.reloadAll();
+    appDebugPrint('Language Changed to ${selectedLanguage.value.languageName}');
+    appRestart(bootPage: pageDetail);
   }
 
   functionDarkModeOnChange(bool value) {
     darkMode.value = value;
     saveSettings();
     appLogPrint('DarkMode Changed to ${darkMode.value}');
-    Get.reloadAll();
-    refresh();
-    update();
   }
 
   functionCheckUpdateAvailableVersion() async {

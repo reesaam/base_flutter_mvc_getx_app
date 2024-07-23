@@ -10,7 +10,7 @@ import '../../features/splash_screen/view/splash_screen_view.dart';
 import '../../features/update/view/update_view.dart';
 
 class AppPages {
-  static get pages => [
+  static List<GetPage> get pages => [
     ///Admin Pages
     // GetPage(name: AppRoutes.adminStartPage.route, page: AdminStartPage.new),
     // GetPage(name: AppRoutes.adminPagesTestPage.route, page: AdminPagesTestPage.new),
@@ -22,6 +22,10 @@ class AppPages {
     GetPage(name: AppRoutes.settings.route, page: SettingsPage.new),
     GetPage(name: AppRoutes.update.route, page: UpdatePage.new),
     GetPage(name: AppRoutes.about.route, page: AboutPage.new),
+
+    ///NotFound Page is ALWAYS LAST
     GetPage(name: AppRoutes.notFound.route, page: NotFoundPage.new),
   ];
+
+  static GetPage get unknownRoute => pages.last;
 }

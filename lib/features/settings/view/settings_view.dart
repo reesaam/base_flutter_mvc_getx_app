@@ -31,11 +31,11 @@ class SettingsPage extends CoreView<SettingsController> {
 
   @override
   Widget get body => Obx(() => Column(children: [
-    _widgetGeneral(),
-    _widgetUpdate(),
-    _widgetBackup(),
-    _widgetStorage(),
-  ]));
+        _widgetGeneral(),
+        _widgetUpdate(),
+        _widgetBackup(),
+        _widgetStorage(),
+      ]));
 
   Widget _widgetAppbarThreeDotsButton() => AppPopupMenu(listItems: _listAppbarThreeDotsButton, lightColorIcon: false);
 
@@ -47,16 +47,26 @@ class SettingsPage extends CoreView<SettingsController> {
     Widget leadingDarkMode() => AppSwitch(value: controller.darkMode.value, onChanged: (bool value) => controller.functionDarkModeOnChange(value), enabled: false);
 
     return SettingsSectionWidget(title: Texts.to.settingsSectionTitleGeneral, widgets: [
-      SettingsSectionItemWidget(text: Texts.to.settingsSectionTitleGeneralLanguage.withDoubleDots, leading: leadingLanguage(), wholeItemFunction: controller.functionLanguageModal),
-      SettingsSectionItemWidget(text: Texts.to.settingsSectionGeneralItemDarkMode, leading: leadingDarkMode()),
+      SettingsSectionItemWidget(
+        text: Texts.to.settingsSectionTitleGeneralLanguage.withDoubleDots,
+        leading: leadingLanguage(),
+        wholeItemFunction: controller.functionLanguageModal,
+      ),
+      SettingsSectionItemWidget(
+        text: Texts.to.settingsSectionGeneralItemDarkMode.withDoubleDots,
+        leading: leadingDarkMode(),
+      ),
     ]);
   }
 
   Widget _widgetUpdate() => SettingsSectionWidget(title: Texts.to.settingsSectionTitleUpdate, widgets: [
-        SettingsSectionItemWidget(text: Texts.to.settingsSectionTitleUpdateCurrentVersion.withDoubleDots, leading: Text(AppInfo.appCurrentVersion.version)),
+        SettingsSectionItemWidget(
+          text: Texts.to.settingsSectionTitleUpdateCurrentVersion.withDoubleDots,
+          leading: Text(AppInfo.appCurrentVersion.version),
+        ),
         SettingsSectionItemWidget(
             text: Texts.to.settingsSectionTitleUpdateAvailableVersion.withDoubleDots,
-            leading: Text(controller.updateAvailableVersion.value == AppInfo.appCurrentVersion ? Texts.to.notAvailable : controller.updateAvailableVersion.value),
+            leading: Text(controller.updateAvailableVersion.value == AppInfo.appCurrentVersion.version ? Texts.to.notAvailable : controller.updateAvailableVersion.value),
             wholeItemFunction: controller.functionGoToUpdatePage),
       ]);
 

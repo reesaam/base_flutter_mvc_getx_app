@@ -17,7 +17,7 @@ class AboutController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.about;
+    pageDetail = AppPageDetails().about;
   }
 
   _fillData() {

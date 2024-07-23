@@ -16,16 +16,16 @@ class AppAlertDialogs {
 
   withYesNo({String? title, required String text, required Function() onTapYes, Function()? onTapNo, bool? dismissible}) async {
     List<Widget> buttons = [
-      AppGeneralButton(text: Texts.to.yes, onTap: onTapYes),
       AppGeneralButton(text: Texts.to.no, onTap: onTapNo ?? _onTapCancel),
+      AppGeneralButton(text: Texts.to.yes, onTap: onTapYes),
     ];
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
 
   withOkCancel({String? title, required String text, required Function() onTapOk, Function()? onTapCancel, bool? dismissible}) async {
     List<Widget> buttons = [
-      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
       AppGeneralButton(text: Texts.to.cancel, onTap: onTapCancel ?? _onTapCancel),
+      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
     ];
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
@@ -37,14 +37,18 @@ class AppAlertDialogs {
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
 
-  _appAlertDialog({String? title, required String text, required List<Widget> buttons, bool? dismissible}) async => await showDialog(
-      context: Get.context!,
-      useSafeArea: true,
-      useRootNavigator: true,
-      barrierDismissible: dismissible ?? false,
-      builder: (context) => Container(
-          padding: AppPaddings.generalAlertDialog,
-          child: AlertDialog(
+  _appAlertDialog({
+    String? title,
+    required String text,
+    required List<Widget> buttons,
+    bool? dismissible,
+  }) async =>
+      await showDialog(
+          context: Get.context!,
+          useSafeArea: true,
+          useRootNavigator: true,
+          barrierDismissible: dismissible ?? false,
+          builder: (context) => AlertDialog(
             backgroundColor: AppColors.appBackground,
             shape: AppElements.defaultAlertBorderShape,
             title: title == null
@@ -54,13 +58,13 @@ class AppAlertDialogs {
                     AppDividers.generalDividerWithAppDefaultColor,
                   ]),
             content: Text(text, style: AppTextStyles.dialogAlertText, softWrap: true),
-            actions: [_renderButtonsAlertDialog(buttons)],
+            actions: _renderButtonsAlertDialog(buttons),
             actionsOverflowAlignment: OverflowBarAlignment.center,
             actionsOverflowDirection: VerticalDirection.down,
             actionsAlignment: MainAxisAlignment.center,
-          )));
+          ));
 
-  Widget _renderButtonsAlertDialog(List<Widget> buttons) {
+  List<Widget> _renderButtonsAlertDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
@@ -68,6 +72,6 @@ class AppAlertDialogs {
       list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 10, child: buttons[i]));
       list.add(shrinkOneExpanded);
     }
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
+    return [Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list)];
   }
 }

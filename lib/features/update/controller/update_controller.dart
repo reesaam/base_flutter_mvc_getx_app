@@ -28,6 +28,9 @@ class UpdateController extends CoreController {
 
   Rx<bool> downloaded = false.obs;
 
+  Rx<bool> buttonCheckUpdateLoading = false.obs;
+  Rx<bool> buttonDownloadUpdateLoading = false.obs;
+
   @override
   void dataInit() {
     // clearAppData();
@@ -35,7 +38,7 @@ class UpdateController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.update;
+    pageDetail = AppPageDetails().update;
   }
 
   @override
@@ -49,13 +52,14 @@ class UpdateController extends CoreController {
   }
 
   checkUpdate() async {
-    AppBottomDialogs().withoutButton(title: Texts.to.updateCheckingUpdate, form: AppProgressIndicator.linear());
+    buttonCheckUpdateLoading.value = true;
     bool internetStatus = await ConnectionChecker.to.checkInternet();
-    // internetStatus ? await _checkUpdateFunction() : noInternetConnectionSnackBar();
-    await _checkUpdateFunction();
+    internetStatus ? await _checkUpdateFunction() : noInternetConnectionSnackBar();
+    buttonCheckUpdateLoading.value = false;
   }
 
   Future<void> _checkUpdateFunction() async {
+    AppBottomDialogs().withoutButton(title: Texts.to.updateCheckingUpdate, form: AppProgressIndicator.linear());
     String version = await checkAvailableVersion();
     popPage();
     if (version == AppInfo.appCurrentVersion.version || version == Texts.to.notAvailable) {
@@ -69,9 +73,11 @@ class UpdateController extends CoreController {
   }
 
   downloadUpdate() async {
+    buttonDownloadUpdateLoading.value = true;
     AppBottomDialogs().withoutButton(title: Texts.to.updateDownloading, form: AppProgressIndicator.linear());
     bool internetStatus = await ConnectionChecker.to.checkInternet();
     internetStatus ? _downloadAction() : noInternetConnectionSnackBar();
+    buttonDownloadUpdateLoading.value = false;
   }
 
   _downloadAction() async {

@@ -1,16 +1,20 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_mvc_getx_app/app/functional_components/connectivity/connectivity.dart';
-import 'package:flutter_base_mvc_getx_app/features/versions/data/versions_remote_data_source.dart';
 import 'package:get/get.dart';
 
 import '../app/components/dialogs/app_alert_dialogs.dart';
+import '../app/components/dialogs/app_alert_widget_dialogs.dart';
+import '../app/components/general_widgets/app_progress_indicator.dart';
 import '../app/components/general_widgets/app_snack_bars.dart';
 import '../data/info/app_info.dart';
+import '../data/models/app_page_detail/app_page_detail.dart';
+import '../data/resources/app_colors.dart';
 import '../data/storage/app_local_storage.dart';
 import '../features/versions/data/versions_local_data_source.dart';
+import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
 import 'app_localization.dart';
 
@@ -60,9 +64,21 @@ Future<AppVersion> getCurrentVersion() async {
 
 noInternetConnectionSnackBar() => AppSnackBar().showSnackBar(message: Texts.to.connectionInternetNotAvailableText);
 
-void appExitDialog() => AppAlertDialogs().withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
+showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear(color: AppColors.appDefaultColorSecond));
 
-void appExit() {
+appExitDialog() => AppAlertDialogs().withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
+
+appRestart({AppPageDetail? bootPage}) async {
+  showLoadingDialog();
+  appLogPrint('App Reset Triggered');
+  AppLocalStorage.to.saveAllDataToStorage();
+  appLogPrint('All App Data Saved');
+  Get.reloadAll();
+}
+
+appReset() {}
+
+appExit() {
   appLogPrint('App Exit Triggered');
   AppLocalStorage.to.saveAllDataToStorage();
   appLogPrint('All App Data Saved');

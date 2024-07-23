@@ -4,7 +4,7 @@ import '../resources/app_enums.dart';
 import '../resources/app_icons.dart';
 
 class AppPageDetails {
-  static List<AppPageDetail> get listPages => [
+  List<AppPageDetail> get listPages => [
     splashScreen,
     homepage,
     settings,
@@ -13,35 +13,35 @@ class AppPageDetails {
     notFound,
   ];
 
-  static List<AppPageDetail> get listAdminPages => [
+  List<AppPageDetail> get listAdminPages => [
     adminStartPage,
     adminPagesTestPage,
     adminUITestPage,
   ];
 
   ///Admin Pages
-  static AppPageDetail adminStartPage = AppPageDetail(
+  AppPageDetail adminStartPage = AppPageDetail(
     pageName: Texts.to.adminStartPagePageName,
     pageRoute: AppRoutes.adminStartPage,
   );
 
-  static AppPageDetail adminPagesTestPage = AppPageDetail(
+  AppPageDetail adminPagesTestPage = AppPageDetail(
     pageName: Texts.to.adminTestPagePageName,
     pageRoute: AppRoutes.adminTestPage,
   );
 
-  static AppPageDetail adminUITestPage = AppPageDetail(
+  AppPageDetail adminUITestPage = AppPageDetail(
     pageName: Texts.to.adminUITestPagePageName,
     pageRoute: AppRoutes.adminUITestPagePage,
   );
 
   ///Main Pages
-  static AppPageDetail splashScreen = AppPageDetail(
+  AppPageDetail splashScreen = AppPageDetail(
     pageName: Texts.to.splashScreenPageName,
     pageRoute: AppRoutes.splashScreen,
   );
 
-  static AppPageDetail homepage = AppPageDetail(
+  AppPageDetail homepage = AppPageDetail(
     pageName: Texts.to.homePageName,
     pageRoute: AppRoutes.homepage,
     iconCode: AppIcons.home.icon!.codePoint,
@@ -49,7 +49,7 @@ class AppPageDetails {
     drawerPresence: true,
   );
 
-  static AppPageDetail settings = AppPageDetail(
+  AppPageDetail settings = AppPageDetail(
     pageName: Texts.to.settingsPageName,
     pageRoute: AppRoutes.settings,
     iconCode: AppIcons.settings.icon!.codePoint,
@@ -57,21 +57,21 @@ class AppPageDetails {
     drawerPresence: true,
   );
 
-  static AppPageDetail about = AppPageDetail(
+  AppPageDetail about = AppPageDetail(
     pageName: Texts.to.aboutPageName,
     pageRoute: AppRoutes.about,
     iconCode: AppIcons.about.icon!.codePoint,
     drawerPresence: true,
   );
 
-  static AppPageDetail update = AppPageDetail(
+  AppPageDetail update = AppPageDetail(
     pageName: Texts.to.updatePageName,
     pageRoute: AppRoutes.update,
     iconCode: AppIcons.update.icon!.codePoint,
     drawerPresence: true,
   );
 
-  static AppPageDetail notFound = AppPageDetail(
+  AppPageDetail notFound = AppPageDetail(
     pageName: Texts.to.notFoundPageName,
     pageRoute: AppRoutes.notFound,
   );

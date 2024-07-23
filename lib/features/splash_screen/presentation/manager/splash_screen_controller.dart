@@ -30,7 +30,7 @@ class SplashScreenController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.splashScreen;
+    pageDetail = AppPageDetails().splashScreen;
     logoSource = AppLogos.appLogo;
     appName = AppInfo.appNameInitials;
     appVersion = '${Texts.to.version}: ${AppInfo.appCurrentVersion.version}';

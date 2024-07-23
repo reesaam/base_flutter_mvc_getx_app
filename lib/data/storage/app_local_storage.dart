@@ -135,7 +135,7 @@ class AppLocalStorage {
 
   ///AppData
   Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async => await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
-  Either<LocalException, AppDataVersions> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
+  Either<LocalException, AppDataVersions?> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
   clearAppDataVersion() => _clearSpecificKey(AppStorageKeys.keyAppDataVersion);
 
   ///AppVersion

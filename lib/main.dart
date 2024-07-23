@@ -31,6 +31,7 @@ class MainApp extends StatelessWidget {
       initialBinding: CoreBindings(),
       getPages: AppPages.pages,
       initialRoute: AppRoutes.splashScreen.route,
+      unknownRoute: AppPages.unknownRoute,
       theme: AppThemes.mainTheme,
       supportedLocales: AppLocalization.to.supportedLocales,
       localizationsDelegates: AppLocalization.to.localizationDelegates,

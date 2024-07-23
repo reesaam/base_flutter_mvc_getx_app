@@ -1,9 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/core_widgets.dart';
 import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_elements.dart';
+import '../general_widgets/app_progress_indicator.dart';
 
 class AppGeneralButton extends ElevatedButton {
   const AppGeneralButton({
@@ -16,6 +16,7 @@ class AppGeneralButton extends ElevatedButton {
     this.leading,
     this.disabled,
     this.lightButton,
+    this.loading,
     this.stateController,
   });
 
@@ -25,16 +26,17 @@ class AppGeneralButton extends ElevatedButton {
   final IconData? leading;
   final bool? disabled;
   final bool? lightButton;
+  final bool? loading;
   final MaterialStatesController? stateController;
 
   @override
-  Widget? get child => Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [icon == null ? shrinkSizedBox : Icon(icon), AutoSizeText(text), leading == null ? shrinkSizedBox : Icon(leading)]);
+  Widget? get child {
+    List<Widget> children = loading == true ? [_buttonLoading] : [icon == null ? shrinkSizedBox : Icon(icon), Text(text), leading == null ? shrinkSizedBox : Icon(leading)];
+    return Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: children);
+  }
 
   @override
-  VoidCallback? get onPressed => () => disabled == true ? null : onTap();
+  VoidCallback? get onPressed => () => disabled == true || loading == true ? null : onTap();
 
   @override
   ButtonStyle? get style => ButtonStyle(
@@ -55,4 +57,9 @@ class AppGeneralButton extends ElevatedButton {
   @override
   MaterialStatesController? get statesController =>
       stateController ?? (disabled == true ? MaterialStatesController(<MaterialState>{MaterialState.focused}) : MaterialStatesController(<MaterialState>{MaterialState.disabled}));
+
+  Widget get _buttonLoading => Container(
+      height: 20,
+      width: 20,
+      child: AppProgressIndicator.circular(color: lightButton == true ? AppColors.buttonBackgroundNormal : AppColors.appBackground));
 }

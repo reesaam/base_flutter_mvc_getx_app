@@ -10,7 +10,7 @@ class NotFoundController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.notFound;
+    pageDetail = AppPageDetails().notFound;
     icon = AppIcons.notFound;
   }
 }

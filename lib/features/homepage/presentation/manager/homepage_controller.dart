@@ -19,7 +19,7 @@ class HomePageController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails.homepage;
+    pageDetail = AppPageDetails().homepage;
     mainTime.value = mainDateTime.value.toDateFormat;
     mainDate.value = mainDateTime.value.toTimeFormatWithSeconds;
   }

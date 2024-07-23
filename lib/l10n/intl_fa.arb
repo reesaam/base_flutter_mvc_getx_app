@@ -56,8 +56,8 @@
     "settingsSectionTitleStorage": "حافظه",
     "settingsSectionStorageItemEraseAllData": "پاک کردن تمام اطلاعات",
 
-    "updateCurrentVersion": "نسخه فعلی:",
-    "updateAvailableVersion": "نسخه جدید در دسترس:",
+    "updateCurrentVersion": "نسخه فعلی",
+    "updateAvailableVersion": "نسخه جدید در دسترس",
     "updateCheckUpdate": "بررسی بروزرسانی",
     "updateDownloadUpdate": "دانلود بروزرسانی",
     "updateNewVersion": "نسخه جدید پیدا شد",

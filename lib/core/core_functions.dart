@@ -32,19 +32,10 @@ void loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
 void clearAppData() => AppLocalStorage.to.clearStorage();
 
 Future<AppVersionsList?> getVersions() async {
-  AppVersionsList? versions;
-  var internetAvailability = await ConnectionChecker().checkInternet();
-  if (internetAvailability) {
-    var remoteResponse = await VersionsRemoteDataSource().getVersions();
-    var localResponse = await VersionsLocalDataSource().getVersions();
-    var response = remoteResponse.isRight() ? remoteResponse : localResponse;
-    versions = response.fold((l) => null, (r) => r);
-  } else {
-    popPage();
-    await AppAlertDialogs().withOk(title: Texts.to.connectionInternetNotAvailableTitle, text: Texts.to.connectionInternetNotAvailableText, onTapOk: popPage);
-  }
-
-  return versions;
+  var remoteResponse = await VersionsRemoteDataSource().getVersions();
+  var localResponse = await VersionsLocalDataSource().getVersions();
+  var response = remoteResponse.isRight() ? remoteResponse : localResponse;
+  return response.fold((l) => null, (r) => r);
 }
 
 Future<String> checkAvailableVersion() async {

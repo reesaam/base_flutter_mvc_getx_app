@@ -97,9 +97,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsSectionTitleUpdate":
             MessageLookupByLibrary.simpleMessage("Update"),
         "settingsSectionTitleUpdateAvailableVersion":
-            MessageLookupByLibrary.simpleMessage("Available Version:"),
+            MessageLookupByLibrary.simpleMessage("Available Version"),
         "settingsSectionTitleUpdateCurrentVersion":
-            MessageLookupByLibrary.simpleMessage("Current Version:"),
+            MessageLookupByLibrary.simpleMessage("Current Version"),
         "splashScreenPageName":
             MessageLookupByLibrary.simpleMessage("Splash Screen"),
         "to": MessageLookupByLibrary.simpleMessage("To"),

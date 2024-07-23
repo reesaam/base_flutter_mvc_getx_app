@@ -109,13 +109,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "updateApprove": MessageLookupByLibrary.simpleMessage(
             "آیا میخواهید نسخه جدید را دانلود کنید؟"),
         "updateAvailableVersion":
-            MessageLookupByLibrary.simpleMessage("نسخه جدید در دسترس:"),
+            MessageLookupByLibrary.simpleMessage("نسخه جدید در دسترس"),
         "updateCheckUpdate":
             MessageLookupByLibrary.simpleMessage("بررسی بروزرسانی"),
         "updateCheckingUpdate":
             MessageLookupByLibrary.simpleMessage("بررسی برای نسخه جدید..."),
         "updateCurrentVersion":
-            MessageLookupByLibrary.simpleMessage("نسخه فعلی:"),
+            MessageLookupByLibrary.simpleMessage("نسخه فعلی"),
         "updateDirectoryNotFoundContent": MessageLookupByLibrary.simpleMessage(
             "هیچ دایرکتوری برای ذخیره اطلاعات موجود نیست"),
         "updateDirectoryNotFoundTitle":

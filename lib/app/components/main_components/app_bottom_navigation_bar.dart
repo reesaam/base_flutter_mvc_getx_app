@@ -44,7 +44,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
       icon: _createIcon(route),
       label: _createLabel(route));
 
-  Icon _createIcon(AppRoutes route) => AppPageDetails.listPages.firstWhere((element) => element.pageRoute == route).iconCode.toIcon;
+  Icon _createIcon(AppRoutes route) => AppPageDetails().listPages.firstWhere((element) => element.pageRoute == route).iconCode.toIcon;
 
-  String _createLabel(AppRoutes route) => AppPageDetails.listPages.firstWhere((element) => element.pageRoute == route).pageName ?? '';
+  String _createLabel(AppRoutes route) => AppPageDetails().listPages.firstWhere((element) => element.pageRoute == route).pageName ?? '';
 }

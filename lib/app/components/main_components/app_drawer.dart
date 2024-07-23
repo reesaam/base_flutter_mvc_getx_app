@@ -5,9 +5,9 @@ import '../../../core/app_extensions/data_types_extensions/extension_int.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/app_routing/routing.dart';
 import '../../../core/core_functions.dart';
-import '../../../data/data_entities/app_page_detail/app_page_detail.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
+import '../../../data/models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_logos.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -33,10 +33,12 @@ class AppDrawer extends Drawer {
 
   Widget header() => Container(
       padding: AppPaddings.drawerHeader,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth), Text(Texts.to.app_name)]));
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth), Text(Texts.to.app_name, overflow: TextOverflow.ellipsis)]));
 
   Widget body() {
-    List<AppPageDetail> drawerList = AppPageDetails.listPages.where((element) => element.drawerPresence == true).toList();
+    List<AppPageDetail> drawerList = AppPageDetails().listPages.where((element) => element.drawerPresence == true).toList();
     return Column(children: List.generate(drawerList.length, (index) => _bodyItem(drawerList[index])));
   }
 

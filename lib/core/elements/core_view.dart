@@ -41,7 +41,14 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
         child: Column(children: [
           topBar == null ? shrinkSizedBox : topBar!,
           //Main Body
-          Expanded(child: Padding(padding: pagePadding ?? AppPaddings.pages, child: SingleChildScrollView(scrollDirection: Axis.vertical, physics: const BouncingScrollPhysics(), child: body))),
+          Expanded(
+              child: Padding(
+                  padding: pagePadding ?? AppPaddings.pages,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    physics: const BouncingScrollPhysics(),
+                    child: body,
+                  ))),
           footer == null ? shrinkSizedBox : footer!,
         ]),
       );

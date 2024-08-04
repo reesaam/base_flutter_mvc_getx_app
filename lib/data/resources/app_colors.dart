@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class AppColors {
   ///Basics
   static Color get transparent => Colors.transparent;
-  static Color get appBackground => _persianGreen;
-  static Color get appPrimary => _persianGreen;
-  static Color get appSecondary => _white;
-  static Color get appTertiary => _black;
+  static Color get appBackground => _white;
+  static Color get appPrimary => _coral;
+  static Color get appSecondary => _black;
+  static Color get appTertiary => _persianRed;
   static Color get appLight => _white;
   static Color get appDark => _black;
   static Color get appDisabled => _grey.withOpacity(0.8);
@@ -28,7 +28,7 @@ class AppColors {
   static Color get noError => Colors.green;
 
   ///Text
-  static Color get textNormal => appSecondary;
+  static Color get textNormal => appPrimary;
   static Color get textNormalOnSecondary => appPrimary;
   static Color get textNormalDark => appDark;
   static Color get textNormalLight => appLight;
@@ -41,13 +41,13 @@ class AppColors {
   static Color get dividerDark => appDark;
 
   ///AppBar
-  static Color get appBarBackground => appPrimary;
-  static Color get appBarText => appSecondary;
+  static Color get appBarBackground => appBackground;
+  static Color get appBarText => appPrimary;
   static Color get appBarTextLight => textNormalLight;
   static Color get appBarTextDark => textNormalDark;
 
   ///AppBottomBar
-  static Color get bottomBarBackground => appPrimary;
+  static Color get bottomBarBackground => appBackground;
   static Color get bottomBarSelected => appSecondary;
   static Color get bottomBarUnselected => appSecondary;
 

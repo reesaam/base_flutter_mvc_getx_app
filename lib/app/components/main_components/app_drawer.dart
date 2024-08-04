@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,9 +34,10 @@ class AppDrawer extends Drawer {
 
   Widget header() => Container(
       padding: AppPaddings.drawerHeader,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth),
-        Text(Texts.to.app_name, overflow: TextOverflow.ellipsis),
+        AppSpaces.w50,
+        Text(AppInfo.appNameInitials, overflow: TextOverflow.ellipsis),
       ]));
 
   Widget body() {

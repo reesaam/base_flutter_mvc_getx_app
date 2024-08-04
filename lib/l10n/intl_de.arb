@@ -1,7 +1,7 @@
 {
     "@@locale": "de",
     "languageName": "Deutsch",
-    "app_name": "Click Master",
+    "app_name": "Base Flutter MVC GetX App",
 
    "splashScreenPageName": "Splash Screen",
     "homePageName": "Home",

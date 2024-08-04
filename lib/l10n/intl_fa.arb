@@ -1,7 +1,7 @@
 {
     "@@locale": "fa",
     "languageName": "فارسی",
-    "app_name": "کلیک مستر",
+    "app_name": "Base Flutter MVC GetX App",
 
     "splashScreenPageName": "صفحه شروع",
     "homePageName": "خانه",

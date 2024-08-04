@@ -21,7 +21,7 @@ class AppThemes {
   static get mainAppBar => AppBarTheme(
         centerTitle: true,
         backgroundColor: AppColors.appBarBackground,
-        foregroundColor: AppColors.appBarTextLight,
+        foregroundColor: AppColors.appPrimary,
       );
 
   static get mainBottomBar => BottomNavigationBarThemeData(
@@ -59,7 +59,10 @@ class AppThemes {
         disabledColor: AppColors.buttonBackgroundDisabled,
       );
 
-  static get checkBoxThemeData => CheckboxThemeData(checkColor: MaterialStateProperty.all(AppColors.appCheckBoxTick), fillColor: MaterialStateProperty.all(AppColors.appCheckBox));
+  static get checkBoxThemeData => CheckboxThemeData(
+        checkColor: MaterialStateProperty.all(AppColors.appCheckBoxTick),
+        fillColor: MaterialStateProperty.all(AppColors.appCheckBox),
+      );
 
   static get switchThemeData => const SwitchThemeData();
 

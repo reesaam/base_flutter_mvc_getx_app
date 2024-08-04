@@ -42,7 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appExit": MessageLookupByLibrary.simpleMessage("App Exit"),
-        "app_name": MessageLookupByLibrary.simpleMessage("Click Master"),
+        "app_name":
+            MessageLookupByLibrary.simpleMessage("Base Flutter MVC GetX App"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure ?"),
         "areYouSureDataExport": MessageLookupByLibrary.simpleMessage(
             "Are you sure?\nData will be exported and exposed."),
@@ -64,7 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Not Available"),
         "generalNotAvailableInitials":
             MessageLookupByLibrary.simpleMessage("N/A"),
-        "homePageName": MessageLookupByLibrary.simpleMessage("Click Master"),
+        "homePageName": MessageLookupByLibrary.simpleMessage("Home"),
         "info": MessageLookupByLibrary.simpleMessage("Info"),
         "information": MessageLookupByLibrary.simpleMessage("Information"),
         "languageName": MessageLookupByLibrary.simpleMessage("English"),

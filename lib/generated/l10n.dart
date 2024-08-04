@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `Click Master`
+  /// `Base Flutter MVC GetX App`
   String get app_name {
     return Intl.message(
-      'Click Master',
+      'Base Flutter MVC GetX App',
       name: 'app_name',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Click Master`
+  /// `Home`
   String get homePageName {
     return Intl.message(
-      'Click Master',
+      'Home',
       name: 'homePageName',
       desc: '',
       args: [],

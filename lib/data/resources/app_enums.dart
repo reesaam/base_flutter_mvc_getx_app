@@ -44,9 +44,7 @@ enum AppRoutes {
 
 enum AppBottomNavigationPages {
   homepage(AppRoutes.homepage),
-  update(AppRoutes.update),
-  settings(AppRoutes.settings),
-  about(AppRoutes.about);
+  settings(AppRoutes.settings);
 
   final AppRoutes appRoute;
   const AppBottomNavigationPages(this.appRoute);

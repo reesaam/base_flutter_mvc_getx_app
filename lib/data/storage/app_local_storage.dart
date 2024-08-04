@@ -75,7 +75,7 @@ class AppLocalStorage {
 
     //Fill Data
     AppData appData = AppData(
-      version: appDataVersion,
+      dataVersion: appDataVersion,
       appVersions: appVersions,
       settings: settings,
     );
@@ -89,7 +89,7 @@ class AppLocalStorage {
 
     if (appData == null) {
     } else {
-      saveAppDataVersion(appDataVersion: appData.version);
+      saveAppDataVersion(appDataVersion: appData.dataVersion);
       saveAppVersions(appVersions: appData.appVersions);
       saveSettings(settings: appData.settings);
     }
@@ -101,7 +101,7 @@ class AppLocalStorage {
   ///Manage Data
   Future<void> exportData() async {
     AppData appData = AppData(
-      version: AppDataVersions.values.last,
+      dataVersion: AppDataVersions.values.last,
       appVersions: AppInfo.versions,
       settings: loadSettings().fold((l) => null, (r) => r),
     );
@@ -123,7 +123,7 @@ class AppLocalStorage {
       clearAppData();
 
       ///Filling Data Fields
-      if (appData.version == AppDataVersions.values.last) {
+      if (appData.dataVersion == AppDataVersions.values.last) {
         await saveSettings(settings: appData.settings ?? const AppSettingData());
         appLogPrint('Data Imported');
       } else {
@@ -141,7 +141,7 @@ class AppLocalStorage {
       appLogPrint('==> App Data:');
       appLogPrint('App Version: ${appData.appVersions?.versionsList.last.version ?? unknown}');
       detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.last.versionType ?? unknown}') : null;
-      appLogPrint('App Data Type: ${appData.version?.number ?? unknown}');
+      appLogPrint('App Data Type: ${appData.dataVersion?.number ?? unknown}');
       if (detailsIncluded == true) {
         appLogPrint('==> Details:');
         appLogPrint('Settings / Dark Mode: ${appData.settings?.darkMode}');

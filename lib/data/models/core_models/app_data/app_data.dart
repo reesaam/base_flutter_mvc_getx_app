@@ -10,7 +10,7 @@ part 'app_data.g.dart';
 @freezed
 class AppData with _$AppData {
   const factory AppData({
-    final AppDataVersions? version,
+    final AppDataVersions? dataVersion,
     final AppVersionsList? appVersions,
     final AppSettingData? settings,
   }) = _AppData;

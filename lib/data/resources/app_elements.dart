@@ -25,12 +25,14 @@ class AppElements {
   static BorderRadius get topBorderWithRadius => BorderRadius.only(topLeft: defaultBorderRadius, topRight: defaultBorderRadius);
 
   ///BorderSide
-  static BorderSide get defaultBorderSide => BorderSide(color: AppColors.textNormalDark, width: appDefaultBorderWidth);
+  static BorderSide get defaultBorderSidePrimary => BorderSide(color: AppColors.appPrimary, width: appDefaultBorderWidth);
+  static BorderSide get defaultBorderSideSecondary => BorderSide(color: AppColors.appSecondary, width: appDefaultBorderWidth);
+  static BorderSide get defaultBorderSide => BorderSide(color: AppColors.appSecondary, width: appDefaultBorderWidth);
   static BorderSide get defaultBorderSideError => BorderSide(color: AppColors.error, width: appDefaultBorderWidth);
   static BorderSide get cardTransparentBorderSide => BorderSide(color: AppColors.transparent, width: appDefaultBorderWidth);
-  static BorderSide get defaultBorderSideFocused => BorderSide(color: AppColors.appDefaultColor, width: appDefaultBorderWidth);
+  static BorderSide get defaultBorderSideFocused => BorderSide(color: AppColors.appSecondary, width: appDefaultBorderWidth);
   static BorderSide get defaultBorderSideDisabled => BorderSide(color: AppColors.buttonBackgroundDisabled, width: appDefaultBorderWidth);
-  static BorderSide get defaultBorderSideCheckBox => defaultBorderSide.copyWith(color: AppColors.appCheckBox);
+  static BorderSide get defaultBorderSideCheckBox => defaultBorderSide.copyWith(color: AppColors.appCheckBoxBorder);
 
   ///OutlineInputBorder
   static OutlineInputBorder get defaultOutlineBorder => OutlineInputBorder(borderRadius: defaultBorderWithLowRadius, borderSide: defaultBorderSide);

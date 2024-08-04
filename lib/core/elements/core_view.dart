@@ -23,7 +23,11 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
   EdgeInsets? get pagePadding => null;
 
   @override
-  Widget build(BuildContext context) => PopScope(canPop: controller.pageDetail.bottomBarItemNumber == null, onPopInvoked: (didPop) => didPop == false ? appExitDialog() : null, child: _pageScaffold);
+  Widget build(BuildContext context) => PopScope(
+        canPop: controller.pageDetail.bottomBarItemNumber == null,
+        onPopInvoked: (didPop) => didPop == false ? appExitDialog() : null,
+        child: _pageScaffold,
+      );
 
   Widget get _pageScaffold => Scaffold(
         resizeToAvoidBottomInset: false,

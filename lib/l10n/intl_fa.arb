@@ -1,7 +1,7 @@
 {
     "@@locale": "fa",
     "languageName": "فارسی",
-    "app_name": "Base Flutter Clean GetX App",
+    "app_name": "کلیک مستر",
 
     "splashScreenPageName": "صفحه شروع",
     "homePageName": "خانه",
@@ -80,8 +80,10 @@
     "aboutTitlesDeveloperLinkedIn": "پروفایل لینکدین توسعه دهنده",
 
     "adminStartPagePageName": "Admin Start Page",
-    "adminTestPagePageName": "Admin Pages Test Page",
-    "adminUITestPagePageName": "Admin UI Test Page",
+    "adminTestPageName": "Admin Test Page",
+    "adminAppInfoPageName": "Admin App Info Page",
+    "adminAppResourcesPageName": "Admin App Resources Page",
+    "adminWidgetCheckPageName": "Admin Widget Check Page",
 
     "END": "END OF FILE"
 }

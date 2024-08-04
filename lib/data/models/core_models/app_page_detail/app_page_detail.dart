@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../resources/app_enums.dart';
+import '../../../resources/app_enums.dart';
 
 part 'app_page_detail.freezed.dart';
 part 'app_page_detail.g.dart';
@@ -18,7 +18,7 @@ class AppPageDetail with _$AppPageDetail {
   factory AppPageDetail.fromJson(Map<String, dynamic> json) => _$AppPageDetailFromJson(json);
 }
 
-@freezed
+@unfreezed
 class AppPageDetailsList with _$AppPageDetailsList {
   factory AppPageDetailsList({@Default(<AppPageDetail>[]) List<AppPageDetail> pageDetailsList}) = _AppPageDetailsList;
 

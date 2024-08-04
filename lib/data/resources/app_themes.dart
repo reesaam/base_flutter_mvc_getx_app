@@ -21,7 +21,7 @@ class AppThemes {
   static get mainAppBar => AppBarTheme(
         centerTitle: true,
         backgroundColor: AppColors.appBarBackground,
-        foregroundColor: AppColors.appBarText,
+        foregroundColor: AppColors.appBarTextLight,
       );
 
   static get mainBottomBar => BottomNavigationBarThemeData(
@@ -32,7 +32,10 @@ class AppThemes {
       );
 
   static get defaultTextStyle => TextStyle(
-      color: AppColors.appDefaultColor, fontSize: appDefaultFontSize);
+        color: AppColors.appSecondary,
+        fontSize: appDefaultFontSize,
+        overflow: TextOverflow.ellipsis,
+      );
 
   static get textTheme => TextTheme(
         bodyLarge: defaultTextStyle,
@@ -56,16 +59,14 @@ class AppThemes {
         disabledColor: AppColors.buttonBackgroundDisabled,
       );
 
-  static get checkBoxThemeData => CheckboxThemeData(
-      checkColor: MaterialStateProperty.all(AppColors.appCheckBoxTick),
-      fillColor: MaterialStateProperty.all(AppColors.appCheckBox));
+  static get checkBoxThemeData => CheckboxThemeData(checkColor: MaterialStateProperty.all(AppColors.appCheckBoxTick), fillColor: MaterialStateProperty.all(AppColors.appCheckBox));
 
   static get switchThemeData => const SwitchThemeData();
 
   static get calendarTheme => Theme.of(Get.context!).copyWith(
       colorScheme: ColorScheme.light(
           background: AppColors.appBackground,
-          primary: AppColors.appDefaultColor,
+          primary: AppColors.appPrimary,
           onPrimary: AppColors.textNormalLight,
           secondary: AppColors.appBackground,
           onSecondary: AppColors.textNormalDark,

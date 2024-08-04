@@ -1,5 +1,5 @@
 import '../../core/app_localization.dart';
-import '../models/app_page_detail/app_page_detail.dart';
+import '../models/core_models/app_page_detail/app_page_detail.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_icons.dart';
 
@@ -15,8 +15,10 @@ class AppPageDetails {
 
   List<AppPageDetail> get listAdminPages => [
     adminStartPage,
-    adminPagesTestPage,
-    adminUITestPage,
+    adminTestPage,
+    adminAppInfoPage,
+    adminAppResourcesPage,
+    adminWidgetCheckPage,
   ];
 
   ///Admin Pages
@@ -25,14 +27,24 @@ class AppPageDetails {
     pageRoute: AppRoutes.adminStartPage,
   );
 
-  AppPageDetail adminPagesTestPage = AppPageDetail(
-    pageName: Texts.to.adminTestPagePageName,
+  AppPageDetail adminTestPage = AppPageDetail(
+    pageName: Texts.to.adminTestPageName,
     pageRoute: AppRoutes.adminTestPage,
   );
 
-  AppPageDetail adminUITestPage = AppPageDetail(
-    pageName: Texts.to.adminUITestPagePageName,
-    pageRoute: AppRoutes.adminUITestPagePage,
+  AppPageDetail adminAppInfoPage = AppPageDetail(
+    pageName: Texts.to.adminAppInfoPageName,
+    pageRoute: AppRoutes.adminAppInfoPage,
+  );
+
+  AppPageDetail adminAppResourcesPage = AppPageDetail(
+    pageName: Texts.to.adminAppResourcesPageName,
+    pageRoute: AppRoutes.adminAppResourcesPage,
+  );
+
+  AppPageDetail adminWidgetCheckPage = AppPageDetail(
+    pageName: Texts.to.adminWidgetCheckPageName,
+    pageRoute: AppRoutes.adminWidgetCheckPage,
   );
 
   ///Main Pages
@@ -53,7 +65,6 @@ class AppPageDetails {
     pageName: Texts.to.settingsPageName,
     pageRoute: AppRoutes.settings,
     iconCode: AppIcons.settings.icon!.codePoint,
-    bottomBarItemNumber: 1,
     drawerPresence: true,
   );
 

@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 class AppColors {
   ///Basics
   static Color get transparent => Colors.transparent;
-  static Color get appBackground => _white;
-  static Color get appDefaultColor => _grey;
-  static Color get appDefaultColorSecond => _coral;
-  static Color get appDefaultDisabledColor => _grey.withOpacity(0.5);
+  static Color get appBackground => _persianGreen;
+  static Color get appPrimary => _persianGreen;
+  static Color get appSecondary => _white;
+  static Color get appTertiary => _black;
+  static Color get appLight => _white;
+  static Color get appDark => _black;
+  static Color get appDisabled => _grey.withOpacity(0.8);
+  static Color get appOnDisabled => _white.withOpacity(0.6);
 
   ///Colors
   static Color get _white => Colors.white;
-  static Color get _black => Colors.black;
+  static Color get _black => Colors.black.withOpacity(0.8);
   static Color get _grey => Colors.grey;
 
   ///Special Colors
@@ -24,48 +28,59 @@ class AppColors {
   static Color get noError => Colors.green;
 
   ///Text
-  static Color get textNormalDark => _black.withOpacity(0.6);
-  static Color get textNormalLight => _white;
-  static Color get textDisabled => appDefaultDisabledColor;
+  static Color get textNormal => appSecondary;
+  static Color get textNormalOnSecondary => appPrimary;
+  static Color get textNormalDark => appDark;
+  static Color get textNormalLight => appLight;
+  static Color get textDisabled => appDisabled;
 
   ///Elements
-  static Color get dividerDefaultColor => _black;
+  static Color get dividerDefault => appSecondary;
+  static Color get dividerOnSecondary => appSecondary;
+  static Color get dividerLight => appLight;
+  static Color get dividerDark => appDark;
 
   ///AppBar
-  static Color get appBarBackground => appBackground;
-  static Color get appBarText => textNormalDark;
+  static Color get appBarBackground => appPrimary;
+  static Color get appBarText => appSecondary;
+  static Color get appBarTextLight => textNormalLight;
+  static Color get appBarTextDark => textNormalDark;
 
   ///AppBottomBar
-  static Color get bottomBarBackground => appBackground;
-  static Color get bottomBarSelected => textNormalDark;
-  static Color get bottomBarUnselected => textNormalDark;
+  static Color get bottomBarBackground => appPrimary;
+  static Color get bottomBarSelected => appSecondary;
+  static Color get bottomBarUnselected => appSecondary;
 
   ///SnackBar
-  static Color get snackBarBackground => appDefaultColorSecond;
+  static Color get snackBarBackground => appSecondary;
+  static Color get snackBarText => appPrimary;
 
   ///Card
   static Color get cardBackground => appBackground;
-  static Color get cardText => appDefaultColor;
+  static Color get cardText => textNormal;
 
   ///Button
-  static Color get buttonBackgroundNormal => appDefaultColorSecond;
-  static Color get buttonBackgroundDisabled => appDefaultDisabledColor;
-  static Color get buttonTextNormal => textNormalDark;
-  static Color get buttonTextDisabled => textDisabled;
+  static Color get buttonBackgroundNormal => appPrimary;
+  static Color get buttonBackgroundSecondary => appSecondary;
+  static Color get buttonBackgroundDisabled => appDisabled;
+  static Color get buttonTextNormal => textNormal;
+  static Color get buttonTextOnSecondary => textNormalOnSecondary;
+  static Color get buttonTextDisabled => appOnDisabled;
 
   ///TextFields
-  static Color get textFieldText => textNormalDark;
-  static Color get textFieldLabel => _grey;
-  static Color get textFieldHint => _grey;
+  static Color get textFieldText => textNormal;
+  static Color get textFieldLabel => textNormal;
+  static Color get textFieldHint => appOnDisabled;
 
   ///CheckBox
-  static Color get appCheckBox => appDefaultColor;
-  static Color get appCheckBoxTick => appBackground;
+  static Color get appCheckBox => appPrimary;
+  static Color get appCheckBoxTick => appSecondary;
+  static Color get appCheckBoxBorder => appSecondary;
 
   ///Switch
-  static Color get switchActive => appDefaultColorSecond;
+  static Color get switchActive => appSecondary;
 
   ///Settings
-  static Color get settingTitle => appDefaultColorSecond;
-  static Color get settingItem => _grey;
+  static Color get settingTitle => appSecondary;
+  static Color get settingItem => appSecondary;
 }

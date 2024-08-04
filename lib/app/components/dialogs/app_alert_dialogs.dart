@@ -17,7 +17,7 @@ class AppAlertDialogs {
   withYesNo({String? title, required String text, required Function() onTapYes, Function()? onTapNo, bool? dismissible}) async {
     List<Widget> buttons = [
       AppGeneralButton(text: Texts.to.no, onTap: onTapNo ?? _onTapCancel),
-      AppGeneralButton(text: Texts.to.yes, onTap: onTapYes),
+      AppGeneralButton(text: Texts.to.yes, primaryColor: true, onTap: onTapYes),
     ];
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
@@ -25,14 +25,14 @@ class AppAlertDialogs {
   withOkCancel({String? title, required String text, required Function() onTapOk, Function()? onTapCancel, bool? dismissible}) async {
     List<Widget> buttons = [
       AppGeneralButton(text: Texts.to.cancel, onTap: onTapCancel ?? _onTapCancel),
-      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
+      AppGeneralButton(text: Texts.to.ok, primaryColor: true, onTap: onTapOk),
     ];
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
 
   withOk({String? title, required String text, required Function() onTapOk, bool? dismissible}) async {
     List<Widget> buttons = [
-      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
+      AppGeneralButton(text: Texts.to.ok, primaryColor: true, onTap: onTapOk),
     ];
     await _appAlertDialog(title: title, text: text, buttons: buttons, dismissible: dismissible);
   }
@@ -48,20 +48,28 @@ class AppAlertDialogs {
           useSafeArea: true,
           useRootNavigator: true,
           barrierDismissible: dismissible ?? false,
-          builder: (context) => AlertDialog(
-            backgroundColor: AppColors.appBackground,
-            shape: AppElements.defaultAlertBorderShape,
-            title: title == null
-                ? shrinkSizedBox
-                : Column(children: [
-                    Text(title, style: AppTextStyles.dialogAlertTitle),
-                    AppDividers.generalDividerWithAppDefaultColor,
-                  ]),
-            content: Text(text, style: AppTextStyles.dialogAlertText, softWrap: true),
-            actions: _renderButtonsAlertDialog(buttons),
-            actionsOverflowAlignment: OverflowBarAlignment.center,
-            actionsOverflowDirection: VerticalDirection.down,
-            actionsAlignment: MainAxisAlignment.center,
+          builder: (context) => Container(
+            padding: AppPaddings.generalAlertDialog,
+            child: AlertDialog(
+                  scrollable: true,
+                  backgroundColor: AppColors.appSecondary,
+                  shape: AppElements.defaultAlertBorderShape,
+                  title: title == null
+                      ? shrinkSizedBox
+                      : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text(title, style: AppTextStyles.dialogAlertTitle, textAlign: TextAlign.start),
+                          AppDividers.generalPrimaryColor,
+                        ]),
+                  content: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 40),
+                      child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
+                        Text(text, style: AppTextStyles.dialogAlertText, softWrap: true, textAlign: TextAlign.justify),
+                      ])),
+                  actions: _renderButtonsAlertDialog(buttons),
+                  actionsOverflowAlignment: OverflowBarAlignment.center,
+                  actionsOverflowDirection: VerticalDirection.down,
+                  actionsAlignment: MainAxisAlignment.center,
+                ),
           ));
 
   List<Widget> _renderButtonsAlertDialog(List<Widget> buttons) {
@@ -69,8 +77,8 @@ class AppAlertDialogs {
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
       list.addIf(i == 0, shrinkOneExpanded);
-      list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 10, child: buttons[i]));
-      list.add(shrinkOneExpanded);
+      list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 2, child: buttons[i]));
+      list.add(i == length - 1 ? shrinkOneExpanded : shrinkExpanded(2));
     }
     return [Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list)];
   }

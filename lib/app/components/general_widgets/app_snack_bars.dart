@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/app_extensions/data_types_extensions/extension_icon.dart';
+import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../data/info/app_defaults.dart';
 import '../../../data/resources/app_colors.dart';
@@ -12,23 +12,35 @@ import '../buttons/app_general_button.dart';
 import '../buttons/app_icon_button.dart';
 
 class AppSnackBar {
-  showSnackBar({required String message, String? title, VoidCallback? leadingAction, String? leadingText, VoidCallback? buttonAction, Icon? leadingIcon, String? buttonText}) {
+  showSnackBar({
+    required String message,
+    String? title,
+    Function()? leadingAction,
+    Icon? leadingIcon,
+    String? leadingText,
+    String? buttonText,
+    Function()? buttonAction,
+  }) {
     GetSnackBar(
       titleText: title == null ? shrinkSizedBox : Text(title, style: AppTextStyles.snackBarTitle),
       messageText: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
         Text(message, style: AppTextStyles.snackBarMessage),
-        buttonText != null
-            ? Column(children: [
+        buttonText == null
+            ? shrinkSizedBox
+            : Column(children: [
                 AppSpaces.h20,
-                AppGeneralButton(text: buttonText, lightButton: true, onTap: buttonAction ?? () {}),
-              ])
-            : shrinkSizedBox
+                AppGeneralButton(text: buttonText, primaryColor: true, onTap: buttonAction ?? nullFunction),
+              ]),
       ]),
-      mainButton: leadingIcon != null
-          ? CircleAvatar(backgroundColor: AppColors.appBackground, child: AppIconButton(icon: leadingIcon.withAppDefaultColor.icon!, onPressed: leadingAction))
-          : leadingText != null
-              ? _buttonWidget(leadingAction ?? () {}, leadingText)
-              : null,
+      mainButton: leadingIcon == null
+          ? null
+          : leadingText == null
+              ? AppIconButton(
+                  primaryColor: true,
+                  icon: leadingIcon,
+                  onTap: leadingAction ?? nullFunction,
+                )
+              : _buttonWidget(leadingAction ?? nullFunction, leadingText),
       padding: AppPaddings.snackBar,
       backgroundColor: AppColors.snackBarBackground,
       snackPosition: appDefaultSnackPosition,
@@ -39,5 +51,5 @@ class AppSnackBar {
     ).show();
   }
 
-  Widget _buttonWidget(VoidCallback buttonFunction, String buttonText) => AppGeneralButton(text: buttonText, onTap: buttonFunction);
+  Widget _buttonWidget(Function() buttonFunction, String buttonText) => AppGeneralButton(text: buttonText, onTap: buttonFunction);
 }

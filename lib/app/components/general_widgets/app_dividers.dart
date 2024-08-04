@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/resources/app_colors.dart';
+import '../../../data/resources/app_paddings.dart';
 
 class AppDividers {
-  static Widget get generalDivider => Divider(color: AppColors.dividerDefaultColor);
-  static Widget get generalDividerWithAppDefaultColor => Divider(color: AppColors.appDefaultColor);
+  static Widget get general => Divider(color: AppColors.dividerDefault);
 
-  static Widget get settingsDivider => Divider(color: AppColors.appDefaultColorSecond);
+  static Widget generalText({required String text}) => Stack(alignment: Alignment.center, children: [
+        Divider(color: AppColors.dividerDefault),
+        Container(color: AppColors.appBackground, padding: AppPaddings.buttonXLarge, child: Text(text)),
+      ]);
+
+  static Widget generalTextPrimaryColor({required String text}) => Stack(alignment: Alignment.center, children: [
+        Divider(color: AppColors.appPrimary),
+        Container(color: AppColors.appSecondary, padding: AppPaddings.buttonXLarge, child: Text(text, style: TextStyle(color: AppColors.appPrimary))),
+      ]);
+
+  static Widget get generalPrimaryColor => Divider(color: AppColors.appPrimary);
+
+  static Widget get settings => Divider(color: AppColors.appSecondary);
 }

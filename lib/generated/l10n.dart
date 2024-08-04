@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `Base Flutter Clean GetX App`
+  /// `Click Master`
   String get app_name {
     return Intl.message(
-      'Base Flutter Clean GetX App',
+      'Click Master',
       name: 'app_name',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Home`
+  /// `Click Master`
   String get homePageName {
     return Intl.message(
-      'Home',
+      'Click Master',
       name: 'homePageName',
       desc: '',
       args: [],
@@ -750,21 +750,41 @@ class S {
     );
   }
 
-  /// `Admin Pages Test Page`
-  String get adminTestPagePageName {
+  /// `Admin Test Page`
+  String get adminTestPageName {
     return Intl.message(
-      'Admin Pages Test Page',
-      name: 'adminTestPagePageName',
+      'Admin Test Page',
+      name: 'adminTestPageName',
       desc: '',
       args: [],
     );
   }
 
-  /// `Admin UI Test Page`
-  String get adminUITestPagePageName {
+  /// `Admin App Info Page`
+  String get adminAppInfoPageName {
     return Intl.message(
-      'Admin UI Test Page',
-      name: 'adminUITestPagePageName',
+      'Admin App Info Page',
+      name: 'adminAppInfoPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin App Resources Page`
+  String get adminAppResourcesPageName {
+    return Intl.message(
+      'Admin App Resources Page',
+      name: 'adminAppResourcesPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin Widget Check Page`
+  String get adminWidgetCheckPageName {
+    return Intl.message(
+      'Admin Widget Check Page',
+      name: 'adminWidgetCheckPageName',
       desc: '',
       args: [],
     );

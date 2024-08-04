@@ -3,7 +3,41 @@ import 'package:flutter/material.dart';
 import '../../core/app_extensions/data_types_extensions/extension_icon.dart';
 
 class AppIcons {
-  static Icon get none => const Icon(Icons.not_interested).withAppDefaultColor;
+  static List<Icon> get iconsList => List<Icon>.of([
+        none,
+        adminPanelIcon,
+        close,
+        version,
+        error,
+        threeDots,
+        add,
+        list,
+        sort,
+        filter,
+        noFilter,
+        removeFilter,
+        notFound,
+        home,
+        settings,
+        about,
+        update,
+        profile,
+        mobile,
+        email,
+        web,
+        info,
+        currency,
+        dateTime,
+        description,
+        note,
+        listSearch,
+        listSearchRemove,
+      ]);
+
+  static Icon get none => const Icon(Icons.not_interested).withPrimaryColor;
+
+  ///Admin
+  static Icon get adminPanelIcon => const Icon(Icons.person_rounded);
 
   ///General
   static Icon get close => const Icon(Icons.close_rounded);

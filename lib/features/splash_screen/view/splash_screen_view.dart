@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../app/components/general_widgets/app_progress_indicator.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
+import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_text_styles.dart';
 import '../controller/splash_screen_controller.dart';
 
@@ -26,7 +27,7 @@ class SplashScreenPage extends CoreView<SplashScreenController> {
 
   Widget _widgetLogo() => Container(
         alignment: Alignment.center,
-        child: Image.asset(controller.logoSource, fit: BoxFit.fitHeight),
+        child: Image.asset(controller.logoSource, fit: BoxFit.fitHeight, color: AppColors.appSecondary),
       );
 
   Widget _widgetAppName() => Container(

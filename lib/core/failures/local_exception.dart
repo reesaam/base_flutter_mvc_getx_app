@@ -1,18 +1,24 @@
 import 'package:injectable/injectable.dart';
 
+import 'general_exception.dart';
+
 @injectable
-class LocalException implements Exception {
+class LocalException implements GeneralException {
+  LocalException({required this.message, this.statusCode});
+
+  @override
   final String message;
-  LocalException({required this.message});
+  @override
+  final int? statusCode;
 
   static LocalException handleResponse(ex) {
     switch (ex) {
       case null:
         throw NullException();
-      // case 203:
-      //   throw StorageLoadDataException();
-      // case 203:
-      //   throw StorageSaveDataException();
+      case 203:
+        throw StorageLoadDataException();
+      case 204:
+        throw StorageSaveDataException();
       default:
         throw UnknownException();
     }

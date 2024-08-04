@@ -5,8 +5,8 @@ import '../../../core/app_extensions/data_models_extensions/extension_settings.d
 import '../../../app/components/dialogs/app_bottom_dialogs.dart';
 import '../../../core/app_extensions/data_types_extensions/extension_app_languages.dart';
 import '../../../core/app_extensions/data_types_extensions/extension_locale.dart';
-import '../../../core/app_routing/routing.dart';
-import '../../../data/info/app_info.dart';
+import '../../../core/app_routing/app_routing.dart';
+import '../../../data/info/app_core_flags.dart';
 import '../../../core/app_localization.dart';
 import '../../../data/storage/app_local_storage.dart';
 import '../../../core/core_functions.dart';
@@ -31,7 +31,7 @@ class SettingsController extends CoreController {
   @override
   void dataInit() {
     appSettings = const AppSettingData().loadFromStorage.obs;
-    AppInfo.checkUpdate ? functionCheckUpdateAvailableVersion() : null;
+    checkUpdate ? functionCheckUpdateAvailableVersion() : null;
   }
 
   @override

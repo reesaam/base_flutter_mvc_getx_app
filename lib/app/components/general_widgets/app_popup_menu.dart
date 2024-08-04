@@ -13,26 +13,26 @@ class AppPopupMenu extends StatelessWidget {
     required this.listItems,
     this.icon,
     this.text,
-    this.lightColorIcon,
+    this.primaryColorIcon,
   });
 
   final List<AppPopupMenuItem> listItems;
   final Icon? icon;
   final String? text;
-  final bool? lightColorIcon;
+  final bool? primaryColorIcon;
 
   @override
   Widget build(BuildContext context) => PopupMenuButton(
       padding: AppPaddings.zero,
-      color: AppColors.appBackground,
+      color: AppColors.appSecondary,
       shape: AppElements.defaultBorderShape,
       icon: icon == null
-          ? lightColorIcon == true
-              ? AppIcons.threeDots.withAppAppBackgroundColor
-              : AppIcons.threeDots.withColor(AppColors.textNormalDark)
-          : lightColorIcon == true
-              ? icon!.withAppAppBackgroundColor
-              : icon!.withColor(AppColors.textNormalDark),
+          ? primaryColorIcon == true
+              ? AppIcons.threeDots.withPrimaryColor
+              : AppIcons.threeDots.withSecondaryColor
+          : primaryColorIcon == true
+              ? icon!.withPrimaryColor
+              : icon!.withSecondaryColor,
       child: text == null ? null : Text(text!),
       itemBuilder: (context) => List<AppPopupMenuItem>.generate(listItems.length, (index) => AppPopupMenuItem(text: listItems[index].text, onTapFunction: () => listItems[index].onTap())));
 }

@@ -3,15 +3,20 @@ import 'package:get/get.dart';
 
 class AppPaddings {
   ///General
-  static EdgeInsets get zero => const EdgeInsets.all(0);
   static EdgeInsets get pages => const EdgeInsets.all(10);
+  static EdgeInsets get zero => const EdgeInsets.all(0);
+
+  ///Specific
+
+  static EdgeInsets right(double right) => EdgeInsets.only(right: right);
+  static EdgeInsets left(double left) => EdgeInsets.only(left: left);
 
   ///Elements
   static EdgeInsets get textFieldContent => const EdgeInsets.symmetric(horizontal: 20, vertical: 10);
   static EdgeInsets get progress => const EdgeInsets.symmetric(horizontal: 5, vertical: 5);
 
   ///AppBar
-  static EdgeInsets get appBarActions => const EdgeInsets.only(right: 10);
+  static EdgeInsets get appBarActions => const EdgeInsets.only(right: 20);
 
   ///Drawer
   static EdgeInsets get drawerHeader => const EdgeInsets.fromLTRB(10, 20, 20, 20);
@@ -24,6 +29,13 @@ class AppPaddings {
 
   ///SnackBar
   static EdgeInsets get snackBar => const EdgeInsets.symmetric(horizontal: 20, vertical: 20);
+
+  ///Buttons
+  static EdgeInsets get buttonXSmall => const EdgeInsets.symmetric(horizontal: 100, vertical: 10);
+  static EdgeInsets get buttonSmall => const EdgeInsets.symmetric(horizontal: 80, vertical: 10);
+  static EdgeInsets get buttonMedium => const EdgeInsets.symmetric(horizontal: 60, vertical: 10);
+  static EdgeInsets get buttonLarge => const EdgeInsets.symmetric(horizontal: 40, vertical: 10);
+  static EdgeInsets get buttonXLarge => const EdgeInsets.symmetric(horizontal: 20, vertical: 10);
 
   ///SplashScreen
   static EdgeInsets get splashScreenProgressIndicator => const EdgeInsets.only(top: 200);

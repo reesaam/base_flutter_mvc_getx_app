@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 import '../../../core/app_extensions/data_types_extensions/extension_int.dart';
 import '../../../core/app_localization.dart';
-import '../../../core/app_routing/routing.dart';
+import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
-import '../../../data/models/app_page_detail/app_page_detail.dart';
+import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_logos.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -25,17 +25,18 @@ class AppDrawer extends Drawer {
   Widget? get child => SafeArea(
           child: Column(children: [
         header(),
-        AppDividers.generalDivider,
+        AppDividers.general,
         Expanded(child: body()),
-        AppDividers.generalDivider,
+        AppDividers.general,
         footer(),
       ]));
 
   Widget header() => Container(
       padding: AppPaddings.drawerHeader,
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth), Text(Texts.to.app_name, overflow: TextOverflow.ellipsis)]));
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth),
+        Text(Texts.to.app_name, overflow: TextOverflow.ellipsis),
+      ]));
 
   Widget body() {
     List<AppPageDetail> drawerList = AppPageDetails().listPages.where((element) => element.drawerPresence == true).toList();
@@ -49,6 +50,6 @@ class AppDrawer extends Drawer {
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         AppIcons.version,
         AppSpaces.w20,
-        InkWell(onTap: () => goToUpdatePage(), child: Text('${Texts.to.version}: ${AppInfo.appCurrentVersion.version}')),
+        InkWell(onTap: () => goToUpdatePage(), child: Text('${Texts.to.version}: ${AppInfo.currentVersion.version}')),
       ]));
 }

@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:label="base_flutter_mvc_getx_app"
+        android:label="base_flutter_all_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

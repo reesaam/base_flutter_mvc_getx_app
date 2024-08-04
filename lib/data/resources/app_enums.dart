@@ -32,15 +32,21 @@ enum AppRoutes {
   settings,
   update,
   about,
+  ///General
   notFound,
+  ///Admin
   adminStartPage,
   adminTestPage,
-  adminUITestPagePage,
+  adminAppInfoPage,
+  adminAppResourcesPage,
+  adminWidgetCheckPage,
 }
 
 enum AppBottomNavigationPages {
   homepage(AppRoutes.homepage),
-  settings(AppRoutes.settings);
+  update(AppRoutes.update),
+  settings(AppRoutes.settings),
+  about(AppRoutes.about);
 
   final AppRoutes appRoute;
   const AppBottomNavigationPages(this.appRoute);
@@ -57,6 +63,7 @@ enum AppLanguages {
 }
 
 enum AppStorageKeys {
+  keyAppStatisticsData,
   keyAppData,
   keyAppDataVersion,
   keyAppVersions,

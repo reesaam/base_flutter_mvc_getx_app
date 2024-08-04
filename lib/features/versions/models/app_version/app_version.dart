@@ -16,7 +16,7 @@ class AppVersion with _$AppVersion {
 
   factory AppVersion.fromJson(Map<String, dynamic> json) => _$AppVersionFromJson(json);
 
-  factory AppVersion.createEmpty() => AppVersion(version: AppInfo.appCurrentVersion.version);
+  factory AppVersion.createEmpty() => AppVersion(version: AppInfo.currentVersion.version);
 }
 
 @freezed

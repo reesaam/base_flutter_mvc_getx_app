@@ -31,7 +31,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/lib/generated/
 
 *.freezed.dart
 *.g.dart
@@ -46,3 +45,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#for main branch:
+/lib/features/

@@ -3,15 +3,18 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+import '../../data/statistics/app_statistics.dart';
 import '../core_functions.dart';
 import 'dio.dart';
 import '../failures/network_exception.dart';
 
 class DioFunctions {
+
   static Future<Either<NetworkException, T>> get<T>({required String url, request}) async {
     var dio = DioCore().dio;
     final T data;
     try {
+      _increaseStatisticApiCall();
       final Response result = await dio.get(url);
       if (result.statusCode == 200) {
         _printResponse('GET', result);
@@ -33,6 +36,7 @@ class DioFunctions {
     var dio = DioCore().dio;
     final T data;
     try {
+      _increaseStatisticApiCall();
       final Response result = await dio.post(url);
       if (result.statusCode == 200) {
         _printResponse('POST', result);
@@ -54,6 +58,7 @@ class DioFunctions {
     var dio = DioCore().dio;
     final T data;
     try {
+      _increaseStatisticApiCall();
       final Response result = await dio.put(url);
       if (result.statusCode == 200) {
         _printResponse('PUT', result);
@@ -75,6 +80,7 @@ class DioFunctions {
     var dio = DioCore().dio;
     final File data;
     try {
+      _increaseStatisticApiCall();
       final savePath = _getSavePath();
       final Response result = await dio.download(url, savePath);
       if (result.statusCode == 200) {
@@ -92,6 +98,8 @@ class DioFunctions {
       return Left(NetworkException.parsingDataException());
     }
   }
+
+  static _increaseStatisticApiCall() => AppStatistics().increaseApiCalls();
 
   ///TODO: Implementation
   static Future<String> _getSavePath() async => '';

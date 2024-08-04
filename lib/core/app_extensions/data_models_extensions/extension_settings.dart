@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 
+import '../../../app/functional_components/specific_dialogs/exceptions_dialog.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/storage/app_local_storage.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
+import '../../failures/local_exception.dart';
 
 extension RxStorage on Rx<AppSettingData> {
   void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: value);
@@ -11,7 +13,7 @@ extension RxStorage on Rx<AppSettingData> {
 
 extension Storage on AppSettingData {
   void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: this);
-  AppSettingData get loadFromStorage => AppLocalStorage.to.loadSettings().fold((l) => AppSettingData.createEmpty(), (r) => r);
+  AppSettingData get loadFromStorage => AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
 }
 
 extension RxClear on Rx<AppSettingData> {

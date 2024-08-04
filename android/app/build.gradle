@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.resam.basefluttermvcgetx"
+    namespace "com.resam.baseflutterall"
     //compileSdkVersion flutter.compileSdkVersion
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.resam.basefluttermvcgetx"
+        applicationId "com.resam.baseflutterall"
         // minSdkVersion flutter.minSdkVersion
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion

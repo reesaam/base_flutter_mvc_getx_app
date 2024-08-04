@@ -14,7 +14,7 @@ class AboutSectionWidget extends StatelessWidget {
 
   Widget _item() => LayoutBuilder(
       builder: (context, constraints) => Card(
-          color: AppColors.appDefaultColor,
+          color: AppColors.appPrimary,
           child: Container(
               width: constraints.maxWidth,
               padding: const EdgeInsets.all(10),

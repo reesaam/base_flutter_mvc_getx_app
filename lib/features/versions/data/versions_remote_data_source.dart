@@ -8,6 +8,5 @@ import '../../../data/info/app_apis.dart';
 import '../models/app_version/app_version.dart';
 
 class VersionsRemoteDataSource {
-
   Future<Either<NetworkException, AppVersionsList>> getVersions() async => await DioFunctions.get<AppVersionsList>(url: AppAPIs.apiGetVersions);
 }

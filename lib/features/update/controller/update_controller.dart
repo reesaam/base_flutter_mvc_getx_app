@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter_base_mvc_getx_app/features/update/data/update_remote_data_source.dart';
 import 'package:get/get.dart';
 import 'package:open_file_plus/open_file_plus.dart' as file_plus;
 import 'package:path_provider/path_provider.dart';
@@ -12,12 +11,14 @@ import '../../../core/app_localization.dart';
 import '../../../core/core_dialogs.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/elements/core_controller.dart';
+import '../../../data/info/app_core_flags.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_texts.dart';
 import '../../../app/components/general_widgets/app_progress_indicator.dart';
 import '../../../app/components/general_widgets/app_snack_bars.dart';
 import '../../../app/components/dialogs/app_alert_dialogs.dart';
+import '../data/update_remote_data_source.dart';
 
 class UpdateController extends CoreController {
 
@@ -48,10 +49,12 @@ class UpdateController extends CoreController {
 
   @override
   void onReadyFunction() async {
-    AppInfo.checkUpdate ? await checkUpdate() : null;
+    checkUpdate ? await checkUpdateFunction() : null;
   }
 
-  checkUpdate() async {
+  updateAvailability() => availableVersion.value == AppInfo.currentVersion.version || availableVersion.value == Texts.to.notAvailable;
+
+  checkUpdateFunction() async {
     buttonCheckUpdateLoading.value = true;
     bool internetStatus = await ConnectionChecker.to.checkInternet();
     internetStatus ? await _checkUpdateFunction() : noInternetConnectionSnackBar();
@@ -62,7 +65,7 @@ class UpdateController extends CoreController {
     AppBottomDialogs().withoutButton(title: Texts.to.updateCheckingUpdate, form: AppProgressIndicator.linear());
     String version = await checkAvailableVersion();
     popPage();
-    if (version == AppInfo.appCurrentVersion.version || version == Texts.to.notAvailable) {
+    if (version == AppInfo.currentVersion.version || version == Texts.to.notAvailable) {
       appLogPrint('No New Version Available');
       AppSnackBar().showSnackBar(message: Texts.to.updateNoUpdateFound);
     } else {
@@ -76,11 +79,11 @@ class UpdateController extends CoreController {
     buttonDownloadUpdateLoading.value = true;
     AppBottomDialogs().withoutButton(title: Texts.to.updateDownloading, form: AppProgressIndicator.linear());
     bool internetStatus = await ConnectionChecker.to.checkInternet();
-    internetStatus ? _downloadAction() : noInternetConnectionSnackBar();
+    internetStatus ? _downloadUpdateFunction() : noInternetConnectionSnackBar();
     buttonDownloadUpdateLoading.value = false;
   }
 
-  _downloadAction() async {
+  _downloadUpdateFunction() async {
     dlDir = await getExternalStorageDirectory();
     if (dlDir != null) {
       dlFile = File('${dlDir!.path}/${AppTexts.updateAppFilename}');
@@ -100,7 +103,7 @@ class UpdateController extends CoreController {
           downloaded.value = true;
           appDebugPrint(dlFile?.length());
           AppSnackBar().showSnackBar(message: Texts.to.updateDownloaded);
-          AppAlertDialogs().withOkCancel(title: Texts.to.updateInstallationTitle, text: Texts.to.updateInstallationContent, onTapOk: _installUpdate, dismissible: true);
+          AppAlertDialogs().withOkCancel(title: Texts.to.updateInstallationTitle, text: Texts.to.updateInstallationContent, onTapOk: _installUpdateFunction, dismissible: true);
         });
       }
     } else {
@@ -108,11 +111,9 @@ class UpdateController extends CoreController {
     }
   }
 
-  void _installUpdate() => dlFile == null ? _alertDirectoryOrFileNotFound(false) : file_plus.OpenFile.open(dlFile!.path);
+  void _installUpdateFunction() => dlFile == null ? _alertDirectoryOrFileNotFound(false) : file_plus.OpenFile.open(dlFile!.path);
 
   _alertDirectoryOrFileNotFound(bool directoryError) => showErrorDialog(
       title: directoryError ? Texts.to.updateDirectoryNotFoundTitle : Texts.to.updateFileNotFoundTitle,
       message: directoryError ? Texts.to.updateDirectoryNotFoundContent : Texts.to.updateFileNotFoundContent);
-
-  checkAvailableUpdate() => availableVersion.value == AppInfo.appCurrentVersion.version || availableVersion.value == Texts.to.notAvailable;
 }

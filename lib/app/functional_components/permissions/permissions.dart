@@ -2,6 +2,9 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../../../core/app_extensions/data_models_extensions/extension_permission.dart';
+import 'permission_response.dart';
+
 class AppPermissions {
   static AppPermissions get to => Get.find();
 
@@ -28,11 +31,46 @@ class AppPermissions {
     _listPermissions.add(Permission.activityRecognition);
   }
 
-  Future<String> checkAllPermissions() async {
-    String permissionMessage = PermissionStatus.granted.name.toLowerCase();
-    await _checkPermissionsList(_listPermissions);
-    return permissionMessage;
+  Future<PermissionResponse> askPermission(Permission permission) async {
+    PermissionStatus status = await permission.request();
+    return _createResponse(permission: permission, status: status);
   }
+
+  Future<List<PermissionResponse>> askPermissionsList(List<Permission> permissions) async {
+    List<PermissionResponse> responses = List<PermissionResponse>.empty(growable: true);
+    for (var permission in permissions) {
+      var status = await askPermission(permission);
+      responses.add(status);
+    }
+    return responses;
+  }
+
+  Future<List<PermissionResponse>> askAllPermissions() async => await askPermissionsList(_listPermissions);
+
+  Future<PermissionResponse> checkPermission(Permission permission) async {
+    var status = await permission.status;
+    return _createResponse(permission: permission, status: status);
+  }
+
+  Future<List<PermissionResponse>> checkPermissionsList(List<Permission> permissions) async {
+    List<PermissionResponse> responses = List<PermissionResponse>.empty(growable: true);
+    for (var permission in permissions) {
+      var status = await checkPermission(permission);
+      responses.add(status);
+    }
+    return responses;
+  }
+
+  Future<List<PermissionResponse>> checkAllPermissions() async => await checkPermissionsList(_listPermissions);
+
+  PermissionResponse _createResponse({
+    required Permission permission,
+    required PermissionStatus status,
+  }) =>
+      PermissionResponse(
+        permission: permission.getName,
+        status: status,
+      );
 
   List<String> get _listManifestPermissions => [
         'ACCESS_COARSE_LOCATION',
@@ -54,20 +92,4 @@ class AppPermissions {
         'SEND_SMS',
         'VIBRATE',
       ];
-
-  //Check single permission function
-  Future<String> checkPermission(Permission permission) async {
-    late String result;
-    await permission.request().then((permission) => result = permission.name);
-    return await permission.request().then((permission) => result = permission.name);
-  }
-
-  //Check list of permissions function
-  Future<String> _checkPermissionsList(List<Permission> permissions) async {
-    String permissionMessage = PermissionStatus.granted.name.toLowerCase();
-    for (var permission in permissions) {
-      await permission.request() == PermissionStatus.granted ? null : permissionMessage = permission.toString().toLowerCase().split('.').lastOrNull.toString();
-    }
-    return permissionMessage;
-  }
 }

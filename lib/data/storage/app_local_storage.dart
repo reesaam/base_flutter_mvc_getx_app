@@ -4,6 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
+import '../../core/app_extensions/data_types_extensions/extension_date_time.dart';
+import '../../core/app_extensions/data_types_extensions/extension_duration.dart';
 import '../../core/failures/local_exception.dart';
 import '../../data/info/app_info.dart';
 import '../../core/app_extensions/data_types_extensions/extension_string.dart';
@@ -12,7 +14,8 @@ import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
-import '../models/app_data/app_data.dart';
+import '../models/core_models/app_data/app_data.dart';
+import '../models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_texts.dart';
 import 'app_shared_preferences.dart';
@@ -26,6 +29,7 @@ class AppLocalStorage {
 
   ///Keys
   final _keyAppData = AppStorageKeys.keyAppData.name;
+  final _keyAppStatisticData = AppStorageKeys.keyAppStatisticsData.name;
   final _keyAppDataVersion = AppStorageKeys.keyAppDataVersion.name;
   final _keyAppVersions = AppStorageKeys.keyAppVersions.name;
   final _keySettings = AppStorageKeys.keySettings.name;
@@ -71,7 +75,7 @@ class AppLocalStorage {
 
     //Fill Data
     AppData appData = AppData(
-      version: appDataVersion,
+      dataVersion: appDataVersion,
       appVersions: appVersions,
       settings: settings,
     );
@@ -80,22 +84,24 @@ class AppLocalStorage {
     appLogPrint('AppData Saved to Storage Successfully');
   }
 
-  void loadAllDataFromStorage() async {
+  Future<AppData?> loadAllDataFromStorage() async {
     AppData? appData = await AppSharedPreferences.to.loadData();
 
-    if (appData != null) {
-      saveAppDataVersion(appDataVersion: appData.version);
+    if (appData == null) {
+    } else {
+      saveAppDataVersion(appDataVersion: appData.dataVersion);
       saveAppVersions(appVersions: appData.appVersions);
       saveSettings(settings: appData.settings);
     }
 
     appLogPrint('AppData Loaded from Storage Successfully');
+    return appData;
   }
 
   ///Manage Data
   Future<void> exportData() async {
     AppData appData = AppData(
-      version: AppDataVersions.values.last,
+      dataVersion: AppDataVersions.values.last,
       appVersions: AppInfo.versions,
       settings: loadSettings().fold((l) => null, (r) => r),
     );
@@ -109,30 +115,57 @@ class AppLocalStorage {
 
   Future<void> importData() async {
     var appDataFile = await AppFileFunctions.to.pickFile();
-    AppData appData = AppData.fromJson(appDataFile);
-    clearAppData();
 
-    ///Filling Data Fields
-    if (appData.version == AppDataVersions.values.last) {
-      await saveSettings(settings: appData.settings ?? const AppSettingData());
-      appLogPrint('Data Imported');
+    if (appDataFile != null) {
+      var fileString = String.fromCharCodes(appDataFile.readAsBytesSync());
+      var decodedFile = json.decode(fileString);
+      AppData appData = AppData.fromJson(decodedFile);
+      clearAppData();
+
+      ///Filling Data Fields
+      if (appData.dataVersion == AppDataVersions.values.last) {
+        await saveSettings(settings: appData.settings ?? const AppSettingData());
+        appLogPrint('Data Imported');
+      } else {
+        appLogPrint('Data Version is not Compatible, Converter is not Implemented\nData Import Failed');
+      }
     } else {
-      appLogPrint('Data Version is not Compatible, Converter is not Implemented\nData Import Failed');
+      appDebugPrint('Imported File was NUll');
     }
   }
 
-  void printData({required AppData data, bool? detailsIncluded}) {
+  void printData({AppData? appData, AppStatisticsData? statisticsData, bool? detailsIncluded}) {
     String unknown = Texts.to.notAvailableInitials;
 
-    appLogPrint('App Version: ${data.appVersions?.versionsList.last.version ?? unknown}');
-    detailsIncluded == true ? appLogPrint('App Version Type: ${data.appVersions?.versionsList.last.versionType ?? unknown}') : null;
-    appLogPrint('App Data Type: ${data.version?.number ?? unknown}');
+    if (appData != null) {
+      appLogPrint('==> App Data:');
+      appLogPrint('App Version: ${appData.appVersions?.versionsList.last.version ?? unknown}');
+      detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.last.versionType ?? unknown}') : null;
+      appLogPrint('App Data Type: ${appData.dataVersion?.number ?? unknown}');
+      if (detailsIncluded == true) {
+        appLogPrint('==> Details:');
+        appLogPrint('Settings / Dark Mode: ${appData.settings?.darkMode}');
+        appLogPrint('Settings / Language: ${appData.settings?.language.languageName}');
+      }
+    }
 
-    detailsIncluded == true ? appLogPrint('Settings / Dark Mode: ${data.settings?.darkMode}') : null;
-    detailsIncluded == true ? appLogPrint('Settings / Language: ${data.settings?.language.languageName}') : null;
+    if (statisticsData != null) {
+      appLogPrint('==> Statistics:');
+      appLogPrint('Statistics / Launches: ${statisticsData.launches}');
+      appLogPrint('Statistics / Logins: ${statisticsData.logins}');
+      appLogPrint('Statistics / Crashes: ${statisticsData.crashes}');
+      appLogPrint('Statistics / Install DateTime: ${statisticsData.installDateTime.toDateTimeFormat}');
+      appLogPrint('Statistics / Install Duration: ${statisticsData.installDuration.toConditionalFormat}');
+    }
+
   }
 
-  ///AppData
+  ///AppStatisticsData
+  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async => await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
+  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() => _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
+  clearAppStatisticsData() => _clearSpecificKey(AppStorageKeys.keyAppStatisticsData);
+
+  ///AppDataVersion
   Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async => await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
   Either<LocalException, AppDataVersions?> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
   clearAppDataVersion() => _clearSpecificKey(AppStorageKeys.keyAppDataVersion);

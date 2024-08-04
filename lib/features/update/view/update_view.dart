@@ -28,11 +28,11 @@ class UpdatePage extends CoreView<UpdateController> {
       child: Container(
           padding: AppPaddings.updateVersions,
           child: Column(children: [
-            _widgetVersion(Texts.to.updateCurrentVersion, AppInfo.appCurrentVersion.version),
+            _widgetVersion(Texts.to.updateCurrentVersion, AppInfo.currentVersion.version),
             AppSpaces.h10,
             _widgetVersion(
               Texts.to.updateAvailableVersion,
-              controller.availableVersion.value == AppInfo.appCurrentVersion.version ? Texts.to.notAvailable : controller.availableVersion.value,
+              controller.availableVersion.value == AppInfo.currentVersion.version ? Texts.to.notAvailable : controller.availableVersion.value,
             ),
           ])));
 
@@ -47,13 +47,13 @@ class UpdatePage extends CoreView<UpdateController> {
         AppGeneralButton(
           text: Texts.to.updateCheckUpdate,
           loading: controller.buttonCheckUpdateLoading.value,
-          onTap: controller.checkUpdate,
+          onTap: controller.checkUpdateFunction,
         ),
         AppGeneralButton(
           text: Texts.to.updateDownloadUpdate,
           loading: controller.buttonDownloadUpdateLoading.value,
           onTap: controller.downloadUpdate,
-          disabled: controller.checkAvailableUpdate(),
+          disabled: controller.updateAvailability(),
         ),
       ]));
 }

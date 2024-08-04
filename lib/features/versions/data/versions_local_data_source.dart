@@ -5,6 +5,5 @@ import '../../../data/storage/app_local_storage.dart';
 import '../models/app_version/app_version.dart';
 
 class VersionsLocalDataSource {
-
   Future<Either<LocalException, AppVersionsList>> getVersions() async => AppLocalStorage.to.loadAppVersions();
 }

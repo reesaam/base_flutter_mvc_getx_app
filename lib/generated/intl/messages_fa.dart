@@ -31,16 +31,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نام توسعه دهنده"),
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("وب سایت توسعه دهنده"),
+        "adminAppInfoPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
+        "adminAppResourcesPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
-        "adminTestPagePageName":
-            MessageLookupByLibrary.simpleMessage("Admin Pages Test Page"),
-        "adminUITestPagePageName":
-            MessageLookupByLibrary.simpleMessage("Admin UI Test Page"),
+        "adminTestPageName":
+            MessageLookupByLibrary.simpleMessage("Admin Test Page"),
+        "adminWidgetCheckPageName":
+            MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("پیغام"),
         "appExit": MessageLookupByLibrary.simpleMessage("خروج از برنامه"),
-        "app_name":
-            MessageLookupByLibrary.simpleMessage("Base Flutter Clean GetX App"),
+        "app_name": MessageLookupByLibrary.simpleMessage("کلیک مستر"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("آیا مطمئن هستید"),
         "areYouSureDataExport": MessageLookupByLibrary.simpleMessage(
             "آیا از استخراج اطلاعات اطمینان دارید؟"),

@@ -16,7 +16,7 @@ class SettingsSectionWidget extends StatelessWidget {
       padding: AppPaddings.settingsSection,
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         _title(title),
-        AppDividers.settingsDivider,
+        AppDividers.settings,
         Column(children: widgets),
       ]));
 }

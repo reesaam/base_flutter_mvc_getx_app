@@ -22,7 +22,7 @@ class AppAlertWidgetDialogs {
   }) async {
     List<Widget> buttons = [
       AppGeneralButton(text: Texts.to.cancel, onTap: _onTapCancel),
-      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
+      AppGeneralButton(text: Texts.to.ok, primaryColor: true, onTap: onTapOk),
     ];
     await _appAlertWidgetDialog(
       title: title,
@@ -39,7 +39,7 @@ class AppAlertWidgetDialogs {
     bool? dismissible,
   }) async {
     List<Widget> buttons = [
-      AppGeneralButton(text: Texts.to.ok, onTap: onTapOk),
+      AppGeneralButton(primaryColor: true, text: Texts.to.ok, onTap: onTapOk),
     ];
     await _appAlertWidgetDialog(
       title: title,
@@ -75,31 +75,33 @@ class AppAlertWidgetDialogs {
           useRootNavigator: true,
           barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
-              padding: AppPaddings.generalAlertDialog,
-              child: AlertDialog(
-                backgroundColor: AppColors.appBackground,
-                shape: AppElements.defaultAlertBorderShape,
-                title: title == null
-                    ? shrinkSizedBox
-                    : Column(children: [
-                        Text(title, style: AppTextStyles.dialogAlertTitle),
-                        AppDividers.generalDividerWithAppDefaultColor,
-                      ]),
-                content: widget,
-                actions: [_renderButtonsAlertWidgetDialog(buttons)],
-                actionsOverflowAlignment: OverflowBarAlignment.center,
-                actionsOverflowDirection: VerticalDirection.down,
-                actionsAlignment: MainAxisAlignment.center,
-              )));
+            padding: AppPaddings.generalAlertDialog,
+            child: AlertDialog(
+              scrollable: true,
+              backgroundColor: AppColors.appSecondary,
+              shape: AppElements.defaultAlertBorderShape,
+              title: title == null
+                  ? shrinkSizedBox
+                  : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(title, style: AppTextStyles.dialogAlertTitle, textAlign: TextAlign.start),
+                AppDividers.generalPrimaryColor,
+              ]),
+              content: widget,
+              actions: _renderButtonsAlertWidgetDialog(buttons),
+              actionsOverflowAlignment: OverflowBarAlignment.center,
+              actionsOverflowDirection: VerticalDirection.down,
+              actionsAlignment: MainAxisAlignment.center,
+            ),
+          ));
 
-  Widget _renderButtonsAlertWidgetDialog(List<Widget> buttons) {
+  List<Widget> _renderButtonsAlertWidgetDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
       list.addIf(i == 0, shrinkOneExpanded);
-      list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 10, child: buttons[i]));
-      list.add(shrinkOneExpanded);
+      list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 2, child: buttons[i]));
+      list.add(i == length - 1 ? shrinkOneExpanded : shrinkExpanded(2));
     }
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
+    return [Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list)];
   }
 }

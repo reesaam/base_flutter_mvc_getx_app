@@ -13,5 +13,5 @@ class AppFloatingActionButtons extends FloatingActionButton {
 
   @override
   Widget build(BuildContext context) =>
-      FloatingActionButton(backgroundColor: AppColors.appDefaultColorSecond, foregroundColor: AppColors.textNormalDark, mini: true, onPressed: onPressed, child: child);
+      FloatingActionButton(backgroundColor: AppColors.appSecondary, foregroundColor: AppColors.textNormalDark, mini: true, onPressed: onPressed, child: child);
 }

@@ -20,25 +20,41 @@ class AppBottomDialogs {
   }
 
   withOk({String? title, required Widget form, required Function() onTapOk, bool? dismissible}) async {
-    List<Widget> buttons = [AppGeneralButton(text: Texts.to.ok, onTap: onTapOk)];
+    List<Widget> buttons = [
+      AppGeneralButton(
+        text: Texts.to.ok,
+        onTap: onTapOk,
+        primaryColor: true,
+      )
+    ];
     await _appBottomDialogGeneral(title: title, form: form, buttons: buttons, dismissible: dismissible);
   }
 
   withCancel({String? title, required Widget form, bool? dismissible}) async {
-    List<Widget> buttons = [AppGeneralButton(text: Texts.to.cancel, onTap: _onTapCancel)];
+    List<Widget> buttons = [AppGeneralButton(onSecondaryColor: true, text: Texts.to.cancel, onTap: _onTapCancel)];
     await _appBottomDialogGeneral(title: title, form: form, buttons: buttons, dismissible: dismissible);
   }
 
   withOkCancel({String? title, required Widget form, required Function() onTapOk, bool? dismissible}) async {
     List<Widget> buttons = [
-      AppGeneralButton(text: Texts.to.cancel, onTap: () => _onTapCancel()),
-      AppGeneralButton(text: Texts.to.ok, onTap: () => onTapOk()),
+      AppGeneralButton(onSecondaryColor: true, text: Texts.to.cancel, onTap: () => _onTapCancel()),
+      AppGeneralButton(
+        text: Texts.to.ok,
+        onTap: () => onTapOk(),
+        primaryColor: true,
+      ),
     ];
     await _appBottomDialogGeneral(title: title, form: form, buttons: buttons, dismissible: dismissible);
   }
 
-  dialogTappableItem(String text) =>
-      LayoutBuilder(builder: (context, constraints) => SizedBox(width: constraints.maxWidth, height: 50, child: Text(text, style: AppTextStyles.accountsTableItemMenuItems)));
+  tappableItem({required String text, required Function() onTap}) => LayoutBuilder(
+      builder: (context, constraints) => InkWell(
+          onTap: onTap,
+          child: SizedBox(
+            width: constraints.maxWidth,
+            height: 50,
+            child: Text(text, style: AppTextStyles.appBarTitle),
+          )));
 
   _appBottomDialogGeneral({String? title, required Widget form, required List<Widget> buttons, bool? dismissible}) async => await showModalBottomSheet(
       context: Get.context!,
@@ -58,7 +74,7 @@ class AppBottomDialogs {
                         ? shrinkSizedBox
                         : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                             Text(title ?? '', style: AppTextStyles.modalTitle),
-                            AppDividers.generalDividerWithAppDefaultColor,
+                            AppDividers.generalPrimaryColor,
                             AppSpaces.h10,
                           ]),
                     form,
@@ -74,9 +90,12 @@ class AppBottomDialogs {
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
       list.addIf(i == 0, shrinkOneExpanded);
-      list.add(Expanded(flex: (20 ~/ length), child: buttons[i]));
-      list.add(shrinkOneExpanded);
+      list.add(Expanded(flex: length > 1 ? (30 ~/ length) : 4, child: buttons[i]));
+      list.add(i == length - 1 ? shrinkOneExpanded : shrinkExpanded(5));
     }
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
+    return Padding(
+      padding: AppPaddings.buttonXLarge,
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list),
+    );
   }
 }

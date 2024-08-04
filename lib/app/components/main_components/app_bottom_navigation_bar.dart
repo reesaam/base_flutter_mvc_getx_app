@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/app_extensions/data_types_extensions/extension_int.dart';
 import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
-import '../../../core/app_routing/routing.dart';
+import '../../../core/app_routing/app_routing.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_enums.dart';
@@ -27,7 +27,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    selectedIndex.value = widget.selectedIndex!;
+    selectedIndex.value = widget.selectedIndex ?? 0;
     return BottomNavigationBar(
         backgroundColor: AppColors.bottomBarBackground,
         type: BottomNavigationBarType.fixed,
@@ -40,7 +40,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   }
 
   BottomNavigationBarItem _generateBottomNavigationBarItem(AppRoutes route) => BottomNavigationBarItem(
-      activeIcon: CircleAvatar(backgroundColor: AppColors.appDefaultColorSecond, foregroundColor: AppColors.appDefaultColor, child: _createIcon(route).withColor(AppColors.textNormalLight)),
+      activeIcon: CircleAvatar(backgroundColor: AppColors.appSecondary, foregroundColor: AppColors.appPrimary, child: _createIcon(route)),
       icon: _createIcon(route),
       label: _createLabel(route));
 

@@ -30,16 +30,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Developer Name"),
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("Developer WebSite"),
+        "adminAppInfoPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
+        "adminAppResourcesPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
-        "adminTestPagePageName":
-            MessageLookupByLibrary.simpleMessage("Admin Pages Test Page"),
-        "adminUITestPagePageName":
-            MessageLookupByLibrary.simpleMessage("Admin UI Test Page"),
+        "adminTestPageName":
+            MessageLookupByLibrary.simpleMessage("Admin Test Page"),
+        "adminWidgetCheckPageName":
+            MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appExit": MessageLookupByLibrary.simpleMessage("App Exit"),
-        "app_name":
-            MessageLookupByLibrary.simpleMessage("Base Flutter Clean GetX App"),
+        "app_name": MessageLookupByLibrary.simpleMessage("Click Master"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure ?"),
         "areYouSureDataExport": MessageLookupByLibrary.simpleMessage(
             "Are you sure?\nData will be exported and exposed."),
@@ -61,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Not Available"),
         "generalNotAvailableInitials":
             MessageLookupByLibrary.simpleMessage("N/A"),
-        "homePageName": MessageLookupByLibrary.simpleMessage("Home"),
+        "homePageName": MessageLookupByLibrary.simpleMessage("Click Master"),
         "info": MessageLookupByLibrary.simpleMessage("Info"),
         "information": MessageLookupByLibrary.simpleMessage("Information"),
         "languageName": MessageLookupByLibrary.simpleMessage("English"),

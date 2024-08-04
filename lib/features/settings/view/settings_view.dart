@@ -37,7 +37,7 @@ class SettingsPage extends CoreView<SettingsController> {
         _widgetStorage(),
       ]));
 
-  Widget _widgetAppbarThreeDotsButton() => AppPopupMenu(listItems: _listAppbarThreeDotsButton, lightColorIcon: false);
+  Widget _widgetAppbarThreeDotsButton() => AppPopupMenu(listItems: _listAppbarThreeDotsButton, primaryColorIcon: false);
 
   List<AppPopupMenuItem> get _listAppbarThreeDotsButton => List.of([AppPopupMenuItem(text: Texts.to.settingsAppbarMenuResetSettings, onTapFunction: () => controller.resetAllSettings())]);
 
@@ -62,11 +62,11 @@ class SettingsPage extends CoreView<SettingsController> {
   Widget _widgetUpdate() => SettingsSectionWidget(title: Texts.to.settingsSectionTitleUpdate, widgets: [
         SettingsSectionItemWidget(
           text: Texts.to.settingsSectionTitleUpdateCurrentVersion.withDoubleDots,
-          leading: Text(AppInfo.appCurrentVersion.version),
+          leading: Text(AppInfo.currentVersion.version),
         ),
         SettingsSectionItemWidget(
             text: Texts.to.settingsSectionTitleUpdateAvailableVersion.withDoubleDots,
-            leading: Text(controller.updateAvailableVersion.value == AppInfo.appCurrentVersion.version ? Texts.to.notAvailable : controller.updateAvailableVersion.value),
+            leading: Text(controller.updateAvailableVersion.value == AppInfo.currentVersion.version ? Texts.to.notAvailable : controller.updateAvailableVersion.value),
             wholeItemFunction: controller.functionGoToUpdatePage),
       ]);
 

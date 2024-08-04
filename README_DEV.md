@@ -1,4 +1,4 @@
-# Base for All Flutter Apps
+# Base Flutter MVC GetX App
 
 A Flutter Base Project using:
  - MVC Architecture

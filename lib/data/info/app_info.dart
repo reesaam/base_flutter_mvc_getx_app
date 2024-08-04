@@ -2,8 +2,8 @@ import '../../core/app_extensions/data_models_extensions/extension_app_version.d
 import '../../features/versions/models/app_version/app_version.dart';
 
 class AppInfo {
-  static String get appName => 'Base of All Flutter Apps';
-  static String get appNameInitials => 'BAFA';
+  static String get appName => 'Base Flutter MVC GetX App';
+  static String get appNameInitials => 'BFMGA';
   static String get website => '';
 
   static AppVersion get currentVersion => const AppVersion(version: '0.0.1');
@@ -11,7 +11,7 @@ class AppInfo {
   static int get versionsCounter => versions.versionsList.length;
 
   static String get baseUrl => 'resam-t.ir';
-  static String get subDomain => 'baseflutterall';
+  static String get subDomain => 'basefluttermvcgetx';
 
   //FileNames
   static String get fileNameAPK => '${AppInfo.appNameInitials}_android.apk';

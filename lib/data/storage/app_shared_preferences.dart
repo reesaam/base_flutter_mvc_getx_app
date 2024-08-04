@@ -29,7 +29,7 @@ class AppSharedPreferences {
 
   Future<AppData?> loadData() async {
     var jsonAppData = await _loadFunction(_keyAppData);
-    return jsonAppData == null ? null : AppData.fromJson(json.decode(jsonAppData));
+    return jsonAppData == null ? null : AppData.fromJson(jsonAppData);
   }
 
   void clearData() async {

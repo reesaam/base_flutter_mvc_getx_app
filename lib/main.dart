@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
       getPages: AppPages.pages,
       initialRoute: AppRoutes.splashScreen.route,
       unknownRoute: AppPages.unknownRoute,
-      theme: AppThemes.mainTheme,
+      theme: AppThemes().theme,
       supportedLocales: AppLocalization.to.supportedLocales,
       localizationsDelegates: AppLocalization.to.localizationDelegates,
       locale: AppLocalization.to.getDefaultLocale(),

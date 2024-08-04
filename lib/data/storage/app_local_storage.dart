@@ -139,8 +139,8 @@ class AppLocalStorage {
 
     if (appData != null) {
       appLogPrint('==> App Data:');
-      appLogPrint('App Version: ${appData.appVersions?.versionsList.last.version ?? unknown}');
-      detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.last.versionType ?? unknown}') : null;
+      appLogPrint('App Version: ${appData.appVersions?.versionsList.lastOrNull?.version ?? unknown}');
+      detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.lastOrNull?.versionType ?? unknown}') : null;
       appLogPrint('App Data Type: ${appData.dataVersion?.number ?? unknown}');
       if (detailsIncluded == true) {
         appLogPrint('==> Details:');

@@ -44,7 +44,7 @@ extension Format on Duration {
     for (var s in list) {
       if (s.isNotEmpty) result = result + s;
     }
-    result = result.replaceRange(result.length - 1, result.length, '');
+    result.isNotEmpty ? result = result.replaceRange(result.length - 1, result.length, '') : null;
     return result.isEmpty ? 'NONE' : result;
   }
 }

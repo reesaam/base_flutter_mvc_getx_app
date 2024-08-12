@@ -6,16 +6,16 @@ class AppDividers {
   static Widget get general => Divider();
 
   static Widget generalText({required String text}) => Stack(alignment: Alignment.center, children: [
-        Divider(),
+        general,
         Container(padding: AppPaddings.buttonXLarge, child: Text(text)),
       ]);
 
   static Widget generalTextPrimaryColor({required String text}) => Stack(alignment: Alignment.center, children: [
-        Divider(),
+        general,
         Container(padding: AppPaddings.buttonXLarge, child: Text(text, style: TextStyle())),
       ]);
 
-  static Widget get generalPrimaryColor => Divider();
+  static Widget get generalPrimaryColor => general;
 
-  static Widget get settings => Divider();
+  static Widget get settings => general;
 }

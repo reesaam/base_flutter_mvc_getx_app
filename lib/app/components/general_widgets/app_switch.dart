@@ -12,7 +12,7 @@ class AppSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
       height: AppSizes.switchHeight.height,
-      child: Switch(
+      child: Switch.adaptive(
         value: value == true ? true : false,
         onChanged: (value) => onChanged!(value),
         focusNode: FocusNode(canRequestFocus: enabled == false ? false : true),

@@ -75,7 +75,7 @@ class AppAlertWidgetDialogs {
           barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
             padding: AppPaddings.generalAlertDialog,
-            child: AlertDialog(
+            child: AlertDialog.adaptive(
               scrollable: true,
               shape: AppElements.borderShapeAlertDialog,
               title: title == null

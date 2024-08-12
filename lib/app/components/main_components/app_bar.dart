@@ -12,7 +12,7 @@ class AppAppBar extends AppBar {
   final Widget? barAction;
 
   @override
-  Widget? get title => Text(pageDetail.pageName ?? '');
+  Widget? get title => Text(pageDetail.pageName ?? Texts.to.empty);
 
   @override
   Widget? get leading => barLeading;

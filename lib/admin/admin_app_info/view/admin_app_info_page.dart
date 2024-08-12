@@ -75,7 +75,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
   _item({String? title, String? text}) => Padding(
       padding: AppPaddings.buttonLarge,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(title?.withDoubleDots ?? ''),
-        Text(text ?? ''),
+        Text(title?.withDoubleDots ?? Texts.to.empty),
+        Text(text ?? Texts.to.empty),
       ]));
 }

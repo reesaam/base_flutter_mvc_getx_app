@@ -1,10 +1,10 @@
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 
 extension StringProvidersNull on Jalali? {
-  String get toDateTimeFormat => this == null ? '' : this!.toDateTimeFormat;
-  String get toDateFormat => this == null ? '' : this!.toDateFormat;
-  String get toTimeFormat => this == null ? '' : this!.toTimeFormat;
-  String get toTimeFormatWithSeconds => this == null ? '' : this!.toTimeFormatWithSeconds;
+  String get toDateTimeFormat => this == null ? Texts.to.empty : this!.toDateTimeFormat;
+  String get toDateFormat => this == null ? Texts.to.empty : this!.toDateFormat;
+  String get toTimeFormat => this == null ? Texts.to.empty : this!.toTimeFormat;
+  String get toTimeFormatWithSeconds => this == null ? Texts.to.empty : this!.toTimeFormatWithSeconds;
 }
 
 extension StringProvider on Jalali {

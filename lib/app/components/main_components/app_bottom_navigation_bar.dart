@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/app_extensions/data_types_extensions/extension_int.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_enums.dart';
@@ -56,5 +57,5 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
 
   Icon _createIcon(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).iconCode.toIcon;
 
-  String _createLabel(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).pageName ?? '';
+  String _createLabel(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).pageName ?? Texts.to.empty;
 }

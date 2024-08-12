@@ -82,8 +82,8 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
   _item({String? title, String? text}) => Padding(
       padding: AppPaddings.buttonLarge,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(title?.withDoubleDots ?? ''),
-        Text(text ?? ''),
+        Text(title?.withDoubleDots ?? Texts.to.empty),
+        Text(text ?? Texts.to.empty),
       ]));
 
   _itemWidget({String? title, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [

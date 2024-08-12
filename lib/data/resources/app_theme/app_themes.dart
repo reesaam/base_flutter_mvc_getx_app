@@ -142,16 +142,22 @@ class AppThemes {
     return AppThemeDataModel<BottomNavigationBarThemeData>(
         lightThemeData: themeData.copyWith(
           backgroundColor: AppThemesVariables.appPrimary,
+          selectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appBackground),
+          selectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appBackground),
+          unselectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appTertiary),
+          unselectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appTertiary),
         ),
         darkThemeData: themeData.copyWith(
           backgroundColor: AppThemesVariables.appPrimaryDark,
+          selectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appSecondaryDark),
+          selectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appBackgroundDark),
+          unselectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appTertiaryDark),
+          unselectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appTertiaryDark),
         )).getMode<BottomNavigationBarThemeData>(isDark);
   }
 
   NavigationBarThemeData _navigationBar() {
-    NavigationBarThemeData generalTheme = NavigationBarThemeData(
-
-    );
+    NavigationBarThemeData generalTheme = NavigationBarThemeData();
     return AppThemeDataModel<NavigationBarThemeData>(
       lightThemeData: generalTheme,
       darkThemeData: generalTheme,
@@ -241,11 +247,13 @@ class AppThemes {
       ).getMode<ActionIconThemeData>(isDark);
 
   ///Text
+  TextStyle _textStyle() => TextStyle(
+        fontSize: appDefaultFontSize,
+        overflow: TextOverflow.ellipsis,
+      );
+
   TextTheme _textTheme() {
-    TextStyle generalStyle = TextStyle(
-      fontSize: appDefaultFontSize,
-      overflow: TextOverflow.ellipsis,
-    );
+    TextStyle generalStyle = _textStyle();
 
     TextStyle lightStyle = generalStyle.copyWith(
       color: AppThemesVariables.appPrimary,

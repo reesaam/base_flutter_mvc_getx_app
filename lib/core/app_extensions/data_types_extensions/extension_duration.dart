@@ -40,11 +40,11 @@ extension Format on Duration {
     var hour = diff.hour == 0 || diff.hour == null ? null : list.add(' ${diff.hour}H,');
     var minute = diff.minute == 0 || diff.minute == null ? null : list.add(' ${diff.minute}M,');
     var second = diff.second == 0 || diff.second == null ? null : list.add(' ${diff.second}S,');
-    String result = '';
+    String result = Texts.to.empty;
     for (var s in list) {
       if (s.isNotEmpty) result = result + s;
     }
-    result.isNotEmpty ? result = result.replaceRange(result.length - 1, result.length, '') : null;
+    result.isNotEmpty ? result = result.replaceRange(result.length - 1, result.length, Texts.to.empty) : null;
     return result.isEmpty ? 'NONE' : result;
   }
 }

@@ -66,7 +66,7 @@ class AdminTestController extends CoreController {
   ///Permissions
   checkAllPermissions() async {
     var result = await AppPermissions.to.checkAllPermissions();
-    String response = '';
+    String response = Texts.to.empty;
     for (var r in result) {
       response = '$response\n${r.permission}: ${r.status?.getName}';
     }
@@ -75,7 +75,7 @@ class AdminTestController extends CoreController {
 
   askAllPermissions() async {
     var result = await AppPermissions.to.askAllPermissions();
-    String response = '';
+    String response = Texts.to.empty;
     for (var r in result) {
       var newResponse = '${r.permission}: ${r.status?.getName}';
       response = '$response\n$newResponse';

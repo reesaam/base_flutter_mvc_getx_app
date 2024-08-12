@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_sizes.dart';
 
 class AppSwitch extends StatelessWidget {
@@ -17,7 +16,6 @@ class AppSwitch extends StatelessWidget {
         value: value == true ? true : false,
         onChanged: (value) => onChanged!(value),
         focusNode: FocusNode(canRequestFocus: enabled == false ? false : true),
-        activeColor: AppColors.switchActive,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ));
 }

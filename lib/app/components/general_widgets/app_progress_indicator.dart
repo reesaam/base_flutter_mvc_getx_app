@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/info/app_defaults.dart';
-import '../../../data/resources/app_colors.dart';
 
 class AppProgressIndicator {
   static Widget circular({
@@ -30,7 +29,7 @@ class _AppProgressIndicatorCircular extends CircularProgressIndicator {
   final double? width;
 
   @override
-  Color? get color => indicatorColor ?? AppColors.appSecondary;
+  Color? get color => indicatorColor;
 
   @override
   double get strokeWidth => width ?? defaultCircularProgressBarWidth;
@@ -43,8 +42,8 @@ class _AppProgressIndicatorLinear extends LinearProgressIndicator {
   final Color? indicatorBackgroundColor;
 
   @override
-  Color? get color => indicatorColor ?? AppColors.appSecondary;
+  Color? get color => indicatorColor;
 
   @override
-  Color? get backgroundColor => indicatorBackgroundColor ?? AppColors.appBackground;
+  Color? get backgroundColor => indicatorBackgroundColor;
 }

@@ -21,7 +21,6 @@ import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -387,7 +386,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             name == null ? shrinkSizedBox : AppSpaces.h20,
             Container(
               padding: fullWidth == true ? AppPaddings.zero : const EdgeInsets.symmetric(horizontal: 20),
-              color: primary == true ? AppColors.appSecondary : null,
+              // color: primary == true ? AppColors.appSecondary : null,
               child: widget ?? shrinkSizedBox,
             ),
           ]),

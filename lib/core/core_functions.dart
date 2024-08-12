@@ -14,7 +14,6 @@ import '../data/info/app_core_flags.dart';
 import '../data/models/core_models/app_data/app_data.dart';
 import '../data/models/core_models/app_page_detail/app_page_detail.dart';
 import '../data/models/core_models/app_statistics_data/app_statistics_data.dart';
-import '../data/resources/app_colors.dart';
 import '../data/storage/app_local_storage.dart';
 import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';
@@ -67,7 +66,7 @@ Future<AppVersion> getCurrentVersion() async {
 
 noInternetConnectionSnackBar() => AppSnackBar().showSnackBar(message: Texts.to.connectionInternetNotAvailableText);
 
-showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear(color: AppColors.appSecondary));
+showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear());
 
 appExitDialog() => AppAlertDialogs().withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
 

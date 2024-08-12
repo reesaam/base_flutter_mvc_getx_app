@@ -53,7 +53,7 @@ class AppBottomDialogs {
           child: SizedBox(
             width: constraints.maxWidth,
             height: 50,
-            child: Text(text, style: AppTextStyles.appBarTitle),
+            child: Text(text),
           )));
 
   _appBottomDialogGeneral({String? title, required Widget form, required List<Widget> buttons, bool? dismissible}) async => await showModalBottomSheet(
@@ -63,7 +63,7 @@ class AppBottomDialogs {
       showDragHandle: true,
       isScrollControlled: true,
       isDismissible: dismissible ?? false,
-      shape: AppElements.defaultModalBorderShape,
+      shape: AppElements.borderShapeModal,
       builder: (context) => SingleChildScrollView(
               child: Column(mainAxisSize: MainAxisSize.max, children: [
             Padding(
@@ -73,7 +73,7 @@ class AppBottomDialogs {
                     title == null
                         ? shrinkSizedBox
                         : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text(title ?? '', style: AppTextStyles.modalTitle),
+                            Text(title ?? ''),
                             AppDividers.generalPrimaryColor,
                             AppSpaces.h10,
                           ]),

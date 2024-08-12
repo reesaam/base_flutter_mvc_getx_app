@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../data/info/app_defaults.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
 import '../../../data/resources/app_text_styles.dart';
@@ -22,9 +21,9 @@ class AppSnackBar {
     Function()? buttonAction,
   }) {
     GetSnackBar(
-      titleText: title == null ? shrinkSizedBox : Text(title, style: AppTextStyles.snackBarTitle),
+      titleText: title == null ? shrinkSizedBox : Text(title),
       messageText: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-        Text(message, style: AppTextStyles.snackBarMessage),
+        Text(message),
         buttonText == null
             ? shrinkSizedBox
             : Column(children: [
@@ -42,7 +41,6 @@ class AppSnackBar {
                 )
               : _buttonWidget(leadingAction ?? nullFunction, leadingText),
       padding: AppPaddings.snackBar,
-      backgroundColor: AppColors.snackBarBackground,
       snackPosition: appDefaultSnackPosition,
       snackStyle: SnackStyle.FLOATING,
       animationDuration: appSnackBarDefaultAnimationDuration,

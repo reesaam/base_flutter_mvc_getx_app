@@ -8,7 +8,7 @@ import 'core/app_bindings/core_bindings.dart';
 import 'core/app_routing/app_pages.dart';
 import 'data/info/app_info.dart';
 import 'data/resources/app_enums.dart';
-import 'data/resources/app_themes.dart';
+import 'data/resources/app_theme/app_themes.dart';
 
 import 'generated/l10n.dart';
 
@@ -32,7 +32,9 @@ class MainApp extends StatelessWidget {
       getPages: AppPages.pages,
       initialRoute: AppRoutes.splashScreen.route,
       unknownRoute: AppPages.unknownRoute,
-      theme: AppThemes().theme,
+      theme: AppThemes.getLightTheme,
+      darkTheme: AppThemes.getDarkTheme,
+      themeMode: ThemeMode.system,
       supportedLocales: AppLocalization.to.supportedLocales,
       localizationsDelegates: AppLocalization.to.localizationDelegates,
       locale: AppLocalization.to.getDefaultLocale(),

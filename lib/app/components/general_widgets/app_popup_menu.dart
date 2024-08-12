@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -24,8 +23,7 @@ class AppPopupMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) => PopupMenuButton(
       padding: AppPaddings.zero,
-      color: AppColors.appSecondary,
-      shape: AppElements.defaultBorderShape,
+      shape: AppElements.borderShapeDefault,
       icon: icon == null
           ? primaryColorIcon == true
               ? AppIcons.threeDots.withPrimaryColor

@@ -1,52 +1,46 @@
 import 'package:flutter/material.dart';
 
-import '../info/app_defaults.dart';
-import 'app_colors.dart';
-import 'app_sizes.dart';
+import 'app_theme/app_themes_variables.dart';
 
-class AppTextStyles {
-  static get defaultSize => appDefaultFontSize;
-  static get smallSize => defaultSize - 2;
-  static get normalSize => defaultSize;
-  static get bigSize => defaultSize + 3;
-  static get titleSize => defaultSize + 5;
-  static get bigTitleSize => defaultSize + 8;
+class AppTextStyles extends TextStyle {
+  final TextStyle? themeData;
+  const AppTextStyles({this.themeData});
 
   ///Card
-  static TextStyle get cardTitle => TextStyle(color: AppColors.cardText, fontSize: bigSize);
+  factory AppTextStyles.cardTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///Text Fields
-  static TextStyle get textFieldText => TextStyle(color: AppColors.textFieldText);
-  static TextStyle get textFieldLabel => TextStyle(color: AppColors.textFieldLabel);
-  static TextStyle get textFieldHint => TextStyle(color: AppColors.textFieldHint);
-  static TextStyle get textError => TextStyle(color: AppColors.error);
+  factory AppTextStyles.textFieldText() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.textFieldLabel() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.textFieldHint() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.textError() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///Popup Menu
-  static TextStyle get popupMenuItem => TextStyle(color: AppColors.appPrimary);
-  static TextStyle get popupMenuItemSecondary => TextStyle(color: AppColors.appSecondary);
+  factory AppTextStyles.popupMenuItem() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.popupMenuItemSecondary() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///AppBar
-  static TextStyle get appBarTitle => TextStyle(color: AppColors.appBarText, fontSize: bigTitleSize);
+  factory AppTextStyles.appBarTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///ModalBottomSheet
-  static TextStyle get modalTitle => TextStyle(fontSize: titleSize, color: AppColors.appPrimary);
+  factory AppTextStyles.modalTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///Dialogs
-  static TextStyle get dialogAlertTitle => TextStyle(fontSize: titleSize, color: AppColors.appPrimary);
-  static TextStyle get dialogAlertText => TextStyle(fontSize: normalSize, color: AppColors.appTertiary);
+  factory AppTextStyles.dialogAlertTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.dialogAlertText() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///SnackBar
-  static TextStyle get snackBarMessage => TextStyle(color: AppColors.textNormalOnSecondary);
-  static TextStyle get snackBarTitle => TextStyle(color: AppColors.textNormalDark);
+  factory AppTextStyles.snackBarMessage() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.snackBarTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///TextField
-  static TextStyle get textFieldCounter => TextStyle(color: AppColors.textNormal);
-  static TextStyle get textFieldCounterError => TextStyle(color: AppColors.error);
+  factory AppTextStyles.textFieldCounter() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.textFieldCounterError() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///SplashScreen
-  static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
+  factory AppTextStyles.splashScreenAppName() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 
   ///Settings
-  static TextStyle get settingsSectionTitle => TextStyle(fontSize: bigSize, color: AppColors.settingTitle);
-  static TextStyle get settingsSectionItem => TextStyle(color: AppColors.settingItem);
+  factory AppTextStyles.settingsSectionTitle() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
+  factory AppTextStyles.settingsSectionItem() => AppTextStyles(themeData: AppThemesVariables.textTheme.displayLarge);
 }

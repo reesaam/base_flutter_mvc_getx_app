@@ -42,14 +42,6 @@ enum AppRoutes {
   adminWidgetCheckPage,
 }
 
-enum AppBottomNavigationPages {
-  homepage(AppRoutes.homepage),
-  settings(AppRoutes.settings);
-
-  final AppRoutes appRoute;
-  const AppBottomNavigationPages(this.appRoute);
-}
-
 enum AppLanguages {
   english('English', Locale('en')),
   deutsch('Deutsch', Locale('de')),

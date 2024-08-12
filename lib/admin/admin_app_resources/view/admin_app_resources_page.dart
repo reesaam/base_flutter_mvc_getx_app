@@ -10,7 +10,6 @@ import '../../../app/components/main_components/app_bar.dart';
 
 import '../../../data/info/app_defaults.dart';
 import '../../../data/info/app_info.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
@@ -51,14 +50,14 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     child: Row(children: [
-                      _itemWidget(title: 'Background', widget: controller.colorWidget(AppColors.appBackground)),
-                      _itemWidget(title: 'Primary', widget: controller.colorWidget(AppColors.appPrimary)),
-                      _itemWidget(title: 'Secondary', widget: controller.colorWidget(AppColors.appSecondary)),
-                      _itemWidget(title: 'Tertiary', widget: controller.colorWidget(AppColors.appTertiary)),
-                      _itemWidget(title: 'Light', widget: controller.colorWidget(AppColors.appLight)),
-                      _itemWidget(title: 'Dark', widget: controller.colorWidget(AppColors.appDark)),
-                      _itemWidget(title: 'Disabled', widget: controller.colorWidget(AppColors.appDisabled)),
-                      _itemWidget(title: 'On Disabled', widget: controller.colorWidget(AppColors.appOnDisabled)),
+                      // _itemWidget(title: 'Background', widget: controller.colorWidget(AppColors.appBackground)),
+                      // _itemWidget(title: 'Primary', widget: controller.colorWidget(AppColors.appPrimary)),
+                      // _itemWidget(title: 'Secondary', widget: controller.colorWidget(AppColors.appSecondary)),
+                      // _itemWidget(title: 'Tertiary', widget: controller.colorWidget(AppColors.appTertiary)),
+                      // _itemWidget(title: 'Light', widget: controller.colorWidget(AppColors.appLight)),
+                      // _itemWidget(title: 'Dark', widget: controller.colorWidget(AppColors.appDark)),
+                      // _itemWidget(title: 'Disabled', widget: controller.colorWidget(AppColors.appDisabled)),
+                      // _itemWidget(title: 'On Disabled', widget: controller.colorWidget(AppColors.appOnDisabled)),
                     ]))),
             fullWidth: true)
       ], title: 'App Colors');
@@ -93,7 +92,6 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
             child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Container(
                 padding: fullWidth == true ? AppPaddings.zero : const EdgeInsets.symmetric(horizontal: 5),
-                color: primary == true ? AppColors.appSecondary : null,
                 child: widget ?? shrinkSizedBox,
               ),
               title == null ? shrinkSizedBox : AppSpaces.h10,

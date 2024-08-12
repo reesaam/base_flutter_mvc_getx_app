@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_extensions/data_types_extensions/extension_string.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';

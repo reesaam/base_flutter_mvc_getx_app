@@ -1,3 +1,5 @@
+import '../../app_localization.dart';
+
 extension StringProvidersNull on DateTime? {
   String get toDateTimeFormat => this == null ? Texts.to.empty : this!.toDateTimeFormat;
   String get toDateFormat => this == null ? Texts.to.empty : this!.toDateFormat;

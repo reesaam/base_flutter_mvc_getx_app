@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../data/statistics/app_statistics.dart';
+import '../app_localization.dart';
 import '../core_functions.dart';
 import 'dio.dart';
 import '../failures/network_exception.dart';

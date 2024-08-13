@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/resources/app_theme/app_themes.dart';
+import '../../../data/resources/app_theme/app_themes_variables.dart';
+
 extension CopyWith on Text {
   Text copyWith({
     String? text,
@@ -37,13 +40,20 @@ extension CopyWith on Text {
       );
 }
 
-extension TextColor on Text {
-  Text get withPrimaryColor => this;
-  Text get withSecondaryColor => this;
-  Text get withTertiaryColor => this;
-  Text get withDisabledColor => this;
+extension Colors on Text {
+  Text withColor(Color color) => copyWith(style: style?.copyWith(color: color) ?? TextStyle(color: color));
+  Text get withPrimaryColor => withColor(AppThemes.to.primaryColor);
+  Text get withSecondaryColor => withColor(AppThemesVariables.appSecondary);
+  Text get withTertiaryColor => withColor(AppThemesVariables.appTertiary);
+  Text get withDisabledColor => withColor(AppThemes.to.disabledColor);
 }
 
-extension TextSize on Text {
-  Text withTextSize(double fontSize) => copyWith(style: style?.copyWith(fontSize: fontSize) ?? TextStyle(fontSize: fontSize));
+extension Sizes on Text {
+  Text withSize(double fontSize) => copyWith(style: style?.copyWith(fontSize: fontSize) ?? TextStyle(fontSize: fontSize));
+}
+
+extension Alignment on Text {
+  Text withTextAlign(TextAlign? align) => copyWith(textAlign: align);
+  Text get centered => withTextAlign(TextAlign.center);
+  Text get justified => withTextAlign(TextAlign.justify);
 }

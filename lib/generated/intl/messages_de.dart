@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adminWidgetCheckPageName":
             MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
+        "appDocsPageName":
+            MessageLookupByLibrary.simpleMessage("App Docs Page"),
         "appExit": MessageLookupByLibrary.simpleMessage("App Exit"),
         "app_name":
             MessageLookupByLibrary.simpleMessage("Base Flutter MVC GetX App"),

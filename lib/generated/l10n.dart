@@ -790,6 +790,16 @@ class S {
     );
   }
 
+  /// `App Docs Page`
+  String get appDocsPageName {
+    return Intl.message(
+      'App Docs Page',
+      name: 'appDocsPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `END OF FILE`
   String get endOfFile {
     return Intl.message(

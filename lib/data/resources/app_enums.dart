@@ -40,6 +40,7 @@ enum AppRoutes {
   adminAppInfoPage,
   adminAppResourcesPage,
   adminWidgetCheckPage,
+  appDocs,
 }
 
 enum AppLanguages {

@@ -84,6 +84,7 @@
     "adminAppInfoPageName": "Admin App Info Page",
     "adminAppResourcesPageName": "Admin App Resources Page",
     "adminWidgetCheckPageName": "Admin Widget Check Page",
+    "appDocsPageName": "App Docs Page",
 
     "END": "END OF FILE"
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 extension CopyWith on Text {
   Text copyWith({
     String? text,
@@ -43,4 +42,8 @@ extension TextColor on Text {
   Text get withSecondaryColor => this;
   Text get withTertiaryColor => this;
   Text get withDisabledColor => this;
+}
+
+extension TextSize on Text {
+  Text withTextSize(double fontSize) => copyWith(style: style?.copyWith(fontSize: fontSize) ?? TextStyle(fontSize: fontSize));
 }

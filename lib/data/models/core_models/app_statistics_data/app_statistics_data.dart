@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/app_extensions/data_models_extensions/extension_statistics.dart';
+import '../../../../core/app_extensions/extensions_on_data_models/extension_statistics.dart';
 import '../app_statistics_detailed_data/app_statistics_detailed_data.dart';
 
 part 'app_statistics_data.freezed.dart';

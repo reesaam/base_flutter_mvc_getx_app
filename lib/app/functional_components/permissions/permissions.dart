@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../../core/app_extensions/data_models_extensions/extension_permission.dart';
+import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
 import 'permission_response.dart';
 
 class AppPermissions {

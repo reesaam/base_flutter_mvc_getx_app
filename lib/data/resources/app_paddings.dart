@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppPaddings {
+class AppPaddings extends EdgeInsets {
+  const AppPaddings.all(double? value) : super.all(value ?? 0);
+  const AppPaddings.only({double? left, double? top, double? right, double? bottom}) : super.only(left: left ?? 0, top: top ?? 0, right: right ?? 0, bottom: bottom ?? 0);
+  const AppPaddings.fromLTRB(double? left, double? top, double? right, double? bottom) : super.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0);
+  const AppPaddings.symmetric({double? horizontal, double? vertical}) : super.symmetric(horizontal: horizontal ?? 0, vertical: vertical ?? 0);
+
   ///General
   static EdgeInsets get pages => const EdgeInsets.all(10);
   static EdgeInsets get zero => const EdgeInsets.all(0);
-
-  ///Specific
-
-  static EdgeInsets right(double right) => EdgeInsets.only(right: right);
-  static EdgeInsets left(double left) => EdgeInsets.only(left: left);
 
   ///Elements
   static EdgeInsets get textFieldContent => const EdgeInsets.symmetric(horizontal: 20, vertical: 10);

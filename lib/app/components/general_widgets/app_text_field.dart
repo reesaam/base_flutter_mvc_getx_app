@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../core/core_functions.dart';
-import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_text_styles.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({

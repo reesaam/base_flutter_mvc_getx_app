@@ -14,14 +14,4 @@ class AdminAppResourcesController extends CoreController {
   void pageInit() {
     pageDetail = AppPageDetails().adminAppResourcesPage;
   }
-
-  Widget colorWidget(Color color) => CircleAvatar(
-      minRadius: 20,
-      maxRadius: 20,
-      backgroundColor: Colors.white,
-      child: CircleAvatar(
-        minRadius: 18,
-        maxRadius: 18,
-        backgroundColor: color,
-      ));
 }

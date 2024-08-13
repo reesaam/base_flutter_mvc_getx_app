@@ -6,7 +6,6 @@ import '../../../core/core_widgets.dart';
 import '../../../data/info/app_defaults.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
-import '../../../data/resources/app_text_styles.dart';
 import '../buttons/app_general_button.dart';
 import '../buttons/app_icon_button.dart';
 

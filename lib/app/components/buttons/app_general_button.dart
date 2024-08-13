@@ -1,10 +1,6 @@
-import 'package:base_flutter_all_app/data/resources/app_theme/app_themes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../core/core_widgets.dart';
-import '../../../data/resources/app_elements.dart';
 import '../general_widgets/app_progress_indicator.dart';
 
 class AppGeneralButton extends ElevatedButton {

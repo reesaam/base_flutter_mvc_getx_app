@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:get/get.dart';
 
 import '../../../core/elements/core_controller.dart';
 import '../../../data/info/app_page_details.dart';

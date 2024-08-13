@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../app/components/buttons/app_general_button.dart';
-import '../../../app/components/dialogs/app_alert_dialogs.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../app/functional_components/connectivity/connectivity.dart';
-import '../../../app/functional_components/file_functions/file_functions.dart';
-import '../../../core/app_routing/app_pages.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../../core/core_functions.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 

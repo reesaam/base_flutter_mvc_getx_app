@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../../data/info/app_apis.dart';
 import '../../data/resources/app_texts.dart';
 
 class DioCore {

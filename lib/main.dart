@@ -10,7 +10,7 @@ import 'data/info/app_info.dart';
 import 'data/resources/app_enums.dart';
 import 'data/resources/app_theme/app_themes.dart';
 
-import 'generated/l10n.dart';
+// import 'generated/l10n.dart';
 
 void main() => initProject();
 

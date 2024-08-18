@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../app/components/buttons/app_general_button.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -20,21 +19,26 @@ class AppDocsPage extends CoreView<AppDocsController> {
   @override
   Widget get body => Column(children: [
         AppDividers.general,
-        _docs(),
+        _mainDocs(),
       ]);
 
-  _docs() => _section([
+  _mainDocs() => _section(items: [
         _item(text: 'Docs Generate', function: () {}),
-      ], title: 'Main Docs');
+      ], title: 'Main Docs', isGrid: true);
 
-  _section(List<Widget> section, {String? title}) => Column(children: [
-        title == null
-            ? shrinkSizedBox
-            : Column(children: [
-                Text(title, style: const TextStyle(fontSize: 20)),
-                AppDividers.settings,
-              ]),
-        Column(children: section),
+  _section({required List<Widget> items, required String title, bool? isGrid}) => Column(children: [
+        Column(children: [Text(title, style: const TextStyle(fontSize: 20)), AppDividers.settings]),
+        Padding(
+            padding: AppPaddings.buttonXLarge,
+            child: GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: items.length > 1 && isGrid == true ? 4 : 8,
+              crossAxisCount: items.length > 1 && isGrid == true ? 2 : 1,
+              children: List<Widget>.generate(items.length, (index) => items[index]),
+            )),
         AppDividers.general,
       ]);
 

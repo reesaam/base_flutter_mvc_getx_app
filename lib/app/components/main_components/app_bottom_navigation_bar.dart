@@ -7,6 +7,7 @@ import '../../../core/app_routing/app_routing.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int? selectedIndex;
@@ -29,7 +30,6 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   void _onItemTap(int index) {
     selectedIndex.value = index;
     goToPage(pagesList[index].pageRoute);
-    // Get.reload();
   }
 
   @override
@@ -49,7 +49,6 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
         //     backgroundColor: AppThemes.to.primaryColor,
         //     foregroundColor: AppThemes.to.canvasColor,
         //     child: _createIcon(route)),
-        activeIcon: _createIcon(route),
         icon: _createIcon(route),
         label: _createLabel(route),
       );

@@ -5,6 +5,7 @@ double get appDefaultFontSize => 14;
 
 ///TimeOuts
 Duration get appDefaultConnectionTimeOut => const Duration(seconds: 10);
+Duration get appDefaultTransitionDuration => const Duration(milliseconds: 1);
 
 ///ProgressBar
 double get defaultCircularProgressBarWidth => 5;

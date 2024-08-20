@@ -11,8 +11,8 @@ class AppThemes {
   ///Main Theme Functions
   static ThemeData get to => Get.find<AppThemes>().getTheme();
 
-  static ThemeData get getLightTheme => Get.find<AppThemes>().getTheme(isSystemDark: false);
-  static ThemeData get getDarkTheme => Get.find<AppThemes>().getTheme(isSystemDark: true);
+  static ThemeData get lightTheme => Get.find<AppThemes>().getTheme(isSystemDark: false);
+  static ThemeData get darkTheme => Get.find<AppThemes>().getTheme(isSystemDark: true);
 
   ThemeData importTheme({ThemeData? themeData}) => themeData ?? getTheme();
 
@@ -133,6 +133,7 @@ class AppThemes {
     IconThemeData defaultIconThemeData = IconThemeData();
 
     BottomNavigationBarThemeData themeData = BottomNavigationBarThemeData(
+      backgroundColor: AppThemesVariables.appError,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       enableFeedback: true,
@@ -142,17 +143,13 @@ class AppThemes {
     return AppThemeDataModel<BottomNavigationBarThemeData>(
         lightThemeData: themeData.copyWith(
           backgroundColor: AppThemesVariables.appPrimary,
-          selectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appBackground),
-          selectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appBackground),
-          unselectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appTertiary),
-          unselectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appTertiary),
+          selectedItemColor: AppThemesVariables.appBackground,
+          unselectedItemColor: AppThemesVariables.appTertiary,
         ),
         darkThemeData: themeData.copyWith(
           backgroundColor: AppThemesVariables.appPrimaryDark,
-          selectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appSecondaryDark),
-          selectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appBackgroundDark),
-          unselectedIconTheme: defaultIconThemeData.copyWith(color: AppThemesVariables.appTertiaryDark),
-          unselectedLabelStyle: _textStyle().copyWith(color: AppThemesVariables.appTertiaryDark),
+          selectedItemColor: AppThemesVariables.appBackgroundDark,
+          unselectedItemColor: AppThemesVariables.appTertiaryDark,
         )).getMode<BottomNavigationBarThemeData>(isDark);
   }
 

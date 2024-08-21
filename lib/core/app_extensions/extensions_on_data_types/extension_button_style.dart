@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension CopyWith on ButtonStyle? {
+extension ExtensionButtonCopyWith on ButtonStyle? {
   ButtonStyle? copyWith(
     MaterialStateProperty<Color?>? backgroundColor,
     MaterialStateProperty<BorderSide?>? side,

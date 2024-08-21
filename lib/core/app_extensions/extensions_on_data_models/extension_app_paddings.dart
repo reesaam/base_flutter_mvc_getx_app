@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/resources/app_paddings.dart';
 
-extension CopyWith on EdgeInsets {
+extension ExtensionAppPaddingsCopyWith on EdgeInsets {
   AppPaddings copyWithSymmetric({
     double? horizontal,
     double? vertical,

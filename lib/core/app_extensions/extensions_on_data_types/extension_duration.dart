@@ -1,7 +1,7 @@
 import '../../../data/models/helper_models/date_time_difference_custom_model/date_time_difference_custom_model.dart';
 import '../../app_localization.dart';
 
-extension Calculate on Duration {
+extension ExtensionDateTimeDurationCalculation on Duration {
   DateTimeDifferenceCustomModel calculateDifferenceInCustomDateTimeModel(Duration duration) {
     var dDay = duration.inDays;
     var dHour = duration.inHours;
@@ -20,12 +20,12 @@ extension Calculate on Duration {
   }
 }
 
-extension NullFormat on Duration? {
+extension ExtensionDateTimeDurationCalculationNull on Duration? {
   String get toCompleteFormat => this == null ? 'Not Specified' : this!.toCompleteFormat;
   String get toConditionalFormat => this == null ? 'Not Specified' : this!.toConditionalFormat;
 }
 
-extension Format on Duration {
+extension ExtensionDateTimeFormat on Duration {
   String get toCompleteFormat {
     DateTimeDifferenceCustomModel diff = calculateDifferenceInCustomDateTimeModel(this);
     return '${diff.year}Y, ${diff.month}M, ${diff.week}W, ${diff.day}D, ${diff.hour}H, ${diff.minute}M, ${diff.second}S';

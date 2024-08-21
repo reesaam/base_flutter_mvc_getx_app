@@ -27,7 +27,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
 
   @override
   Widget get body => Obx(() => Column(children: [
-        AppDividers.general,
+        AppDividers.general(),
         _appInfo(),
         _appDeveloperInfo(),
         _appStatisticsInfo(),
@@ -70,7 +70,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({String? title, String? text}) => Padding(

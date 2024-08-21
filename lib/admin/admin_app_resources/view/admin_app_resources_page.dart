@@ -27,7 +27,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general,
+        AppDividers.general(),
         _appDefaults(),
         _appAPIs(),
         _appTheme(),
@@ -110,7 +110,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({String? title, String? text}) => Padding(

@@ -18,7 +18,7 @@ class AppDocsPage extends CoreView<AppDocsController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general,
+        AppDividers.general(),
         _mainDocs(),
       ]);
 
@@ -39,7 +39,7 @@ class AppDocsPage extends CoreView<AppDocsController> {
               crossAxisCount: items.length > 1 && isGrid == true ? 2 : 1,
               children: List<Widget>.generate(items.length, (index) => items[index]),
             )),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({required String text, required Function function}) => AppGeneralButton(text: text, onTap: () => function());

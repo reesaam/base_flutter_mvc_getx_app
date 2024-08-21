@@ -26,9 +26,9 @@ class AppDrawer extends Drawer {
   Widget? get child => SafeArea(
           child: Column(children: [
         header(),
-        AppDividers.general,
+        AppDividers.general(),
         Expanded(child: body()),
-        AppDividers.general,
+        AppDividers.general(),
         footer(),
       ]));
 

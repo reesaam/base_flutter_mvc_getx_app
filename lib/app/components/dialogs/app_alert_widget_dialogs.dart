@@ -81,7 +81,7 @@ class AppAlertWidgetDialogs {
                   ? shrinkSizedBox
                   : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(title),
-                AppDividers.generalPrimaryColor,
+                AppDividers.generalWithPrimaryColor,
               ]),
               content: widget,
               actions: _renderButtonsAlertWidgetDialog(buttons),

@@ -73,7 +73,7 @@ class AppBottomDialogs {
                         ? shrinkSizedBox
                         : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                             Text(title ?? Texts.to.empty),
-                            AppDividers.generalPrimaryColor,
+                            AppDividers.generalWithPrimaryColor,
                             AppSpaces.h10,
                           ]),
                     form,

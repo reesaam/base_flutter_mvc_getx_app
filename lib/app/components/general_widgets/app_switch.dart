@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/resources/app_sizes.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 
 class AppSwitch extends StatelessWidget {
   const AppSwitch({super.key, required this.value, required this.onChanged, this.enabled});
@@ -17,5 +18,8 @@ class AppSwitch extends StatelessWidget {
         onChanged: (value) => onChanged!(value),
         focusNode: FocusNode(canRequestFocus: enabled == false ? false : true),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        activeTrackColor: AppThemes.to.primaryColor,
+        inactiveTrackColor: AppThemes.to.canvasColor,
+        inactiveThumbColor: AppThemes.to.primaryColor,
       ));
 }

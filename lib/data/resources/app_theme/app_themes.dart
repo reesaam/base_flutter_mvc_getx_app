@@ -402,13 +402,11 @@ class AppThemes {
     return AppThemeDataModel<SwitchThemeData>(
         lightThemeData: themeData.copyWith(
           overlayColor: MaterialStateProperty.all(AppThemesVariables.appBackground),
-          trackColor: MaterialStateProperty.all(AppThemesVariables.appPrimary),
           trackOutlineColor: MaterialStateProperty.all(AppThemesVariables.appPrimary),
           thumbColor: MaterialStateProperty.all(AppThemesVariables.appBackground),
         ),
         darkThemeData: themeData.copyWith(
           overlayColor: MaterialStateProperty.all(AppThemesVariables.appBackgroundDark),
-          trackColor: MaterialStateProperty.all(AppThemesVariables.appPrimaryDark),
           trackOutlineColor: MaterialStateProperty.all(AppThemesVariables.appPrimaryDark),
           thumbColor: MaterialStateProperty.all(AppThemesVariables.appBackgroundDark),
         )).getMode<SwitchThemeData>(isDark);

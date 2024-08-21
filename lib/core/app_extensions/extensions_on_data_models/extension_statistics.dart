@@ -29,9 +29,9 @@ extension ExtensionAppStatisticsClear on AppStatisticsData {
 
 extension ExtensionAppStatisticsIncreases on AppStatisticsData {
   //Data
-  AppStatisticsData get increaseLaunch => copyWith(launches: launches! + 1);
-  AppStatisticsData get increaseLogin => copyWith(logins: logins! + 1);
-  AppStatisticsData get increaseCrashes => copyWith(crashes: crashes! + 1);
+  AppStatisticsData get increaseLaunch => copyWith(launches: launches == null ? 0 : launches! + 1);
+  AppStatisticsData get increaseLogin => copyWith(logins: logins == null ? 0 : logins! + 1);
+  AppStatisticsData get increaseCrashes => copyWith(crashes: crashes == null ? 0 : crashes! + 1);
 
   //Details
   get increasePageOpens => copyWith(detailedData: detailedData?._increasePageOpens);

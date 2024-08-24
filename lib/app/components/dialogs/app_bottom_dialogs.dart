@@ -7,7 +7,6 @@ import '../../../core/core_widgets.dart';
 import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
-import '../../../data/resources/app_text_styles.dart';
 import '../buttons/app_general_button.dart';
 import '../general_widgets/app_dividers.dart';
 
@@ -53,7 +52,7 @@ class AppBottomDialogs {
           child: SizedBox(
             width: constraints.maxWidth,
             height: 50,
-            child: Text(text, style: AppTextStyles.appBarTitle),
+            child: Text(text),
           )));
 
   _appBottomDialogGeneral({String? title, required Widget form, required List<Widget> buttons, bool? dismissible}) async => await showModalBottomSheet(
@@ -63,7 +62,7 @@ class AppBottomDialogs {
       showDragHandle: true,
       isScrollControlled: true,
       isDismissible: dismissible ?? false,
-      shape: AppElements.defaultModalBorderShape,
+      shape: AppElements.borderShapeModal,
       builder: (context) => SingleChildScrollView(
               child: Column(mainAxisSize: MainAxisSize.max, children: [
             Padding(
@@ -73,8 +72,8 @@ class AppBottomDialogs {
                     title == null
                         ? shrinkSizedBox
                         : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text(title ?? '', style: AppTextStyles.modalTitle),
-                            AppDividers.generalPrimaryColor,
+                            Text(title ?? Texts.to.empty),
+                            AppDividers.generalWithPrimaryColor,
                             AppSpaces.h10,
                           ]),
                     form,

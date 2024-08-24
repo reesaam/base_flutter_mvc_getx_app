@@ -4,11 +4,11 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
-import '../../core/app_extensions/data_types_extensions/extension_date_time.dart';
-import '../../core/app_extensions/data_types_extensions/extension_duration.dart';
+import '../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
+import '../../core/app_extensions/extensions_on_data_types/extension_string.dart';
 import '../../core/failures/local_exception.dart';
 import '../../data/info/app_info.dart';
-import '../../core/app_extensions/data_types_extensions/extension_string.dart';
 import '../../app/functional_components/file_functions/file_functions.dart';
 import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
@@ -139,8 +139,8 @@ class AppLocalStorage {
 
     if (appData != null) {
       appLogPrint('==> App Data:');
-      appLogPrint('App Version: ${appData.appVersions?.versionsList.last.version ?? unknown}');
-      detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.last.versionType ?? unknown}') : null;
+      appLogPrint('App Version: ${appData.appVersions?.versionsList.lastOrNull?.version ?? unknown}');
+      detailsIncluded == true ? appLogPrint('App Version Type: ${appData.appVersions?.versionsList.lastOrNull?.versionType ?? unknown}') : null;
       appLogPrint('App Data Type: ${appData.dataVersion?.number ?? unknown}');
       if (detailsIncluded == true) {
         appLogPrint('==> Details:');

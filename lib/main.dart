@@ -6,11 +6,12 @@ import 'core/app_extensions/extension_app_routes.dart';
 import 'core/app_localization.dart';
 import 'core/app_bindings/core_bindings.dart';
 import 'core/app_routing/app_pages.dart';
+import 'data/info/app_defaults.dart';
 import 'data/info/app_info.dart';
 import 'data/resources/app_enums.dart';
-import 'data/resources/app_themes.dart';
+import 'data/resources/app_theme/app_themes.dart';
 
-import 'generated/l10n.dart';
+// import 'generated/l10n.dart';
 
 void main() => initProject();
 
@@ -32,11 +33,17 @@ class MainApp extends StatelessWidget {
       getPages: AppPages.pages,
       initialRoute: AppRoutes.splashScreen.route,
       unknownRoute: AppPages.unknownRoute,
-      theme: AppThemes.mainTheme,
+      defaultTransition: Transition.fadeIn,
+      transitionDuration: appDefaultTransitionDuration,
+      color: AppThemes.to.primaryColor,
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.system,
       supportedLocales: AppLocalization.to.supportedLocales,
       localizationsDelegates: AppLocalization.to.localizationDelegates,
       locale: AppLocalization.to.getDefaultLocale(),
       textDirection: AppLocalization.to.getTextDirection(),
+      popGesture: true,
     );
   }
 }

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/resources/app_colors.dart';
-import '../../../data/resources/app_elements.dart';
-
 class AppCheckBox extends StatelessWidget {
   const AppCheckBox({
     super.key,
@@ -15,9 +12,7 @@ class AppCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Checkbox(
-      fillColor: MaterialStateProperty.all(AppColors.appCheckBoxTick),
-      side: AppElements.defaultBorderSideCheckBox,
-      checkColor: AppColors.appCheckBox,
+      // side: AppElements.defaultBorderSideCheckBox,
       value: value,
       onChanged: (isChecked) => onChanged(isChecked));
 }

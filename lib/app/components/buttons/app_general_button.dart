@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../core/core_widgets.dart';
-import '../../../data/resources/app_colors.dart';
-import '../../../data/resources/app_elements.dart';
 import '../general_widgets/app_progress_indicator.dart';
 
 class AppGeneralButton extends ElevatedButton {
@@ -48,21 +44,21 @@ class AppGeneralButton extends ElevatedButton {
   @override
   VoidCallback? get onPressed => () => disabled == true || loading == true ? null : onTap();
 
-  @override
-  ButtonStyle? get style => ButtonStyle(
-      backgroundColor: disabled == true
-          ? MaterialStateProperty.all(AppColors.appDisabled)
-          : primaryColor == true
-              ? MaterialStateProperty.all(AppColors.appPrimary)
-              : MaterialStateProperty.all(AppColors.appSecondary),
-      foregroundColor: disabled == true
-          ? MaterialStateProperty.all(AppColors.buttonTextDisabled)
-          : primaryColor == true
-              ? MaterialStateProperty.all(AppColors.buttonTextNormal)
-              : MaterialStateProperty.all(AppColors.buttonTextOnSecondary),
-      side: disabled == true ? MaterialStateProperty.all(AppElements.defaultBorderSideDisabled) : MaterialStateProperty.all(AppElements.defaultBorderSidePrimary),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderLowRadiusShape),
-      splashFactory: InkSplash.splashFactory);
+  // @override
+  // ButtonStyle? get style => ButtonStyle(
+  //     // backgroundColor: disabled == true
+  //     //     ? MaterialStateProperty.all(AppColors.appDisabled)
+  //     //     : primaryColor == true
+  //     //         ? MaterialStateProperty.all(AppColors.appPrimary)
+  //     //         : MaterialStateProperty.all(AppColors.appSecondary),
+  //     // foregroundColor: disabled == true
+  //     //     ? MaterialStateProperty.all(AppColors.buttonTextDisabled)
+  //     //     : primaryColor == true
+  //     //         ? MaterialStateProperty.all(AppColors.buttonTextNormal)
+  //     //         : MaterialStateProperty.all(AppColors.buttonTextOnSecondary),
+  //     side: disabled == true ? MaterialStateProperty.all(AppElements.defaultBorderSideDisabled) : MaterialStateProperty.all(AppElements.defaultBorderSidePrimary),
+  //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderLowRadiusShape),
+  //     splashFactory: InkSplash.splashFactory);
 
   @override
   MaterialStatesController? get statesController =>
@@ -72,7 +68,7 @@ class AppGeneralButton extends ElevatedButton {
       height: 15,
       width: 15,
       child: AppProgressIndicator.circular(
-        color: primaryColor == true ? AppColors.buttonTextNormal : AppColors.buttonTextOnSecondary,
+        // color: primaryColor == true ? AppColors.buttonTextNormal : AppColors.buttonTextOnSecondary,
         width: 3,
       ));
 }

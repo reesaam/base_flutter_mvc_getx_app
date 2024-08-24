@@ -6,28 +6,28 @@ import '../../../data/storage/app_local_storage.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../failures/local_exception.dart';
 
-extension RxStorage on Rx<AppSettingData> {
+extension ExtensionAppSettingsRxStorage on Rx<AppSettingData> {
   void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: value);
   Rx<AppSettingData> get loadFromStorage => value.loadFromStorage.obs;
 }
 
-extension Storage on AppSettingData {
+extension ExtensionAppSettingsStorage on AppSettingData {
   void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: this);
   AppSettingData get loadFromStorage => AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
 }
 
-extension RxClear on Rx<AppSettingData> {
+extension ExtensionAppSettingsRxClear on Rx<AppSettingData> {
   Rx<AppSettingData> get clearData => value.clearData.obs;
 }
 
-extension Clear on AppSettingData {
+extension ExtensionAppSettingsClear on AppSettingData {
   AppSettingData get clearData => AppSettingData.createEmpty();
 }
 
-extension RxLanguagesEntity on Rx<AppSettingData> {
+extension ExtensionAppSettingsRxLanguagesEntity on Rx<AppSettingData> {
   changeLanguage(AppLanguages language) => value.changeLanguage(language);
 }
 
-extension Languages on AppSettingData {
+extension ExtensionAppSettingsLanguages on AppSettingData {
   changeLanguage(AppLanguages lang) => copyWith(language: lang).saveOnStorage;
 }

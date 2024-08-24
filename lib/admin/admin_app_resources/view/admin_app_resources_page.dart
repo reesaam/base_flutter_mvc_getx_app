@@ -1,19 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/data_types_extensions/extension_string.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 
 import '../../../data/info/app_defaults.dart';
 import '../../../data/info/app_info.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
+import '../../../data/resources/app_theme/app_themes_variables.dart';
 import '../controller/admin_app_resources_controller.dart';
 
 class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
@@ -27,10 +27,12 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general,
+        AppDividers.general(),
         _appDefaults(),
         _appAPIs(),
-        _appColors(),
+        _appTheme(),
+        _appColorsLight(),
+        _appColorsDark(),
       ]);
 
   _appDefaults() => _section([
@@ -43,7 +45,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
         _item(title: 'Border Width', text: appDefaultBorderWidth.toInt().toString()),
       ], title: 'App Defaults');
 
-  _appColors() => _section([
+  _appTheme() => _section([
         _itemWidget(
             widget: Scrollbar(
                 trackVisibility: true,
@@ -51,17 +53,48 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     child: Row(children: [
-                      _itemWidget(title: 'Background', widget: controller.colorWidget(AppColors.appBackground)),
-                      _itemWidget(title: 'Primary', widget: controller.colorWidget(AppColors.appPrimary)),
-                      _itemWidget(title: 'Secondary', widget: controller.colorWidget(AppColors.appSecondary)),
-                      _itemWidget(title: 'Tertiary', widget: controller.colorWidget(AppColors.appTertiary)),
-                      _itemWidget(title: 'Light', widget: controller.colorWidget(AppColors.appLight)),
-                      _itemWidget(title: 'Dark', widget: controller.colorWidget(AppColors.appDark)),
-                      _itemWidget(title: 'Disabled', widget: controller.colorWidget(AppColors.appDisabled)),
-                      _itemWidget(title: 'On Disabled', widget: controller.colorWidget(AppColors.appOnDisabled)),
+                      _itemWidget(title: 'Canvas Color', widget: _colorWidget(AppThemes.to.canvasColor)),
+                      _itemWidget(title: 'Primary Color', widget: _colorWidget(AppThemes.to.primaryColor)),
+                      _itemWidget(title: 'Primary Dark Color', widget: _colorWidget(AppThemes.to.primaryColorDark)),
                     ]))),
             fullWidth: true)
-      ], title: 'App Colors');
+      ], title: 'Theme');
+
+  _appColorsLight() => _section([
+        _itemWidget(
+            widget: Scrollbar(
+                trackVisibility: true,
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Row(children: [
+                      _itemWidget(title: 'Background', widget: _colorWidget(AppThemesVariables.appBackground)),
+                      _itemWidget(title: 'Primary', widget: _colorWidget(AppThemesVariables.appPrimary)),
+                      _itemWidget(title: 'Secondary', widget: _colorWidget(AppThemesVariables.appSecondary)),
+                      _itemWidget(title: 'Tertiary', widget: _colorWidget(AppThemesVariables.appTertiary)),
+                      _itemWidget(title: 'Disabled', widget: _colorWidget(AppThemesVariables.appDisabled)),
+                      _itemWidget(title: 'Error', widget: _colorWidget(AppThemesVariables.appError)),
+                    ]))),
+            fullWidth: true)
+      ], title: 'App Colors - Light');
+
+  _appColorsDark() => _section([
+        _itemWidget(
+            widget: Scrollbar(
+                trackVisibility: true,
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Row(children: [
+                      _itemWidget(title: 'Background', widget: _colorWidget(AppThemesVariables.appBackgroundDark)),
+                      _itemWidget(title: 'Primary', widget: _colorWidget(AppThemesVariables.appPrimaryDark)),
+                      _itemWidget(title: 'Secondary', widget: _colorWidget(AppThemesVariables.appSecondaryDark)),
+                      _itemWidget(title: 'Tertiary', widget: _colorWidget(AppThemesVariables.appTertiaryDark)),
+                      _itemWidget(title: 'Disabled', widget: _colorWidget(AppThemesVariables.appDisabledDark)),
+                      _itemWidget(title: 'Error', widget: _colorWidget(AppThemesVariables.appErrorDark)),
+                    ]))),
+            fullWidth: true)
+      ], title: 'App Colors - Dark');
 
   _appAPIs() => _section([
         _item(title: 'Base URL', text: AppInfo.baseUrl),
@@ -77,27 +110,42 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({String? title, String? text}) => Padding(
       padding: AppPaddings.buttonLarge,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(title?.withDoubleDots ?? ''),
-        Text(text ?? ''),
+        Text(title?.withDoubleDots ?? Texts.to.empty),
+        Text(text ?? Texts.to.empty),
       ]));
 
-  _itemWidget({String? title, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [
+  _itemWidget({String? title, Widget? widget, bool? fullWidth}) => Column(children: [
         Padding(
             padding: fullWidth == true ? AppPaddings.zero : AppPaddings.buttonXLarge,
             child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Container(
                 padding: fullWidth == true ? AppPaddings.zero : const EdgeInsets.symmetric(horizontal: 5),
-                color: primary == true ? AppColors.appSecondary : null,
                 child: widget ?? shrinkSizedBox,
               ),
               title == null ? shrinkSizedBox : AppSpaces.h10,
               title == null ? shrinkSizedBox : Text(title, textAlign: TextAlign.center),
             ])),
       ]);
+
+  _colorWidget(Color color) => CircleAvatar(
+    minRadius: 20,
+    maxRadius: 20,
+    backgroundColor: Colors.white,
+    child: CircleAvatar(
+        minRadius: 20,
+        maxRadius: 20,
+        backgroundColor: Colors.black,
+        child: CircleAvatar(
+          minRadius: 18,
+          maxRadius: 18,
+          backgroundColor: color,
+
+        )),
+  );
 }

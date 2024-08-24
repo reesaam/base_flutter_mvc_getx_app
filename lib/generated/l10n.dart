@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `Click Master`
+  /// `Base Flutter MVC GetX App`
   String get app_name {
     return Intl.message(
-      'Click Master',
+      'Base Flutter MVC GetX App',
       name: 'app_name',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Click Master`
+  /// `Home`
   String get homePageName {
     return Intl.message(
-      'Click Master',
+      'Home',
       name: 'homePageName',
       desc: '',
       args: [],
@@ -785,6 +785,16 @@ class S {
     return Intl.message(
       'Admin Widget Check Page',
       name: 'adminWidgetCheckPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Docs Page`
+  String get appDocsPageName {
+    return Intl.message(
+      'App Docs Page',
+      name: 'appDocsPageName',
       desc: '',
       args: [],
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../data/resources/app_colors.dart';
 import '../../data/resources/app_paddings.dart';
 import '../core_functions.dart';
 import '../core_widgets.dart';
@@ -38,7 +37,6 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
         body: _pageBody,
         bottomNavigationBar: bottomNavigationBar,
         floatingActionButton: floatingActionButton,
-        backgroundColor: AppColors.appBackground,
       );
 
   Widget get _pageBody => SafeArea(

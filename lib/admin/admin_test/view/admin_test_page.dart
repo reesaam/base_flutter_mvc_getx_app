@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../app/components/buttons/app_general_button.dart';
-import '../../../app/components/dialogs/app_alert_dialogs.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../app/functional_components/connectivity/connectivity.dart';
-import '../../../app/functional_components/file_functions/file_functions.dart';
-import '../../../core/app_routing/app_pages.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../../core/core_functions.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 
@@ -27,7 +21,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general,
+        AppDividers.general(),
         _appPages(),
         _checkConnection(),
         _files(),
@@ -83,7 +77,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
               crossAxisCount: items.length > 1 && isGrid == true ? 2 : 1,
               children: List<Widget>.generate(items.length, (index) => items[index]),
             )),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({required String text, required Function function}) => AppGeneralButton(text: text, onTap: () => function());

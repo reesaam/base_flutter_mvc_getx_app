@@ -40,16 +40,7 @@ enum AppRoutes {
   adminAppInfoPage,
   adminAppResourcesPage,
   adminWidgetCheckPage,
-}
-
-enum AppBottomNavigationPages {
-  homepage(AppRoutes.homepage),
-  update(AppRoutes.update),
-  settings(AppRoutes.settings),
-  about(AppRoutes.about);
-
-  final AppRoutes appRoute;
-  const AppBottomNavigationPages(this.appRoute);
+  appDocs,
 }
 
 enum AppLanguages {

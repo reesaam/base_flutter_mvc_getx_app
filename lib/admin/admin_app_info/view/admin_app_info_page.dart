@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/data_types_extensions/extension_date_time.dart';
-import '../../../core/app_extensions/data_types_extensions/extension_duration.dart';
-import '../../../core/app_extensions/data_types_extensions/extension_string.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
@@ -26,11 +27,11 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
 
   @override
   Widget get body => Obx(() => Column(children: [
-    AppDividers.general,
-    _appInfo(),
-    _appDeveloperInfo(),
-    _appStatisticsInfo(),
-  ]));
+        AppDividers.general(),
+        _appInfo(),
+        _appDeveloperInfo(),
+        _appStatisticsInfo(),
+      ]));
 
   _appInfo() => _section([
         _item(title: 'App Name', text: AppInfo.appName),
@@ -55,7 +56,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Launches', text: controller.statisticsData.value.launches.toString()),
         _item(title: 'Logins', text: controller.statisticsData.value.logins.toString()),
         _item(title: 'Crashes', text: controller.statisticsData.value.crashes.toString()),
-        _item(title: 'Install DateTime', text: controller.statisticsData.value.installDateTime.toDateTimeFormat),
+        _item(title: 'Install DateTime', text: controller.statisticsData.value.installDateTime?.toDateTimeFormat),
         _item(title: 'Install Duration', text: controller.statisticsData.value.installDuration?.toConditionalFormat),
         _item(title: 'Page Opens', text: controller.statisticsData.value.detailedData?.pageOpens.toString()),
         _item(title: 'Api Calls', text: controller.statisticsData.value.detailedData?.apiCalls.toString()),
@@ -69,13 +70,13 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({String? title, String? text}) => Padding(
       padding: AppPaddings.buttonLarge,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(title?.withDoubleDots ?? ''),
-        Text(text ?? ''),
+        Text(title?.withDoubleDots ?? Texts.to.empty),
+        Text(text ?? Texts.to.empty),
       ]));
 }

@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/app_extensions/data_types_extensions/extension_int.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
@@ -25,17 +26,18 @@ class AppDrawer extends Drawer {
   Widget? get child => SafeArea(
           child: Column(children: [
         header(),
-        AppDividers.general,
+        AppDividers.general(),
         Expanded(child: body()),
-        AppDividers.general,
+        AppDividers.general(),
         footer(),
       ]));
 
   Widget header() => Container(
       padding: AppPaddings.drawerHeader,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Image.asset(AppLogos.appLogo, width: AppSizes.drawerHeaderIconWidth),
-        Text(Texts.to.app_name, overflow: TextOverflow.ellipsis),
+        AppSpaces.w50,
+        Text(AppInfo.appNameInitials, overflow: TextOverflow.ellipsis),
       ]));
 
   Widget body() {
@@ -43,7 +45,7 @@ class AppDrawer extends Drawer {
     return Column(children: List.generate(drawerList.length, (index) => _bodyItem(drawerList[index])));
   }
 
-  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? ''), leading: page.iconCode.toIcon, onTap: () => {popPage(), goToPage(page.pageRoute)});
+  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon, onTap: () => {popPage(), goToPage(page.pageRoute)});
 
   Widget footer() => Container(
       padding: AppPaddings.drawerFooter,

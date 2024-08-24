@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../data/statistics/app_statistics.dart';
+import '../app_localization.dart';
 import '../core_functions.dart';
 import 'dio.dart';
 import '../failures/network_exception.dart';
@@ -102,7 +103,7 @@ class DioFunctions {
   static _increaseStatisticApiCall() => AppStatistics().increaseApiCalls();
 
   ///TODO: Implementation
-  static Future<String> _getSavePath() async => '';
+  static Future<String> _getSavePath() async => Texts.to.empty;
 
   static _printResponse(String method, Response response) {
     appDebugPrint('==> $method Method Successful Response:');

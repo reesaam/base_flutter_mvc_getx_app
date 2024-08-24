@@ -1,6 +1,7 @@
 import '../../../data/models/helper_models/date_time_difference_custom_model/date_time_difference_custom_model.dart';
+import '../../app_localization.dart';
 
-extension Calculate on Duration {
+extension ExtensionDateTimeDurationCalculation on Duration {
   DateTimeDifferenceCustomModel calculateDifferenceInCustomDateTimeModel(Duration duration) {
     var dDay = duration.inDays;
     var dHour = duration.inHours;
@@ -19,12 +20,12 @@ extension Calculate on Duration {
   }
 }
 
-extension NullFormat on Duration? {
+extension ExtensionDateTimeDurationCalculationNull on Duration? {
   String get toCompleteFormat => this == null ? 'Not Specified' : this!.toCompleteFormat;
   String get toConditionalFormat => this == null ? 'Not Specified' : this!.toConditionalFormat;
 }
 
-extension Format on Duration {
+extension ExtensionDateTimeFormat on Duration {
   String get toCompleteFormat {
     DateTimeDifferenceCustomModel diff = calculateDifferenceInCustomDateTimeModel(this);
     return '${diff.year}Y, ${diff.month}M, ${diff.week}W, ${diff.day}D, ${diff.hour}H, ${diff.minute}M, ${diff.second}S';
@@ -40,11 +41,11 @@ extension Format on Duration {
     var hour = diff.hour == 0 || diff.hour == null ? null : list.add(' ${diff.hour}H,');
     var minute = diff.minute == 0 || diff.minute == null ? null : list.add(' ${diff.minute}M,');
     var second = diff.second == 0 || diff.second == null ? null : list.add(' ${diff.second}S,');
-    String result = '';
+    String result = Texts.to.empty;
     for (var s in list) {
       if (s.isNotEmpty) result = result + s;
     }
-    result = result.replaceRange(result.length - 1, result.length, '');
+    result.isNotEmpty ? result = result.replaceRange(result.length - 1, result.length, Texts.to.empty) : null;
     return result.isEmpty ? 'NONE' : result;
   }
 }

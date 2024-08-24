@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../core/core_functions.dart';
-import '../../../data/resources/app_colors.dart';
-import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_text_styles.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -74,8 +71,8 @@ class AppTextField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.center,
       textDirection: textDirection,
       obscureText: isPassword ?? false,
-      style: errorText == null ? AppTextStyles.textFieldText : AppTextStyles.textError,
-      cursorColor: AppColors.textNormal,
+      // style: errorText == null ? AppTextStyles.textFieldText : AppTextStyles.textError,
+      // cursorColor: AppColors.textNormal,
       keyboardType: textInputType ?? TextInputType.text,
       textInputAction: textInputAction,
       maxLines: expandable == true ? null : maxLines,
@@ -95,22 +92,22 @@ class AppTextField extends StatelessWidget {
         constraints: const BoxConstraints(maxHeight: double.maxFinite),
         contentPadding: AppPaddings.textFieldContent,
         labelText: label,
-        labelStyle: errorText == null ? AppTextStyles.textFieldText : AppTextStyles.textError,
+        // labelStyle: errorText == null ? AppTextStyles.textFieldText : AppTextStyles.textError,
         hintText: hint,
-        hintStyle: AppTextStyles.textFieldHint,
+        // hintStyle: AppTextStyles.textFieldHint,
         alignLabelWithHint: true,
         hintMaxLines: 1,
         icon: _leading,
         prefixIcon: _prefix,
         suffixIcon: _suffix,
-        border: AppElements.defaultOutlineBorder,
-        enabledBorder: errorText == null ? AppElements.defaultOutlineBorder : AppElements.defaultOutlineBorderError,
-        disabledBorder: AppElements.defaultOutlineBorderDisabled,
-        focusedBorder: AppElements.defaultOutlineBorderFocused,
+        // border: AppElements.borderOutlined,
+        // enabledBorder: errorText == null ? AppElements.borderOutlined : AppElements.borderOutlinedError,
+        // disabledBorder: AppElements.borderOutlinedDisabled,
+        // focusedBorder: AppElements.borderOutlinedFocused,
         isDense: true,
         isCollapsed: true,
-        errorStyle: errorText == null ? null : AppTextStyles.textError,
-        errorBorder: errorText == null ? null : AppElements.defaultOutlineBorderError,
+        // errorStyle: errorText == null ? null : AppTextStyles.textError,
+        // errorBorder: errorText == null ? null : AppElements.borderOutlinedError,
         errorText: errorText,
       ));
 
@@ -136,6 +133,5 @@ class AppTextField extends StatelessWidget {
         );
 
   Widget _buildCounter(int currentLength) => Text(
-      showMaxLength == true ? '${currentLength.toString()} / ${maxLength.toString()}' : currentLength.toString(),
-      style: currentLength == maxLength ? AppTextStyles.textFieldCounterError : AppTextStyles.textFieldCounter);
+      showMaxLength == true ? '${currentLength.toString()} / ${maxLength.toString()}' : currentLength.toString());
 }

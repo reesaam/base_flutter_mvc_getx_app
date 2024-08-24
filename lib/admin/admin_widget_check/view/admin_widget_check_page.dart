@@ -14,14 +14,13 @@ import '../../../app/components/general_widgets/app_snack_bars.dart';
 import '../../../app/components/general_widgets/app_switch.dart';
 import '../../../app/components/general_widgets/app_text_field.dart';
 import '../../../app/components/main_components/app_bottom_navigation_bar.dart';
-import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
-import '../../../core/app_extensions/widgets_extensions/extension_text.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
+import '../../../core/app_extensions/extensions_on_material_widgets/extension_text.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
 import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -39,7 +38,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general,
+        AppDividers.general(),
         _dividers(),
         _iconButtons(),
         _popUpMenu(),
@@ -57,10 +56,10 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
       ]);
 
   _dividers() => _section([
-        _item(name: 'AppDividers General', widget: AppDividers.general),
-        _item(primary: true, name: 'AppDividers General PrimaryColor', widget: AppDividers.generalPrimaryColor),
-        _item(name: 'AppDividers GeneralText', widget: AppDividers.generalText(text: 'Some Text')),
-        _item(primary: true, name: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalTextPrimaryColor(text: 'Some Text')),
+        _item(name: 'AppDividers General', widget: AppDividers.general()),
+        _item(primary: true, name: 'AppDividers General PrimaryColor', widget: AppDividers.generalWithPrimaryColor),
+        _item(name: 'AppDividers GeneralText', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
+        _item(primary: true, name: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
         _item(name: 'AppDividers Settings', widget: AppDividers.settings),
       ], title: 'Dividers');
 
@@ -376,7 +375,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                 AppDividers.settings,
               ]),
         isRow == true ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index]))) : Column(children: section),
-        AppDividers.general,
+        AppDividers.general(),
       ]);
 
   _item({String? name, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [
@@ -387,7 +386,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             name == null ? shrinkSizedBox : AppSpaces.h20,
             Container(
               padding: fullWidth == true ? AppPaddings.zero : const EdgeInsets.symmetric(horizontal: 20),
-              color: primary == true ? AppColors.appSecondary : null,
+              // color: primary == true ? AppColors.appSecondary : null,
               child: widget ?? shrinkSizedBox,
             ),
           ]),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/resources/app_text_styles.dart';
-
 class AppPopupMenuItem extends PopupMenuItem {
   const AppPopupMenuItem({
     super.key,
@@ -14,7 +12,7 @@ class AppPopupMenuItem extends PopupMenuItem {
   final Function() onTapFunction;
 
   @override
-  Widget? get child => Text(text, style: AppTextStyles.popupMenuItem);
+  Widget? get child => Text(text);
 
   @override
   VoidCallback get onTap => onTapFunction;

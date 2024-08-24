@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_sizes.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 
 class AppSwitch extends StatelessWidget {
   const AppSwitch({super.key, required this.value, required this.onChanged, this.enabled});
@@ -13,11 +13,13 @@ class AppSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
       height: AppSizes.switchHeight.height,
-      child: Switch(
+      child: Switch.adaptive(
         value: value == true ? true : false,
         onChanged: (value) => onChanged!(value),
         focusNode: FocusNode(canRequestFocus: enabled == false ? false : true),
-        activeColor: AppColors.switchActive,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        activeTrackColor: AppThemes.to.primaryColor,
+        inactiveTrackColor: AppThemes.to.canvasColor,
+        inactiveThumbColor: AppThemes.to.primaryColor,
       ));
 }

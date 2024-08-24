@@ -1,4 +1,4 @@
-import '../../core/app_extensions/data_models_extensions/extension_app_version.dart';
+import '../../core/app_extensions/extensions_on_data_models/extension_app_version.dart';
 import '../../features/versions/models/app_version/app_version.dart';
 
 class AppInfo {

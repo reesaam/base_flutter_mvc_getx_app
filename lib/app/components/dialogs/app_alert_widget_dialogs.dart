@@ -4,10 +4,8 @@ import 'package:get/get.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
-import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_text_styles.dart';
 import '../buttons/app_general_button.dart';
 import '../general_widgets/app_dividers.dart';
 
@@ -76,15 +74,14 @@ class AppAlertWidgetDialogs {
           barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
             padding: AppPaddings.generalAlertDialog,
-            child: AlertDialog(
+            child: AlertDialog.adaptive(
               scrollable: true,
-              backgroundColor: AppColors.appSecondary,
-              shape: AppElements.defaultAlertBorderShape,
+              shape: AppElements.borderShapeAlertDialog,
               title: title == null
                   ? shrinkSizedBox
                   : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(title, style: AppTextStyles.dialogAlertTitle, textAlign: TextAlign.start),
-                AppDividers.generalPrimaryColor,
+                Text(title),
+                AppDividers.generalWithPrimaryColor,
               ]),
               content: widget,
               actions: _renderButtonsAlertWidgetDialog(buttons),

@@ -19,6 +19,7 @@ class AppPageDetails {
     adminAppInfoPage,
     adminAppResourcesPage,
     adminWidgetCheckPage,
+    appDocs,
   ];
 
   ///Admin Pages
@@ -47,6 +48,11 @@ class AppPageDetails {
     pageRoute: AppRoutes.adminWidgetCheckPage,
   );
 
+  AppPageDetail appDocs = AppPageDetail(
+    pageName: Texts.to.appDocsPageName,
+    pageRoute: AppRoutes.appDocs,
+  );
+
   ///Main Pages
   AppPageDetail splashScreen = AppPageDetail(
     pageName: Texts.to.splashScreenPageName,
@@ -65,6 +71,7 @@ class AppPageDetails {
     pageName: Texts.to.settingsPageName,
     pageRoute: AppRoutes.settings,
     iconCode: AppIcons.settings.icon!.codePoint,
+    bottomBarItemNumber: 1,
     drawerPresence: true,
   );
 

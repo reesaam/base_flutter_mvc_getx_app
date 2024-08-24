@@ -6,6 +6,7 @@ import '../../admin/admin_app_resources/view/admin_app_resources_page.dart';
 import '../../admin/admin_start/view/admin_start_page.dart';
 import '../../admin/admin_test/view/admin_test_page.dart';
 import '../../admin/admin_widget_check/view/admin_widget_check_page.dart';
+import '../../admin/app_docs/view/app_docs_page.dart';
 import '../../data/resources/app_enums.dart';
 import '../../features/about/view/about_view.dart';
 import '../../features/homepage/view/homepage_view.dart';
@@ -22,6 +23,7 @@ class AppPages {
     GetPage(name: AppRoutes.adminAppInfoPage.route, page: AdminAppInfoPage.new),
     GetPage(name: AppRoutes.adminAppResourcesPage.route, page: AdminAppResourcesPage.new),
     GetPage(name: AppRoutes.adminWidgetCheckPage.route, page: AdminWidgetCheckPage.new),
+    GetPage(name: AppRoutes.appDocs.route, page: AppDocsPage.new),
 
     ///Main App Pages
     GetPage(name: AppRoutes.splashScreen.route, page: SplashScreenPage.new),

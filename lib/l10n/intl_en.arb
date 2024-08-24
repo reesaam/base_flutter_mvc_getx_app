@@ -1,10 +1,10 @@
 {
     "@@locale": "en",
     "languageName": "English",
-    "app_name": "Click Master",
+    "app_name": "Base Flutter MVC GetX App",
 
     "splashScreenPageName": "Splash Screen",
-    "homePageName": "Click Master",
+    "homePageName": "Home",
     "settingsPageName": "Settings",
     "updatePageName": "Update",
     "aboutPageName": "About",
@@ -84,6 +84,7 @@
     "adminAppInfoPageName": "Admin App Info Page",
     "adminAppResourcesPageName": "Admin App Resources Page",
     "adminWidgetCheckPageName": "Admin Widget Check Page",
+    "appDocsPageName": "App Docs Page",
 
     "endOfFile": "END OF FILE"
 }

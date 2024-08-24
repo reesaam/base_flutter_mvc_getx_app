@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/app_extensions/data_types_extensions/extension_icon.dart';
-import '../../../data/resources/app_colors.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
 
 class AppFloatingActionButtons extends FloatingActionButton {
   const AppFloatingActionButtons({super.key, required this.icon, required super.onPressed});
@@ -13,5 +12,5 @@ class AppFloatingActionButtons extends FloatingActionButton {
 
   @override
   Widget build(BuildContext context) =>
-      FloatingActionButton(backgroundColor: AppColors.appSecondary, foregroundColor: AppColors.textNormalDark, mini: true, onPressed: onPressed, child: child);
+      FloatingActionButton(mini: true, onPressed: onPressed, child: child);
 }

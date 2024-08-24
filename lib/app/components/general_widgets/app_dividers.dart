@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../../../data/resources/app_colors.dart';
+import '../../../core/app_extensions/extensions_on_material_widgets/extension_text.dart';
 import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 
 class AppDividers {
-  static Widget get general => Divider(color: AppColors.dividerDefault);
+  static Widget general({Color? color}) => Divider(color: color ?? AppThemes.to.primaryColor);
 
-  static Widget generalText({required String text}) => Stack(alignment: Alignment.center, children: [
-        Divider(color: AppColors.dividerDefault),
-        Container(color: AppColors.appBackground, padding: AppPaddings.buttonXLarge, child: Text(text)),
+  static Widget generalWithInlineText({required String text, Color? color}) => Stack(alignment: Alignment.center, children: [
+        general(color: color ?? AppThemes.to.primaryColor),
+        Container(
+          padding: AppPaddings.buttonXLarge,
+          color: Get.context?.findAncestorWidgetOfExactType<Container>()?.color ?? Get.context?.findAncestorWidgetOfExactType<Scaffold>()?.backgroundColor ?? AppThemes.to.canvasColor,
+          child: Text(text).withColor(color ?? AppThemes.to.primaryColor),
+        ),
       ]);
 
-  static Widget generalTextPrimaryColor({required String text}) => Stack(alignment: Alignment.center, children: [
-        Divider(color: AppColors.appPrimary),
-        Container(color: AppColors.appSecondary, padding: AppPaddings.buttonXLarge, child: Text(text, style: TextStyle(color: AppColors.appPrimary))),
-      ]);
+  static Widget get generalWithCanvasColor => general(color: AppThemes.to.canvasColor);
 
-  static Widget get generalPrimaryColor => Divider(color: AppColors.appPrimary);
+  static Widget get generalWithPrimaryColor => general(color: AppThemes.to.primaryColor);
 
-  static Widget get settings => Divider(color: AppColors.appSecondary);
+  static Widget get generalWithDisabledColor => general(color: AppThemes.to.disabledColor);
+
+  static Widget get settings => generalWithDisabledColor;
 }

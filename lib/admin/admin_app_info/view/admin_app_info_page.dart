@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_time_zone.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
@@ -31,6 +33,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _appInfo(),
         _appDeveloperInfo(),
         _appStatisticsInfo(),
+        _localization(),
       ]));
 
   _appInfo() => _section([
@@ -61,6 +64,19 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Page Opens', text: controller.statisticsData.value.pageOpens.toString()),
         _item(title: 'Api Calls', text: controller.statisticsData.value.apiCalls.toString()),
       ], title: 'App Statistics Info');
+
+  _localization() => _section([
+    _item(title: 'Locale', text: AppLocalization.to.getDefaultLocale().toLanguageTag()),
+    _item(title: 'Language Code', text: AppLocalization.to.getDefaultLocale().languageCode),
+    _item(title: 'Language Name', text: AppLocalization.to.getDefaultLocale().getLanguageName),
+    _item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
+    _item(title: 'Country Name', text: AppLocalization.to.getTimeZone().countryName),
+    _item(title: 'Country Code', text: AppLocalization.to.getDefaultLocale().countryCode ?? Texts.to.notAvailableInitials),
+    _item(title: 'TimeZone Abbreviation', text: AppLocalization.to.getTimeZone().abbreviation),
+    _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset),
+    _item(title: 'TimeZone DST', text: AppLocalization.to.getTimeZone().isDst.toString()),
+    _item(title: 'Currency Sign', text: Texts.to.currencySign),
+  ], title: 'Current Locale');
 
   _section(List<Widget> section, {String? title}) => Column(children: [
         title == null

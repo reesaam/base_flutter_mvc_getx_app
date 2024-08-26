@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:timezone/timezone.dart';
 
 import '../core/app_extensions/extensions_on_data_types/extension_app_languages.dart';
 import '../core/app_extensions/extensions_on_data_models/extension_settings.dart';
@@ -34,11 +35,19 @@ class AppLocalization {
   }
 
   TextDirection getTextDirection() {
-    var appSettings =  const AppSettingData().loadFromStorage;
-    return appSettings.language.getLocale == persian
-        ? TextDirection.rtl
-        : defaultTextDirection;
+    var appSettings = const AppSettingData().loadFromStorage;
+    return appSettings.language.getLocale == persian ? TextDirection.rtl : defaultTextDirection;
   }
+
+  TimeZone getTimeZone() => TimeZone(
+        DateTime.now().timeZoneOffset.inMilliseconds,
+        abbreviation: _getTimeZoneAbbreviation,
+        isDst: _getDST,
+      );
+
+  String get _getTimeZoneAbbreviation => 'TEST';
+
+  bool get _getDST => false;
 }
 
 class Texts {

@@ -9,9 +9,11 @@ extension ExtensionIconFunction on int? {
 }
 
 extension ExtensionCurrencyFormat on int {
-  String get toCurrency => NumberFormat.decimalPattern(AppLocalization.english.toString()).format(this);
+  String get toCurrency => NumberFormat.currency(symbol: '', decimalDigits: 0).format(this);
+  String toCurrencyWithSign(String sign) => NumberFormat.currency(symbol: sign, decimalDigits: 0).format(this);
 }
 
 extension ExtensionCurrencyFormatNull on int? {
-  String get toCurrency => NumberFormat.decimalPattern(AppLocalization.english.toString()).format(this);
+  String get toCurrency => this == null ? Texts.to.notAvailableInitials : this!.toCurrency;
+  String toCurrencyWithSign(String sign) => this == null ? Texts.to.notAvailableInitials : this!.toCurrencyWithSign(sign);
 }

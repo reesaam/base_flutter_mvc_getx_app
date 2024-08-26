@@ -20,7 +20,7 @@ import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';

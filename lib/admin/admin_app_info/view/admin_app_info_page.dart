@@ -58,8 +58,8 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Crashes', text: controller.statisticsData.value.crashes.toString()),
         _item(title: 'Install DateTime', text: controller.statisticsData.value.installDateTime?.toDateTimeFormat),
         _item(title: 'Install Duration', text: controller.statisticsData.value.installDuration?.toConditionalFormat),
-        _item(title: 'Page Opens', text: controller.statisticsData.value.detailedData?.pageOpens.toString()),
-        _item(title: 'Api Calls', text: controller.statisticsData.value.detailedData?.apiCalls.toString()),
+        _item(title: 'Page Opens', text: controller.statisticsData.value.pageOpens.toString()),
+        _item(title: 'Api Calls', text: controller.statisticsData.value.apiCalls.toString()),
       ], title: 'App Statistics Info');
 
   _section(List<Widget> section, {String? title}) => Column(children: [

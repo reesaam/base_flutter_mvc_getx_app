@@ -8,7 +8,7 @@ import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
-import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_logos.dart';
 import '../../../data/resources/app_paddings.dart';

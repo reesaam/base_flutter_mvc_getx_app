@@ -27,14 +27,15 @@ enum APISections {
 }
 
 enum AppRoutes {
+  ///App Pages
   splashScreen,
   homepage,
   settings,
   update,
   about,
-  ///General
+  ///General Pages
   notFound,
-  ///Admin
+  ///Admin Pages
   adminStartPage,
   adminTestPage,
   adminAppInfoPage,

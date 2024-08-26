@@ -5,7 +5,7 @@ import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart
 import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../data/info/app_page_details.dart';
-import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_theme/app_themes.dart';
 

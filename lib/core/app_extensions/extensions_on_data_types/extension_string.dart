@@ -5,5 +5,5 @@ extension ExtensionUInt8List on String {
 }
 
 extension ExtensionStringModifiers on String {
-  get withDoubleDots => '$this:';
+  String get withDoubleDots => '$this:';
 }

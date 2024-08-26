@@ -14,9 +14,9 @@ class AppLocalization {
   get supportedLocales => S.delegate.supportedLocales;
 
   static List<Locale> get languages => [english, deutsch, persian];
-  static Locale get english => const Locale('en');
-  static Locale get deutsch => const Locale('de');
-  static Locale get persian => const Locale('fa');
+  static Locale get english => const Locale('en', '1');
+  static Locale get deutsch => const Locale('de', '44');
+  static Locale get persian => const Locale('fa', '98');
 
   get localizationDelegates => [_delegate, _material, _widgets, _cupertino];
   AppLocalizationDelegate get _delegate => S.delegate;

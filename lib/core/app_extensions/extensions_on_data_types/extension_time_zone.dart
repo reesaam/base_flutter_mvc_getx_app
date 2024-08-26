@@ -7,7 +7,10 @@ import 'extension_duration.dart';
 extension ExtensionTimeZone on TimeZone {
   DurationCustomModel get toDifferentCustomModel => Duration(milliseconds: offset).calculateDifferenceInCustomDateTimeModel;
 
-  String get countryName => Texts.to.notAvailableInitials;
+  String get countryName {
+    String result = Texts.to.notAvailableInitials;
+    return result;
+  }
 
   String get toFormattedOffset {
     var offset = toDifferentCustomModel;

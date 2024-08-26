@@ -375,7 +375,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                 AppDividers.settings,
               ]),
         isRow == true ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index]))) : Column(children: section),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({String? name, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [

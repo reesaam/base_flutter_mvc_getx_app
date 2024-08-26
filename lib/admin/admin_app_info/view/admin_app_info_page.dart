@@ -86,7 +86,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({String? title, String? text}) => Padding(

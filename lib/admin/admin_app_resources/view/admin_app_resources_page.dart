@@ -110,7 +110,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({String? title, String? text}) => Padding(

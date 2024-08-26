@@ -10,6 +10,8 @@
     "aboutPageName": "About",
     "notFoundPageName": "Page Not Found",
 
+    "currencySign": "$",
+
     "empty": "",
     "version": "Version",
     "ok": "Ok",
@@ -84,7 +86,8 @@
     "adminAppInfoPageName": "Admin App Info Page",
     "adminAppResourcesPageName": "Admin App Resources Page",
     "adminWidgetCheckPageName": "Admin Widget Check Page",
- "appDocsPageName": "App Docs Page",
+    "adminDataFormatCheckPageName": "Admin Data Format Check Page",
+    "appDocsPageName": "App Docs Page",
 
     "END": "END OF FILE"
 }

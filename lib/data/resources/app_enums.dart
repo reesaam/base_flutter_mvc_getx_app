@@ -41,6 +41,7 @@ enum AppRoutes {
   adminAppInfoPage,
   adminAppResourcesPage,
   adminWidgetCheckPage,
+  adminDataFormatCheckPage,
   appDocs,
 }
 

@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
         "adminAppResourcesPageName":
             MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
+        "adminDataFormatCheckPageName": MessageLookupByLibrary.simpleMessage(
+            "Admin Data Format Check Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
         "adminTestPageName":
@@ -60,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Internet Connection is not Available!\nPlease Check your Connection."),
         "connectionInternetNotAvailableTitle":
             MessageLookupByLibrary.simpleMessage("Internet Connection"),
+        "currencySign": MessageLookupByLibrary.simpleMessage("\$"),
         "empty": MessageLookupByLibrary.simpleMessage(""),
         "endOfFile": MessageLookupByLibrary.simpleMessage("END OF FILE"),
         "from": MessageLookupByLibrary.simpleMessage("From"),

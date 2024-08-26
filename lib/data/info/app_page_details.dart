@@ -19,6 +19,7 @@ class AppPageDetails {
     adminAppInfoPage,
     adminAppResourcesPage,
     adminWidgetCheckPage,
+    adminDataFormatCheckPage,
     appDocs,
   ];
 
@@ -46,6 +47,11 @@ class AppPageDetails {
   AppPageDetail adminWidgetCheckPage = AppPageDetail(
     pageName: Texts.to.adminWidgetCheckPageName,
     pageRoute: AppRoutes.adminWidgetCheckPage,
+  );
+
+  AppPageDetail adminDataFormatCheckPage = AppPageDetail(
+    pageName: Texts.to.adminDataFormatCheckPageName,
+    pageRoute: AppRoutes.adminDataFormatCheckPage,
   );
 
   AppPageDetail appDocs = AppPageDetail(

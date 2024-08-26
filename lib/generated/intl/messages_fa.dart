@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
         "adminAppResourcesPageName":
             MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
+        "adminDataFormatCheckPageName": MessageLookupByLibrary.simpleMessage(
+            "Admin Data Format Check Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
         "adminTestPageName":
@@ -62,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "اینترنت موجود نیست\nلطفا اتصال خود را بررسی کنید"),
         "connectionInternetNotAvailableTitle":
             MessageLookupByLibrary.simpleMessage("اتصال اینترنت"),
+        "currencySign": MessageLookupByLibrary.simpleMessage("ریال"),
         "empty": MessageLookupByLibrary.simpleMessage(""),
         "from": MessageLookupByLibrary.simpleMessage("از"),
         "generalNotAvailable":

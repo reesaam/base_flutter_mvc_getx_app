@@ -130,6 +130,16 @@ class S {
     );
   }
 
+  /// `$`
+  String get currencySign {
+    return Intl.message(
+      '\$',
+      name: 'currencySign',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// ``
   String get empty {
     return Intl.message(
@@ -785,6 +795,16 @@ class S {
     return Intl.message(
       'Admin Widget Check Page',
       name: 'adminWidgetCheckPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin Data Format Check Page`
+  String get adminDataFormatCheckPageName {
+    return Intl.message(
+      'Admin Data Format Check Page',
+      name: 'adminDataFormatCheckPageName',
       desc: '',
       args: [],
     );

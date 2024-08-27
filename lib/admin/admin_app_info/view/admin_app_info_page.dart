@@ -78,7 +78,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
     _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset),
     _item(title: 'TimeZone DST', text: AppLocalization.to.getTimeZone().isDst.toString()),
     _item(title: 'Currency Sign', text: AppLocalization.to.getCountry().currencySign?.sign),
-  ], title: 'Current Locale');
+  ], title: 'Localization');
 
   _section(List<Widget> section, {String? title}) => Column(children: [
         title == null

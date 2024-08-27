@@ -5,20 +5,21 @@ import '../../app_localization.dart';
 
 extension ExtensionLocaleFunctions on AppLanguages? {
   Locale get getLocale {
-    var language = AppLocalization.english;
+    var locale = AppLocalization.english;
     switch (this) {
       case AppLanguages.english:
-        language = AppLocalization.english;
+        locale = AppLocalization.english;
         break;
       case AppLanguages.deutsch:
-        language = AppLocalization.deutsch;
+        locale = AppLocalization.deutsch;
         break;
       case AppLanguages.persian:
-        language = AppLocalization.persian;
+        locale = AppLocalization.persian;
         break;
       default:
+        locale = AppLocalization.english;
         break;
     }
-    return language;
+    return locale;
   }
 }

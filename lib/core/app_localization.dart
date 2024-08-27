@@ -6,6 +6,7 @@ import 'package:timezone/timezone.dart';
 import '../core/app_extensions/extensions_on_data_types/extension_app_languages.dart';
 import '../core/app_extensions/extensions_on_data_models/extension_settings.dart';
 import '../data/resources/app_countries.dart';
+import '../data/resources/app_enums.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
 
@@ -15,9 +16,9 @@ class AppLocalization {
   get supportedLocales => S.delegate.supportedLocales;
 
   static List<Locale> get languages => [english, deutsch, persian];
-  static Locale get english => const Locale('en', '1');
-  static Locale get deutsch => const Locale('de', '44');
-  static Locale get persian => const Locale('fa', '98');
+  static Locale get english => Locale(AppLanguages.english.locale.languageCode, AppCountries.us.code);
+  static Locale get deutsch => Locale(AppLanguages.deutsch.locale.languageCode, AppCountries.germany.code);
+  static Locale get persian => Locale(AppLanguages.persian.locale.languageCode, AppCountries.iran.code);
 
   get localizationDelegates => [_delegate, _material, _widgets, _cupertino];
   AppLocalizationDelegate get _delegate => S.delegate;
@@ -27,8 +28,7 @@ class AppLocalization {
 
   ///Variables
   Locale defaultLanguage = english;
-  AppCountries defaultCountry = AppCountries.iran;
-
+  AppCountries defaultCountry = AppCountries.us;
   TextDirection defaultTextDirection = TextDirection.ltr;
 
   Locale getDefaultLocale() {

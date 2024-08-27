@@ -21,7 +21,7 @@ extension ExtensionAppSettingsRxClear on Rx<AppSettingData> {
 }
 
 extension ExtensionAppSettingsClear on AppSettingData {
-  AppSettingData get clearData => AppSettingData.createEmpty();
+  AppSettingData get clearData => const AppSettingData();
 }
 
 extension ExtensionAppSettingsRxLanguagesEntity on Rx<AppSettingData> {

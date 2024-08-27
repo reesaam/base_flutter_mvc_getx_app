@@ -183,6 +183,6 @@ class AppLocalStorage {
 
   ///Settings
   Future<void> saveSettings({required AppSettingData? settings}) async => await _saveFunction(key: _keySettings, data: settings);
-  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? AppSettingData.createEmpty() : AppSettingData.fromJson(r));
+  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
   clearSettings() => _clearSpecificKey(_keySettings);
 }

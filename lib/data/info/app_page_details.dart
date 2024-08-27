@@ -1,4 +1,3 @@
-import '../../core/app_localization.dart';
 import '../../core/app_localization_texts.dart';
 import '../shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../resources/app_enums.dart';

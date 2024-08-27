@@ -1,7 +1,7 @@
 import 'package:timezone/timezone.dart';
 
 import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
-import '../../app_localization.dart';
+import '../../app_localization_texts.dart';
 import 'extension_duration.dart';
 
 extension ExtensionTimeZone on TimeZone {

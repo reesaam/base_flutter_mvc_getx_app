@@ -5,6 +5,7 @@ import 'package:timezone/timezone.dart';
 
 import '../core/app_extensions/extensions_on_data_types/extension_app_languages.dart';
 import '../core/app_extensions/extensions_on_data_models/extension_settings.dart';
+import '../data/resources/app_countries.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
 
@@ -26,6 +27,7 @@ class AppLocalization {
 
   ///Variables
   Locale defaultLanguage = english;
+  AppCountries defaultCountry = AppCountries.iran;
 
   TextDirection defaultTextDirection = TextDirection.ltr;
 
@@ -45,12 +47,12 @@ class AppLocalization {
         isDst: _getDST,
       );
 
-  String get _getTimeZoneAbbreviation => 'TEST';
+  AppCountries getCountry() {
+    var appSettings = const AppSettingData().loadFromStorage;
+    return appSettings.country;
+  }
 
-  bool get _getDST => false;
-}
+  String get _getTimeZoneAbbreviation => getCountry().timeZoneAbbreviation?.first ?? defaultCountry.timeZoneAbbreviation?.first ?? '';
 
-class Texts {
-  Texts._();
-  static S get to => S.of(Get.context!);
+  bool get _getDST => _getTimeZoneAbbreviation.isEmpty ? false : _getTimeZoneAbbreviation.contains('DT');
 }

@@ -10,7 +10,14 @@
     "aboutPageName": "About",
     "notFoundPageName": "Page Not Found",
 
-    "currencySign": "$",
+    "adminStartPagePageName": "Admin Start Page",
+    "adminTestPageName": "Test Page",
+    "adminAppInfoPageName": "App Info Page",
+    "adminAppResourcesPageName": "App Resources Page",
+    "adminWidgetCheckPageName": "Widget Check Page",
+    "adminDataFormatCheckPageName": "Data Format Check Page",
+    "adminAppCountriesPageName": "App Countries Page",
+    "appDocsPageName": "App Docs Page",
 
     "empty": "",
     "version": "Version",
@@ -80,15 +87,6 @@
     "aboutTitlesDeveloperName": "Developer Name",
     "aboutTitlesDeveloperWebsite": "Developer WebSite",
     "aboutTitlesDeveloperLinkedIn": "Developer LinkedIn Profile",
-
-    "adminStartPagePageName": "Admin Start Page",
-    "adminTestPageName": "Admin Test Page",
-    "adminAppInfoPageName": "Admin App Info Page",
-    "adminAppResourcesPageName": "Admin App Resources Page",
-    "adminWidgetCheckPageName": "Admin Widget Check Page",
-    "adminDataFormatCheckPageName": "Admin Data Format Check Page",
-    "adminAppCountriesPageName": "Admin App Countries Page",
-    "appDocsPageName": "App Docs Page",
 
     "endOfFile": "END OF FILE"
 }

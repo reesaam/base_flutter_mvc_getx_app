@@ -10,7 +10,14 @@
     "aboutPageName": "درباره",
     "notFoundPageName": "صفحه پیدا نشد",
 
-    "currencySign": "ریال",
+    "adminStartPagePageName": "Admin Start Page",
+    "adminTestPageName": "Test Page",
+    "adminAppInfoPageName": "App Info Page",
+    "adminAppResourcesPageName": "App Resources Page",
+    "adminWidgetCheckPageName": "Widget Check Page",
+    "adminDataFormatCheckPageName": "Data Format Check Page",
+    "adminAppCountriesPageName": "App Countries Page",
+    "appDocsPageName": "App Docs Page",
 
     "empty": "",
     "version": "نسخه",
@@ -80,15 +87,6 @@
     "aboutTitlesDeveloperName": "نام توسعه دهنده",
     "aboutTitlesDeveloperWebsite": "وب سایت توسعه دهنده",
     "aboutTitlesDeveloperLinkedIn": "پروفایل لینکدین توسعه دهنده",
-
-    "adminStartPagePageName": "Admin Start Page",
-    "adminTestPageName": "Admin Test Page",
-    "adminAppInfoPageName": "Admin App Info Page",
-    "adminAppResourcesPageName": "Admin App Resources Page",
-    "adminWidgetCheckPageName": "Admin Widget Check Page",
-    "adminDataFormatCheckPageName": "Admin Data Format Check Page",
-    "adminAppCountriesPageName": "Admin App Countries Page",
-    "appDocsPageName": "App Docs Page",
 
     "END": "END OF FILE"
 }

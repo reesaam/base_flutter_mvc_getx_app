@@ -8,6 +8,8 @@ import '../../../core/app_extensions/extensions_on_data_types/extension_locale.d
 import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_time_zone.dart';
 import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
@@ -75,7 +77,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
     _item(title: 'TimeZone Abbreviation', text: AppLocalization.to.getTimeZone().abbreviation),
     _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset),
     _item(title: 'TimeZone DST', text: AppLocalization.to.getTimeZone().isDst.toString()),
-    _item(title: 'Currency Sign', text: Texts.to.currencySign),
+    _item(title: 'Currency Sign', text: AppLocalization.to.getCountry().currencySign?.sign),
   ], title: 'Current Locale');
 
   _section(List<Widget> section, {String? title}) => Column(children: [

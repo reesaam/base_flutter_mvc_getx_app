@@ -130,11 +130,81 @@ class S {
     );
   }
 
-  /// `$`
-  String get currencySign {
+  /// `Admin Start Page`
+  String get adminStartPagePageName {
     return Intl.message(
-      '\$',
-      name: 'currencySign',
+      'Admin Start Page',
+      name: 'adminStartPagePageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test Page`
+  String get adminTestPageName {
+    return Intl.message(
+      'Test Page',
+      name: 'adminTestPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Info Page`
+  String get adminAppInfoPageName {
+    return Intl.message(
+      'App Info Page',
+      name: 'adminAppInfoPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Resources Page`
+  String get adminAppResourcesPageName {
+    return Intl.message(
+      'App Resources Page',
+      name: 'adminAppResourcesPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Widget Check Page`
+  String get adminWidgetCheckPageName {
+    return Intl.message(
+      'Widget Check Page',
+      name: 'adminWidgetCheckPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Format Check Page`
+  String get adminDataFormatCheckPageName {
+    return Intl.message(
+      'Data Format Check Page',
+      name: 'adminDataFormatCheckPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Countries Page`
+  String get adminAppCountriesPageName {
+    return Intl.message(
+      'App Countries Page',
+      name: 'adminAppCountriesPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Docs Page`
+  String get appDocsPageName {
+    return Intl.message(
+      'App Docs Page',
+      name: 'appDocsPageName',
       desc: '',
       args: [],
     );
@@ -745,86 +815,6 @@ class S {
     return Intl.message(
       'Developer LinkedIn Profile',
       name: 'aboutTitlesDeveloperLinkedIn',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin Start Page`
-  String get adminStartPagePageName {
-    return Intl.message(
-      'Admin Start Page',
-      name: 'adminStartPagePageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin Test Page`
-  String get adminTestPageName {
-    return Intl.message(
-      'Admin Test Page',
-      name: 'adminTestPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin App Info Page`
-  String get adminAppInfoPageName {
-    return Intl.message(
-      'Admin App Info Page',
-      name: 'adminAppInfoPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin App Resources Page`
-  String get adminAppResourcesPageName {
-    return Intl.message(
-      'Admin App Resources Page',
-      name: 'adminAppResourcesPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin Widget Check Page`
-  String get adminWidgetCheckPageName {
-    return Intl.message(
-      'Admin Widget Check Page',
-      name: 'adminWidgetCheckPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin Data Format Check Page`
-  String get adminDataFormatCheckPageName {
-    return Intl.message(
-      'Admin Data Format Check Page',
-      name: 'adminDataFormatCheckPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Admin App Countries Page`
-  String get adminAppCountriesPageName {
-    return Intl.message(
-      'Admin App Countries Page',
-      name: 'adminAppCountriesPageName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `App Docs Page`
-  String get appDocsPageName {
-    return Intl.message(
-      'App Docs Page',
-      name: 'appDocsPageName',
       desc: '',
       args: [],
     );

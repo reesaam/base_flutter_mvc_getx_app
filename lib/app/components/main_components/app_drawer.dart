@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart';
-import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
 import '../../../data/info/app_info.dart';

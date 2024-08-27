@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/components/buttons/app_general_button.dart';
-import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';

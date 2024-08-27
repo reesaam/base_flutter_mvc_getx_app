@@ -1,5 +1,5 @@
 import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
-import '../../app_localization.dart';
+import '../../app_localization_texts.dart';
 
 extension ExtensionDateTimeDurationCalculation on Duration {
   DurationCustomModel get calculateDifferenceInCustomDateTimeModel {

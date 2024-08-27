@@ -6,9 +6,11 @@ import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart
 import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
 import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
+import '../../../data/resources/app_countries.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_spaces.dart';
 import '../controller/admin_data_format_check_controller.dart';
@@ -43,7 +45,7 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
 
   _currency() => _section([
         _item(name: 'Separators', string: 22500000.toCurrency),
-        _item(name: 'Separators with Sign', string: 55400000.toCurrencyWithSign(Texts.to.currencySign)),
+        _item(name: 'Separators with Sign', string: 55400000.toCurrencyWithSign(AppLocalization.to.getCountry().currencySign?.sign ?? AppCountries.us.currencySign?.sign ?? '')),
       ], title: 'Currency');
 
   _section(List<Widget> section, {bool? isRow, String? title}) => Column(children: [

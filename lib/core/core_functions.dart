@@ -18,7 +18,7 @@ import '../data/storage/app_local_storage.dart';
 import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
-import 'app_localization.dart';
+import 'app_localization_texts.dart';
 import 'failures/local_exception.dart';
 
 void appDebugPrint(message) => isRelease ? null : debugPrint('$message');

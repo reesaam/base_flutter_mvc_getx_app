@@ -31,19 +31,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("Developer WebSite"),
         "adminAppCountriesPageName":
-            MessageLookupByLibrary.simpleMessage("Admin App Countries Page"),
+            MessageLookupByLibrary.simpleMessage("App Countries Page"),
         "adminAppInfoPageName":
-            MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
+            MessageLookupByLibrary.simpleMessage("App Info Page"),
         "adminAppResourcesPageName":
-            MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
-        "adminDataFormatCheckPageName": MessageLookupByLibrary.simpleMessage(
-            "Admin Data Format Check Page"),
+            MessageLookupByLibrary.simpleMessage("App Resources Page"),
+        "adminDataFormatCheckPageName":
+            MessageLookupByLibrary.simpleMessage("Data Format Check Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
-        "adminTestPageName":
-            MessageLookupByLibrary.simpleMessage("Admin Test Page"),
+        "adminTestPageName": MessageLookupByLibrary.simpleMessage("Test Page"),
         "adminWidgetCheckPageName":
-            MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
+            MessageLookupByLibrary.simpleMessage("Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appDocsPageName":
             MessageLookupByLibrary.simpleMessage("App Docs Page"),
@@ -64,7 +63,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Internet Connection is not Available!\nPlease Check your Connection."),
         "connectionInternetNotAvailableTitle":
             MessageLookupByLibrary.simpleMessage("Internet Connection"),
-        "currencySign": MessageLookupByLibrary.simpleMessage("\$"),
         "empty": MessageLookupByLibrary.simpleMessage(""),
         "from": MessageLookupByLibrary.simpleMessage("From"),
         "generalNotAvailable":

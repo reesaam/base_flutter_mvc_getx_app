@@ -83,6 +83,7 @@ dependencies:
   #Localization
   intl: ^0.18.1
   timezone: ^0.9.4
+  country_flags: ^3.0.0
   persian_datetime_picker: ^2.6.0
 
   #Docs

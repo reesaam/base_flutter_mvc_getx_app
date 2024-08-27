@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../admin/admin_app_countries/controller/admin_app_countries_controller.dart';
 import '../../admin/admin_app_info/controller/admin_app_info_controller.dart';
 import '../../admin/admin_app_resources/controller/admin_app_resources_controller.dart';
 import '../../admin/admin_data_format_check/controller/admin_data_format_check_controller.dart';
@@ -17,6 +18,7 @@ class AdminBindings extends Bindings {
     Get.lazyPut<AdminAppResourcesController>(() => AdminAppResourcesController(), fenix: true);
     Get.lazyPut<AdminWidgetCheckController>(() => AdminWidgetCheckController(), fenix: true);
     Get.lazyPut<AdminDataFormatCheckController>(() => AdminDataFormatCheckController(), fenix: true);
+    Get.lazyPut<AdminAppCountriesController>(() => AdminAppCountriesController(), fenix: true);
     Get.lazyPut<AppDocsController>(() => AppDocsController(), fenix: true);
   }
 }

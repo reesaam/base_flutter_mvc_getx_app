@@ -810,6 +810,16 @@ class S {
     );
   }
 
+  /// `Admin App Countries Page`
+  String get adminAppCountriesPageName {
+    return Intl.message(
+      'Admin App Countries Page',
+      name: 'adminAppCountriesPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `App Docs Page`
   String get appDocsPageName {
     return Intl.message(

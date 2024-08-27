@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Developer Name"),
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("Developer WebSite"),
+        "adminAppCountriesPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Countries Page"),
         "adminAppInfoPageName":
             MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
         "adminAppResourcesPageName":

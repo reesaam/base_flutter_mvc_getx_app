@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نام توسعه دهنده"),
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("وب سایت توسعه دهنده"),
+        "adminAppCountriesPageName":
+            MessageLookupByLibrary.simpleMessage("Admin App Countries Page"),
         "adminAppInfoPageName":
             MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
         "adminAppResourcesPageName":

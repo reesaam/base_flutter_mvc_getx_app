@@ -87,6 +87,7 @@
     "adminAppResourcesPageName": "Admin App Resources Page",
     "adminWidgetCheckPageName": "Admin Widget Check Page",
     "adminDataFormatCheckPageName": "Admin Data Format Check Page",
+    "adminAppCountriesPageName": "Admin App Countries Page",
     "appDocsPageName": "App Docs Page",
 
     "endOfFile": "END OF FILE"

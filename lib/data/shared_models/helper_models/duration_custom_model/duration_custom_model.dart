@@ -6,14 +6,14 @@ part 'duration_custom_model.g.dart';
 @freezed
 class DurationCustomModel with _$DurationCustomModel {
   const factory DurationCustomModel({
-    final int? year,
-    final int? month,
-    final int? week,
-    final int? day,
-    final int? hour,
-    final int? minute,
-    final int? second,
-    final int? milliSecond,
+    @Default(0) int? year,
+    @Default(0) int? month,
+    @Default(0) int? week,
+    @Default(0) int? day,
+    @Default(0) int? hour,
+    @Default(0) int? minute,
+    @Default(0) int? second,
+    @Default(0) int? milliSecond,
   }) = _DurationCustomModel;
 
   factory DurationCustomModel.fromJson(Map<String, dynamic> json) => _$DurationCustomModelFromJson(json);

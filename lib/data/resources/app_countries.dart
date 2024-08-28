@@ -1,6 +1,6 @@
 import '../shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 
-enum AppCountries {
+enum AppCountry {
   utc(
     countryName: 'GMT',
     countryNameAbbreviation: 'GMT',
@@ -58,6 +58,39 @@ enum AppCountries {
       DurationCustomModel(hour: -3),
     ],
   ),
+  uae(
+    countryName: 'United Arab Emirates',
+    countryNameAbbreviation: 'AE',
+    code: '971',
+    currency: AppCurrency.aed,
+    timeZoneAbbreviation: ['GST'],
+    timeZoneOffset: [DurationCustomModel(hour: 4)],
+  ),
+  turkey(
+    countryName: 'Turkey',
+    countryNameAbbreviation: 'TR',
+    code: '90',
+    currency: AppCurrency.tryl,
+    timeZoneAbbreviation: ['EEST'],
+    timeZoneOffset: [DurationCustomModel(hour: 3)],
+  ),
+  china(
+    countryName: 'China',
+    countryNameAbbreviation: 'CN',
+    code: '86',
+    currency: AppCurrency.cny,
+    timeZoneAbbreviation: ['CST'],
+    timeZoneOffset: [DurationCustomModel(hour: 8)],
+  ),
+  japan(
+    countryName: 'Japan',
+    countryNameAbbreviation: 'JP',
+    code: '81',
+    currency: AppCurrency.jpy,
+    timeZoneAbbreviation: ['JST'],
+    timeZoneOffset: [DurationCustomModel(hour: 9)],
+  ),
+
   //Default
   unknown(
     countryName: 'Unknown',
@@ -77,7 +110,7 @@ enum AppCountries {
   final List<DurationCustomModel>? timeZoneOffset;
 
   ///Constructor
-  const AppCountries({
+  const AppCountry({
     this.countryName,
     this.countryNameAbbreviation,
     this.code,
@@ -88,25 +121,50 @@ enum AppCountries {
 }
 
 enum AppCurrency {
-  irr(AppCurrencySign.rial, 'IRR'),
-  euro(AppCurrencySign.euro, 'Euro'),
-  usd(AppCurrencySign.dollar, 'USD'),
-  cad(AppCurrencySign.dollar, 'CAD'),
-  gbp(AppCurrencySign.pound, 'GBP'),
-  unknown(AppCurrencySign.unknown, '');
+  irr(sign: AppCurrencySign.rial, name: 'IRR', description: 'Iranian Rial', localDescription: 'ریال ایران'),
+  euro(sign: AppCurrencySign.euro, name: 'Euro', description: 'Europa Euro'),
+  usd(sign: AppCurrencySign.dollar, name: 'USD', description: 'United States Dollar'),
+  cad(sign: AppCurrencySign.dollar, name: 'CAD', description: 'Canadian Dollar'),
+  gbp(sign: AppCurrencySign.pound, name: 'GBP', description: 'Great Britain Pound'),
+  cny(sign: AppCurrencySign.yuan, name: 'CNY', description: 'China Yuan'),
+  jpy(sign: AppCurrencySign.yuan, name: 'JPY', description: 'Japanese Yuan'),
+  aed(sign: AppCurrencySign.dirham, name: 'AED', description: 'Arab Emirates Dirham'),
+  tryl(sign: AppCurrencySign.lira, name: 'TRY', description: 'Turkish Lira'),
+  rub(sign: AppCurrencySign.ruble, name: 'RUB', description: 'Russian Ruble'),
+  unknown(sign: AppCurrencySign.unknown, name: 'Unknown', description: 'Unknown');
 
   final AppCurrencySign sign;
   final String name;
-  const AppCurrency(this.sign, this.name);
+  final String description;
+  final String? localDescription;
+  const AppCurrency({
+    required this.sign,
+    required this.name,
+    required this.description,
+    this.localDescription,
+  });
 }
 
 enum AppCurrencySign {
-  rial('ریال'),
-  dollar('\$'),
-  euro('€'),
-  pound('£'),
-  unknown('');
+  rial(string: 'R', local: 'ریال'),
+  dollar(string: '\$'),
+  euro(string: '€'),
+  yuan(string: '¥'),
+  pound(string: '£'),
+  franc(string: '₣'),
+  ruble(string: '₽'),
+  shekel(string: '₪'),
+  dinar(string: 'DA'),
+  dirham(string: 'DH'),
+  lira(string: '₺'),
+  lari(string: '₾'),
+  dram(string: '֏'),
+  rupee(string: '₹'),
+  won(string: '₩'),
+  peso(string: '₱'),
+  unknown(string: '');
 
   final String string;
-  const AppCurrencySign(this.string);
+  final String? local;
+  const AppCurrencySign({required this.string, this.local});
 }

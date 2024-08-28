@@ -15,7 +15,7 @@ import '../../../app/components/general_widgets/app_switch.dart';
 import '../../../app/components/general_widgets/app_text_field.dart';
 import '../../../app/components/main_components/app_bottom_navigation_bar.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
-import '../../../core/app_extensions/extensions_on_material_widgets/extension_text.dart';
+import '../../../core/app_extensions/extensions_on_material_widgets/extension_on_text.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';

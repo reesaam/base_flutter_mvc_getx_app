@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/extension_on_countries.dart';
+import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_custom_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
@@ -28,7 +28,7 @@ class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
   @override
   Widget get body => Column(children: [AppDividers.general(), Column(children: List<Widget>.generate(controller.countries.length, (index) => _section(controller.countries[index])))]);
 
-  _section(AppCountries country) => Column(children: [
+  _section(AppCountry country) => Column(children: [
         Padding(
             padding: AppPaddings.buttonXLarge,
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -46,7 +46,7 @@ class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
               Expanded(
                   flex: 2,
                   child: Column(children: [
-                    country.flag,
+                    country.flag(rounded: true, hasBorder: true),
                     AppSpaces.h20,
                     Text(country.countryName ?? ''),
                   ])),

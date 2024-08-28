@@ -1,18 +1,14 @@
+import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
 import '../../../core/elements/core_controller.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_countries.dart';
 
 class AdminAppCountriesController extends CoreController {
-  List<AppCountries> countries = List<AppCountries>.empty(growable: true);
+  List<AppCountry> countries = AppCountry.values.getSortedCountriesList;
 
   @override
   void dataInit() {
     // clearAppData();
-    countries = List<AppCountries>.generate(AppCountries.values.length, (index) => AppCountries.values[index]);
-    countries.sort((a, b) => a.countryName!.compareTo(b.countryName!));
-    countries.removeWhere((element) => element == AppCountries.utc);
-    countries.insert(0, AppCountries.utc);
-    countries.removeWhere((element) => element == AppCountries.unknown);
   }
 
   @override

@@ -17,9 +17,9 @@ class AppLocalization {
   get supportedLocales => S.delegate.supportedLocales;
 
   static List<Locale> get languagesList => [english, deutsch, persian];
-  static Locale get english => Locale(AppLanguages.english.locale.languageCode, AppCountries.us.code);
-  static Locale get deutsch => Locale(AppLanguages.deutsch.locale.languageCode, AppCountries.germany.code);
-  static Locale get persian => Locale(AppLanguages.persian.locale.languageCode, AppCountries.iran.code);
+  static Locale get english => Locale(AppLanguages.english.locale.languageCode, AppCountry.us.code);
+  static Locale get deutsch => Locale(AppLanguages.deutsch.locale.languageCode, AppCountry.germany.code);
+  static Locale get persian => Locale(AppLanguages.persian.locale.languageCode, AppCountry.iran.code);
 
   get localizationDelegates => [_delegate, _material, _widgets, _cupertino];
   AppLocalizationDelegate get _delegate => S.delegate;
@@ -29,8 +29,8 @@ class AppLocalization {
 
   ///Default Variables
   Locale language = english;
-  AppCountries country = AppCountries.us;
-  String timeZoneAbbreviation = AppCountries.us.timeZoneAbbreviation?.first ?? '';
+  AppCountry country = AppCountry.us;
+  String timeZoneAbbreviation = AppCountry.us.timeZoneAbbreviation?.first ?? '';
   bool isDst = false;
   TextDirection textDirection = TextDirection.ltr;
 
@@ -52,7 +52,7 @@ class AppLocalization {
         isDst: _getDST,
       );
 
-  AppCountries getCountry() {
+  AppCountry getCountry() {
     var appSettings = const AppSettingData().loadFromStorage();
     country = appSettings.country;
     return country;

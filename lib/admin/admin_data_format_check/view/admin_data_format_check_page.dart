@@ -45,7 +45,7 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
 
   _currency() => _section([
         _item(name: 'Separators', string: 22500000.toCurrency()),
-        _item(name: 'Separators with Sign', string: 55400000.toCurrency(sign: AppLocalization.to.getCountry().currency?.sign.string ?? AppCountries.us.currency?.sign.string ?? '')),
+        _item(name: 'Separators with Sign', string: 55400000.toCurrency(sign: AppLocalization.to.getCountry().currency?.sign.string ?? AppCountry.us.currency?.sign.string ?? '')),
       ], title: 'Currency');
 
   _section(List<Widget> section, {bool? isRow, String? title}) => Column(children: [

@@ -45,7 +45,7 @@ class AppDrawer extends Drawer {
     return Column(children: List.generate(drawerList.length, (index) => _bodyItem(drawerList[index])));
   }
 
-  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon, onTap: () => {popPage(), goToPage(page.pageRoute)});
+  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon(), onTap: () => {popPage(), goToPage(page.pageRoute)});
 
   Widget footer() => Container(
       padding: AppPaddings.drawerFooter,

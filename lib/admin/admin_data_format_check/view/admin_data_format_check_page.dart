@@ -33,19 +33,19 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
       ]);
 
   _locale() => _section([
-        _item(name: 'Language', string: AppLocalization.to.getDefaultLocale().getLanguageName),
+        _item(name: 'Language', string: AppLocalization.to.getLocale().getLanguageName),
       ], title: 'Localization');
 
   _dateTime() => _section([
-        _item(name: 'Date & Time', string: DateTime.now().toDateTimeFormat),
-        _item(name: 'Date', string: DateTime.now().toDateFormat),
-        _item(name: 'Time', string: DateTime.now().toTimeFormat),
-        _item(name: 'Time with Seconds', string: DateTime.now().toTimeFormatWithSeconds),
+        _item(name: 'Date & Time', string: DateTime.now().toDateTimeFormat()),
+        _item(name: 'Date', string: DateTime.now().toDateFormat()),
+        _item(name: 'Time', string: DateTime.now().toTimeFormat()),
+        _item(name: 'Time with Seconds', string: DateTime.now().toTimeFormatWithSeconds()),
       ], title: 'Date & Time');
 
   _currency() => _section([
-        _item(name: 'Separators', string: 22500000.toCurrency),
-        _item(name: 'Separators with Sign', string: 55400000.toCurrencyWithSign(AppLocalization.to.getCountry().currencySign?.sign ?? AppCountries.us.currencySign?.sign ?? '')),
+        _item(name: 'Separators', string: 22500000.toCurrency()),
+        _item(name: 'Separators with Sign', string: 55400000.toCurrency(sign: AppLocalization.to.getCountry().currency?.sign.string ?? AppCountries.us.currency?.sign.string ?? '')),
       ], title: 'Currency');
 
   _section(List<Widget> section, {bool? isRow, String? title}) => Column(children: [

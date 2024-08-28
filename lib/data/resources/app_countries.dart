@@ -11,8 +11,7 @@ enum AppCountries {
     countryName: 'Iran',
     countryNameAbbreviation: 'IR',
     code: '98',
-    currency: 'Rial',
-    currencySign: CurrencySigns.rial,
+    currency: AppCurrency.irr,
     timeZoneAbbreviation: ['IRST'],
     timeZoneOffset: [DurationCustomModel(hour: 4, minute: 30)],
   ),
@@ -20,8 +19,7 @@ enum AppCountries {
     countryName: 'Germany',
     countryNameAbbreviation: 'DE',
     code: '49',
-    currency: 'Euro',
-    currencySign: CurrencySigns.euro,
+    currency: AppCurrency.euro,
     timeZoneAbbreviation: ['CET'],
     timeZoneOffset: [DurationCustomModel(hour: 2)],
   ),
@@ -29,8 +27,7 @@ enum AppCountries {
     countryName: 'United States',
     countryNameAbbreviation: 'US',
     code: '1',
-    currency: 'Dollar',
-    currencySign: CurrencySigns.dollar,
+    currency: AppCurrency.usd,
     timeZoneAbbreviation: ['PST', 'MST', 'CST', 'EST'],
     timeZoneOffset: [
       DurationCustomModel(hour: -8),
@@ -43,8 +40,7 @@ enum AppCountries {
     countryName: 'United Kingdom',
     countryNameAbbreviation: 'GB',
     code: '44',
-    currency: 'GBP',
-    currencySign: CurrencySigns.pound,
+    currency: AppCurrency.gbp,
     timeZoneAbbreviation: ['BST'],
     timeZoneOffset: [DurationCustomModel(hour: 1)],
   ),
@@ -52,8 +48,7 @@ enum AppCountries {
     countryName: 'Canada',
     countryNameAbbreviation: 'CA',
     code: '1',
-    currency: 'CAD',
-    currencySign: CurrencySigns.dollar,
+    currency: AppCurrency.cad,
     timeZoneAbbreviation: ['PST', 'MST', 'CST', 'EST', 'AST'],
     timeZoneOffset: [
       DurationCustomModel(hour: -7),
@@ -68,8 +63,7 @@ enum AppCountries {
     countryName: 'Unknown',
     countryNameAbbreviation: 'Unknown',
     code: 'Unknown',
-    currency: 'Unknown',
-    currencySign: CurrencySigns.unknown,
+    currency: AppCurrency.unknown,
     timeZoneAbbreviation: ['Unknown'],
     timeZoneOffset: [DurationCustomModel()],
   );
@@ -78,8 +72,7 @@ enum AppCountries {
   final String? countryName;
   final String? countryNameAbbreviation;
   final String? code;
-  final String? currency;
-  final CurrencySigns? currencySign;
+  final AppCurrency? currency;
   final List<String>? timeZoneAbbreviation;
   final List<DurationCustomModel>? timeZoneOffset;
 
@@ -89,19 +82,31 @@ enum AppCountries {
     this.countryNameAbbreviation,
     this.code,
     this.currency,
-    this.currencySign,
     this.timeZoneAbbreviation,
     this.timeZoneOffset,
   });
 }
 
-enum CurrencySigns {
+enum AppCurrency {
+  irr(AppCurrencySign.rial, 'IRR'),
+  euro(AppCurrencySign.euro, 'Euro'),
+  usd(AppCurrencySign.dollar, 'USD'),
+  cad(AppCurrencySign.dollar, 'CAD'),
+  gbp(AppCurrencySign.pound, 'GBP'),
+  unknown(AppCurrencySign.unknown, '');
+
+  final AppCurrencySign sign;
+  final String name;
+  const AppCurrency(this.sign, this.name);
+}
+
+enum AppCurrencySign {
   rial('ریال'),
-  euro('€'),
   dollar('\$'),
+  euro('€'),
   pound('£'),
   unknown('');
 
-  final String sign;
-  const CurrencySigns(this.sign);
+  final String string;
+  const AppCurrencySign(this.string);
 }

@@ -9,13 +9,14 @@ import '../data/resources/app_countries.dart';
 import '../data/resources/app_enums.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
+import 'app_extensions/extensions_on_data_types/extension_on_list.dart';
 
 class AppLocalization {
   static AppLocalization get to => Get.find();
 
   get supportedLocales => S.delegate.supportedLocales;
 
-  static List<Locale> get languages => [english, deutsch, persian];
+  static List<Locale> get languagesList => [english, deutsch, persian];
   static Locale get english => Locale(AppLanguages.english.locale.languageCode, AppCountries.us.code);
   static Locale get deutsch => Locale(AppLanguages.deutsch.locale.languageCode, AppCountries.germany.code);
   static Locale get persian => Locale(AppLanguages.persian.locale.languageCode, AppCountries.iran.code);
@@ -26,19 +27,23 @@ class AppLocalization {
   LocalizationsDelegate get _widgets => GlobalWidgetsLocalizations.delegate;
   LocalizationsDelegate get _cupertino => GlobalCupertinoLocalizations.delegate;
 
-  ///Variables
-  Locale defaultLanguage = english;
-  AppCountries defaultCountry = AppCountries.us;
-  TextDirection defaultTextDirection = TextDirection.ltr;
+  ///Default Variables
+  Locale language = english;
+  AppCountries country = AppCountries.us;
+  String timeZoneAbbreviation = AppCountries.us.timeZoneAbbreviation?.first ?? '';
+  bool isDst = false;
+  TextDirection textDirection = TextDirection.ltr;
 
-  Locale getDefaultLocale() {
+  Locale getLocale() {
     var appSettings = const AppSettingData().loadFromStorage;
-    return appSettings.language.getLocale;
+    language = appSettings.language.getLocale();
+    return language;
   }
 
   TextDirection getTextDirection() {
     var appSettings = const AppSettingData().loadFromStorage;
-    return appSettings.language.getLocale == persian ? TextDirection.rtl : defaultTextDirection;
+    textDirection = appSettings.language.getLocale() == persian ? TextDirection.rtl : textDirection;
+    return textDirection;
   }
 
   TimeZone getTimeZone() => TimeZone(
@@ -49,10 +54,18 @@ class AppLocalization {
 
   AppCountries getCountry() {
     var appSettings = const AppSettingData().loadFromStorage;
-    return appSettings.country;
+    country = appSettings.country;
+    return country;
   }
 
-  String get _getTimeZoneAbbreviation => getCountry().timeZoneAbbreviation?.first ?? defaultCountry.timeZoneAbbreviation?.first ?? '';
+  String get _getTimeZoneAbbreviation {
+    var tza = getCountry().timeZoneAbbreviation?.getMiddleElement<String>();
+    timeZoneAbbreviation = tza ?? timeZoneAbbreviation;
+    return timeZoneAbbreviation;
+  }
 
-  bool get _getDST => _getTimeZoneAbbreviation.isEmpty ? false : _getTimeZoneAbbreviation.contains('DT');
+  bool get _getDST {
+    isDst = _getTimeZoneAbbreviation.isEmpty ? false : _getTimeZoneAbbreviation.contains('DT');
+    return isDst;
+  }
 }

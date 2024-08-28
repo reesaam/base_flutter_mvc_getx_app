@@ -2,7 +2,7 @@ import '../../../data/shared_models/helper_models/duration_custom_model/duration
 import '../../app_localization_texts.dart';
 
 extension ExtensionDateTimeDurationCalculation on Duration {
-  DurationCustomModel get calculateDifferenceInCustomDateTimeModel {
+  DurationCustomModel calculateDifference() {
     var dDay = inDays;
     var dHour = inHours;
     var dMinute = inMinutes;
@@ -21,18 +21,18 @@ extension ExtensionDateTimeDurationCalculation on Duration {
 }
 
 extension ExtensionDateTimeDurationCalculationNull on Duration? {
-  String get toCompleteFormat => this == null ? Texts.to.notAvailableInitials : this!.toCompleteFormat;
-  String get toConditionalFormat => this == null ? Texts.to.notAvailableInitials : this!.toConditionalFormat;
+  String get toCompleteFormat => this == null ? Texts.to.notAvailableInitials : this!.toCompleteFormat();
+  String get toConditionalFormat => this == null ? Texts.to.notAvailableInitials : this!.toConditionalFormat();
 }
 
 extension ExtensionDateTimeFormat on Duration {
-  String get toCompleteFormat {
-    DurationCustomModel diff = calculateDifferenceInCustomDateTimeModel;
+  String toCompleteFormat() {
+    DurationCustomModel diff = calculateDifference();
     return '${diff.year}Y, ${diff.month}M, ${diff.week}W, ${diff.day}D, ${diff.hour}H, ${diff.minute}M, ${diff.second}S';
   }
 
-  String get toConditionalFormat {
-    DurationCustomModel diff = calculateDifferenceInCustomDateTimeModel;
+  String toConditionalFormat() {
+    DurationCustomModel diff = calculateDifference();
     List<String> list = List<String>.empty(growable: true);
     diff.year == 0 || diff.year == null ? null : list.add('${diff.year}Y,');
     diff.month == 0 || diff.month == null ? null : list.add(' ${diff.month}M,');
@@ -47,5 +47,11 @@ extension ExtensionDateTimeFormat on Duration {
     }
     result.isNotEmpty ? result = result.replaceRange(result.length - 1, result.length, Texts.to.empty) : null;
     return result.isEmpty ? Texts.to.notAvailableInitials : result;
+  }
+
+  String toTimeZoneFormat() {
+    DurationCustomModel diff = calculateDifference();
+    var sign = diff.hour! < 0 ? '-' : '+';
+    return '$sign${diff.hour?.abs().toString().padLeft(2, '0')}:${diff.minute.toString().padLeft(2, '0')}';
   }
 }

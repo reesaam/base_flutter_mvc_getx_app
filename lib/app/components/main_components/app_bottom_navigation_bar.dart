@@ -7,7 +7,6 @@ import '../../../core/app_routing/app_routing.dart';
 import '../../../data/info/app_page_details.dart';
 import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
-import '../../../data/resources/app_theme/app_themes.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int? selectedIndex;
@@ -53,7 +52,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
         label: _createLabel(route),
       );
 
-  Icon _createIcon(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).iconCode.toIcon;
+  Icon _createIcon(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).iconCode.toIcon();
 
   String _createLabel(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).pageName ?? Texts.to.empty;
 }

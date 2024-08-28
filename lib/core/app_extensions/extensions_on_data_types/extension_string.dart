@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
 
 import 'extension_int.dart';
 
@@ -12,6 +11,5 @@ extension ExtensionStringModifiers on String {
 }
 
 extension ExtensionStringModifiersCurrency on String {
-  String get toCurrency => int.tryParse(this).toCurrency;
-  String toCurrencyWithSign(String sign) => int.tryParse(this).toCurrencyWithSign(sign);
+  String toCurrency({String? sign}) => int.tryParse(this).toCurrency(sign: sign);
 }

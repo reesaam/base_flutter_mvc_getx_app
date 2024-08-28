@@ -19,7 +19,7 @@ extension ExtensionTimeZone on TimeZone {
     return result;
   }
 
-  DurationCustomModel toDurationCustomModel() => Duration(milliseconds: offset).calculateDifference;
+  DurationCustomModel toDurationCustomModel() => Duration(milliseconds: offset).calculateDifference();
 
-  String get toFormattedOffset => toDurationCustomModel().toDuration.toTimeZoneFormat;
+  String toFormattedOffset() => toDurationCustomModel().toDuration().toTimeZoneFormat();
 }

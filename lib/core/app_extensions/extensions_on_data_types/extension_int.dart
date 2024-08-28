@@ -4,16 +4,18 @@ import 'package:intl/intl.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../app_localization_texts.dart';
 
-extension ExtensionIconFunction on int? {
-  Icon get toIcon => this == null ? AppIcons.none : Icon(IconData(this!, fontFamily: 'MaterialIcons'));
+extension ExtensionIconFunction on int {
+  Icon toIcon() => Icon(IconData(this, fontFamily: 'MaterialIcons'));
+}
+
+extension ExtensionIconFunctionNull on int? {
+  Icon toIcon() => this == null ? AppIcons.none : toIcon();
 }
 
 extension ExtensionCurrencyFormat on int {
-  String get toCurrency => NumberFormat.currency(symbol: '', decimalDigits: 0).format(this);
-  String toCurrencyWithSign(String sign) => NumberFormat.currency(symbol: sign, decimalDigits: 0).format(this);
+  String toCurrency({String? sign}) => NumberFormat.currency(symbol: sign, decimalDigits: 0).format(this);
 }
 
 extension ExtensionCurrencyFormatNull on int? {
-  String get toCurrency => this == null ? Texts.to.notAvailableInitials : this!.toCurrency;
-  String toCurrencyWithSign(String sign) => this == null ? Texts.to.notAvailableInitials : this!.toCurrencyWithSign(sign);
+  String toCurrency({String? sign}) => this == null ? Texts.to.notAvailableInitials : this!.toCurrency();
 }

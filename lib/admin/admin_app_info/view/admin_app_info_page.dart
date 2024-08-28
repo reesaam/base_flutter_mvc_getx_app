@@ -61,23 +61,23 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Launches', text: controller.statisticsData.value.launches.toString()),
         _item(title: 'Logins', text: controller.statisticsData.value.logins.toString()),
         _item(title: 'Crashes', text: controller.statisticsData.value.crashes.toString()),
-        _item(title: 'Install DateTime', text: controller.statisticsData.value.installDateTime?.toDateTimeFormat),
-        _item(title: 'Install Duration', text: controller.statisticsData.value.installDuration?.toConditionalFormat),
+        _item(title: 'Install DateTime', text: controller.statisticsData.value.installDateTime?.toDateTimeFormat()),
+        _item(title: 'Install Duration', text: controller.statisticsData.value.installDuration?.toConditionalFormat()),
         _item(title: 'Page Opens', text: controller.statisticsData.value.pageOpens.toString()),
         _item(title: 'Api Calls', text: controller.statisticsData.value.apiCalls.toString()),
       ], title: 'App Statistics Info');
 
   _localization() => _section([
-    _item(title: 'Locale', text: AppLocalization.to.getDefaultLocale().toLanguageTag()),
-    _item(title: 'Language Code', text: AppLocalization.to.getDefaultLocale().languageCode),
-    _item(title: 'Language Name', text: AppLocalization.to.getDefaultLocale().getLanguageName),
+    _item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
+    _item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
+    _item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
     _item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
     _item(title: 'Country Name', text: AppLocalization.to.getTimeZone().countryName),
-    _item(title: 'Country Code', text: AppLocalization.to.getDefaultLocale().countryCode ?? Texts.to.notAvailableInitials),
+    _item(title: 'Country Code', text: AppLocalization.to.getLocale().countryCode ?? Texts.to.notAvailableInitials),
     _item(title: 'TimeZone Abbreviation', text: AppLocalization.to.getTimeZone().abbreviation),
-    _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset),
+    _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset()),
     _item(title: 'TimeZone DST', text: AppLocalization.to.getTimeZone().isDst.toString()),
-    _item(title: 'Currency Sign', text: AppLocalization.to.getCountry().currencySign?.sign),
+    _item(title: 'Currency Sign', text: AppLocalization.to.getCountry().currency?.sign.string),
   ], title: 'Localization');
 
   _section(List<Widget> section, {String? title}) => Column(children: [

@@ -4,7 +4,7 @@ import '../../../data/resources/app_enums.dart';
 import '../../app_localization.dart';
 
 extension ExtensionLocaleFunctions on AppLanguages? {
-  Locale get getLocale {
+  Locale getLocale() {
     var locale = AppLocalization.english;
     switch (this) {
       case AppLanguages.english:
@@ -17,7 +17,6 @@ extension ExtensionLocaleFunctions on AppLanguages? {
         locale = AppLocalization.persian;
         break;
       default:
-        locale = AppLocalization.english;
         break;
     }
     return locale;

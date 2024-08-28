@@ -21,8 +21,8 @@ extension ExtensionDateTimeDurationCalculation on Duration {
 }
 
 extension ExtensionDateTimeDurationCalculationNull on Duration? {
-  String get toCompleteFormat => this == null ? Texts.to.notAvailableInitials : this!.toCompleteFormat();
-  String get toConditionalFormat => this == null ? Texts.to.notAvailableInitials : this!.toConditionalFormat();
+  String toCompleteFormat() => this == null ? Texts.to.notAvailableInitials : this!.toCompleteFormat();
+  String toConditionalFormat() => this == null ? Texts.to.notAvailableInitials : this!.toConditionalFormat();
 }
 
 extension ExtensionDateTimeFormat on Duration {

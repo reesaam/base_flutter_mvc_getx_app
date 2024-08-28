@@ -11,7 +11,7 @@ class AdminAppInfoController extends CoreController {
   @override
   void dataInit() {
     // clearAppData();
-    statisticsData.value = statisticsData.value.loadFromStorage;
+    statisticsData.value = statisticsData.value.loadFromStorage();
   }
 
   @override

@@ -6,24 +6,24 @@ import '../../../data/storage/app_local_storage.dart';
 import '../../failures/local_exception.dart';
 
 extension ExtensionAppStatisticsRxStorage on Rx<AppStatisticsData> {
-  void get saveOnStorage async => await AppLocalStorage.to.saveAppStatisticsData(appStatisticsData: value);
-  Rx<AppStatisticsData> get loadFromStorage => value.loadFromStorage.obs;
+  void saveOnStorage() async => await AppLocalStorage.to.saveAppStatisticsData(appStatisticsData: value);
+  Rx<AppStatisticsData> loadFromStorage() => value.loadFromStorage().obs;
 }
 
 extension ExtensionAppStatisticsStorage on AppStatisticsData {
-  void get saveOnStorage async => await AppLocalStorage.to.saveAppStatisticsData(appStatisticsData: this);
-  AppStatisticsData get loadFromStorage {
-    var data = AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r?.calculateInstallDuration);
+  void saveOnStorage() async => await AppLocalStorage.to.saveAppStatisticsData(appStatisticsData: this);
+  AppStatisticsData loadFromStorage() {
+    var data = AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r?.calculateInstallDuration());
     return data;
   }
 }
 
 extension ExtensionAppStatisticsRxClear on Rx<AppStatisticsData> {
-  Rx<AppStatisticsData> get clearData => value.clearData.obs;
+  Rx<AppStatisticsData> clearData() => value.clearData().obs;
 }
 
 extension ExtensionAppStatisticsClear on AppStatisticsData {
-  AppStatisticsData get clearData => const AppStatisticsData();
+  AppStatisticsData clearData() => const AppStatisticsData();
 }
 
 extension ExtensionAppStatisticsIncreases on AppStatisticsData {
@@ -36,5 +36,5 @@ extension ExtensionAppStatisticsIncreases on AppStatisticsData {
 }
 
 extension ExtensionAppStatisticsCalculations on AppStatisticsData {
-  AppStatisticsData get calculateInstallDuration => installDateTime == null ? this : copyWith(installDuration: DateTime.now().difference(installDateTime!));
+  AppStatisticsData calculateInstallDuration() => installDateTime == null ? this : copyWith(installDuration: DateTime.now().difference(installDateTime!));
 }

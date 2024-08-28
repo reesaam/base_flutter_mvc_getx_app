@@ -35,13 +35,13 @@ class AppLocalization {
   TextDirection textDirection = TextDirection.ltr;
 
   Locale getLocale() {
-    var appSettings = const AppSettingData().loadFromStorage;
+    var appSettings = const AppSettingData().loadFromStorage();
     language = appSettings.language.getLocale();
     return language;
   }
 
   TextDirection getTextDirection() {
-    var appSettings = const AppSettingData().loadFromStorage;
+    var appSettings = const AppSettingData().loadFromStorage();
     textDirection = appSettings.language.getLocale() == persian ? TextDirection.rtl : textDirection;
     return textDirection;
   }
@@ -53,7 +53,7 @@ class AppLocalization {
       );
 
   AppCountries getCountry() {
-    var appSettings = const AppSettingData().loadFromStorage;
+    var appSettings = const AppSettingData().loadFromStorage();
     country = appSettings.country;
     return country;
   }

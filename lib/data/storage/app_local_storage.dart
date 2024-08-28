@@ -108,7 +108,7 @@ class AppLocalStorage {
     );
 
     var appDataJson = appData.toJson();
-    Uint8List data = appDataJson.toString().toUInt8List;
+    Uint8List data = appDataJson.toString().toUInt8List();
     String? savedPath = await AppFileFunctions.to.saveFile(fileName: AppTexts.settingBackupFilename, data: data);
     appLogPrint('File Path: $savedPath');
     appLogPrint('Backup File Exported');

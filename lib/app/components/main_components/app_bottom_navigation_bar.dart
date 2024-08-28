@@ -44,10 +44,6 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   }
 
   BottomNavigationBarItem _generateBottomNavigationBarItem(AppRoutes route) => BottomNavigationBarItem(
-        // activeIcon: CircleAvatar(
-        //     backgroundColor: AppThemes.to.primaryColor,
-        //     foregroundColor: AppThemes.to.canvasColor,
-        //     child: _createIcon(route)),
         icon: _createIcon(route),
         label: _createLabel(route),
       );

@@ -4,12 +4,8 @@ import 'package:intl/intl.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../app_localization_texts.dart';
 
-extension ExtensionIconFunction on int {
-  Icon toIcon() => Icon(IconData(this, fontFamily: 'MaterialIcons'));
-}
-
-extension ExtensionIconFunctionNull on int? {
-  Icon toIcon() => this == null ? AppIcons.none : toIcon();
+extension ExtensionIconFunction on int? {
+  Icon toIcon() => this == null ? AppIcons.none : Icon(IconData(this!, fontFamily: 'MaterialIcons'));
 }
 
 extension ExtensionCurrencyFormat on int {

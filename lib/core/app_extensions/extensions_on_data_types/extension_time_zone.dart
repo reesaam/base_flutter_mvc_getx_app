@@ -1,20 +1,25 @@
 import 'package:timezone/timezone.dart';
 
+import '../../../data/resources/app_countries.dart';
 import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../../app_localization_texts.dart';
+import 'extension_custom_duration.dart';
 import 'extension_duration.dart';
 
 extension ExtensionTimeZone on TimeZone {
-  DurationCustomModel get toDifferentCustomModel => Duration(milliseconds: offset).calculateDifferenceInCustomDateTimeModel;
-
   String get countryName {
     String result = Texts.to.notAvailableInitials;
+    for (var country in AppCountries.values) {
+      for (var abbr in country.timeZoneAbbreviation!) {
+        if (abbr == abbreviation) {
+          result = country.countryName ?? Texts.to.notAvailableInitials;
+        }
+      }
+    }
     return result;
   }
 
-  String get toFormattedOffset {
-    var offset = toDifferentCustomModel;
-    var sign = offset.toString()[0] == '-' ? '-' : '+';
-    return '$sign${offset.hour.toString().padLeft(2, '0')}:${offset.minute.toString().padLeft(2, '0')}';
-  }
+  DurationCustomModel toDurationCustomModel() => Duration(milliseconds: offset).calculateDifference;
+
+  String get toFormattedOffset => toDurationCustomModel().toDuration.toTimeZoneFormat;
 }

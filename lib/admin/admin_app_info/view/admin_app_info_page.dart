@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_custom_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_time_zone.dart';
 import '../../../core/app_localization.dart';
@@ -17,7 +19,9 @@ import '../../../app/components/main_components/app_bar.dart';
 import '../../../data/info/app_core_flags.dart';
 import '../../../data/info/app_developer_info.dart';
 import '../../../data/info/app_info.dart';
+import '../../../data/resources/app_countries.dart';
 import '../../../data/resources/app_paddings.dart';
+import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../controller/admin_app_info_controller.dart';
 
 class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
@@ -30,13 +34,13 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
   EdgeInsets? get pagePadding => AppPaddings.zero;
 
   @override
-  Widget get body => Obx(() => Column(children: [
-        AppDividers.general(),
-        _appInfo(),
-        _appDeveloperInfo(),
-        _appStatisticsInfo(),
-        _localization(),
-      ]));
+  Widget get body => Column(children: [
+    AppDividers.general(),
+    _appInfo(),
+    _appDeveloperInfo(),
+    _appStatisticsInfo(),
+    _localization(),
+  ]);
 
   _appInfo() => _section([
         _item(title: 'App Name', text: AppInfo.appName),
@@ -67,18 +71,21 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Api Calls', text: controller.statisticsData.value.apiCalls.toString()),
       ], title: 'App Statistics Info');
 
-  _localization() => _section([
+  _localization() {
+    AppCountry country = AppLocalization.to.getCountry();
+    return _section([
     _item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
     _item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
     _item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
     _item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
-    _item(title: 'Country Name', text: AppLocalization.to.getTimeZone().countryName),
-    _item(title: 'Country Code', text: AppLocalization.to.getLocale().countryCode ?? Texts.to.notAvailableInitials),
-    _item(title: 'TimeZone Abbreviation', text: AppLocalization.to.getTimeZone().abbreviation),
-    _item(title: 'TimeZone Offset', text: AppLocalization.to.getTimeZone().toFormattedOffset()),
-    _item(title: 'TimeZone DST', text: AppLocalization.to.getTimeZone().isDst.toString()),
-    _item(title: 'Currency Sign', text: AppLocalization.to.getCountry().currency?.sign.string),
+    _item(title: 'Country Name', text: AppLocalization.to.getCountry().countryName),
+    _item(title: 'Country Code', text: AppLocalization.to.getCountry().code ?? Texts.to.notAvailableInitials),
+    _item(title: 'TimeZone Abbreviation', text: country.timeZoneAbbreviation?.getMiddleElement<String>()),
+    _item(title: 'TimeZone Offset', text: country.timeZoneOffset?.getMiddleElement<DurationCustomModel>().toFormattedOffset()),
+    // _item(title: 'TimeZone DST', text: country.isDst.toString()),
+    _item(title: 'Currency Sign', text: country.currency?.sign.string),
   ], title: 'Localization');
+  }
 
   _section(List<Widget> section, {String? title}) => Column(children: [
         title == null

@@ -10,26 +10,26 @@ class AppStatistics {
 
   increaseLaunch() {
     data = data.loadFromStorage().increaseLaunch;
-    data.saveOnStorage;
+    data.saveOnStorage();
   }
 
   increaseLogin() {
     data = data.loadFromStorage().increaseLogin;
-    data.saveOnStorage;
+    data.saveOnStorage();
   }
 
   increaseCrashes() {
     data = data.loadFromStorage().increaseCrashes;
-    data.saveOnStorage;
+    data.saveOnStorage();
   }
 
   increasePageOpens() {
     data = data.loadFromStorage().increasePageOpens;
-    data.saveOnStorage;
+    data.saveOnStorage();
   }
 
   increaseApiCalls() {
     data = data.loadFromStorage().increaseApiCalls;
-    data.saveOnStorage;
+    data.saveOnStorage();
   }
 }

@@ -29,5 +29,5 @@ extension ExtensionAppSettingsRxLanguagesEntity on Rx<AppSettingData> {
 }
 
 extension ExtensionAppSettingsLanguages on AppSettingData {
-  changeLanguage(AppLanguages lang) => copyWith(language: lang).saveOnStorage;
+  changeLanguage(AppLanguages lang) => copyWith(language: lang).saveOnStorage();
 }

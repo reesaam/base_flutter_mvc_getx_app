@@ -29,7 +29,7 @@ class AppStatisticsData with _$AppStatisticsData {
       installDateTime: DateTime.now(),
       installDuration: Duration.zero,
     );
-    data.saveOnStorage;
+    data.saveOnStorage();
     return data;
   }
 }

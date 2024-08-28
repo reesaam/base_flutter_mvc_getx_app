@@ -6,7 +6,7 @@ import '../../../features/versions/models/app_version/app_version.dart';
 import '../../failures/local_exception.dart';
 
 extension ExtensionAppVersionRxStorage on Rx<AppVersionsList> {
-  saveOnStorage() => value.saveOnStorage;
+  saveOnStorage() => value.saveOnStorage();
   Rx<AppVersionsList> loadFromStorage() => value.loadFromStorage().obs;
 }
 
@@ -20,5 +20,5 @@ extension ExtensionAppVersionRxClear on Rx<AppVersionsList> {
 }
 
 extension ExtensionAppVersionClear on AppVersionsList {
-  clearData() => AppVersionsList().saveOnStorage;
+  clearData() => AppVersionsList().saveOnStorage();
 }

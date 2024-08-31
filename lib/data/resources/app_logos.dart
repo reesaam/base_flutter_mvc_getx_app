@@ -4,4 +4,6 @@ class AppLogos {
 
   static const appLogo = '$_baseLogos/app_logo.png';
   // static const appAnimatedLogo = '$_baseLogos/app_animated_logo.gif';
+
+  static const developerLogo = '$_baseLogos/developer_logo.png';
 }

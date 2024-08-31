@@ -41,12 +41,14 @@
 
 ### Connect
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;</td>
 <td>
-<img src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg" width="40" title="LinkedIn">
+<a href="https://github.com/reesaam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg" width="40" title="GitHub"></a>
 </td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td>
-<img src="https://edent.github.io/SuperTinyIcons/images/svg/linkedin.svg" width="40" title="LinkedIn">
+<a href="https://www.linkedin.com/in/resam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/linkedin.svg" width="40" title="LinkedIn"></a>
 </td>
 </tr>
+
+

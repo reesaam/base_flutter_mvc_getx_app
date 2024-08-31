@@ -23,6 +23,8 @@
 - Animations and UI Elements
 - App Icon Generator
 
+
+
 > [!Important]
 > 
 > This Project is general for all Base-Apps, it has all common modules in all Base-Apps, and it has several Sub-Projects with several Architectures and State-Managers.
@@ -35,3 +37,16 @@
 > 
 > You can always send your merge requests if you can improve the code or adding a useful feature into this.
 > Best-Practices for any feature or module are always welcome.
+
+
+### Connect
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<img src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg" width="40" title="LinkedIn">
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<img src="https://edent.github.io/SuperTinyIcons/images/svg/linkedin.svg" width="40" title="LinkedIn">
+</td>
+</tr>

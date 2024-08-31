@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       supportedLocales: AppLocalization.to.supportedLocales,
       localizationsDelegates: AppLocalization.to.localizationDelegates,
-      locale: AppLocalization.to.getDefaultLocale(),
+      locale: AppLocalization.to.getLocale(),
       textDirection: AppLocalization.to.getTextDirection(),
       popGesture: true,
     );

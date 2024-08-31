@@ -7,21 +7,21 @@ import '../../../features/settings/models/app_settings_data/app_setting_data.dar
 import '../../failures/local_exception.dart';
 
 extension ExtensionAppSettingsRxStorage on Rx<AppSettingData> {
-  void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: value);
-  Rx<AppSettingData> get loadFromStorage => value.loadFromStorage.obs;
+  void saveOnStorage() async => await AppLocalStorage.to.saveSettings(settings: value);
+  Rx<AppSettingData> loadFromStorage() => value.loadFromStorage().obs;
 }
 
 extension ExtensionAppSettingsStorage on AppSettingData {
-  void get saveOnStorage async => await AppLocalStorage.to.saveSettings(settings: this);
-  AppSettingData get loadFromStorage => AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+  void saveOnStorage() async => await AppLocalStorage.to.saveSettings(settings: this);
+  AppSettingData loadFromStorage() => AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
 }
 
 extension ExtensionAppSettingsRxClear on Rx<AppSettingData> {
-  Rx<AppSettingData> get clearData => value.clearData.obs;
+  Rx<AppSettingData> clearData() => value.clearData().obs;
 }
 
 extension ExtensionAppSettingsClear on AppSettingData {
-  AppSettingData get clearData => AppSettingData.createEmpty();
+  AppSettingData clearData() => const AppSettingData();
 }
 
 extension ExtensionAppSettingsRxLanguagesEntity on Rx<AppSettingData> {
@@ -29,5 +29,5 @@ extension ExtensionAppSettingsRxLanguagesEntity on Rx<AppSettingData> {
 }
 
 extension ExtensionAppSettingsLanguages on AppSettingData {
-  changeLanguage(AppLanguages lang) => copyWith(language: lang).saveOnStorage;
+  changeLanguage(AppLanguages lang) => copyWith(language: lang).saveOnStorage();
 }

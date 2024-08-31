@@ -77,7 +77,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
               crossAxisCount: items.length > 1 && isGrid == true ? 2 : 1,
               children: List<Widget>.generate(items.length, (index) => items[index]),
             )),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({required String text, required Function function}) => AppGeneralButton(text: text, onTap: () => function());

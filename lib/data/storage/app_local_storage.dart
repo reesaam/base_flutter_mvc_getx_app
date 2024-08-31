@@ -7,15 +7,15 @@ import 'package:get/get.dart';
 import '../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../core/app_extensions/extensions_on_data_types/extension_string.dart';
+import '../../core/app_localization_texts.dart';
 import '../../core/failures/local_exception.dart';
 import '../../data/info/app_info.dart';
 import '../../app/functional_components/file_functions/file_functions.dart';
-import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
-import '../models/core_models/app_data/app_data.dart';
-import '../models/core_models/app_statistics_data/app_statistics_data.dart';
+import '../shared_models/core_models/app_data/app_data.dart';
+import '../shared_models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_texts.dart';
 import 'app_shared_preferences.dart';
@@ -28,11 +28,11 @@ class AppLocalStorage {
   static AppLocalStorage get to => Get.find();
 
   ///Keys
-  final _keyAppData = AppStorageKeys.keyAppData.name;
-  final _keyAppStatisticData = AppStorageKeys.keyAppStatisticsData.name;
-  final _keyAppDataVersion = AppStorageKeys.keyAppDataVersion.name;
-  final _keyAppVersions = AppStorageKeys.keyAppVersions.name;
-  final _keySettings = AppStorageKeys.keySettings.name;
+  final _keyAppData = AppStorageKeys.keyAppData;
+  final _keyAppStatisticData = AppStorageKeys.keyAppStatisticsData;
+  final _keyAppDataVersion = AppStorageKeys.keyAppDataVersion;
+  final _keyAppVersions = AppStorageKeys.keyAppVersions;
+  final _keySettings = AppStorageKeys.keySettings;
 
   void clearStorage() {
     for (var key in AppStorageKeys.values) {
@@ -45,24 +45,30 @@ class AppLocalStorage {
   void _clearSpecificKey(AppStorageKeys key) => _storage.remove(key.name);
 
   ///Core Functions
-  Future<Either<LocalException, bool>> _saveFunction({required String key, data}) async {
+  Future<Either<LocalException, bool>> _saveFunction({required AppStorageKeys key, data}) async {
     try {
-      data == null ? null : await _storage.write(key, data);
+      data == null ? null : await _storage.write(key.name, data);
+      appLogPrint('Data Saved Successfully on ${key.name}');
       return const Right(true);
     } on LocalException catch (ex) {
+      appLogPrint('Local Exception Occurred : $ex');
       return Left(LocalException.handleResponse(ex));
     } catch (ex) {
+      appLogPrint('Local Exception Occurred : $ex');
       return Left(LocalException.handleResponse(ex));
     }
   }
 
-  Either<LocalException, T> _loadFunction<T>(String key) {
+  Either<LocalException, T> _loadFunction<T>(AppStorageKeys key) {
     try {
-      T data = _storage.read(key);
+      T data = _storage.read(key.name);
+      appLogPrint('Data Loaded Successfully from ${key.name}');
       return Right(data);
     } on LocalException catch (ex) {
+      appLogPrint('Local Exception Occurred : $ex');
       return Left(LocalException.handleResponse(ex));
     } catch (ex) {
+      appLogPrint('Local Exception Occurred : $ex');
       return Left(LocalException.handleResponse(ex));
     }
   }
@@ -72,12 +78,14 @@ class AppLocalStorage {
     AppDataVersions? appDataVersion = loadAppDataVersion().fold((l) => null, (r) => r);
     AppVersionsList? appVersions = loadAppVersions().fold((l) => null, (r) => r);
     AppSettingData? settings = loadSettings().fold((l) => null, (r) => r);
+    AppStatisticsData? statisticsData = loadAppStatisticsData().fold((l) => null, (r) => r);
 
     //Fill Data
     AppData appData = AppData(
       dataVersion: appDataVersion,
       appVersions: appVersions,
       settings: settings,
+      statisticsData: statisticsData,
     );
 
     AppSharedPreferences.to.saveData(appData);
@@ -86,14 +94,6 @@ class AppLocalStorage {
 
   Future<AppData?> loadAllDataFromStorage() async {
     AppData? appData = await AppSharedPreferences.to.loadData();
-
-    if (appData == null) {
-    } else {
-      saveAppDataVersion(appDataVersion: appData.dataVersion);
-      saveAppVersions(appVersions: appData.appVersions);
-      saveSettings(settings: appData.settings);
-    }
-
     appLogPrint('AppData Loaded from Storage Successfully');
     return appData;
   }
@@ -104,10 +104,11 @@ class AppLocalStorage {
       dataVersion: AppDataVersions.values.last,
       appVersions: AppInfo.versions,
       settings: loadSettings().fold((l) => null, (r) => r),
+      statisticsData: loadAppStatisticsData().fold((l) => null, (r) => r),
     );
 
-    var appDataJson = json.encode(appData);
-    Uint8List data = appDataJson.toString().toUInt8List;
+    var appDataJson = appData.toJson();
+    Uint8List data = appDataJson.toString().toUInt8List();
     String? savedPath = await AppFileFunctions.to.saveFile(fileName: AppTexts.settingBackupFilename, data: data);
     appLogPrint('File Path: $savedPath');
     appLogPrint('Backup File Exported');
@@ -117,9 +118,8 @@ class AppLocalStorage {
     var appDataFile = await AppFileFunctions.to.pickFile();
 
     if (appDataFile != null) {
-      var fileString = String.fromCharCodes(appDataFile.readAsBytesSync());
-      var decodedFile = json.decode(fileString);
-      AppData appData = AppData.fromJson(decodedFile);
+      String stringCharCodes = String.fromCharCodes(appDataFile.readAsBytesSync());
+      AppData appData = AppData.fromJson(json.decode(stringCharCodes));
       clearAppData();
 
       ///Filling Data Fields
@@ -154,29 +154,35 @@ class AppLocalStorage {
       appLogPrint('Statistics / Launches: ${statisticsData.launches}');
       appLogPrint('Statistics / Logins: ${statisticsData.logins}');
       appLogPrint('Statistics / Crashes: ${statisticsData.crashes}');
+      appLogPrint('Statistics / Page Opens: ${statisticsData.pageOpens}');
+      appLogPrint('Statistics / API Calls: ${statisticsData.apiCalls}');
       appLogPrint('Statistics / Install DateTime: ${statisticsData.installDateTime.toDateTimeFormat}');
       appLogPrint('Statistics / Install Duration: ${statisticsData.installDuration.toConditionalFormat}');
     }
-
   }
 
-  ///AppStatisticsData
-  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async => await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
-  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() => _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
-  clearAppStatisticsData() => _clearSpecificKey(AppStorageKeys.keyAppStatisticsData);
+  ///AppData
+  Future<void> saveAppData({required AppData? appData}) async => await _saveFunction(key: _keyAppData, data: appData);
+  Either<LocalException, AppData?> loadAppData() => _loadFunction(_keyAppData).map((r) => r == null ? null : jsonDecode(r));
+  clearAppData() => _clearSpecificKey(_keyAppData);
 
   ///AppDataVersion
   Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async => await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
   Either<LocalException, AppDataVersions?> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
-  clearAppDataVersion() => _clearSpecificKey(AppStorageKeys.keyAppDataVersion);
+  clearAppDataVersion() => _clearSpecificKey(_keyAppDataVersion);
 
   ///AppVersion
   Future<void> saveAppVersions({required AppVersionsList? appVersions}) async => await _saveFunction(key: _keyAppVersions, data: appVersions);
   Either<LocalException, AppVersionsList> loadAppVersions() => _loadFunction(_keyAppVersions).map((r) => r == null ? AppVersionsList() : AppVersionsList.fromJson(r));
-  clearAppVersion() => _clearSpecificKey(AppStorageKeys.keyAppVersions);
+  clearAppVersion() => _clearSpecificKey(_keyAppVersions);
+
+  ///AppStatisticsData
+  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async => await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
+  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() => _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
+  clearAppStatisticsData() => _clearSpecificKey(_keyAppStatisticData);
 
   ///Settings
   Future<void> saveSettings({required AppSettingData? settings}) async => await _saveFunction(key: _keySettings, data: settings);
-  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? AppSettingData.createEmpty() : AppSettingData.fromJson(r));
-  clearSettings() => _clearSpecificKey(AppStorageKeys.keySettings);
+  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
+  clearSettings() => _clearSpecificKey(_keySettings);
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
-import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
@@ -110,7 +110,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
                 AppDividers.settings,
               ]),
         Column(children: section),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({String? title, String? text}) => Padding(

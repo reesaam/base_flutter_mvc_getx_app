@@ -1,5 +1,5 @@
-import '../../core/app_localization.dart';
-import '../models/core_models/app_page_detail/app_page_detail.dart';
+import '../../core/app_localization_texts.dart';
+import '../shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../resources/app_enums.dart';
 import '../resources/app_icons.dart';
 
@@ -19,6 +19,8 @@ class AppPageDetails {
     adminAppInfoPage,
     adminAppResourcesPage,
     adminWidgetCheckPage,
+    adminDataFormatCheckPage,
+    adminAppCountriesPage,
     appDocs,
   ];
 
@@ -46,6 +48,16 @@ class AppPageDetails {
   AppPageDetail adminWidgetCheckPage = AppPageDetail(
     pageName: Texts.to.adminWidgetCheckPageName,
     pageRoute: AppRoutes.adminWidgetCheckPage,
+  );
+
+  AppPageDetail adminDataFormatCheckPage = AppPageDetail(
+    pageName: Texts.to.adminDataFormatCheckPageName,
+    pageRoute: AppRoutes.adminDataFormatCheckPage,
+  );
+
+  AppPageDetail adminAppCountriesPage = AppPageDetail(
+    pageName: Texts.to.adminAppCountriesPageName,
+    pageRoute: AppRoutes.adminAppCountriesPage,
   );
 
   AppPageDetail appDocs = AppPageDetail(

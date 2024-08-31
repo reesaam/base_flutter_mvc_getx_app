@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart';
-import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/info/app_page_details.dart';
-import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_logos.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -45,7 +45,7 @@ class AppDrawer extends Drawer {
     return Column(children: List.generate(drawerList.length, (index) => _bodyItem(drawerList[index])));
   }
 
-  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon, onTap: () => {popPage(), goToPage(page.pageRoute)});
+  Widget _bodyItem(AppPageDetail page) => ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon(), onTap: () => {popPage(), goToPage(page.pageRoute)});
 
   Widget footer() => Container(
       padding: AppPaddings.drawerFooter,

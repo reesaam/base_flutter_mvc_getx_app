@@ -5,7 +5,7 @@ import '../../../app/functional_components/connectivity/connectivity.dart';
 import '../../../app/functional_components/file_functions/file_functions.dart';
 import '../../../app/functional_components/permissions/permissions.dart';
 import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
-import '../../../core/app_localization.dart';
+import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/elements/core_controller.dart';
 import '../../../data/info/app_page_details.dart';

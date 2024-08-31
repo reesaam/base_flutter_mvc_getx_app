@@ -48,3 +48,4 @@ app.*.map.json
 
 #for main branch:
 /lib/features/
+/lib/generated/

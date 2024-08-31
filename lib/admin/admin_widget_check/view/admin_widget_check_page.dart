@@ -15,12 +15,12 @@ import '../../../app/components/general_widgets/app_switch.dart';
 import '../../../app/components/general_widgets/app_text_field.dart';
 import '../../../app/components/main_components/app_bottom_navigation_bar.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
-import '../../../core/app_extensions/extensions_on_material_widgets/extension_text.dart';
+import '../../../core/app_extensions/extensions_on_material_widgets/extension_on_text.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -375,7 +375,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                 AppDividers.settings,
               ]),
         isRow == true ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index]))) : Column(children: section),
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
       ]);
 
   _item({String? name, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [

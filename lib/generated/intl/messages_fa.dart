@@ -31,16 +31,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نام توسعه دهنده"),
         "aboutTitlesDeveloperWebsite":
             MessageLookupByLibrary.simpleMessage("وب سایت توسعه دهنده"),
+        "adminAppCountriesPageName":
+            MessageLookupByLibrary.simpleMessage("App Countries Page"),
         "adminAppInfoPageName":
-            MessageLookupByLibrary.simpleMessage("Admin App Info Page"),
+            MessageLookupByLibrary.simpleMessage("App Info Page"),
         "adminAppResourcesPageName":
-            MessageLookupByLibrary.simpleMessage("Admin App Resources Page"),
+            MessageLookupByLibrary.simpleMessage("App Resources Page"),
+        "adminDataFormatCheckPageName":
+            MessageLookupByLibrary.simpleMessage("Data Format Check Page"),
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
-        "adminTestPageName":
-            MessageLookupByLibrary.simpleMessage("Admin Test Page"),
+        "adminTestPageName": MessageLookupByLibrary.simpleMessage("Test Page"),
         "adminWidgetCheckPageName":
-            MessageLookupByLibrary.simpleMessage("Admin Widget Check Page"),
+            MessageLookupByLibrary.simpleMessage("Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("پیغام"),
         "appDocsPageName":
             MessageLookupByLibrary.simpleMessage("App Docs Page"),

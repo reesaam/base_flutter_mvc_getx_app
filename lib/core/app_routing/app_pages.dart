@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 
 import '../../../../core/app_extensions/extension_app_routes.dart';
+import '../../admin/admin_app_countries/view/admin_app_countries_page.dart';
 import '../../admin/admin_app_info/view/admin_app_info_page.dart';
 import '../../admin/admin_app_resources/view/admin_app_resources_page.dart';
+import '../../admin/admin_data_format_check/view/admin_data_format_check_page.dart';
 import '../../admin/admin_start/view/admin_start_page.dart';
 import '../../admin/admin_test/view/admin_test_page.dart';
 import '../../admin/admin_widget_check/view/admin_widget_check_page.dart';
@@ -23,6 +25,8 @@ class AppPages {
     GetPage(name: AppRoutes.adminAppInfoPage.route, page: AdminAppInfoPage.new),
     GetPage(name: AppRoutes.adminAppResourcesPage.route, page: AdminAppResourcesPage.new),
     GetPage(name: AppRoutes.adminWidgetCheckPage.route, page: AdminWidgetCheckPage.new),
+    GetPage(name: AppRoutes.adminDataFormatCheckPage.route, page: AdminDataFormatCheckPage.new),
+    GetPage(name: AppRoutes.adminAppCountriesPage.route, page: AdminAppCountriesPage.new),
     GetPage(name: AppRoutes.appDocs.route, page: AppDocsPage.new),
 
     ///Main App Pages

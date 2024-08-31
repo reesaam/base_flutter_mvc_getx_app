@@ -7,7 +7,7 @@ class AppInfo {
   static String get website => '';
 
   static AppVersion get currentVersion => const AppVersion(version: '0.0.1');
-  static AppVersionsList get versions => AppVersionsList().loadFromStorage;
+  static AppVersionsList get versions => AppVersionsList().loadFromStorage();
   static int get versionsCounter => versions.versionsList.length;
 
   static String get baseUrl => 'resam-t.ir';

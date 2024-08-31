@@ -1,0 +1,5 @@
+class AppNotifications {
+  sendLocalNotification() {}
+
+  sendPushNotification() {}
+}

@@ -28,11 +28,11 @@ extension ExtensionAppStatisticsClear on AppStatisticsData {
 
 extension ExtensionAppStatisticsIncreases on AppStatisticsData {
   //Data
-  AppStatisticsData get increaseLaunch => copyWith(launches: launches == null ? 0 : launches! + 1);
-  AppStatisticsData get increaseLogin => copyWith(logins: logins == null ? 0 : logins! + 1);
-  AppStatisticsData get increaseCrashes => copyWith(crashes: crashes == null ? 0 : crashes! + 1);
-  AppStatisticsData get increasePageOpens => copyWith(pageOpens: pageOpens == null ? 0 : pageOpens! + 1);
-  AppStatisticsData get increaseApiCalls => copyWith(apiCalls: apiCalls == null ? 0 : apiCalls! + 1);
+  AppStatisticsData increaseLaunch() => copyWith(launches: launches == null ? 0 : launches! + 1);
+  AppStatisticsData increaseLogin() => copyWith(logins: logins == null ? 0 : logins! + 1);
+  AppStatisticsData increaseCrashes() => copyWith(crashes: crashes == null ? 0 : crashes! + 1);
+  AppStatisticsData increasePageOpens() => copyWith(pageOpens: pageOpens == null ? 0 : pageOpens! + 1);
+  AppStatisticsData increaseApiCalls() => copyWith(apiCalls: apiCalls == null ? 0 : apiCalls! + 1);
 }
 
 extension ExtensionAppStatisticsCalculations on AppStatisticsData {

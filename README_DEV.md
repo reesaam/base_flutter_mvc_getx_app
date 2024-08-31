@@ -1,13 +1,12 @@
 # Base Flutter MVC GetX App
 
-A Flutter Base Project using:
+### A Flutter Base Project using:
  - MVC Architecture
  - GetX State Manager (also BloC for some features or Special Usages)
  - Freezed, Dartz
  - Dependency Injection
  - Dio, Retrofit, Interceptor
- - Intl App Localization
- - Shared Preferences
+ - Intl App Localization, Countries Specifications (Flags, TimeZones, etc.)
  - Get Storage, Shared Preferences, Mongo DB
  - Animations and UI Elements
 

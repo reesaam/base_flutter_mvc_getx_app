@@ -35,12 +35,13 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
 
   @override
   Widget get body => Column(children: [
-    AppDividers.general(),
-    _appInfo(),
-    _appDeveloperInfo(),
-    _appStatisticsInfo(),
-    _localization(),
-  ]);
+        AppDividers.general(),
+        _appInfo(),
+        _appDeveloperInfo(),
+        _appStatisticsInfo(),
+        _locale(),
+        _localization(),
+      ]);
 
   _appInfo() => _section([
         _item(title: 'App Name', text: AppInfo.appName),
@@ -71,20 +72,23 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
         _item(title: 'Api Calls', text: controller.statisticsData.value.apiCalls.toString()),
       ], title: 'App Statistics Info');
 
+  _locale() => _section([
+      _item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
+      _item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
+      _item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
+      _item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
+    ], title: 'Locale');
+
   _localization() {
     AppCountry country = AppLocalization.to.getCountry();
     return _section([
-    _item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
-    _item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
-    _item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
-    _item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
-    _item(title: 'Country Name', text: AppLocalization.to.getCountry().countryName),
-    _item(title: 'Country Code', text: AppLocalization.to.getCountry().code ?? Texts.to.notAvailableInitials),
-    _item(title: 'TimeZone Abbreviation', text: country.timeZoneAbbreviation?.getMiddleElement<String>()),
-    _item(title: 'TimeZone Offset', text: country.timeZoneOffset?.getMiddleElement<DurationCustomModel>().toFormattedOffset()),
-    // _item(title: 'TimeZone DST', text: country.isDst.toString()),
-    _item(title: 'Currency Sign', text: country.currency?.sign.string),
-  ], title: 'Localization');
+      _item(title: 'Country Name', text: country.countryName),
+      _item(title: 'Country Name Abbreviation', text: country.countryNameAbbreviation),
+      _item(title: 'Country Code', text: country.code ?? Texts.to.notAvailableInitials),
+      _item(title: 'TimeZone Abbreviation', text: country.timeZoneAbbreviation?.getMiddleElement<String>()),
+      _item(title: 'TimeZone Offset', text: country.timeZoneOffset?.getMiddleElement<DurationCustomModel>().toFormattedOffset()),
+      _item(title: 'Currency Sign', text: country.currency?.sign.string),
+    ], title: 'Localization');
   }
 
   _section(List<Widget> section, {String? title}) => Column(children: [

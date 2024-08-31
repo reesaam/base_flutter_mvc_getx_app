@@ -5,14 +5,19 @@ class AppImage extends StatelessWidget {
     super.key,
     required this.image,
     this.padding,
+    this.size,
+    this.roundness,
   });
 
   final String image;
   final EdgeInsets? padding;
+  final Size? size;
+  final double? roundness;
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: padding ?? const EdgeInsets.all(10),
-        child: Image.asset(image),
+        constraints: BoxConstraints(maxWidth: size?.width ?? double.maxFinite, maxHeight: size?.height ?? double.maxFinite),
+        padding: padding,
+        child: ClipRRect(borderRadius: BorderRadius.all(Radius.circular(roundness ?? 0)), child: Image.asset(image)),
       );
 }

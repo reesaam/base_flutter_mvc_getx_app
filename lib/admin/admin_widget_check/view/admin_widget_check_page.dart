@@ -7,6 +7,7 @@ import '../../../app/components/dialogs/app_alert_widget_dialogs.dart';
 import '../../../app/components/dialogs/app_bottom_dialogs.dart';
 import '../../../app/components/general_widgets/app_check_box.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
+import '../../../app/components/general_widgets/app_image.dart';
 import '../../../app/components/general_widgets/app_popup_menu.dart';
 import '../../../app/components/general_widgets/app_popup_menu_item.dart';
 import '../../../app/components/general_widgets/app_progress_indicator.dart';
@@ -20,6 +21,7 @@ import '../../../core/core_functions.dart';
 import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
+import '../../../data/resources/app_logos.dart';
 import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
@@ -46,6 +48,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         _generalButtons(),
         _checkBoxes(),
         _switches(),
+        _images(),
         _progressIndicators(),
         _alertDialogs(),
         _bottomSheetDialog(),
@@ -120,7 +123,12 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
       _item(
           name: 'TextField Editable with Prefix and Suffix',
           widget: AppTextField(
-              controller: ctrl, hint: textFieldHint, prefixIcon: AppIcons.add, prefixAction: controller.functionCalledDialog, suffixIcon: AppIcons.settings, suffixAction: controller.functionCalledDialog)),
+              controller: ctrl,
+              hint: textFieldHint,
+              prefixIcon: AppIcons.add,
+              prefixAction: controller.functionCalledDialog,
+              suffixIcon: AppIcons.settings,
+              suffixAction: controller.functionCalledDialog)),
       _item(
           name: 'TextField Not Editable',
           widget: AppTextField(
@@ -232,6 +240,28 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         _item(name: 'Switch Off', widget: AppSwitch(value: false, onChanged: (value) => null)),
         _item(name: 'Switch ON', widget: AppSwitch(value: true, onChanged: (value) => null)),
       ], isRow: true, title: 'Switches');
+
+  _images() => _section([
+        _item(
+            name: 'Image Asset Height Restricted',
+            widget: const AppImage(
+              image: AppLogos.appLogo,
+              size: Size.fromHeight(80),
+            )),
+        _item(
+            name: 'Image Asset Width Restricted',
+            widget: const AppImage(
+              image: AppLogos.appLogo,
+              size: Size.fromWidth(50),
+            )),
+    _item(
+        name: 'Image Asset Rounded',
+        widget: const AppImage(
+          image: AppLogos.appLogo,
+          size: Size.fromWidth(50),
+          roundness: 20,
+        )),
+      ], title: 'Images');
 
   _progressIndicators() => _section([
         _item(name: 'AppProgressIndicator Circular', widget: AppProgressIndicator.circular()),
@@ -361,20 +391,29 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                       children: List<Widget>.generate(
                           AppIcons.iconsList.length,
                           (index) => Padding(
-                            padding: AppPaddings.pages,
-                            child: AppIcons.iconsList[index].withSecondaryColor,
-                          )))),
-            ), fullWidth: true)
+                                padding: AppPaddings.pages,
+                                child: AppIcons.iconsList[index].withSecondaryColor,
+                              )))),
+            ),
+            fullWidth: true)
       ], title: 'Icons');
 
-  _section(List<Widget> section, {bool? isRow, String? title}) => Column(children: [
+  _section(List<Widget> section, {bool? isRow, String? title, Color? backgroundColor}) => Column(children: [
         title == null
             ? shrinkSizedBox
             : Column(children: [
                 Text(title, style: const TextStyle(fontSize: 20)),
                 AppDividers.settings,
               ]),
-        isRow == true ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index]))) : Column(children: section),
+        Container(
+          color: backgroundColor,
+          child: isRow == true
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index])),
+                )
+              : Column(children: section),
+        ),
         AppDividers.generalWithDisabledColor,
       ]);
 

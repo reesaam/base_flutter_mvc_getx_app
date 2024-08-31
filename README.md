@@ -39,11 +39,11 @@
 <tr>
 <td>&nbsp;&nbsp;</td>
 <td>
-<a href="https://github.com/reesaam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg" width="40" title="GitHub"></a>
+<a href="https://github.com/reesaam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg" width="40" title="GitHub" alt="Resam GitHub Profile"></a>
 </td>
 <td>&nbsp;&nbsp;&nbsp;</td>
 <td>
-<a href="https://www.linkedin.com/in/resam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/linkedin.svg" width="40" title="LinkedIn"></a>
+<a href="https://www.linkedin.com/in/resam"><img src="https://edent.github.io/SuperTinyIcons/images/svg/linkedin.svg" width="40" title="LinkedIn" alt="Resam LinkedIn Profile"></a>
 </td>
 </tr>
 

@@ -1,10 +1,12 @@
 # Base Flutter MVC GetX App
 
-`#ffffff`**A Resam Taghipour's Base Application for Flutter**
+**A Resam Taghipour's Base Application for Flutter**
+
+**> Based on MVC and GetX**
 
 ### Specifications:
-- All Architectures Compatible
-- All State-Managements Compatible (Current is GetX)
+- MVC Architectures
+- GetX State-Managements
 - Centralized, Fully-Modular, Object-Oriented
 - Generalized UI Elements and Widgets 
 - Storage, Relational and non-Relational Databases Compatible (MSSQL, MySQL, SQLite, MongoDB, realmDB, Get Storage, Shared Preferences, etc.)
@@ -23,15 +25,9 @@
 - Animations and UI Elements
 - App Icon Generator
 
-
-
-> [!Important]
-> 
-> This Project is general for all Base-Apps, it has all common modules in all Base-Apps, and it has several Sub-Projects with several Architectures and State-Managers.
-
 > [!Tip]
 > 
-> It is way better to use Sub-Projects for starting a Flutter project, merging this repo may have some unintentional subsequences for your project, this project is not Optimized with Architecture and State-Manager.
+> If you use this repo as a third-party repo in your project, you can get and merge updates to your project constantly.
 
 > [!Note]
 > 

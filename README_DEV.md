@@ -1,6 +1,6 @@
 # Base for All Flutter Apps
 
-A Flutter Base Project using:
+### A Flutter Base Project using:
  - MVC Architecture
  - GetX State Manager (also BloC for some features or Special Usages)
  - Freezed, Dartz

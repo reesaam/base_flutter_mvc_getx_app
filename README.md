@@ -1,6 +1,6 @@
 # Base for All Flutter Apps
 
-`#ffffff`**A Resam Taghipour's Base Application for Flutter**
+**A Resam Taghipour's Base Application for Flutter**
 
 ### Specifications:
 - All Architectures Compatible

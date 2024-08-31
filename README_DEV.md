@@ -6,8 +6,7 @@ A Flutter Base Project using:
  - Freezed, Dartz
  - Dependency Injection
  - Dio, Retrofit, Interceptor
- - Intl App Localization
- - Shared Preferences
+ - Intl App Localization, Countries Specifications (Flags, TimeZones, etc.)
  - Get Storage, Shared Preferences, Mongo DB
  - Animations and UI Elements
 

@@ -6,20 +6,27 @@ class AppProgressIndicator {
   static Widget circular({
     Color? color,
     double? width,
+    double? strokeWidth,
   }) =>
-      _AppProgressIndicatorCircular(
-        indicatorColor: color,
-        width: width,
-      );
+      SizedBox(
+          width: width,
+          height: width,
+          child: _AppProgressIndicatorCircular(
+            indicatorColor: color,
+            width: strokeWidth,
+          ));
 
   static Widget linear({
     Color? color,
     Color? backgroundColor,
+    double? width,
   }) =>
-      _AppProgressIndicatorLinear(
-        indicatorColor: color,
-        indicatorBackgroundColor: backgroundColor,
-      );
+      SizedBox(
+          width: width,
+          child: _AppProgressIndicatorLinear(
+            indicatorColor: color,
+            indicatorBackgroundColor: backgroundColor,
+          ));
 }
 
 class _AppProgressIndicatorCircular extends CircularProgressIndicator {

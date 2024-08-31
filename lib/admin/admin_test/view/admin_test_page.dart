@@ -8,6 +8,7 @@ import '../../../app/components/main_components/app_bar.dart';
 
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_paddings.dart';
+import '../../admin_general_functions.dart';
 import '../controller/admin_test_controller.dart';
 
 class AdminTestPage extends CoreView<AdminTestController> {
@@ -29,56 +30,37 @@ class AdminTestPage extends CoreView<AdminTestController> {
         _appData(),
       ]);
 
-  _appPages() => _section(
+  _appPages() => AdminFunctions.sectionGrid(
       items: List.generate(
           AppPageDetails().listPages.length,
           (index) => AppGeneralButton(
                 text: AppPageDetails().listPages[index].pageName ?? 'Unknown',
                 onTap: () => goToPage(AppPageDetails().listPages[index].pageRoute),
               )),
-      title: 'App All Pages',
-      isGrid: true);
+      title: 'App All Pages');
 
-  _checkConnection() => _section(items: [
-        _item(text: 'Connection Status', function: controller.internetConnection),
-        _item(text: 'Internet Connection', function: controller.internetStatus),
-        _item(text: 'Internet Status', function: controller.checkConnection),
-      ], title: 'Connections', isGrid: true);
+  _checkConnection() => AdminFunctions.sectionGrid(items: [
+        AdminFunctions.itemButton(text: 'Connection Status', function: controller.internetConnection),
+        AdminFunctions.itemButton(text: 'Internet Connection', function: controller.internetStatus),
+        AdminFunctions.itemButton(text: 'Internet Status', function: controller.checkConnection),
+      ], title: 'Connections');
 
-  _files() => _section(items: [
-        _item(text: 'Pick File', function: controller.pickFile),
-        _item(text: 'Save File', function: controller.saveFile),
-      ], title: 'Files', isGrid: true);
+  _files() => AdminFunctions.sectionGrid(items: [
+        AdminFunctions.itemButton(text: 'Pick File', function: controller.pickFile),
+        AdminFunctions.itemButton(text: 'Save File', function: controller.saveFile),
+      ], title: 'Files');
 
-  _permissions() => _section(items: [
-        _item(text: 'Check All Permissions', function: controller.checkAllPermissions),
-        _item(text: 'Ask All Permissions', function: controller.askAllPermissions),
+  _permissions() => AdminFunctions.section([
+        AdminFunctions.itemButton(text: 'Check All Permissions', function: controller.checkAllPermissions),
+        AdminFunctions.itemButton(text: 'Ask All Permissions', function: controller.askAllPermissions),
       ], title: 'Permissions');
 
   _appData() => Column(children: [
-        _section(items: [
-          _item(text: 'Save Appdata', function: controller.saveAppData),
-          _item(text: 'Load AppData', function: controller.loadAppData),
-          _item(text: 'Import AppData', function: controller.importAppData),
-          _item(text: 'Export AppData', function: controller.exportAppData),
-        ], title: 'AppData - Save and Load', isGrid: true),
+        AdminFunctions.sectionGrid(items: [
+          AdminFunctions.itemButton(text: 'Save Appdata', function: controller.saveAppData),
+          AdminFunctions.itemButton(text: 'Load AppData', function: controller.loadAppData),
+          AdminFunctions.itemButton(text: 'Import AppData', function: controller.importAppData),
+          AdminFunctions.itemButton(text: 'Export AppData', function: controller.exportAppData),
+        ], title: 'AppData - Save and Load'),
       ]);
-
-  _section({required List<Widget> items, required String title, bool? isGrid}) => Column(children: [
-        Column(children: [Text(title, style: const TextStyle(fontSize: 20)), AppDividers.settings]),
-        Padding(
-            padding: AppPaddings.buttonXLarge,
-            child: GridView.count(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: items.length > 1 && isGrid == true ? 4 : 8,
-              crossAxisCount: items.length > 1 && isGrid == true ? 2 : 1,
-              children: List<Widget>.generate(items.length, (index) => items[index]),
-            )),
-        AppDividers.generalWithDisabledColor,
-      ]);
-
-  _item({required String text, required Function function}) => AppGeneralButton(text: text, onTap: () => function());
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_custom_duration.dart';
@@ -7,15 +6,10 @@ import '../../../core/app_extensions/extensions_on_data_types/extension_date_tim
 import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_time_zone.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/app_localization_texts.dart';
-import '../../../core/app_localization_texts.dart';
-import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
-
 import '../../../data/info/app_core_flags.dart';
 import '../../../data/info/app_developer_info.dart';
 import '../../../data/info/app_info.dart';

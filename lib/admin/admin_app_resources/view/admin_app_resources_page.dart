@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
-import '../../../core/app_localization_texts.dart';
-import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
-
 import '../../../data/info/app_defaults.dart';
 import '../../../data/info/app_info.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_spaces.dart';
 import '../../../data/resources/app_theme/app_themes.dart';
 import '../../../data/resources/app_theme/app_themes_variables.dart';
 import '../../admin_general_functions.dart';

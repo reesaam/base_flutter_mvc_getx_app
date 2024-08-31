@@ -5,7 +5,6 @@ import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
-
 import '../../../data/info/app_page_details.dart';
 import '../../../data/resources/app_paddings.dart';
 import '../../admin_general_functions.dart';

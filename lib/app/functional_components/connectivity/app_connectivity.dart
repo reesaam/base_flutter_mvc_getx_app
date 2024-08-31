@@ -6,8 +6,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 
 import '../../../data/info/app_defaults.dart';
 
-class ConnectionChecker {
-  static ConnectionChecker get to => Get.find();
+class AppConnectionChecker {
+  static AppConnectionChecker get to => Get.find();
 
   get internetConnection => InternetConnection();
   get connectivity => Connectivity();

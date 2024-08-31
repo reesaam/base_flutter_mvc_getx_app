@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 import '../../../app/components/dialogs/app_alert_dialogs.dart';
-import '../../../app/functional_components/connectivity/connectivity.dart';
-import '../../../app/functional_components/file_functions/file_functions.dart';
-import '../../../app/functional_components/permissions/permissions.dart';
+import '../../../app/functional_components/connectivity/app_connectivity.dart';
+import '../../../app/functional_components/file_functions/app_file_functions.dart';
+import '../../../app/functional_components/permissions/app_permissions.dart';
 import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
@@ -28,17 +28,17 @@ class AdminTestController extends CoreController {
 
   ///Connections
   internetConnection() async {
-    var result = await ConnectionChecker().checkInternet();
+    var result = await AppConnectionChecker().checkInternet();
     await _dialog(result.toString());
   }
 
   internetStatus() async {
-    var result = await ConnectionChecker().checkInternetStatus();
+    var result = await AppConnectionChecker().checkInternetStatus();
     await _dialog(result.name.capitalizeFirst ?? unknownStatus);
   }
 
   checkConnection() async {
-    var result = await ConnectionChecker().checkConnection();
+    var result = await AppConnectionChecker().checkConnection();
     await _dialog(result.name);
   }
 

@@ -10,7 +10,7 @@ import '../../core/app_extensions/extensions_on_data_types/extension_string.dart
 import '../../core/app_localization_texts.dart';
 import '../../core/failures/local_exception.dart';
 import '../../data/info/app_info.dart';
-import '../../app/functional_components/file_functions/file_functions.dart';
+import '../../app/functional_components/file_functions/app_file_functions.dart';
 import '../../core/core_functions.dart';
 import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';

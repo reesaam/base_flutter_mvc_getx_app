@@ -26,6 +26,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
         _checkConnection(),
         _files(),
         _permissions(),
+    _notifications(),
         _appData(),
       ]);
 
@@ -53,6 +54,13 @@ class AdminTestPage extends CoreView<AdminTestController> {
         AdminFunctions.itemButton(text: 'Check All Permissions', function: controller.checkAllPermissions),
         AdminFunctions.itemButton(text: 'Ask All Permissions', function: controller.askAllPermissions),
       ], title: 'Permissions');
+
+  _notifications() => Column(children: [
+    AdminFunctions.sectionGrid(items: [
+      AdminFunctions.itemButton(text: 'Local Notification', function: controller.showLocalNotification),
+      AdminFunctions.itemButton(text: 'Push Notification', function: controller.showPushNotification),
+    ], title: 'Notifications'),
+  ]);
 
   _appData() => Column(children: [
         AdminFunctions.sectionGrid(items: [

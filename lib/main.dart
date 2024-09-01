@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'app/functional_components/notifications/app_notifications_repository.dart';
 import 'core/app_extensions/extension_app_routes.dart';
 import 'core/app_localization.dart';
 import 'core/app_bindings/core_bindings.dart';
@@ -18,6 +19,7 @@ void main() => initProject();
 void initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+  await AppNotificationsRepository.init();
   CoreBindings().dependencies();
   runApp(const MainApp());
 }

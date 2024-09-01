@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../app/components/dialogs/app_alert_dialogs.dart';
 import '../../../app/functional_components/connectivity/app_connectivity.dart';
 import '../../../app/functional_components/file_functions/app_file_functions.dart';
+import '../../../app/functional_components/notifications/app_notifications.dart';
 import '../../../app/functional_components/permissions/app_permissions.dart';
 import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/app_localization_texts.dart';
@@ -80,6 +81,17 @@ class AdminTestController extends CoreController {
       response = '$response\n$newResponse';
     }
     await _dialog(response);
+  }
+
+  showLocalNotification() {
+    AppNotifications.showSimpleLocalNotification(
+      title: 'Test Notification',
+      body: 'Test Notification has been Sent',
+    );
+  }
+
+  showPushNotification() {
+    AppNotifications.showSimplePushNotification();
   }
 
   ///AppData

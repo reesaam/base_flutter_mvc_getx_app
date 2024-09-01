@@ -61,7 +61,9 @@ dependencies:
   chopper: ^7.4.0
 
   #Notifications
+  awesome_notifications_core: ^0.8.2
   awesome_notifications: ^0.8.2
+  awesome_notifications_fcm: ^0.8.2
 
   #File
   open_file_plus: ^3.4.1+1

@@ -17,6 +17,7 @@ class AdminFunctions {
                 AppDividers.settings,
               ]),
         Container(
+          padding: AppPaddings.buttonXLarge,
           color: backgroundColor,
           child: isRow == true
               ? Row(

@@ -60,7 +60,7 @@ class AppAlertDialogs {
                   content: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 40),
                       child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
-                        Text(text),
+                        Text(text, softWrap: true, maxLines: 5),
                       ])),
                   actions: _renderButtonsAlertDialog(buttons),
                   actionsOverflowAlignment: OverflowBarAlignment.center,

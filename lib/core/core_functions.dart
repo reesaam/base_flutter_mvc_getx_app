@@ -38,7 +38,8 @@ void clearAppData() => AppLocalStorage.to.clearStorage();
 
 void printAllData({bool? detailsIncluded}) async {
   AppData? appData = await AppLocalStorage.to.loadAllDataFromStorage();
-  AppStatisticsData? statisticsData = AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+  AppStatisticsData? statisticsData =
+      AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
   AppLocalStorage.to.printData(appData: appData, statisticsData: statisticsData, detailsIncluded: detailsIncluded);
 }
 
@@ -49,20 +50,12 @@ Future<AppVersionsList?> getVersions() async {
   return response.fold((l) => null, (r) => r);
 }
 
-Future<String> checkAvailableVersion() async {
-  String version = Texts.to.notAvailable;
-  var response = await getVersions();
-  if (response != null && response.versionsList.isNotEmpty) {
-    version = response.versionsList.last.version;
-  }
-  return version;
+Future<AppVersion?> checkAvailableVersion() async {
+  AppVersionsList? response = await getVersions();
+  return response?.versionsList.isEmpty ?? false ? null : response?.versionsList.last;
 }
 
-Future<AppVersion> getCurrentVersion() async {
-  AppVersionsList? versions = await getVersions();
-  AppVersion version = versions == null ? AppVersion.createEmpty() : versions.versionsList.last;
-  return version;
-}
+Future<void> checkForceUpdate() async {}
 
 noInternetConnectionSnackBar() => AppSnackBar().showSnackBar(message: Texts.to.connectionInternetNotAvailableText);
 

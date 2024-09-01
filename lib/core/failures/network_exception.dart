@@ -15,122 +15,122 @@ class NetworkException implements GeneralException {
   static NetworkException handleResponse(dio.Response? response) {
     switch (response?.statusCode) {
       case 203:
-        throw NonAuthoritativeInformationException();
+        return NonAuthoritativeInformationException();
 
       case 204:
-        throw NoContentException();
+        return NoContentException();
 
       case 304:
-        throw NotModifiedException();
+        return NotModifiedException();
 
       /// to call refresh_token
       case 401:
-        throw UnauthorizedException();
+        return UnauthorizedException();
 
       case 402:
-        throw PaymentRequiredException();
+        return PaymentRequiredException();
 
       case 403:
-        throw ForbiddenException();
+        return ForbiddenException();
 
       case 404:
-        throw NotFoundException();
+        return NotFoundException();
 
       case 405:
-        throw MethodNotAllowedException();
+        return MethodNotAllowedException();
 
       case 406:
-        throw NotAcceptableException();
+        return NotAcceptableException();
 
       case 407:
-        throw ProxyAuthRequiredException();
+        return ProxyAuthRequiredException();
 
       case 408:
-        throw RequestTimeoutException();
+        return RequestTimeoutException();
 
       case 409:
-        throw ConflictException();
+        return ConflictException();
 
       case 411:
-        throw LengthRequiredException();
+        return LengthRequiredException();
 
       case 412:
-        throw PreConditionFailedException();
+        return PreConditionFailedException();
 
       case 413:
-        throw RequestEntityTooLargeException();
+        return RequestEntityTooLargeException();
 
       case 414:
-        throw RequestUriTooLongException();
+        return RequestUriTooLongException();
 
       case 415:
-        throw UnsupportedMediaTypeException();
+        return UnsupportedMediaTypeException();
 
       case 416:
-        throw RequestedRangeNotSatisfiableException();
+        return RequestedRangeNotSatisfiableException();
 
       case 417:
-        throw ExpectationFailedException();
+        return ExpectationFailedException();
 
       case 422:
-        throw UnProcessableEntityException();
+        return UnProcessableEntityException();
 
       case 424:
-        throw FailedDependencyException();
+        return FailedDependencyException();
 
       case 425:
-        throw UnorderedCollectionException();
+        return UnorderedCollectionException();
 
       case 426:
-        throw UpgradeRequiredException();
+        return UpgradeRequiredException();
 
       case 429:
-        throw TooManyRequestException();
+        return TooManyRequestException();
 
       case 431:
-        throw RequestHeaderFieldsTooLargeException();
+        return RequestHeaderFieldsTooLargeException();
 
       case 444:
-        throw NoResponseException();
+        return NoResponseException();
 
       case 451:
-        throw UnavailableForLegalReasonsException();
+        return UnavailableForLegalReasonsException();
 
       case 494:
-        throw RequestHeaderTooLargeException();
+        return RequestHeaderTooLargeException();
 
       case 500:
-        throw InternalServerErrorException();
+        return InternalServerErrorException();
 
       case 501:
-        throw NotImplementedException();
+        return NotImplementedException();
 
       case 502:
-        throw BadGatewayException();
+        return BadGatewayException();
 
       case 503:
-        throw ServiceUnavailableException();
+        return ServiceUnavailableException();
 
       case 504:
-        throw GatewayTimeoutException();
+        return GatewayTimeoutException();
 
       case 507:
-        throw InsufficientStorageException();
+        return InsufficientStorageException();
 
       case 508:
-        throw LoopDetectedException();
+        return LoopDetectedException();
 
       case 509:
-        throw BandwidthLimitException();
+        return BandwidthLimitException();
 
       case 510:
-        throw NotExtendedException();
+        return NotExtendedException();
 
       case 511:
-        throw NetworkAuthRequiredException();
+        return NetworkAuthRequiredException();
 
       default:
-        throw UnknownException();
+        return UnknownException();
     }
   }
 

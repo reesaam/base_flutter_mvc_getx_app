@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  awesome_notifications
   connectivity_plus
   http_interceptor_plus
   permission_handler_windows

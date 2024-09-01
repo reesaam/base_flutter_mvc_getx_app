@@ -60,6 +60,9 @@ dependencies:
   #retrofit_flutter: ^1.1.1
   chopper: ^7.4.0
 
+  #Notifications
+  awesome_notifications: ^0.8.2
+
   #File
   open_file_plus: ^3.4.1+1
   flutter_file_dialog: ^3.0.2

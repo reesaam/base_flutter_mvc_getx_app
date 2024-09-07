@@ -37,7 +37,7 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
         AdminFunctions.item(title: 'Date & Time', text: DateTime.now().toDateTimeFormat()),
         AdminFunctions.item(title: 'Date', text: DateTime.now().toDateFormat()),
         AdminFunctions.item(title: 'Time', text: DateTime.now().toTimeFormat()),
-        AdminFunctions.item(title: 'Time with Seconds', text: DateTime.now().toTimeFormatWithSeconds()),
+        AdminFunctions.item(title: 'Time with Seconds', text: DateTime.now().toTimeFormat(withSeconds: true)),
       ], title: 'Date & Time');
 
   _currency() => AdminFunctions.section([

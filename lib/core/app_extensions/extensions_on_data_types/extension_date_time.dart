@@ -1,18 +1,23 @@
 import '../../app_localization_texts.dart';
 
 extension ExtensionDateTimeStringProvidersNull on DateTime? {
-  String toDateTimeFormat() => this == null ? Texts.to.empty : this!.toDateTimeFormat();
-  String toDateFormat() => this == null ? Texts.to.empty : this!.toDateFormat();
-  String toTimeFormat() => this == null ? Texts.to.empty : this!.toTimeFormat();
-  String toTimeFormatWithSeconds() => this == null ? Texts.to.empty : this!.toTimeFormatWithSeconds();
+  String toDateTimeFormat({String? separator}) => this == null ? Texts.to.empty : this!.toDateTimeFormat();
+  String toDateFormat({String? separator}) => this == null ? Texts.to.empty : this!.toDateFormat();
+  String toTimeFormat({bool? withSeconds}) => this == null ? Texts.to.empty : this!.toTimeFormat();
 }
 
 extension ExtensionDateTimeStringProviders on DateTime {
-  String toDateTimeFormat() =>
-      '${year.toString().padLeft(4, '0')}/${month.toString().padLeft(2, '0')}/${day.toString().padLeft(2, '0')} - ${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
-  String toDateFormat() => '${year.toString().padLeft(4, '0')}/${month.toString().padLeft(2, '0')}/${day.toString().padLeft(2, '0')}';
-  String toTimeFormat() => '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
-  String toTimeFormatWithSeconds() => '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}';
+  String toDateTimeFormat({String? separator}) {
+    String sp = separator ?? '/';
+    return '${year.toString().padLeft(4, '0')}$sp${month.toString().padLeft(2, '0')}$sp${day.toString().padLeft(2, '0')} - ${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
+  }
+
+  String toDateFormat({String? separator}) {
+    String sp = separator ?? '/';
+    return '${year.toString().padLeft(4, '0')}$sp${month.toString().padLeft(2, '0')}$sp${day.toString().padLeft(2, '0')}';
+  }
+
+  String toTimeFormat({bool? withSeconds}) => '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}${withSeconds == true ? ':${second.toString().padLeft(2, '0')}' : ''}';
 }
 
 extension ExtensionDateTimeCompareNull on DateTime? {

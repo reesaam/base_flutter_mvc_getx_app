@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/core_functions.dart';
 import '../../../../data/info/app_core_flags.dart';
-import '../../../../data/resources/app_logos.dart';
 import '../../../../data/resources/app_theme/app_themes.dart';
 import '../app_notifications_enums.dart';
 import 'app_local_notification_controller.dart';

@@ -11,8 +11,6 @@ import '../app_notifications_enums.dart';
 import 'app_local_notification_controller.dart';
 
 class AppLocalNotificationsRepository {
-  static const String _defaultIcon = AppLogos.appLogo;
-
   List<NotificationChannel> _channels() {
     List<NotificationChannel> channels = [
       NotificationChannel(channelKey: AppNotificationChannelKey.simple.name, channelName: 'channelName', channelDescription: 'channelDescription')
@@ -28,15 +26,15 @@ class AppLocalNotificationsRepository {
   }
 
   Future<bool> init() async {
-    bool initializationResult = await AwesomeNotifications().initialize(_defaultIcon, _channels(), channelGroups: _groups(), debug: !isRelease);
+    bool initializationResult = await AwesomeNotifications().initialize(null, _channels(), channelGroups: _groups(), debug: !isRelease);
     bool permissionResult = await _permissionCheck();
     bool listenersInitResult = await _setListeners();
-    await _setChannel();
+    bool channelSetResult = await _setChannel();
 
     var receivedAction = await AwesomeNotifications().getInitialNotificationAction(removeFromActionEvents: false);
     appDebugPrint(receivedAction);
 
-    bool initResult = initializationResult && permissionResult && listenersInitResult;
+    bool initResult = initializationResult && permissionResult && listenersInitResult && channelSetResult;
     initResult ? appLogPrint('AppNotifications Initialization was Successful.') : appLogPrint('AppNotifications Initialization Failed.');
 
     return initResult;
@@ -68,11 +66,14 @@ class AppLocalNotificationsRepository {
     return permissionResult && requestResult;
   }
 
-  _setChannel() async {
+  Future<bool> _setChannel() async {
     if (_channels().isNotEmpty) {
       await AwesomeNotifications().setChannel(_channels().first);
+      appDebugPrint('Channel Set');
+      return true;
     } else {
       appDebugPrint('Channels List is Empty');
+      return false;
     }
   }
 

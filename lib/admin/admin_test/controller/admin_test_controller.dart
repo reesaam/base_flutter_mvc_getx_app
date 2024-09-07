@@ -10,6 +10,7 @@ import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/elements/core_controller.dart';
 import '../../../data/info/app_page_details.dart';
+import '../../../data/resources/app_logos.dart';
 
 class AdminTestController extends CoreController {
 

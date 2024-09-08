@@ -4,7 +4,7 @@ import '../../features/versions/models/app_version/app_version.dart';
 class AppInfo {
   static String get appName => 'Base of All Flutter Apps';
   static String get appNameInitials => 'BAFA';
-  static String get website => '';
+  static String get website => 'subDomain.domain.com';
 
   static AppVersion get currentVersion => const AppVersion(version: '0.0.1');
   static AppVersionsList get versions => AppVersionsList().loadFromStorage();

@@ -17,6 +17,10 @@ dependencies:
   get: ^4.6.6
   #bloc: ^8.1.4
   #flutter_bloc: ^8.1.5
+  #riverpod: ^2.5.1
+
+  #Flutter Version Manager
+  fvm: ^3.2.1
 
   #Dependency Injection
   #get_it: ^7.6.7

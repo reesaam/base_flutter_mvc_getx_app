@@ -24,7 +24,7 @@ class AppPaddings extends EdgeInsets {
 
   ///Modals and Dialogs
   static EdgeInsets get generalBottomModal => EdgeInsets.fromLTRB(20, 10, 20, Get.context!.mediaQuery.viewInsets.bottom);
-  static EdgeInsets get generalAlertDialog => const EdgeInsets.all(20);
+  static EdgeInsets get generalAlertDialog => const EdgeInsets.all(10);
   static EdgeInsets get modalItems => const EdgeInsets.symmetric(vertical: 15);
 
   ///SnackBar

@@ -47,8 +47,8 @@ class AppAlertDialogs {
           useRootNavigator: true,
           barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
-            padding: AppPaddings.generalAlertDialog,
-            child: AlertDialog.adaptive(
+                padding: AppPaddings.generalAlertDialog,
+                child: AlertDialog.adaptive(
                   scrollable: true,
                   shape: AppElements.borderShapeAlertDialog,
                   title: title == null
@@ -58,16 +58,20 @@ class AppAlertDialogs {
                           AppDividers.generalWithPrimaryColor,
                         ]),
                   content: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 40),
-                      child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
-                        Text(text, softWrap: true, maxLines: 5),
-                      ])),
+                      padding: AppPaddings.generalAlertDialog,
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(text, softWrap: true),
+                          ])),
                   actions: _renderButtonsAlertDialog(buttons),
                   actionsOverflowAlignment: OverflowBarAlignment.center,
                   actionsOverflowDirection: VerticalDirection.down,
                   actionsAlignment: MainAxisAlignment.center,
                 ),
-          ));
+              ));
 
   List<Widget> _renderButtonsAlertDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);

@@ -21,7 +21,7 @@ class AppThemes {
   ///Get Variables and Decide about Theme
   ThemeData getTheme({bool? isSystemDark}) {
     bool? storageResult = AppLocalStorage.to.loadSettings().fold((l) => null, (r) => r.darkMode);
-    bool isDark = storageResult == true || isSystemDark == true;
+    isDark = storageResult == true || isSystemDark == true;
     return _theme();
   }
 
@@ -147,8 +147,8 @@ class AppThemes {
           unselectedItemColor: AppThemesVariables.appTertiary,
         ),
         darkThemeData: themeData.copyWith(
-          backgroundColor: AppThemesVariables.appPrimaryDark,
-          selectedItemColor: AppThemesVariables.appBackgroundDark,
+          backgroundColor: AppThemesVariables.appBackgroundDark,
+          selectedItemColor: AppThemesVariables.appTertiaryDark,
           unselectedItemColor: AppThemesVariables.appTertiaryDark,
         )).getMode<BottomNavigationBarThemeData>(isDark);
   }

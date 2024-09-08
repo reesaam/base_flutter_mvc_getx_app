@@ -23,6 +23,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
         AppDividers.general(),
         _appPages(),
+        _themes(),
         _checkConnection(),
         _files(),
         _permissions(),
@@ -38,6 +39,10 @@ class AdminTestPage extends CoreView<AdminTestController> {
                 onTap: () => goToPage(AppPageDetails().listPages[index].pageRoute),
               )),
       title: 'App All Pages');
+
+  _themes() => AdminFunctions.sectionGrid(items: [
+    AdminFunctions.itemButton(text: 'Change Dark Mode', function: controller.changeDarkMode),
+  ], title: 'Themes');
 
   _checkConnection() => AdminFunctions.sectionGrid(items: [
         AdminFunctions.itemButton(text: 'Connection Status', function: controller.internetConnection),
@@ -64,10 +69,10 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   _appData() => Column(children: [
         AdminFunctions.sectionGrid(items: [
-          AdminFunctions.itemButton(text: 'Save Appdata', function: controller.saveAppData),
-          AdminFunctions.itemButton(text: 'Load AppData', function: controller.loadAppData),
-          AdminFunctions.itemButton(text: 'Import AppData', function: controller.importAppData),
-          AdminFunctions.itemButton(text: 'Export AppData', function: controller.exportAppData),
+          AdminFunctions.itemButton(text: 'Save Appdata', function: controller.saveAppDataTest),
+          AdminFunctions.itemButton(text: 'Load AppData', function: controller.loadAppDataTest),
+          AdminFunctions.itemButton(text: 'Import AppData', function: controller.importAppDataTest),
+          AdminFunctions.itemButton(text: 'Export AppData', function: controller.exportAppDataTest),
         ], title: 'AppData - Save and Load'),
       ]);
 }

@@ -118,13 +118,14 @@ class AppLocalStorage {
     var appDataFile = await AppFileFunctions.to.pickFile();
 
     if (appDataFile != null) {
+      clearAppData();
       String stringCharCodes = String.fromCharCodes(appDataFile.readAsBytesSync());
       AppData appData = AppData.fromJson(json.decode(stringCharCodes));
-      clearAppData();
 
       ///Filling Data Fields
       if (appData.dataVersion == AppDataVersions.values.last) {
-        await saveSettings(settings: appData.settings ?? const AppSettingData());
+        saveAppData(appData: appData);
+        saveAllDataToStorage();
         appLogPrint('Data Imported');
       } else {
         appLogPrint('Data Version is not Compatible, Converter is not Implemented\nData Import Failed');

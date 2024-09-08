@@ -32,7 +32,7 @@ nullFunction() => null;
 
 void saveAppData() => AppLocalStorage.to.saveAllDataToStorage();
 
-void loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
+Future<AppData?>  loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
 
 void clearAppData() => AppLocalStorage.to.clearStorage();
 

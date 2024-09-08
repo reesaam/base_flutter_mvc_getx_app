@@ -36,7 +36,7 @@ class AppPages {
     GetPage(name: AppRoutes.update.route, page: UpdatePage.new),
     GetPage(name: AppRoutes.about.route, page: AboutPage.new),
 
-    ///NotFound Page is ALWAYS LAST
+    ///LAST Item -- NotFound Page is ALWAYS LAST
     GetPage(name: AppRoutes.notFound.route, page: NotFoundPage.new),
   ];
 

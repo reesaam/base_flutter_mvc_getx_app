@@ -50,6 +50,9 @@
     "generalNotAvailable": "Not Available",
     "generalNotAvailableInitials": "N/A",
 
+    "statusPrintSentenceSuccessful": "Function Successful Performed",
+    "statusPrintSentenceFailure": "Function Failed",
+
     "settingsLanguageModalSelectLanguage": "Select Language",
     "settingsAppbarMenuResetSettings": "Reset All Settings",
     "settingsSectionTitleGeneral": "General",

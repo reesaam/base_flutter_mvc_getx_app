@@ -86,8 +86,8 @@ class AdminTestController extends CoreController {
 
   showLocalNotification() async {
     await AppLocalNotifications().simple(
-      title: 'Test Notification',
-      body: 'Test Notification has been Sent',
+      title: 'Test Notification Title',
+      body: 'Test Notification Body',
     );
   }
 

@@ -110,6 +110,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Current Version"),
         "splashScreenPageName":
             MessageLookupByLibrary.simpleMessage("Splash Screen"),
+        "statusPrintSentenceFailure":
+            MessageLookupByLibrary.simpleMessage("Function Failed"),
+        "statusPrintSentenceSuccessful": MessageLookupByLibrary.simpleMessage(
+            "Function Successful Performed"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "totalBalance": MessageLookupByLibrary.simpleMessage("Total Balance"),

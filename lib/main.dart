@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'app/functional_components/notifications/local_notifications/app_local_notifications.dart';
 import 'core/app_extensions/extension_app_routes.dart';
+import 'core/app_extensions/extension_for_prints/extension_for_prints.dart';
 import 'core/app_localization.dart';
 import 'core/app_bindings/core_bindings.dart';
 import 'core/app_routing/app_pages.dart';
@@ -18,8 +19,8 @@ void main() => initProject();
 
 void initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init();
-  await AppLocalNotifications().init();
+  await GetStorage.init().withStatusPrint(isLog: true, featureName: 'Get Storage Initialization');
+  await AppLocalNotifications().init().withStatusPrint(isLog: true, featureName: 'App Local Notifications Initialization');
   CoreBindings().dependencies();
   runApp(const MainApp());
 }

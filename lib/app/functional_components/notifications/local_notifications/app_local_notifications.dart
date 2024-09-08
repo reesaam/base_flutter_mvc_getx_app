@@ -1,10 +1,12 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
+
 import '../app_notifications_enums.dart';
 import '../app_notifications_repository.dart';
 import 'app_local_notifications_repository.dart';
 
 class AppLocalNotifications extends AppNotificationsRepository {
   @override
-  init() async => await AppLocalNotificationsRepository().init();
+  Future<bool> init() async => await AppLocalNotificationsRepository().init();
 
   @override
   Future<bool> simple({
@@ -30,15 +32,58 @@ class AppLocalNotifications extends AppNotificationsRepository {
   }
 
   @override
-  Future<bool> scheduled() async {return false;}
+  Future<bool> scheduled({
+    String? title,
+    String? bigPicture,
+    String? body,
+    String? icon,
+    String? largeIcon,
+    int? timeoutAfterLongSeconds,
+    bool? wakeUpScreen,
+    required DateTime dateTime,
+  }) async {
+    var result = await AppLocalNotificationsRepository().createNotification(
+      channelKey: AppNotificationChannelKey.simple,
+      title: title,
+      bigPicture: bigPicture,
+      body: body,
+      icon: icon,
+      largeIcon: largeIcon,
+      timeoutAfterLongSeconds: timeoutAfterLongSeconds,
+      wakeUpScreen: wakeUpScreen,
+      calendar: NotificationCalendar.fromDate(date: dateTime),
+    );
+    return result;
+  }
+
   @override
-  Future<bool> intervalBased() async {return false;}
-  @override
-  Future<bool> specificTimeDaily() async {return false;}
-  @override
-  Future<bool> specificTimeWeekly() async {return false;}
-  @override
-  Future<bool> specificTimeMonthly() async {return false;}
-  @override
-  Future<bool> specificTimeYearly() async {return false;}
+  Future<bool> intervalBased({
+    String? title,
+    String? bigPicture,
+    String? body,
+    String? icon,
+    String? largeIcon,
+    int? timeoutAfterLongSeconds,
+    bool? wakeUpScreen,
+    required int interval,
+    bool? repeat,
+    bool? preciseAlarm,
+  }) async {
+    var result = await AppLocalNotificationsRepository().createNotification(
+      channelKey: AppNotificationChannelKey.simple,
+      title: title,
+      bigPicture: bigPicture,
+      body: body,
+      icon: icon,
+      largeIcon: largeIcon,
+      timeoutAfterLongSeconds: timeoutAfterLongSeconds,
+      wakeUpScreen: wakeUpScreen,
+      interval: NotificationInterval(
+        interval: interval,
+        repeats: repeat ?? false,
+        preciseAlarm: preciseAlarm ?? true,
+      ),
+    );
+    return result;
+  }
 }

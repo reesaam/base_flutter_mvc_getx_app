@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/app_extensions/extension_for_prints/extension_for_prints.dart';
+import '../../../../core/app_localization_texts.dart';
 import '../../../../core/core_functions.dart';
 import '../../../../data/info/app_core_flags.dart';
 import '../../../../data/resources/app_theme/app_themes.dart';
@@ -10,33 +12,36 @@ import '../app_notifications_enums.dart';
 import 'app_local_notification_controller.dart';
 
 class AppLocalNotificationsRepository {
+
+  String? channelName = 'channelName';
+  String? channelDescription = 'channelDescription';
+  String channelGroupKey = 'channelGroupKey';
+  String channelGroupName = 'channelGroupName';
+
   List<NotificationChannel> _channels() {
     List<NotificationChannel> channels = [
-      NotificationChannel(channelKey: AppNotificationChannelKey.simple.name, channelName: 'channelName', channelDescription: 'channelDescription')
+      NotificationChannel(channelKey: AppNotificationChannelKey.simple.name, channelName: channelName, channelDescription: channelDescription)
     ];
     return channels;
   }
 
   List<NotificationChannelGroup>? _groups() {
     List<NotificationChannelGroup> groups = [
-      NotificationChannelGroup(channelGroupKey: 'channelGroupKey', channelGroupName: 'channelGroupName'),
+      NotificationChannelGroup(channelGroupKey: channelGroupKey, channelGroupName: channelGroupName),
     ];
     return groups;
   }
 
   Future<bool> init() async {
     bool initializationResult = await AwesomeNotifications().initialize(null, _channels(), channelGroups: _groups(), debug: !isRelease);
-    bool permissionResult = await _permissionCheck();
-    bool listenersInitResult = await _setListeners();
-    bool channelSetResult = await _setChannel();
+    bool permissionResult = await _permissionCheck().withStatusPrint(featureName: 'App Local Notifications Permission Check');
+    bool listenersInitResult = await _setListeners().withStatusPrint(featureName: 'App Local Notifications Listeners Set');
+    bool channelSetResult = await _setChannel().withStatusPrint(featureName: 'App Local Notifications Channel Set');
 
     var receivedAction = await AwesomeNotifications().getInitialNotificationAction(removeFromActionEvents: false);
     appDebugPrint(receivedAction);
 
-    bool initResult = initializationResult && permissionResult && listenersInitResult && channelSetResult;
-    initResult ? appLogPrint('AppNotifications Initialization was Successful.') : appLogPrint('AppNotifications Initialization Failed.');
-
-    return initResult;
+    return initializationResult && permissionResult && listenersInitResult && channelSetResult;
   }
 
   Future<bool> _setListeners() async {
@@ -47,10 +52,6 @@ class AppLocalNotificationsRepository {
       onNotificationDisplayedMethod: (receivedNotification) => AppLocalNotificationController.onNotificationDisplayedMethod(receivedNotification),
     );
 
-    listenersInitResult
-        ? appDebugPrint('AppNotifications Listeners Initialization was Successful.')
-        : appDebugPrint('AppNotifications Listeners Initialization Failed.');
-
     return listenersInitResult;
   }
 
@@ -58,20 +59,14 @@ class AppLocalNotificationsRepository {
     bool permissionResult = await AwesomeNotifications().isNotificationAllowed();
     bool requestResult = await AwesomeNotifications().requestPermissionToSendNotifications();
 
-    permissionResult && requestResult
-        ? appDebugPrint('AppNotifications Permissions Initialization was Successful.')
-        : appDebugPrint('AppNotifications Permissions Initialization Failed.');
-
     return permissionResult && requestResult;
   }
 
   Future<bool> _setChannel() async {
     if (_channels().isNotEmpty) {
       await AwesomeNotifications().setChannel(_channels().first);
-      appDebugPrint('Channel Set');
       return true;
     } else {
-      appDebugPrint('Channels List is Empty');
       return false;
     }
   }
@@ -204,8 +199,8 @@ class AppLocalNotificationsRepository {
           bool? requireInputText,
           bool? showInCompactView}) =>
       NotificationActionButton(
-          key: key ?? '',
-          label: label ?? '',
+          key: key ?? Texts.to.empty,
+          label: label ?? Texts.to.empty,
           icon: icon,
           autoDismissible: autoDismissible ?? true,
           actionType: actionType ?? ActionType.Default,

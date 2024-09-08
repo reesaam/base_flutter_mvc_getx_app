@@ -1,5 +1,7 @@
 abstract class AppNotificationsRepository {
-  init();
+
+  Future<bool> init();
+
   Future<bool> simple({
     String? title,
     String? bigPicture,
@@ -9,10 +11,28 @@ abstract class AppNotificationsRepository {
     int? timeoutAfterLongSeconds,
     bool? wakeUpScreen,
   });
-  Future<bool> scheduled();
-  Future<bool> intervalBased();
-  Future<bool> specificTimeDaily();
-  Future<bool> specificTimeWeekly();
-  Future<bool> specificTimeMonthly();
-  Future<bool> specificTimeYearly();
+
+  Future<bool> scheduled({
+    String? title,
+    String? bigPicture,
+    String? body,
+    String? icon,
+    String? largeIcon,
+    int? timeoutAfterLongSeconds,
+    bool? wakeUpScreen,
+    required DateTime dateTime,
+  });
+
+  Future<bool> intervalBased({
+    String? title,
+    String? bigPicture,
+    String? body,
+    String? icon,
+    String? largeIcon,
+    int? timeoutAfterLongSeconds,
+    bool? wakeUpScreen,
+    required int interval,
+    bool? repeat,
+    bool? preciseAlarm,
+  });
 }

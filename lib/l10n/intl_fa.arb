@@ -50,9 +50,6 @@
     "generalNotAvailable": "موجود نیست",
     "generalNotAvailableInitials": "ناموجود",
 
-    "statusPrintSentenceSuccessful": "با موفقیت انجام شد",
-    "statusPrintSentenceFailure": "با خطا مواجه شد",
-
     "settingsLanguageModalSelectLanguage": "انتخاب زبان",
     "settingsAppbarMenuResetSettings": "بازنشانی همه تنظیمات",
     "settingsSectionTitleGeneral": "عمومی",

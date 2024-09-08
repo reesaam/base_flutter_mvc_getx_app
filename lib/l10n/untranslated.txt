@@ -1,13 +1,9 @@
 {
   "de": [
-    "statusPrintSentenceSuccessful",
-    "statusPrintSentenceFailure",
     "endOfFile"
   ],
 
   "fa": [
-    "statusPrintSentenceSuccessful",
-    "statusPrintSentenceFailure",
     "endOfFile"
   ]
 }

@@ -470,26 +470,6 @@ class S {
     );
   }
 
-  /// `Function Successful Performed`
-  String get statusPrintSentenceSuccessful {
-    return Intl.message(
-      'Function Successful Performed',
-      name: 'statusPrintSentenceSuccessful',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Function Failed`
-  String get statusPrintSentenceFailure {
-    return Intl.message(
-      'Function Failed',
-      name: 'statusPrintSentenceFailure',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Select Language`
   String get settingsLanguageModalSelectLanguage {
     return Intl.message(

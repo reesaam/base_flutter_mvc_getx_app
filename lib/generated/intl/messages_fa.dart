@@ -112,10 +112,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسخه فعلی:"),
         "splashScreenPageName":
             MessageLookupByLibrary.simpleMessage("صفحه شروع"),
-        "statusPrintSentenceFailure":
-            MessageLookupByLibrary.simpleMessage("با خطا مواجه شد"),
-        "statusPrintSentenceSuccessful":
-            MessageLookupByLibrary.simpleMessage("با موفقیت انجام شد"),
         "to": MessageLookupByLibrary.simpleMessage("تا"),
         "total": MessageLookupByLibrary.simpleMessage("جمع"),
         "totalBalance": MessageLookupByLibrary.simpleMessage("جمع کل"),

@@ -49,7 +49,7 @@ class AdminTestController extends CoreController {
   ///Connections
   internetConnection() async {
     var result = await AppConnectionChecker().checkInternet();
-    await _dialog(result.toString());
+    await _dialog(result.toString().capitalizeFirst ?? unknownStatus);
   }
 
   internetStatus() async {
@@ -59,7 +59,7 @@ class AdminTestController extends CoreController {
 
   checkConnection() async {
     var result = await AppConnectionChecker().checkConnection();
-    await _dialog(result.name);
+    await _dialog(result.name.capitalizeFirst ?? unknownStatus);
   }
 
   ///Files

@@ -12,7 +12,9 @@ class AppDividers {
         general(color: color ?? AppThemes.to.primaryColor),
         Container(
           padding: AppPaddings.buttonXLarge,
-          color: Get.context?.findAncestorWidgetOfExactType<Container>()?.color ?? Get.context?.findAncestorWidgetOfExactType<Scaffold>()?.backgroundColor ?? AppThemes.to.canvasColor,
+          color: Get.context?.findAncestorWidgetOfExactType<Container>()?.color ??
+              Get.context?.findAncestorWidgetOfExactType<Scaffold>()?.backgroundColor ??
+              AppThemes.to.canvasColor,
           child: Text(text).withColor(color ?? AppThemes.to.primaryColor),
         ),
       ]);

@@ -8,7 +8,6 @@ import '../../data/statistics/app_statistics.dart';
 import '../app_localization.dart';
 import '../network/dio.dart';
 
-
 class AppComponentsBindings extends Bindings {
   @override
   void dependencies() {

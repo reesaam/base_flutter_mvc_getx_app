@@ -12,7 +12,6 @@ import '../app_notifications_enums.dart';
 import 'app_local_notification_controller.dart';
 
 class AppLocalNotificationsRepository {
-
   String? channelName = 'channelName';
   String? channelDescription = 'channelDescription';
   String channelGroupKey = 'channelGroupKey';

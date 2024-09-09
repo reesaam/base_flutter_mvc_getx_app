@@ -61,7 +61,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(title: 'AppDividers General', widget: AppDividers.general()),
         AdminFunctions.item(primary: true, title: 'AppDividers General PrimaryColor', widget: AppDividers.generalWithPrimaryColor),
         AdminFunctions.item(title: 'AppDividers GeneralText', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
-        AdminFunctions.item(primary: true, title: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
+        AdminFunctions.item(
+            primary: true, title: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
         AdminFunctions.item(title: 'AppDividers Settings', widget: AppDividers.settings),
       ], title: 'Dividers');
 
@@ -118,7 +119,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
     ctrlWithMultipleLinesData.text = '$textFieldData\n$textFieldData\n$textFieldData\n$textFieldData';
 
     return AdminFunctions.section([
-      AdminFunctions.item(title: 'TextField Editable with Leading Icon', widget: AppTextField(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
+      AdminFunctions.item(
+          title: 'TextField Editable with Leading Icon', widget: AppTextField(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
       AdminFunctions.item(
           title: 'TextField Editable with Prefix and Suffix',
           widget: AppTextField(
@@ -283,7 +285,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         )),
       ], title: 'Alert Dialogs');
 
-  _alertDialogWidget() => Column(mainAxisSize: MainAxisSize.min, children: List<Widget>.generate(5, (index) => const Text('Some Widget').withTertiaryColor));
+  _alertDialogWidget() =>
+      Column(mainAxisSize: MainAxisSize.min, children: List<Widget>.generate(5, (index) => const Text('Some Widget').withTertiaryColor));
 
   _bottomSheetDialog() {
     Widget form = Column(

@@ -1,5 +1,4 @@
 abstract class AppNotificationsRepository {
-
   Future<bool> init();
 
   Future<bool> simple({

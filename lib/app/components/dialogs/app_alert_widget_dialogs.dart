@@ -73,23 +73,23 @@ class AppAlertWidgetDialogs {
           useRootNavigator: true,
           barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
-            padding: AppPaddings.generalAlertDialog,
-            child: AlertDialog.adaptive(
-              scrollable: true,
-              shape: AppElements.borderShapeAlertDialog,
-              title: title == null
-                  ? shrinkSizedBox
-                  : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(title),
-                AppDividers.generalWithPrimaryColor,
-              ]),
-              content: widget,
-              actions: _renderButtonsAlertWidgetDialog(buttons),
-              actionsOverflowAlignment: OverflowBarAlignment.center,
-              actionsOverflowDirection: VerticalDirection.down,
-              actionsAlignment: MainAxisAlignment.center,
-            ),
-          ));
+                padding: AppPaddings.generalAlertDialog,
+                child: AlertDialog.adaptive(
+                  scrollable: true,
+                  shape: AppElements.borderShapeAlertDialog,
+                  title: title == null
+                      ? shrinkSizedBox
+                      : Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text(title),
+                          AppDividers.generalWithPrimaryColor,
+                        ]),
+                  content: widget,
+                  actions: _renderButtonsAlertWidgetDialog(buttons),
+                  actionsOverflowAlignment: OverflowBarAlignment.center,
+                  actionsOverflowDirection: VerticalDirection.down,
+                  actionsAlignment: MainAxisAlignment.center,
+                ),
+              ));
 
   List<Widget> _renderButtonsAlertWidgetDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);

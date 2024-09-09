@@ -47,11 +47,14 @@ class AppGeneralButton extends ElevatedButton {
 
   @override
   MaterialStatesController? get statesController =>
-      stateController ?? (disabled == true ? MaterialStatesController(<MaterialState>{MaterialState.focused}) : MaterialStatesController(<MaterialState>{MaterialState.disabled}));
+      stateController ??
+      (disabled == true
+          ? MaterialStatesController(<MaterialState>{MaterialState.focused})
+          : MaterialStatesController(<MaterialState>{MaterialState.disabled}));
 
   Widget get _buttonLoading => AppProgressIndicator.circular(
-    color: AppThemes.to.canvasColor,
-    width: 20,
-    strokeWidth: 3,
-  );
+        color: AppThemes.to.canvasColor,
+        width: 20,
+        strokeWidth: 3,
+      );
 }

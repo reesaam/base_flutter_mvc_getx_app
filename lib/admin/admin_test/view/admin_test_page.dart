@@ -41,8 +41,8 @@ class AdminTestPage extends CoreView<AdminTestController> {
       title: 'App All Pages');
 
   _themes() => AdminFunctions.sectionGrid(items: [
-    AdminFunctions.itemButton(text: 'Change Dark Mode', function: controller.changeDarkMode),
-  ], title: 'Themes');
+        AdminFunctions.itemButton(text: 'Change Dark Mode', function: controller.changeDarkMode),
+      ], title: 'Themes');
 
   _checkConnection() => AdminFunctions.sectionGrid(items: [
         AdminFunctions.itemButton(text: 'Connection Status', function: controller.internetConnection),

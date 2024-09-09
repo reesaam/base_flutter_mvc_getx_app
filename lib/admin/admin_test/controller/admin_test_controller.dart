@@ -20,7 +20,6 @@ import '../../../data/storage/app_local_storage.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
 
 class AdminTestController extends CoreController {
-
   Rx<bool> darkMode = false.obs;
 
   @override

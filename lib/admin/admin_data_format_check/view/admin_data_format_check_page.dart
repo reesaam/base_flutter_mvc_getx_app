@@ -44,6 +44,8 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
         AdminFunctions.item(title: 'Separators', text: 22500000.toCurrency()),
         AdminFunctions.item(title: 'Separators with Sign', text: 55400000.toCurrency(sign: AppCountry.us.currency?.sign.string ?? '')),
         AdminFunctions.item(title: 'Separators', text: 22500000.toCurrency()),
-        AdminFunctions.item(title: 'Separators with Sign', text: 55400000.toCurrency(sign: AppLocalization.to.getCountry().currency?.sign.string ?? AppCountry.us.currency?.sign.string ?? '')),
+        AdminFunctions.item(
+            title: 'Separators with Sign',
+            text: 55400000.toCurrency(sign: AppLocalization.to.getCountry().currency?.sign.string ?? AppCountry.us.currency?.sign.string ?? '')),
       ], title: 'Currency');
 }

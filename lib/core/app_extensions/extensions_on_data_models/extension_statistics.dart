@@ -13,7 +13,9 @@ extension ExtensionAppStatisticsRxStorage on Rx<AppStatisticsData> {
 extension ExtensionAppStatisticsStorage on AppStatisticsData {
   void saveOnStorage() async => await AppLocalStorage.to.saveAppStatisticsData(appStatisticsData: this);
   AppStatisticsData loadFromStorage() {
-    var data = AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r?.calculateInstallDuration());
+    var data = AppLocalStorage.to
+        .loadAppStatisticsData()
+        .fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r?.calculateInstallDuration());
     return data;
   }
 }
@@ -36,5 +38,6 @@ extension ExtensionAppStatisticsIncreases on AppStatisticsData {
 }
 
 extension ExtensionAppStatisticsCalculations on AppStatisticsData {
-  AppStatisticsData calculateInstallDuration() => installDateTime == null ? this : copyWith(installDuration: DateTime.now().difference(installDateTime!));
+  AppStatisticsData calculateInstallDuration() =>
+      installDateTime == null ? this : copyWith(installDuration: DateTime.now().difference(installDateTime!));
 }

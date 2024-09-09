@@ -7,7 +7,6 @@ import '../../../../core/core_functions.dart';
 import '../app_notifications_enums.dart';
 
 class AppLocalNotificationController {
-
   AppLocalNotificationController() {
     ReceivePort? receivePort;
     // IsolateNameServer.registerPortWithName(receivePort, AppNotificationsPortNames.receivePort.portName);

@@ -18,6 +18,7 @@ extension ExtensionCountriesList on List<AppCountry> {
 
 extension ExtensionCountryFlagWidget on AppCountry {
   Widget flag({
+    double? size,
     bool? rounded,
     double? roundRadius,
     bool? hasBorder,
@@ -26,6 +27,7 @@ extension ExtensionCountryFlagWidget on AppCountry {
     double? aspectRatio,
   }) {
     return Container(
+        width: size ?? 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(rounded == true ? roundRadius ?? AppElements.defaultRadius : 0)),
           border: hasBorder == true ? Border.all(color: borderColor ?? Colors.black45) : null,

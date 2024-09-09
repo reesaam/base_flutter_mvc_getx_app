@@ -97,21 +97,19 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
         AdminFunctions.item(title: 'API Version', text: APIVersions.v1.getValue),
         AdminFunctions.item(title: 'API URL', text: 'https://${AppInfo.baseUrl}/${APIVersions.v1.getValue}'),
       ], title: 'App APIs');
-  
 
   _colorWidget(Color color) => CircleAvatar(
-    minRadius: 20,
-    maxRadius: 20,
-    backgroundColor: Colors.white,
-    child: CircleAvatar(
         minRadius: 20,
         maxRadius: 20,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         child: CircleAvatar(
-          minRadius: 18,
-          maxRadius: 18,
-          backgroundColor: color,
-
-        )),
-  );
+            minRadius: 20,
+            maxRadius: 20,
+            backgroundColor: Colors.black,
+            child: CircleAvatar(
+              minRadius: 18,
+              maxRadius: 18,
+              backgroundColor: color,
+            )),
+      );
 }

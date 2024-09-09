@@ -17,7 +17,8 @@ extension ExtensionDateTimeStringProviders on DateTime {
     return '${year.toString().padLeft(4, '0')}$sp${month.toString().padLeft(2, '0')}$sp${day.toString().padLeft(2, '0')}';
   }
 
-  String toTimeFormat({bool? withSeconds}) => '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}${withSeconds == true ? ':${second.toString().padLeft(2, '0')}' : ''}';
+  String toTimeFormat({bool? withSeconds}) =>
+      '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}${withSeconds == true ? ':${second.toString().padLeft(2, '0')}' : ''}';
 }
 
 extension ExtensionDateTimeCompareNull on DateTime? {

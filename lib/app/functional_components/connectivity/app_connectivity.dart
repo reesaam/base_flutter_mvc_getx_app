@@ -16,9 +16,11 @@ class AppConnectionChecker {
 
   Future<InternetStatus> checkInternetStatus() async => await internetConnection.internetStatus;
 
-  internetListener({Function? function}) => internetConnection.onStatusChange.listen((status) {}).onData((data) => function == null ? data : function());
+  internetListener({Function? function}) =>
+      internetConnection.onStatusChange.listen((status) {}).onData((data) => function == null ? data : function());
 
   Future<ConnectivityResult> checkConnection() async => await connectivity.checkConnectivity();
 
-  connectionListener({Function? function}) => connectivity.onConnectivityChanged.listen((status) {}).onData((data) => function == null ? data : function());
+  connectionListener({Function? function}) =>
+      connectivity.onConnectivityChanged.listen((status) {}).onData((data) => function == null ? data : function());
 }

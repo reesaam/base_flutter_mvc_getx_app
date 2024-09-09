@@ -6,6 +6,7 @@ import '../../../core/app_extensions/extensions_on_data_types/extension_date_tim
 import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
+import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/elements/core_view.dart';
@@ -67,11 +68,11 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
       ], title: 'App Statistics Info');
 
   _locale() => AdminFunctions.section([
-      AdminFunctions.item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
-      AdminFunctions.item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
-      AdminFunctions.item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
-      AdminFunctions.item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
-    ], title: 'Locale');
+        AdminFunctions.item(title: 'Locale', text: AppLocalization.to.getLocale().toLanguageTag()),
+        AdminFunctions.item(title: 'Language Code', text: AppLocalization.to.getLocale().languageCode),
+        AdminFunctions.item(title: 'Language Name', text: AppLocalization.to.getLocale().getLanguageName),
+        AdminFunctions.item(title: 'Text Direction', text: AppLocalization.to.getTextDirection().name),
+      ], title: 'Locale');
 
   _localization() {
     AppCountry country = AppLocalization.to.getCountry();

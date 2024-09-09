@@ -13,7 +13,8 @@ extension ExtensionAppSettingsRxStorage on Rx<AppSettingData> {
 
 extension ExtensionAppSettingsStorage on AppSettingData {
   void saveOnStorage() async => await AppLocalStorage.to.saveSettings(settings: this);
-  AppSettingData loadFromStorage() => AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+  AppSettingData loadFromStorage() =>
+      AppLocalStorage.to.loadSettings().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
 }
 
 extension ExtensionAppSettingsRxClear on Rx<AppSettingData> {

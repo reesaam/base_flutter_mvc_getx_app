@@ -132,6 +132,6 @@ class AppTextField extends StatelessWidget {
           child: suffixIcon?.withSecondaryColor,
         );
 
-  Widget _buildCounter(int currentLength) => Text(
-      showMaxLength == true ? '${currentLength.toString()} / ${maxLength.toString()}' : currentLength.toString());
+  Widget _buildCounter(int currentLength) =>
+      Text(showMaxLength == true ? '${currentLength.toString()} / ${maxLength.toString()}' : currentLength.toString());
 }

@@ -168,22 +168,27 @@ class AppLocalStorage {
   clearAppData() => _clearSpecificKey(_keyAppData);
 
   ///AppDataVersion
-  Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async => await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
+  Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async =>
+      await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
   Either<LocalException, AppDataVersions?> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
   clearAppDataVersion() => _clearSpecificKey(_keyAppDataVersion);
 
   ///AppVersion
   Future<void> saveAppVersions({required AppVersionsList? appVersions}) async => await _saveFunction(key: _keyAppVersions, data: appVersions);
-  Either<LocalException, AppVersionsList> loadAppVersions() => _loadFunction(_keyAppVersions).map((r) => r == null ? AppVersionsList() : AppVersionsList.fromJson(r));
+  Either<LocalException, AppVersionsList> loadAppVersions() =>
+      _loadFunction(_keyAppVersions).map((r) => r == null ? AppVersionsList() : AppVersionsList.fromJson(r));
   clearAppVersion() => _clearSpecificKey(_keyAppVersions);
 
   ///AppStatisticsData
-  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async => await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
-  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() => _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
+  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async =>
+      await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
+  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() =>
+      _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
   clearAppStatisticsData() => _clearSpecificKey(_keyAppStatisticData);
 
   ///Settings
   Future<void> saveSettings({required AppSettingData? settings}) async => await _saveFunction(key: _keySettings, data: settings);
-  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
+  Either<LocalException, AppSettingData> loadSettings() =>
+      _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
   clearSettings() => _clearSpecificKey(_keySettings);
 }

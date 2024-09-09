@@ -33,8 +33,10 @@ enum AppRoutes {
   settings,
   update,
   about,
+
   ///General Pages
   notFound,
+
   ///Admin Pages
   adminStartPage,
   adminTestPage,

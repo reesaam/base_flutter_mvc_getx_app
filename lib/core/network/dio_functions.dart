@@ -10,7 +10,6 @@ import 'dio.dart';
 import '../failures/network_exception.dart';
 
 class DioFunctions {
-
   static Future<Either<NetworkException, T>> get<T>({required String url, request}) async {
     var dio = DioCore().dio;
     final T data;
@@ -114,7 +113,7 @@ class DioFunctions {
 
   static _printException(String method, List<String> prints) {
     appDebugPrint('==> $method Method Exception:');
-    for(var print in prints) {
+    for (var print in prints) {
       appDebugPrint(print);
     }
   }

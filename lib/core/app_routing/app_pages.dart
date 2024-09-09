@@ -19,26 +19,26 @@ import '../../features/update/view/update_view.dart';
 
 class AppPages {
   static List<GetPage> get pages => [
-    ///Admin Pages
-    GetPage(name: AppRoutes.adminStartPage.route, page: AdminStartPage.new),
-    GetPage(name: AppRoutes.adminTestPage.route, page: AdminTestPage.new),
-    GetPage(name: AppRoutes.adminAppInfoPage.route, page: AdminAppInfoPage.new),
-    GetPage(name: AppRoutes.adminAppResourcesPage.route, page: AdminAppResourcesPage.new),
-    GetPage(name: AppRoutes.adminWidgetCheckPage.route, page: AdminWidgetCheckPage.new),
-    GetPage(name: AppRoutes.adminDataFormatCheckPage.route, page: AdminDataFormatCheckPage.new),
-    GetPage(name: AppRoutes.adminAppCountriesPage.route, page: AdminAppCountriesPage.new),
-    GetPage(name: AppRoutes.appDocs.route, page: AppDocsPage.new),
+        ///Admin Pages
+        GetPage(name: AppRoutes.adminStartPage.route, page: AdminStartPage.new),
+        GetPage(name: AppRoutes.adminTestPage.route, page: AdminTestPage.new),
+        GetPage(name: AppRoutes.adminAppInfoPage.route, page: AdminAppInfoPage.new),
+        GetPage(name: AppRoutes.adminAppResourcesPage.route, page: AdminAppResourcesPage.new),
+        GetPage(name: AppRoutes.adminWidgetCheckPage.route, page: AdminWidgetCheckPage.new),
+        GetPage(name: AppRoutes.adminDataFormatCheckPage.route, page: AdminDataFormatCheckPage.new),
+        GetPage(name: AppRoutes.adminAppCountriesPage.route, page: AdminAppCountriesPage.new),
+        GetPage(name: AppRoutes.appDocs.route, page: AppDocsPage.new),
 
-    ///Main App Pages
-    GetPage(name: AppRoutes.splashScreen.route, page: SplashScreenPage.new),
-    GetPage(name: AppRoutes.homepage.route, page: HomePage.new),
-    GetPage(name: AppRoutes.settings.route, page: SettingsPage.new),
-    GetPage(name: AppRoutes.update.route, page: UpdatePage.new),
-    GetPage(name: AppRoutes.about.route, page: AboutPage.new),
+        ///Main App Pages
+        GetPage(name: AppRoutes.splashScreen.route, page: SplashScreenPage.new),
+        GetPage(name: AppRoutes.homepage.route, page: HomePage.new),
+        GetPage(name: AppRoutes.settings.route, page: SettingsPage.new),
+        GetPage(name: AppRoutes.update.route, page: UpdatePage.new),
+        GetPage(name: AppRoutes.about.route, page: AboutPage.new),
 
-    ///NotFound Page is ALWAYS LAST
-    GetPage(name: AppRoutes.notFound.route, page: NotFoundPage.new),
-  ];
+        ///LAST Item -- NotFound Page is ALWAYS LAST
+        GetPage(name: AppRoutes.notFound.route, page: NotFoundPage.new),
+      ];
 
   static GetPage get unknownRoute => pages.last;
 }

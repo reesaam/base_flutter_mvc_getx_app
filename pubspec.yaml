@@ -17,6 +17,10 @@ dependencies:
   get: ^4.6.6
   #bloc: ^8.1.4
   #flutter_bloc: ^8.1.5
+  #riverpod: ^2.5.1
+
+  #Flutter Version Manager
+  fvm: ^3.2.1
 
   #Dependency Injection
   #get_it: ^7.6.7
@@ -60,6 +64,11 @@ dependencies:
   #retrofit_flutter: ^1.1.1
   chopper: ^7.4.0
 
+  #Notifications
+  awesome_notifications: ^0.8.2
+  #awesome_notifications_core: ^0.8.2
+  #awesome_notifications_fcm: ^0.8.2
+
   #File
   open_file_plus: ^3.4.1+1
   flutter_file_dialog: ^3.0.2
@@ -97,6 +106,7 @@ dependencies:
   lints: ^3.0.0
 
   #Other
+  dart_style: ^2.3.2
   rename: ^3.0.2
   change_app_package_name: ^1.1.0
 

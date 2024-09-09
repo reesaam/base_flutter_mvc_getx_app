@@ -7,24 +7,26 @@ import '../../../app/components/dialogs/app_alert_widget_dialogs.dart';
 import '../../../app/components/dialogs/app_bottom_dialogs.dart';
 import '../../../app/components/general_widgets/app_check_box.dart';
 import '../../../app/components/general_widgets/app_dividers.dart';
+import '../../../app/components/general_widgets/app_image.dart';
 import '../../../app/components/general_widgets/app_popup_menu.dart';
 import '../../../app/components/general_widgets/app_popup_menu_item.dart';
 import '../../../app/components/general_widgets/app_progress_indicator.dart';
-import '../../../app/components/general_widgets/app_snack_bars.dart';
+import '../../../app/components/general_widgets/app_snackbar.dart';
 import '../../../app/components/general_widgets/app_switch.dart';
 import '../../../app/components/general_widgets/app_text_field.dart';
 import '../../../app/components/main_components/app_bottom_navigation_bar.dart';
 import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../core/app_extensions/extensions_on_material_widgets/extension_on_text.dart';
 import '../../../core/core_functions.dart';
-import '../../../core/core_widgets.dart';
 import '../../../core/elements/core_view.dart';
 import '../../../app/components/main_components/app_bar.dart';
+import '../../../data/resources/app_logos.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../data/resources/app_enums.dart';
 import '../../../data/resources/app_icons.dart';
 import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_spaces.dart';
+import '../../admin_general_functions.dart';
 import '../controller/admin_widget_check_controller.dart';
 
 class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
@@ -46,6 +48,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         _generalButtons(),
         _checkBoxes(),
         _switches(),
+        _images(),
         _progressIndicators(),
         _alertDialogs(),
         _bottomSheetDialog(),
@@ -55,25 +58,26 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         _icons(),
       ]);
 
-  _dividers() => _section([
-        _item(name: 'AppDividers General', widget: AppDividers.general()),
-        _item(primary: true, name: 'AppDividers General PrimaryColor', widget: AppDividers.generalWithPrimaryColor),
-        _item(name: 'AppDividers GeneralText', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
-        _item(primary: true, name: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
-        _item(name: 'AppDividers Settings', widget: AppDividers.settings),
+  _dividers() => AdminFunctions.section([
+        AdminFunctions.item(title: 'AppDividers General', widget: AppDividers.general()),
+        AdminFunctions.item(primary: true, title: 'AppDividers General PrimaryColor', widget: AppDividers.generalWithPrimaryColor),
+        AdminFunctions.item(title: 'AppDividers GeneralText', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
+        AdminFunctions.item(
+            primary: true, title: 'AppDividers GeneralText PrimaryColor', widget: AppDividers.generalWithInlineText(text: 'Some Text')),
+        AdminFunctions.item(title: 'AppDividers Settings', widget: AppDividers.settings),
       ], title: 'Dividers');
 
-  _iconButtons() => _section([
-        _item(
-            name: 'IconButton\nDefaultColor',
+  _iconButtons() => AdminFunctions.section([
+        AdminFunctions.item(
+            title: 'IconButton\nDefaultColor',
             widget: AppIconButton(
               icon: AppIcons.home,
               text: 'IconButton',
               onTap: controller.functionCalledDialog,
             )),
-        _item(
+        AdminFunctions.item(
             primary: true,
-            name: 'IconButton\nPrimaryColor',
+            title: 'IconButton\nPrimaryColor',
             widget: AppIconButton(
               icon: AppIcons.home,
               text: 'IconButton',
@@ -82,9 +86,9 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             )),
       ], isRow: true, title: 'Icon Buttons');
 
-  _popUpMenu() => _section([
-        _item(
-            name: 'Popup Menu\nDefaultColor',
+  _popUpMenu() => AdminFunctions.section([
+        AdminFunctions.item(
+            title: 'Popup Menu\nDefaultColor',
             widget: AppPopupMenu(
                 listItems: List<AppPopupMenuItem>.generate(
                     5,
@@ -92,8 +96,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                           text: 'Popup Menu Item',
                           onTapFunction: controller.functionCalledDialog,
                         )))),
-        _item(
-            name: 'Popup Menu\nPrimaryColor',
+        AdminFunctions.item(
+            title: 'Popup Menu\nPrimaryColor',
             primary: true,
             widget: AppPopupMenu(
                 primaryColorIcon: true,
@@ -115,14 +119,20 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
     ctrlWithData.text = textFieldData;
     ctrlWithMultipleLinesData.text = '$textFieldData\n$textFieldData\n$textFieldData\n$textFieldData';
 
-    return _section([
-      _item(name: 'TextField Editable with Leading Icon', widget: AppTextField(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
-      _item(
-          name: 'TextField Editable with Prefix and Suffix',
+    return AdminFunctions.section([
+      AdminFunctions.item(
+          title: 'TextField Editable with Leading Icon', widget: AppTextField(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
+      AdminFunctions.item(
+          title: 'TextField Editable with Prefix and Suffix',
           widget: AppTextField(
-              controller: ctrl, hint: textFieldHint, prefixIcon: AppIcons.add, prefixAction: controller.functionCalledDialog, suffixIcon: AppIcons.settings, suffixAction: controller.functionCalledDialog)),
-      _item(
-          name: 'TextField Not Editable',
+              controller: ctrl,
+              hint: textFieldHint,
+              prefixIcon: AppIcons.add,
+              prefixAction: controller.functionCalledDialog,
+              suffixIcon: AppIcons.settings,
+              suffixAction: controller.functionCalledDialog)),
+      AdminFunctions.item(
+          title: 'TextField Not Editable',
           widget: AppTextField(
             editable: false,
             controller: ctrl,
@@ -132,8 +142,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             suffixIcon: AppIcons.settings,
             suffixAction: controller.functionCalledDialog,
           )),
-      _item(
-        name: 'TextField with Data',
+      AdminFunctions.item(
+        title: 'TextField with Data',
         widget: AppTextField(
           controller: ctrlWithData,
           hasCounter: true,
@@ -142,8 +152,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
           suffixAction: controller.functionCalledDialog,
         ),
       ),
-      _item(
-          name: 'TextField Expandable',
+      AdminFunctions.item(
+          title: 'TextField Expandable',
           widget: AppTextField(
             controller: ctrlWithMultipleLinesData,
             hasCounter: true,
@@ -154,16 +164,16 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             suffixIcon: AppIcons.settings,
             suffixAction: controller.functionCalledDialog,
           )),
-      _item(
-          name: 'TextField Whole Widget Function',
+      AdminFunctions.item(
+          title: 'TextField Whole Widget Function',
           widget: AppTextField(
             controller: ctrl,
             label: textFieldLabel,
             hint: textFieldHint,
             wholeWidgetAction: controller.functionCalledDialog,
           )),
-      _item(
-          name: 'TextField with Error',
+      AdminFunctions.item(
+          title: 'TextField with Error',
           widget: AppTextField(
             controller: ctrlWithData,
             label: textFieldLabel,
@@ -173,18 +183,18 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
     ], title: 'TextFields');
   }
 
-  _generalButtons() => _section([
-        _item(
-            name: 'AppGeneralButton',
+  _generalButtons() => AdminFunctions.section([
+        AdminFunctions.item(
+            title: 'AppGeneralButton',
             widget: AppGeneralButton(
               text: 'AppGeneralButton',
               icon: AppIcons.adminPanelIcon.icon!,
               leading: AppIcons.version.icon,
               onTap: controller.functionCalledDialog,
             )),
-        _item(
+        AdminFunctions.item(
             primary: true,
-            name: 'AppGeneralButton PrimaryColor',
+            title: 'AppGeneralButton PrimaryColor',
             widget: AppGeneralButton(
               primaryColor: true,
               text: 'AppGeneralButton',
@@ -192,8 +202,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
               leading: AppIcons.version.icon,
               onTap: controller.functionCalledDialog,
             )),
-        _item(
-            name: 'AppGeneralButton Loading',
+        AdminFunctions.item(
+            title: 'AppGeneralButton Loading',
             widget: AppGeneralButton(
               loading: true,
               text: 'AppGeneralButton',
@@ -201,9 +211,9 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
               leading: AppIcons.version.icon,
               onTap: controller.functionCalledDialog,
             )),
-        _item(
+        AdminFunctions.item(
             primary: true,
-            name: 'AppGeneralButton Primary Loading',
+            title: 'AppGeneralButton Primary Loading',
             widget: AppGeneralButton(
               loading: true,
               primaryColor: true,
@@ -212,8 +222,8 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
               leading: AppIcons.version.icon,
               onTap: controller.functionCalledDialog,
             )),
-        _item(
-            name: 'AppGeneralButton Disabled',
+        AdminFunctions.item(
+            title: 'AppGeneralButton Disabled',
             widget: AppGeneralButton(
               disabled: true,
               text: 'AppGeneralButton',
@@ -223,45 +233,61 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             )),
       ], title: 'General Buttons');
 
-  _checkBoxes() => _section([
-        _item(name: 'AppCheckBox\nChecked', widget: AppCheckBox(value: true, onChanged: (value) => null)),
-        _item(name: 'AppCheckBox\nNot Checked', widget: AppCheckBox(value: false, onChanged: (value) => null)),
+  _checkBoxes() => AdminFunctions.section([
+        AdminFunctions.item(title: 'AppCheckBox\nChecked', widget: AppCheckBox(value: true, onChanged: (value) => null)),
+        AdminFunctions.item(title: 'AppCheckBox\nNot Checked', widget: AppCheckBox(value: false, onChanged: (value) => null)),
       ], isRow: true, title: 'CheckBoxes');
 
-  _switches() => _section([
-        _item(name: 'Switch Off', widget: AppSwitch(value: false, onChanged: (value) => null)),
-        _item(name: 'Switch ON', widget: AppSwitch(value: true, onChanged: (value) => null)),
+  _switches() => AdminFunctions.section([
+        AdminFunctions.item(title: 'Switch Off', widget: AppSwitch(value: false, onChanged: (value) => null)),
+        AdminFunctions.item(title: 'Switch ON', widget: AppSwitch(value: true, onChanged: (value) => null)),
       ], isRow: true, title: 'Switches');
 
-  _progressIndicators() => _section([
-        _item(name: 'AppProgressIndicator Circular', widget: AppProgressIndicator.circular()),
-        _item(name: 'AppProgressIndicator Linear', widget: AppProgressIndicator.linear()),
+  _images() => AdminFunctions.section([
+        AdminFunctions.item(title: 'Image Asset Height Restricted', multipleItems: [
+          const AppImage(image: AppLogos.appLogo, size: Size.fromHeight(80)),
+          const AppImage(image: AppLogos.developerLogo, size: Size.fromHeight(80)),
+        ]),
+        AdminFunctions.item(title: 'Image Asset Width Restricted', multipleItems: [
+          const AppImage(image: AppLogos.appLogo, size: Size.fromWidth(50)),
+          const AppImage(image: AppLogos.developerLogo, size: Size.fromWidth(50)),
+        ]),
+        AdminFunctions.item(title: 'Image Asset Rounded', multipleItems: [
+          const AppImage(image: AppLogos.appLogo, size: Size.fromWidth(50), roundness: 20),
+          const AppImage(image: AppLogos.developerLogo, size: Size.fromWidth(50), roundness: 20),
+        ]),
+      ], title: 'Images');
+
+  _progressIndicators() => AdminFunctions.section([
+        AdminFunctions.item(title: 'AppProgressIndicator Circular', widget: AppProgressIndicator.circular()),
+        AdminFunctions.item(title: 'AppProgressIndicator Linear', widget: AppProgressIndicator.linear()),
       ], title: 'Progress Indicators');
 
-  _alertDialogs() => _section([
-        _item(
+  _alertDialogs() => AdminFunctions.section([
+        AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with OK',
           onTap: () => AppAlertDialogs().withOk(title: 'Alert Dialog Title', text: 'App Alert Dialog with Yes/No', onTapOk: popPage),
         )),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with Ok/Cancel',
           onTap: () => AppAlertDialogs().withOkCancel(title: 'Alert Dialog Title', text: 'App Alert Dialog with Ok/Cancel', onTapOk: popPage),
         )),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog by Widget with OK',
           onTap: () => AppAlertWidgetDialogs().withOk(title: 'Alert Dialog Title', widget: _alertDialogWidget(), onTapOk: popPage),
         )),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog by Widget with Ok/Cancel',
           onTap: () => AppAlertWidgetDialogs().withOkCancel(title: 'Alert Dialog Title', widget: _alertDialogWidget(), onTapOk: popPage),
         )),
       ], title: 'Alert Dialogs');
 
-  _alertDialogWidget() => Column(mainAxisSize: MainAxisSize.min, children: List<Widget>.generate(5, (index) => const Text('Some Widget').withTertiaryColor));
+  _alertDialogWidget() =>
+      Column(mainAxisSize: MainAxisSize.min, children: List<Widget>.generate(5, (index) => const Text('Some Widget').withTertiaryColor));
 
   _bottomSheetDialog() {
     Widget form = Column(
@@ -272,23 +298,23 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                   child: const Text('App BottomSheet Dialog without Button').withTertiaryColor,
                 )));
 
-    return _section([
-      _item(
+    return AdminFunctions.section([
+      AdminFunctions.item(
           widget: AppGeneralButton(
         text: 'BottomSheet Dialog without Button',
         onTap: () => AppBottomDialogs().withoutButton(title: 'BottomSheet Dialog', form: form, dismissible: true),
       )),
-      _item(
+      AdminFunctions.item(
           widget: AppGeneralButton(
         text: 'BottomSheet Dialog with OK',
         onTap: () => AppBottomDialogs().withOk(title: 'BottomSheet Dialog', form: form, onTapOk: popPage, dismissible: true),
       )),
-      _item(
+      AdminFunctions.item(
           widget: AppGeneralButton(
         text: 'BottomSheet Dialog with Cancel',
         onTap: () => AppBottomDialogs().withCancel(title: 'BottomSheet Dialog', form: form, dismissible: true),
       )),
-      _item(
+      AdminFunctions.item(
           widget: AppGeneralButton(
         text: 'BottomSheet Dialog with OK/Cancel',
         onTap: () => AppBottomDialogs().withOkCancel(title: 'BottomSheet Dialog', form: form, onTapOk: popPage, dismissible: true),
@@ -296,45 +322,91 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
     ], title: 'BottomSheet Dialogs');
   }
 
-  _snackBars() => _section([
-        _item(
+  _snackBars() => AdminFunctions.section([
+        AdminFunctions.item(
             widget: AppGeneralButton(
-                text: 'Snackbar',
-                onTap: () => AppSnackBar().showSnackBar(
+                text: 'Simple Snackbar',
+                onTap: () => AppSnackBar().show(
+                      message: 'App SnackBar with LeadingText',
+                    ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Simple Snackbar with Title',
+                onTap: () => AppSnackBar().show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                     ))),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingText',
-                onTap: () => AppSnackBar().showSnackBar(
+                onTap: () => AppSnackBar().show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                       leadingText: 'Leading Text',
                       leadingAction: controller.functionCalledDialog,
                     ))),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingIcon',
-                onTap: () => AppSnackBar().showSnackBar(
+                onTap: () => AppSnackBar().show(
                       message: 'App SnackBar with LeadingIcon',
                       title: 'AppSnackBar Title',
                       leadingIcon: AppIcons.info,
                       leadingAction: controller.functionCalledDialog,
                     ))),
-        _item(
+        AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Button',
-                onTap: () => AppSnackBar().showSnackBar(
+                onTap: () => AppSnackBar().show(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                       buttonText: 'Button',
                       buttonAction: controller.functionCalledDialog,
                     ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Snackbar with Icon',
+                onTap: () => AppSnackBar().show(
+                      message: 'App SnackBar with Button',
+                      title: 'AppSnackBar Title',
+                      icon: AppIcons.settings,
+                    ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Snackbar with Progress Indicator',
+                onTap: () => AppSnackBar().show(
+                      message: 'App SnackBar with Progress Indicator',
+                      title: 'AppSnackBar Title',
+                      withProgressIndicator: true,
+                    ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Progress Indicator Snackbar',
+                onTap: () => AppSnackBar().show(
+                      title: 'Progress Indicator Snackbar Title',
+                      widget: Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: AppProgressIndicator.linear(),
+                      ),
+                    ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Error Snackbar',
+                onTap: () => AppSnackBar().showError(
+                      message: 'App SnackBar with Button',
+                      title: 'AppSnackBar Title',
+                    ))),
+        AdminFunctions.item(
+            widget: AppGeneralButton(
+                text: 'Warning Snackbar',
+                onTap: () => AppSnackBar().showWarning(
+                      message: 'App SnackBar with Button',
+                      title: 'AppSnackBar Title',
+                    ))),
       ], title: 'SnackBars');
 
-  _appBar() => _section([
-        _item(
+  _appBar() => AdminFunctions.section([
+        AdminFunctions.item(
             fullWidth: true,
             widget: AppAppBar(
               pageDetail: const AppPageDetail(pageRoute: AppRoutes.adminWidgetCheckPage, pageName: 'Page Name'),
@@ -343,15 +415,15 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
             )),
       ], title: 'AppBar');
 
-  _bottomNavigationBar() => _section([
-        _item(
+  _bottomNavigationBar() => AdminFunctions.section([
+        AdminFunctions.item(
           fullWidth: true,
           widget: const AppBottomNavigationBar(selectedIndex: 0),
         )
       ], title: 'Bottom Navigation Bar');
 
-  _icons() => _section([
-        _item(
+  _icons() => AdminFunctions.section([
+        AdminFunctions.item(
             widget: Scrollbar(
               trackVisibility: true,
               child: SingleChildScrollView(
@@ -361,35 +433,10 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
                       children: List<Widget>.generate(
                           AppIcons.iconsList.length,
                           (index) => Padding(
-                            padding: AppPaddings.pages,
-                            child: AppIcons.iconsList[index].withSecondaryColor,
-                          )))),
-            ), fullWidth: true)
-      ], title: 'Icons');
-
-  _section(List<Widget> section, {bool? isRow, String? title}) => Column(children: [
-        title == null
-            ? shrinkSizedBox
-            : Column(children: [
-                Text(title, style: const TextStyle(fontSize: 20)),
-                AppDividers.settings,
-              ]),
-        isRow == true ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: List<Widget>.generate(section.length, (index) => Expanded(child: section[index]))) : Column(children: section),
-        AppDividers.generalWithDisabledColor,
-      ]);
-
-  _item({String? name, Widget? widget, bool? primary, bool? fullWidth}) => Column(children: [
-        Padding(
-          padding: fullWidth == true ? AppPaddings.zero : AppPaddings.buttonXLarge,
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            name == null ? shrinkSizedBox : Text(name, textAlign: TextAlign.center),
-            name == null ? shrinkSizedBox : AppSpaces.h20,
-            Container(
-              padding: fullWidth == true ? AppPaddings.zero : const EdgeInsets.symmetric(horizontal: 20),
-              // color: primary == true ? AppColors.appSecondary : null,
-              child: widget ?? shrinkSizedBox,
+                                padding: AppPaddings.pages,
+                                child: AppIcons.iconsList[index].withSecondaryColor,
+                              )))),
             ),
-          ]),
-        ),
-      ]);
+            fullWidth: true)
+      ], title: 'Icons');
 }

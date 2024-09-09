@@ -42,6 +42,7 @@ extension ExtensionTextCopyWith on Text {
 
 extension ExtensionTextColor on Text {
   Text withColor(Color color) => copyWith(style: style?.copyWith(color: color) ?? TextStyle(color: color));
+  Text get withCanvasColor => withColor(AppThemes.to.canvasColor);
   Text get withPrimaryColor => withColor(AppThemes.to.primaryColor);
   Text get withSecondaryColor => withColor(AppThemesVariables.appSecondary);
   Text get withTertiaryColor => withColor(AppThemesVariables.appTertiary);

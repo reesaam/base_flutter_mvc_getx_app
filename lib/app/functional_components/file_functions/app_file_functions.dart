@@ -33,8 +33,8 @@ class AppFileFunctions {
       fileExtensionsFilter: fileExtensionsFilter,
     );
     String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
-    if (importFilePath == null) {
-      importFile = File(importFilePath!);
+    if (importFilePath != null) {
+      importFile = File(importFilePath);
     }
     // String stringData = String.fromCharCodes(importFile.readAsBytesSync());
     // var jsonData = json.decode(stringData);

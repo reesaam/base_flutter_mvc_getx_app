@@ -13,7 +13,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
   PreferredSizeWidget? get appBar => null;
   Widget? get drawer => null;
   Widget get body;
-  Widget? get topBar => null;
+  Widget? get header => null;
   Widget? get footer => null;
   Widget? get bottomNavigationBar => null;
   Widget? get floatingActionButton => null;
@@ -41,7 +41,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
 
   Widget get _pageBody => SafeArea(
         child: Column(children: [
-          topBar == null ? shrinkSizedBox : topBar!,
+          header == null ? shrinkSizedBox : header!,
           //Main Body
           Expanded(
               child: Padding(

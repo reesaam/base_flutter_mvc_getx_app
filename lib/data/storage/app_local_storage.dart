@@ -10,7 +10,7 @@ import '../../core/app_extensions/extensions_on_data_types/extension_string.dart
 import '../../core/app_localization_texts.dart';
 import '../../core/failures/local_exception.dart';
 import '../../data/info/app_info.dart';
-import '../../app/functional_components/file_functions/file_functions.dart';
+import '../../app/functional_components/file_functions/app_file_functions.dart';
 import '../../core/core_functions.dart';
 import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
@@ -118,13 +118,14 @@ class AppLocalStorage {
     var appDataFile = await AppFileFunctions.to.pickFile();
 
     if (appDataFile != null) {
+      clearAppData();
       String stringCharCodes = String.fromCharCodes(appDataFile.readAsBytesSync());
       AppData appData = AppData.fromJson(json.decode(stringCharCodes));
-      clearAppData();
 
       ///Filling Data Fields
       if (appData.dataVersion == AppDataVersions.values.last) {
-        await saveSettings(settings: appData.settings ?? const AppSettingData());
+        saveAppData(appData: appData);
+        saveAllDataToStorage();
         appLogPrint('Data Imported');
       } else {
         appLogPrint('Data Version is not Compatible, Converter is not Implemented\nData Import Failed');
@@ -167,22 +168,27 @@ class AppLocalStorage {
   clearAppData() => _clearSpecificKey(_keyAppData);
 
   ///AppDataVersion
-  Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async => await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
+  Future<void> saveAppDataVersion({required AppDataVersions? appDataVersion}) async =>
+      await _saveFunction(key: _keyAppDataVersion, data: appDataVersion);
   Either<LocalException, AppDataVersions?> loadAppDataVersion() => _loadFunction(_keyAppDataVersion).map((r) => r == null ? null : jsonDecode(r));
   clearAppDataVersion() => _clearSpecificKey(_keyAppDataVersion);
 
   ///AppVersion
   Future<void> saveAppVersions({required AppVersionsList? appVersions}) async => await _saveFunction(key: _keyAppVersions, data: appVersions);
-  Either<LocalException, AppVersionsList> loadAppVersions() => _loadFunction(_keyAppVersions).map((r) => r == null ? AppVersionsList() : AppVersionsList.fromJson(r));
+  Either<LocalException, AppVersionsList> loadAppVersions() =>
+      _loadFunction(_keyAppVersions).map((r) => r == null ? AppVersionsList() : AppVersionsList.fromJson(r));
   clearAppVersion() => _clearSpecificKey(_keyAppVersions);
 
   ///AppStatisticsData
-  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async => await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
-  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() => _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
+  Future<void> saveAppStatisticsData({required AppStatisticsData? appStatisticsData}) async =>
+      await _saveFunction(key: _keyAppStatisticData, data: appStatisticsData);
+  Either<LocalException, AppStatisticsData?> loadAppStatisticsData() =>
+      _loadFunction(_keyAppStatisticData).map((r) => r == null ? AppStatisticsData.init() : AppStatisticsData.fromJson(r));
   clearAppStatisticsData() => _clearSpecificKey(_keyAppStatisticData);
 
   ///Settings
   Future<void> saveSettings({required AppSettingData? settings}) async => await _saveFunction(key: _keySettings, data: settings);
-  Either<LocalException, AppSettingData> loadSettings() => _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
+  Either<LocalException, AppSettingData> loadSettings() =>
+      _loadFunction(_keySettings).map((r) => r == null ? const AppSettingData() : AppSettingData.fromJson(r));
   clearSettings() => _clearSpecificKey(_keySettings);
 }

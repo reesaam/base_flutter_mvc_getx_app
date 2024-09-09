@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/core_widgets.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
 import '../general_widgets/app_progress_indicator.dart';
 
 class AppGeneralButton extends ElevatedButton {
@@ -44,31 +45,16 @@ class AppGeneralButton extends ElevatedButton {
   @override
   VoidCallback? get onPressed => () => disabled == true || loading == true ? null : onTap();
 
-  // @override
-  // ButtonStyle? get style => ButtonStyle(
-  //     // backgroundColor: disabled == true
-  //     //     ? MaterialStateProperty.all(AppColors.appDisabled)
-  //     //     : primaryColor == true
-  //     //         ? MaterialStateProperty.all(AppColors.appPrimary)
-  //     //         : MaterialStateProperty.all(AppColors.appSecondary),
-  //     // foregroundColor: disabled == true
-  //     //     ? MaterialStateProperty.all(AppColors.buttonTextDisabled)
-  //     //     : primaryColor == true
-  //     //         ? MaterialStateProperty.all(AppColors.buttonTextNormal)
-  //     //         : MaterialStateProperty.all(AppColors.buttonTextOnSecondary),
-  //     side: disabled == true ? MaterialStateProperty.all(AppElements.defaultBorderSideDisabled) : MaterialStateProperty.all(AppElements.defaultBorderSidePrimary),
-  //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderLowRadiusShape),
-  //     splashFactory: InkSplash.splashFactory);
-
   @override
   MaterialStatesController? get statesController =>
-      stateController ?? (disabled == true ? MaterialStatesController(<MaterialState>{MaterialState.focused}) : MaterialStatesController(<MaterialState>{MaterialState.disabled}));
+      stateController ??
+      (disabled == true
+          ? MaterialStatesController(<MaterialState>{MaterialState.focused})
+          : MaterialStatesController(<MaterialState>{MaterialState.disabled}));
 
-  Widget get _buttonLoading => SizedBox(
-      height: 15,
-      width: 15,
-      child: AppProgressIndicator.circular(
-        // color: primaryColor == true ? AppColors.buttonTextNormal : AppColors.buttonTextOnSecondary,
-        width: 3,
-      ));
+  Widget get _buttonLoading => AppProgressIndicator.circular(
+        color: AppThemes.to.canvasColor,
+        width: 20,
+        strokeWidth: 3,
+      );
 }

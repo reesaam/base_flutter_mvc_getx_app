@@ -1,16 +1,26 @@
 import 'package:get/get.dart';
 
 import '../../../app/components/dialogs/app_alert_dialogs.dart';
-import '../../../app/functional_components/connectivity/connectivity.dart';
-import '../../../app/functional_components/file_functions/file_functions.dart';
-import '../../../app/functional_components/permissions/permissions.dart';
+import '../../../app/functional_components/connectivity/app_connectivity.dart';
+import '../../../app/functional_components/file_functions/app_file_functions.dart';
+import '../../../app/functional_components/notifications/local_notifications/app_local_notifications.dart';
+import '../../../app/functional_components/permissions/app_permissions.dart';
 import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
+import '../../../core/app_extensions/extensions_on_data_models/extension_settings.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/elements/core_controller.dart';
 import '../../../data/info/app_page_details.dart';
+import '../../../data/resources/app_logos.dart';
+import '../../../data/resources/app_theme/app_themes.dart';
+import '../../../data/shared_models/core_models/app_data/app_data.dart';
+import '../../../data/storage/app_local_storage.dart';
+import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
 
 class AdminTestController extends CoreController {
+  Rx<bool> darkMode = false.obs;
 
   @override
   void dataInit() {
@@ -27,19 +37,28 @@ class AdminTestController extends CoreController {
   String unknownStatus = 'Unknown';
 
   ///Connections
+  changeDarkMode() async {
+    darkMode.value = !darkMode.value;
+    var settings = const AppSettingData().loadFromStorage();
+    settings.copyWith(darkMode: darkMode.value);
+    settings.saveOnStorage();
+    Get.changeTheme(darkMode.value ? AppThemes.darkTheme : AppThemes.lightTheme);
+  }
+
+  ///Connections
   internetConnection() async {
-    var result = await ConnectionChecker().checkInternet();
-    await _dialog(result.toString());
+    var result = await AppConnectionChecker().checkInternet();
+    await _dialog(result.toString().capitalizeFirst ?? unknownStatus);
   }
 
   internetStatus() async {
-    var result = await ConnectionChecker().checkInternetStatus();
+    var result = await AppConnectionChecker().checkInternetStatus();
     await _dialog(result.name.capitalizeFirst ?? unknownStatus);
   }
 
   checkConnection() async {
-    var result = await ConnectionChecker().checkConnection();
-    await _dialog(result.name);
+    var result = await AppConnectionChecker().checkConnection();
+    await _dialog(result.name.capitalizeFirst ?? unknownStatus);
   }
 
   ///Files
@@ -82,12 +101,40 @@ class AdminTestController extends CoreController {
     await _dialog(response);
   }
 
+  showLocalNotification() async {
+    await AppLocalNotifications().simple(
+      title: 'Test Notification Title',
+      body: 'Test Notification Body',
+    );
+  }
+
+  showPushNotification() {}
+
   ///AppData
-  saveAppData() async {}
+  saveAppDataTest() async {
+    saveAppData();
+  }
 
-  loadAppData() async {}
+  loadAppDataTest() async {
+    AppData? appData = await loadAppData();
+    String response = '';
+    response += 'Version: ${appData?.appVersions?.versionsList.isEmpty ?? true ? 'Empty' : appData?.appVersions?.versionsList.last.version}\n';
+    response += 'Versions Count: ${appData?.appVersions?.versionsList.length ?? 0}\n';
+    response += 'Data Version: ${appData?.dataVersion?.number.toString()}\n';
+    response += 'Install DateTime: \n${appData?.statisticsData?.installDateTime.toDateTimeFormat()}\n';
+    response += 'Install Duration: \n${appData?.statisticsData?.installDuration.toConditionalFormat()}\n';
+    response += 'Launches: ${appData?.statisticsData?.launches.toString()}\n';
+    response += 'Page Opens: ${appData?.statisticsData?.pageOpens.toString()}\n';
+    response += 'Api Calls: ${appData?.statisticsData?.apiCalls.toString()}\n';
+    response += 'Logins: ${appData?.statisticsData?.logins.toString()}\n';
+    response += 'Crashes: ${appData?.statisticsData?.crashes.toString()}\n';
+    response += 'Language: ${appData?.settings?.language.languageName}\n';
+    response += 'Country: ${appData?.settings?.country.countryName}\n';
+    response += 'DarkMode: ${appData?.settings?.darkMode}\n';
+    _dialog(response);
+  }
 
-  importAppData() async {}
+  importAppDataTest() async => await AppLocalStorage.to.importData();
 
-  exportAppData() async {}
+  exportAppDataTest() async => await AppLocalStorage().exportData();
 }

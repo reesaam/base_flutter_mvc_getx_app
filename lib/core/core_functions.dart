@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../app/components/dialogs/app_alert_dialogs.dart';
 import '../app/components/dialogs/app_alert_widget_dialogs.dart';
 import '../app/components/general_widgets/app_progress_indicator.dart';
-import '../app/components/general_widgets/app_snack_bars.dart';
+import '../app/components/general_widgets/app_snackbar.dart';
 import '../app/functional_components/specific_dialogs/exceptions_dialog.dart';
 import '../data/info/app_core_flags.dart';
 import '../data/shared_models/core_models/app_data/app_data.dart';
@@ -32,13 +32,14 @@ nullFunction() => null;
 
 void saveAppData() => AppLocalStorage.to.saveAllDataToStorage();
 
-void loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
+Future<AppData?> loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
 
 void clearAppData() => AppLocalStorage.to.clearStorage();
 
 void printAllData({bool? detailsIncluded}) async {
   AppData? appData = await AppLocalStorage.to.loadAllDataFromStorage();
-  AppStatisticsData? statisticsData = AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+  AppStatisticsData? statisticsData =
+      AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
   AppLocalStorage.to.printData(appData: appData, statisticsData: statisticsData, detailsIncluded: detailsIncluded);
 }
 
@@ -49,22 +50,14 @@ Future<AppVersionsList?> getVersions() async {
   return response.fold((l) => null, (r) => r);
 }
 
-Future<String> checkAvailableVersion() async {
-  String version = Texts.to.notAvailable;
-  var response = await getVersions();
-  if (response != null && response.versionsList.isNotEmpty) {
-    version = response.versionsList.last.version;
-  }
-  return version;
+Future<AppVersion?> checkAvailableVersion() async {
+  AppVersionsList? response = await getVersions();
+  return response?.versionsList.isEmpty ?? false ? null : response?.versionsList.last;
 }
 
-Future<AppVersion> getCurrentVersion() async {
-  AppVersionsList? versions = await getVersions();
-  AppVersion version = versions == null ? AppVersion.createEmpty() : versions.versionsList.last;
-  return version;
-}
+Future<void> checkForceUpdate() async {}
 
-noInternetConnectionSnackBar() => AppSnackBar().showSnackBar(message: Texts.to.connectionInternetNotAvailableText);
+noInternetConnectionSnackBar() => AppSnackBar().show(message: Texts.to.connectionInternetNotAvailableText);
 
 showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear());
 

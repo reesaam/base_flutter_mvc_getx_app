@@ -5,24 +5,24 @@ import '../resources/app_icons.dart';
 
 class AppPageDetails {
   List<AppPageDetail> get listPages => [
-    splashScreen,
-    homepage,
-    settings,
-    about,
-    update,
-    notFound,
-  ];
+        splashScreen,
+        homepage,
+        settings,
+        about,
+        update,
+        notFound,
+      ];
 
   List<AppPageDetail> get listAdminPages => [
-    adminStartPage,
-    adminTestPage,
-    adminAppInfoPage,
-    adminAppResourcesPage,
-    adminWidgetCheckPage,
-    adminDataFormatCheckPage,
-    adminAppCountriesPage,
-    appDocs,
-  ];
+        adminStartPage,
+        adminTestPage,
+        adminAppInfoPage,
+        adminAppResourcesPage,
+        adminWidgetCheckPage,
+        adminDataFormatCheckPage,
+        adminAppCountriesPage,
+        appDocs,
+      ];
 
   ///Admin Pages
   AppPageDetail adminStartPage = AppPageDetail(

@@ -26,7 +26,14 @@ class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
   EdgeInsets? get pagePadding => AppPaddings.zero;
 
   @override
-  Widget get body => Column(children: [AppDividers.general(), Column(children: List<Widget>.generate(controller.countries.length, (index) => _section(controller.countries[index])))]);
+  Widget get body => Column(children: [
+        AppDividers.general(),
+        Column(
+            children: List<Widget>.generate(
+          controller.countries.length,
+          (index) => _section(controller.countries[index]),
+        ))
+      ]);
 
   _section(AppCountry country) => Column(children: [
         Padding(

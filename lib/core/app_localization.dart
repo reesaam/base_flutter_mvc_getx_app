@@ -7,10 +7,8 @@ import '../core/app_extensions/extensions_on_data_types/extension_app_languages.
 import '../core/app_extensions/extensions_on_data_models/extension_settings.dart';
 import '../data/resources/app_countries.dart';
 import '../data/resources/app_enums.dart';
-import '../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
-import 'app_extensions/extensions_on_data_types/extension_custom_duration.dart';
 import 'app_extensions/extensions_on_data_types/extension_on_list.dart';
 import 'app_extensions/extensions_on_data_types/extension_time_zone.dart';
 import 'core_functions.dart';

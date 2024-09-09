@@ -6,8 +6,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 
 import '../../../data/info/app_defaults.dart';
 
-class ConnectionChecker {
-  static ConnectionChecker get to => Get.find();
+class AppConnectionChecker {
+  static AppConnectionChecker get to => Get.find();
 
   get internetConnection => InternetConnection();
   get connectivity => Connectivity();
@@ -16,9 +16,11 @@ class ConnectionChecker {
 
   Future<InternetStatus> checkInternetStatus() async => await internetConnection.internetStatus;
 
-  internetListener({Function? function}) => internetConnection.onStatusChange.listen((status) {}).onData((data) => function == null ? data : function());
+  internetListener({Function? function}) =>
+      internetConnection.onStatusChange.listen((status) {}).onData((data) => function == null ? data : function());
 
   Future<ConnectivityResult> checkConnection() async => await connectivity.checkConnectivity();
 
-  connectionListener({Function? function}) => connectivity.onConnectivityChanged.listen((status) {}).onData((data) => function == null ? data : function());
+  connectionListener({Function? function}) =>
+      connectivity.onConnectivityChanged.listen((status) {}).onData((data) => function == null ? data : function());
 }

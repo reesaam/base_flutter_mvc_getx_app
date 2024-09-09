@@ -12,7 +12,8 @@ extension ExtensionAppVersionRxStorage on Rx<AppVersionsList> {
 
 extension ExtensionAppVersionStorage on AppVersionsList {
   Future<void> saveOnStorage() async => await AppLocalStorage.to.saveAppVersions(appVersions: this);
-  AppVersionsList loadFromStorage() => AppLocalStorage.to.loadAppVersions().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+  AppVersionsList loadFromStorage() =>
+      AppLocalStorage.to.loadAppVersions().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
 }
 
 extension ExtensionAppVersionRxClear on Rx<AppVersionsList> {

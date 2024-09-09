@@ -55,34 +55,35 @@ class AppBottomDialogs {
             child: Text(text),
           )));
 
-  _appBottomDialogGeneral({String? title, required Widget form, required List<Widget> buttons, bool? dismissible}) async => await showModalBottomSheet(
-      context: Get.context!,
-      useSafeArea: true,
-      useRootNavigator: true,
-      showDragHandle: true,
-      isScrollControlled: true,
-      isDismissible: dismissible ?? false,
-      shape: AppElements.borderShapeModal,
-      builder: (context) => SingleChildScrollView(
-              child: Column(mainAxisSize: MainAxisSize.max, children: [
-            Padding(
-                padding: AppPaddings.generalBottomModal,
-                child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.center, children: [
-                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    title == null
-                        ? shrinkSizedBox
-                        : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text(title ?? Texts.to.empty),
-                            AppDividers.generalWithPrimaryColor,
-                            AppSpaces.h10,
-                          ]),
-                    form,
-                  ]),
-                  AppSpaces.h40,
-                  _renderButtonsBottomDialog(buttons),
-                ])),
-            AppSpaces.h20,
-          ])));
+  _appBottomDialogGeneral({String? title, required Widget form, required List<Widget> buttons, bool? dismissible}) async =>
+      await showModalBottomSheet(
+          context: Get.context!,
+          useSafeArea: true,
+          useRootNavigator: true,
+          showDragHandle: true,
+          isScrollControlled: true,
+          isDismissible: dismissible ?? false,
+          shape: AppElements.borderShapeModal,
+          builder: (context) => SingleChildScrollView(
+                  child: Column(mainAxisSize: MainAxisSize.max, children: [
+                Padding(
+                    padding: AppPaddings.generalBottomModal,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.center, children: [
+                      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        title == null
+                            ? shrinkSizedBox
+                            : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                Text(title ?? Texts.to.empty),
+                                AppDividers.generalWithPrimaryColor,
+                                AppSpaces.h10,
+                              ]),
+                        form,
+                      ]),
+                      AppSpaces.h40,
+                      _renderButtonsBottomDialog(buttons),
+                    ])),
+                AppSpaces.h20,
+              ])));
 
   Widget _renderButtonsBottomDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);

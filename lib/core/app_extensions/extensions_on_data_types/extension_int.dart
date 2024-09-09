@@ -9,7 +9,7 @@ extension ExtensionIconFunction on int? {
 }
 
 extension ExtensionCurrencyFormat on int {
-  String toCurrency({String? sign}) => NumberFormat.currency(symbol: sign, decimalDigits: 0).format(this);
+  String toCurrency({String? sign, int? decimalDigits}) => NumberFormat.currency(symbol: sign ?? '', decimalDigits: decimalDigits ?? 0).format(this);
 }
 
 extension ExtensionCurrencyFormatNull on int? {

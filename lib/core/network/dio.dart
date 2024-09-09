@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../data/resources/app_texts.dart';
 
 class DioCore {
-
   static DioCore get to => Get.find();
 
   int get _defaultTimeOut => 15;
@@ -13,7 +12,7 @@ class DioCore {
 
   _getDio() {
     var dio = Dio(BaseOptions());
-    dio.options.headers.addAll( {
+    dio.options.headers.addAll({
       AppTexts.dioHeaderContentType: AppTexts.dioHeaderContentTypeData,
       AppTexts.dioHeaderConnection: AppTexts.dioHeaderConnectionData,
     });

@@ -32,5 +32,6 @@ class AppPopupMenu extends StatelessWidget {
               ? icon!.withPrimaryColor
               : icon!.withSecondaryColor,
       child: text == null ? null : Text(text!),
-      itemBuilder: (context) => List<AppPopupMenuItem>.generate(listItems.length, (index) => AppPopupMenuItem(text: listItems[index].text, onTapFunction: () => listItems[index].onTap())));
+      itemBuilder: (context) => List<AppPopupMenuItem>.generate(
+          listItems.length, (index) => AppPopupMenuItem(text: listItems[index].text, onTapFunction: () => listItems[index].onTap())));
 }

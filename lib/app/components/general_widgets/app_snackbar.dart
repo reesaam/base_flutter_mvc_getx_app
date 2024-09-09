@@ -113,7 +113,6 @@ class AppSnackBar {
     EdgeInsets? margin,
     Duration? duration,
     bool? showProgressIndicator,
-    Color? progressIndicatorBackgroundColor,
     AnimationController? progressIndicatorController,
   }) =>
       GetSnackBar(
@@ -157,7 +156,7 @@ class AppSnackBar {
         icon: icon?.withColor(iconColor ?? textColor ?? AppThemes.to.canvasColor),
         shouldIconPulse: false,
         showProgressIndicator: showProgressIndicator ?? false,
-        progressIndicatorBackgroundColor: showProgressIndicator == true ? AppThemes.to.canvasColor : null,
+        progressIndicatorBackgroundColor: showProgressIndicator == true ? backgroundColor ?? AppThemes.to.canvasColor : null,
         progressIndicatorController: progressIndicatorController,
       ).show();
 

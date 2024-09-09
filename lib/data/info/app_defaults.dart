@@ -12,7 +12,7 @@ int get appDefaultPageTransitionDelay => 5;
 double get defaultCircularProgressBarWidth => 5;
 
 ///SnackBar
-Duration get appSnackBarDefaultAnimationDuration => const Duration(seconds: 1);
+Duration get appSnackBarDefaultAnimationDuration => const Duration(seconds: 2);
 Duration get appSnackBarDefaultDuration => const Duration(seconds: 3);
 SnackPosition get appDefaultSnackPosition => SnackPosition.TOP;
 

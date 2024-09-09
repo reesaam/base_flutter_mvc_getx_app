@@ -25,6 +25,8 @@ class AppThemesVariables {
   static Color get appOnDisabledDark => _white.withOpacity(0.6);
   static Color get appError => _red;
   static Color get appErrorDark => _red;
+  static Color get appWarning => _orange;
+  static Color get appWarningDark => _orange;
 
   ///Colors
   static Color get _transparent => Colors.transparent;
@@ -32,6 +34,8 @@ class AppThemesVariables {
   static Color get _black => Colors.black.withOpacity(0.8);
   static Color get _grey => Colors.grey;
   static Color get _red => Colors.redAccent;
+  static Color get _yellow => Colors.yellow;
+  static Color get _orange => Colors.orangeAccent;
 
   ///Special Colors
   static Color get _coral => const Color(0xFFFE7D6A);
@@ -55,6 +59,8 @@ class AppThemesVariables {
         onPrimary: appPrimary,
         secondary: appSecondary,
         onSecondary: appTertiary,
+        tertiary: appTertiary,
+        onTertiary: appSecondary,
         error: appError,
         onError: appDisabled,
         background: appBackground,
@@ -69,6 +75,8 @@ class AppThemesVariables {
         onPrimary: appPrimaryDark,
         secondary: appSecondaryDark,
         onSecondary: appTertiaryDark,
+        tertiary: appTertiaryDark,
+        onTertiary: appSecondaryDark,
         error: appErrorDark,
         onError: appDisabledDark,
         background: appBackgroundDark,

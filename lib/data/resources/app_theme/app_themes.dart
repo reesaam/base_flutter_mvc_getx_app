@@ -32,6 +32,7 @@ class AppThemes {
         primaryColor: _primaryColor(),
         primaryColorLight: AppThemesVariables.appPrimary,
         primaryColorDark: AppThemesVariables.appPrimaryDark,
+        hintColor: AppThemesVariables.appWarning,
         primaryTextTheme: _textTheme(),
         fontFamily: AppThemesVariables.appFont,
         appBarTheme: _appBar(),
@@ -178,11 +179,18 @@ class AppThemes {
   }
 
   SnackBarThemeData _snackBar() {
-    SnackBarThemeData generalTheme = SnackBarThemeData();
+    SnackBarThemeData generalTheme = const SnackBarThemeData(
+      elevation: 10,
+      behavior: SnackBarBehavior.floating,
+    );
 
     return AppThemeDataModel<SnackBarThemeData>(
-      lightThemeData: generalTheme,
-      darkThemeData: generalTheme,
+      lightThemeData: generalTheme.copyWith(
+        backgroundColor: AppThemesVariables.appTertiary,
+      ),
+      darkThemeData: generalTheme.copyWith(
+        backgroundColor: AppThemesVariables.appTertiaryDark,
+      ),
     ).getMode<SnackBarThemeData>(isDark);
   }
 

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../app/components/dialogs/app_alert_dialogs.dart';
 import '../app/components/dialogs/app_alert_widget_dialogs.dart';
 import '../app/components/general_widgets/app_progress_indicator.dart';
-import '../app/components/general_widgets/app_snack_bars.dart';
+import '../app/components/general_widgets/app_snackbar.dart';
 import '../app/functional_components/specific_dialogs/exceptions_dialog.dart';
 import '../data/info/app_core_flags.dart';
 import '../data/shared_models/core_models/app_data/app_data.dart';
@@ -57,7 +57,7 @@ Future<AppVersion?> checkAvailableVersion() async {
 
 Future<void> checkForceUpdate() async {}
 
-noInternetConnectionSnackBar() => AppSnackBar().showSnackBar(message: Texts.to.connectionInternetNotAvailableText);
+noInternetConnectionSnackBar() => AppSnackBar().show(message: Texts.to.connectionInternetNotAvailableText);
 
 showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear());
 

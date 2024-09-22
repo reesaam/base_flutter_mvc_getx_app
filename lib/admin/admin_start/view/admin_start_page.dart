@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/buttons/app_general_button.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../../core/core_widgets.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/info/app_page_details.dart';
-import '../../../data/resources/app_paddings.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../ui_kit/buttons/app_general_button.dart';
+import '../../../ui_kit/core_widgets.dart';
+import '../../../core/core_resources/page_details.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
 import '../controller/admin_start_controller.dart';
 
 class AdminStartPage extends CoreView<AdminStartController> {

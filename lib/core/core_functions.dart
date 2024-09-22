@@ -5,21 +5,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../app/components/dialogs/app_alert_dialogs.dart';
-import '../app/components/dialogs/app_alert_widget_dialogs.dart';
-import '../app/components/general_widgets/app_progress_indicator.dart';
-import '../app/components/general_widgets/app_snackbar.dart';
-import '../app/functional_components/specific_dialogs/exceptions_dialog.dart';
-import '../data/info/app_core_flags.dart';
-import '../data/shared_models/core_models/app_data/app_data.dart';
-import '../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
-import '../data/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
-import '../data/storage/app_local_storage.dart';
+import '../components/failures/local_exception.dart';
+import '../components/storage/app_local_storage.dart';
+import '../ui_kit/dialogs/app_alert_dialogs.dart';
+import '../ui_kit/dialogs/app_alert_widget_dialogs.dart';
+import '../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
+import '../ui_kit/main_widgets/progress_indicator.dart';
+import '../ui_kit/main_widgets/snackbar.dart';
+import 'core_models/core_models/app_data/app_data.dart';
+import 'core_models/core_models/app_page_detail/app_page_detail.dart';
+import 'core_models/core_models/app_statistics_data/app_statistics_data.dart';
+import 'core_resources/core_flags.dart';
 import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
 import 'app_localization_texts.dart';
-import 'failures/local_exception.dart';
 
 void appDebugPrint(message) => isRelease ? null : debugPrint('$message');
 void appLogPrint(message) => debugPrint('[LOG] $message');
@@ -39,7 +39,7 @@ void clearAppData() => AppLocalStorage.to.clearStorage();
 void printAllData({bool? detailsIncluded}) async {
   AppData? appData = await AppLocalStorage.to.loadAllDataFromStorage();
   AppStatisticsData? statisticsData =
-      AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
+      AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog.local(exception: l), (r) => r);
   AppLocalStorage.to.printData(appData: appData, statisticsData: statisticsData, detailsIncluded: detailsIncluded);
 }
 

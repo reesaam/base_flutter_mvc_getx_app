@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../../../../core/app_extensions/extension_app_routes.dart';
-import '../../data/info/app_defaults.dart';
-import '../../data/resources/app_enums.dart';
-import '../../data/statistics/app_statistics.dart';
+import '../../components/statistics/app_statistics.dart';
+import '../core_resources/core_enums.dart';
+import '../core_resources/defaults.dart';
+import '../extensions/extension_app_routes.dart';
 
 ///Admin Pages
 gotoAdminStartPage() => goToPage(AppRoutes.adminStartPage);

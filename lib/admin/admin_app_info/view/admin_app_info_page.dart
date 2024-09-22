@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_custom_duration.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
-import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/app_localization_texts.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/info/app_core_flags.dart';
-import '../../../data/info/app_developer_info.dart';
-import '../../../data/info/app_info.dart';
-import '../../../data/resources/app_countries.dart';
-import '../../../data/resources/app_paddings.dart';
-import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_info/app_info.dart';
+import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../core/core_resources/core_flags.dart';
+import '../../../core/core_info/developer_info.dart';
+import '../../../core/core_resources/countries.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_custom_duration.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_locale.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_on_list.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_app_info_controller.dart';
 

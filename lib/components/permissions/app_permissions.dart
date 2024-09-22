@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/extensions/extensions_on_data_models/extension_permission.dart';
-import 'permission_response.dart';
+import 'permission_base_response_model/permission_base_response.dart';
 
 class AppPermissions {
   static AppPermissions get to => Get.find();
@@ -31,13 +31,13 @@ class AppPermissions {
     _listPermissions.add(Permission.activityRecognition);
   }
 
-  Future<PermissionResponse> askPermission(Permission permission) async {
+  Future<PermissionBaseResponse> askPermission(Permission permission) async {
     PermissionStatus status = await permission.request();
     return _createResponse(permission: permission, status: status);
   }
 
-  Future<List<PermissionResponse>> askPermissionsList(List<Permission> permissions) async {
-    List<PermissionResponse> responses = List<PermissionResponse>.empty(growable: true);
+  Future<List<PermissionBaseResponse>> askPermissionsList(List<Permission> permissions) async {
+    List<PermissionBaseResponse> responses = List<PermissionBaseResponse>.empty(growable: true);
     for (var permission in permissions) {
       var status = await askPermission(permission);
       responses.add(status);
@@ -45,15 +45,15 @@ class AppPermissions {
     return responses;
   }
 
-  Future<List<PermissionResponse>> askAllPermissions() async => await askPermissionsList(_listPermissions);
+  Future<List<PermissionBaseResponse>> askAllPermissions() async => await askPermissionsList(_listPermissions);
 
-  Future<PermissionResponse> checkPermission(Permission permission) async {
+  Future<PermissionBaseResponse> checkPermission(Permission permission) async {
     var status = await permission.status;
     return _createResponse(permission: permission, status: status);
   }
 
-  Future<List<PermissionResponse>> checkPermissionsList(List<Permission> permissions) async {
-    List<PermissionResponse> responses = List<PermissionResponse>.empty(growable: true);
+  Future<List<PermissionBaseResponse>> checkPermissionsList(List<Permission> permissions) async {
+    List<PermissionBaseResponse> responses = List<PermissionBaseResponse>.empty(growable: true);
     for (var permission in permissions) {
       var status = await checkPermission(permission);
       responses.add(status);
@@ -61,13 +61,13 @@ class AppPermissions {
     return responses;
   }
 
-  Future<List<PermissionResponse>> checkAllPermissions() async => await checkPermissionsList(_listPermissions);
+  Future<List<PermissionBaseResponse>> checkAllPermissions() async => await checkPermissionsList(_listPermissions);
 
-  PermissionResponse _createResponse({
+  PermissionBaseResponse _createResponse({
     required Permission permission,
     required PermissionStatus status,
   }) =>
-      PermissionResponse(
+      PermissionBaseResponse(
         permission: permission.getName,
         status: status,
       );

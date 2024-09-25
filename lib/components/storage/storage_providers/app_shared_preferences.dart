@@ -3,11 +3,10 @@ import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../core/core_functions.dart';
-import '../../core/core_models/core_models/app_data/app_data.dart';
-import '../../core/core_resources/core_enums.dart';
-import '../failures/local_exception.dart';
-import 'app_storage_module_abstraction.dart';
+import '../../../core/core_functions.dart';
+import '../../../core/core_resources/core_enums.dart';
+import '../../failures/local_exception.dart';
+import '../app_storage_module_abstraction.dart';
 
 class AppSharedPreferences extends AppStorageModuleAbstraction {
   static AppSharedPreferences get to => Get.find();

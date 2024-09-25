@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../core/app_localization_texts.dart';
 import '../../core/core_functions.dart';
 import '../../core/core_info/app_info.dart';
+import '../../core/core_info/core_defaults.dart';
 import '../../core/core_models/core_models/app_data/app_data.dart';
 import '../../core/core_models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../../core/core_resources/core_enums.dart';
@@ -18,10 +19,11 @@ import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
 import '../failures/local_exception.dart';
 import '../file_functions/app_file_functions.dart';
-import 'app_local_storage.dart';
 
 class AppStorage {
-  final _storage = AppLocalStorage();
+
+  final _storage = CoreDefaults.defaultStorageProvider.getProviderClass();
+
   static AppStorage get to => Get.find();
 
   ///Keys

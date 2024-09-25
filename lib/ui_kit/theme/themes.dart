@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../components/storage/app_local_storage.dart';
+import '../../components/storage/app_storage.dart';
 import '../../core/core_resources/defaults.dart';
 import '../resources/elements.dart';
-import 'app_theme_data_model.dart';
-import 'app_themes_variables.dart';
+import '../../core/core_models/core_models/theme_data_model/theme_data_model.dart';
+import 'themes_variables.dart';
 
 class AppThemes {
   ///Main Theme Functions
@@ -20,7 +20,8 @@ class AppThemes {
 
   ///Get Variables and Decide about Theme
   ThemeData getTheme({bool? isSystemDark}) {
-    bool? storageResult = AppLocalStorage.to.loadSettings().fold((l) => null, (r) => r.darkMode);
+    bool? storageResult;
+    AppStorage.to.loadSettings().then((value) => value.fold((l) => null, (r) => storageResult = r.darkMode));
     isDark = storageResult == true || isSystemDark == true;
     return _theme();
   }

@@ -16,7 +16,7 @@ import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_resources/page_details.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
-import '../../../ui_kit/theme/app_themes.dart';
+import '../../../ui_kit/theme/themes.dart';
 
 class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;

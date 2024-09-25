@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core_widgets.dart';
 import '../main_widgets/progress_indicator.dart';
-import '../theme/app_themes.dart';
+import '../theme/themes.dart';
 
 class AppGeneralButton extends ElevatedButton {
   const AppGeneralButton({

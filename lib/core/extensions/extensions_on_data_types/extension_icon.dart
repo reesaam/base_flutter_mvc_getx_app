@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../ui_kit/theme/app_themes.dart';
+import '../../../ui_kit/theme/themes.dart';
 
 extension ExtensionIconColor on Icon {
   Icon get withPrimaryColor => withColor(AppThemes.to.primaryColor);

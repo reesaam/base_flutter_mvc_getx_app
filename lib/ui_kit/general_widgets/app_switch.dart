@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../resources/sizes.dart';
-import '../theme/app_themes.dart';
+import '../theme/themes.dart';
 
 class AppSwitch extends StatelessWidget {
   const AppSwitch({super.key, required this.value, required this.onChanged, this.enabled});

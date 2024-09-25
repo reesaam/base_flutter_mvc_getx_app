@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_themes_variables.dart';
+import '../theme/themes_variables.dart';
 
 class AppTextStyles extends TextStyle {
   final TextStyle? themeData;

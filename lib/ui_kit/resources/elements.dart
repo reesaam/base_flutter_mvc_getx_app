@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/core_resources/defaults.dart';
-import '../theme/app_themes_variables.dart';
+import '../theme/themes_variables.dart';
 
 class AppElements {
   ///Radius

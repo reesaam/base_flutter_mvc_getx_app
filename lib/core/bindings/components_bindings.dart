@@ -5,7 +5,7 @@ import '../../components/file_functions/app_file_functions.dart';
 import '../../components/network/dio.dart';
 import '../../components/permissions/app_permissions.dart';
 import '../../components/statistics/app_statistics.dart';
-import '../../ui_kit/theme/app_themes.dart';
+import '../../ui_kit/theme/themes.dart';
 import '../app_localization.dart';
 
 class AppComponentsBindings extends Bindings {

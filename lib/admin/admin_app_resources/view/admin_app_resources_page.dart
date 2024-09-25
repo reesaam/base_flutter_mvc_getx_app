@@ -7,8 +7,8 @@ import '../../../core/core_resources/defaults.dart';
 import '../../../ui_kit/general_widgets/dividers.dart';
 import '../../../ui_kit/main_widgets/app_bar.dart';
 import '../../../ui_kit/resources/paddings.dart';
-import '../../../ui_kit/theme/app_themes.dart';
-import '../../../ui_kit/theme/app_themes_variables.dart';
+import '../../../ui_kit/theme/themes.dart';
+import '../../../ui_kit/theme/themes_variables.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_app_resources_controller.dart';
 

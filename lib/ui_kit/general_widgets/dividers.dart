@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../core/extensions/extensions_on_material_widgets/extension_on_text.dart';
 import '../resources/paddings.dart';
-import '../theme/app_themes.dart';
+import '../theme/themes.dart';
 
 class AppDividers {
   static Widget general({Color? color}) => Divider(color: color ?? AppThemes.to.primaryColor);

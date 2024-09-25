@@ -1,4 +1,4 @@
-import 'package:base_flutter_all_app/ui_kit/theme/app_themes.dart';
+import 'package:base_flutter_all_app/ui_kit/theme/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

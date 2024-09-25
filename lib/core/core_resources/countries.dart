@@ -14,6 +14,7 @@ enum AppCountry {
     currency: AppCurrency.irr,
     timeZoneAbbreviation: ['IRST'],
     timeZoneOffset: [DurationCustomModel(hour: 4, minute: 30)],
+    hasDst: false,
   ),
   germany(
     countryName: 'Germany',
@@ -108,6 +109,7 @@ enum AppCountry {
   final AppCurrency? currency;
   final List<String>? timeZoneAbbreviation;
   final List<DurationCustomModel>? timeZoneOffset;
+  final bool hasDst;
 
   ///Constructor
   const AppCountry({
@@ -117,6 +119,7 @@ enum AppCountry {
     this.currency,
     this.timeZoneAbbreviation,
     this.timeZoneOffset,
+    this.hasDst = false,
   });
 }
 

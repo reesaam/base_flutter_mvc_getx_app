@@ -6,10 +6,12 @@ class AppInfo {
   static String get appNameInitials => 'BAFA';
   static String get website => 'subDomain.domain.com';
 
+  //Versioning
   static AppVersion get currentVersion => const AppVersion(version: '0.0.1');
   static AppVersionsList get versions => AppVersionsList().loadFromStorage();
   static int get versionsCounter => versions.versionsList.length;
 
+  //Domains
   static String get baseUrl => 'resam-t.ir';
   static String get subDomain => 'baseflutterall';
 

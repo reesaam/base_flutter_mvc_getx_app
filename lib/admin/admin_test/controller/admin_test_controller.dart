@@ -4,7 +4,7 @@ import '../../../components/connectivity/app_connectivity.dart';
 import '../../../components/file_functions/app_file_functions.dart';
 import '../../../components/notifications/local_notifications/app_local_notifications.dart';
 import '../../../components/permissions/app_permissions.dart';
-import '../../../components/storage/app_storage.dart';
+import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
@@ -32,7 +32,7 @@ class AdminTestController extends CoreController {
   }
 
   ///Internal
-  _dialog(String text) async => await AppAlertDialogs().withOk(text: text, onTapOk: popPage);
+  _dialog(String text) async => await AppAlertDialogs.withOk(text: text, onTapOk: popPage);
   String unknownStatus = 'Unknown';
 
   ///Connections

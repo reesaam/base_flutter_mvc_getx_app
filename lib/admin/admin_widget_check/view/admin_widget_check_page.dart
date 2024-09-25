@@ -266,12 +266,12 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with OK',
-          onTap: () => AppAlertDialogs().withOk(title: 'Alert Dialog Title', text: 'App Alert Dialog with Yes/No', onTapOk: popPage),
+          onTap: () => AppAlertDialogs.withOk(title: 'Alert Dialog Title', text: 'App Alert Dialog with Yes/No', onTapOk: popPage),
         )),
         AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with Ok/Cancel',
-          onTap: () => AppAlertDialogs().withOkCancel(title: 'Alert Dialog Title', text: 'App Alert Dialog with Ok/Cancel', onTapOk: popPage),
+          onTap: () => AppAlertDialogs.withOkCancel(title: 'Alert Dialog Title', text: 'App Alert Dialog with Ok/Cancel', onTapOk: popPage),
         )),
         AdminFunctions.item(
             widget: AppGeneralButton(
@@ -325,20 +325,20 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Simple Snackbar',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Simple Snackbar with Title',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingText',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                       leadingText: 'Leading Text',
@@ -347,7 +347,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingIcon',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingIcon',
                       title: 'AppSnackBar Title',
                       leadingIcon: AppIcons.info,
@@ -356,7 +356,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Button',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                       buttonText: 'Button',
@@ -365,7 +365,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Icon',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                       icon: AppIcons.settings,
@@ -373,7 +373,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Progress Indicator',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Progress Indicator',
                       title: 'AppSnackBar Title',
                       withProgressIndicator: true,
@@ -381,7 +381,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Progress Indicator Snackbar',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       title: 'Progress Indicator Snackbar Title',
                       widget: Padding(
                         padding: const EdgeInsets.only(top: 20),
@@ -391,14 +391,14 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Error Snackbar',
-                onTap: () => AppSnackBar().showError(
+                onTap: () => AppSnackBar.showError(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Warning Snackbar',
-                onTap: () => AppSnackBar().showWarning(
+                onTap: () => AppSnackBar.showWarning(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                     ))),

@@ -14,5 +14,5 @@ class AdminDataFormatCheckController extends CoreController {
     pageDetail = AppPageDetails().adminDataFormatCheckPage;
   }
 
-  functionCalledDialog() => AppAlertDialogs().withOk(text: 'Function Called', onTapOk: popPage);
+  functionCalledDialog() => AppAlertDialogs.withOk(text: 'Function Called', onTapOk: popPage);
 }

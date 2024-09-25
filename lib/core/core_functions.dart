@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../components/storage/app_storage.dart';
+import '../components/storage/app_storage_module.dart';
 import '../ui_kit/dialogs/app_alert_dialogs.dart';
 import '../ui_kit/dialogs/app_alert_widget_dialogs.dart';
 import '../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
@@ -20,7 +20,7 @@ import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
 import 'app_localization_texts.dart';
 
-void appDebugPrint(message) => isRelease ? null : debugPrint('$message');
+void appDebugPrint(message) => isRelease ? null : debugPrint('[Debug] $message');
 void appLogPrint(message) => debugPrint('[LOG] $message');
 
 void popPage() {
@@ -74,11 +74,11 @@ Future<void> checkForceUpdate() async {
   }
 }
 
-noInternetConnectionSnackBar() => AppSnackBar().show(message: Texts.to.connectionInternetNotAvailableText);
+noInternetConnectionSnackBar() => AppSnackBar.show(message: Texts.to.connectionInternetNotAvailableText);
 
-showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear());
+showLoadingDialog({bool? isDismissible}) => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear(), dismissible: isDismissible);
 
-appExitDialog() => AppAlertDialogs().withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
+appExitDialog() => AppAlertDialogs.withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
 
 appRestart({AppPageDetail? bootPage}) async {
   showLoadingDialog();

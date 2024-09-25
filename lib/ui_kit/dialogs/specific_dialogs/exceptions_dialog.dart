@@ -5,12 +5,12 @@ import '../../../ui_kit/dialogs/app_alert_dialogs.dart';
 
 class AppExceptionsDialog extends AppAlertDialogs {
   static local({required LocalException exception, String? message, int? statusCode, Function()? onTap}) async {
-    await AppAlertDialogs()
+    await AppAlertDialogs
         .withOk(title: statusCode?.toString() ?? exception.statusCode?.toString(), text: message ?? exception.message, onTapOk: onTap ?? popPage);
   }
 
   static remote({required NetworkException exception, String? message, int? statusCode, Function()? onTap}) async {
-    await AppAlertDialogs()
+    await AppAlertDialogs
         .withOk(title: statusCode?.toString() ?? exception.statusCode?.toString(), text: message ?? exception.message, onTapOk: onTap ?? popPage);
   }
 }

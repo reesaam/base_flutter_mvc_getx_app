@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../../components/storage/storage_providers/app_local_storage.dart';
+import '../../components/storage/storage_providers/app_shared_preferences.dart';
+
 enum AppDataVersions {
   v1(1);
 
   final int number;
   const AppDataVersions(this.number);
+}
+
+enum AppStorageProvider {
+  getStorage,
+  sharedPreferences,
+  hive;
+
+  getProviderClass() {
+    switch(this) {
+      case AppStorageProvider.getStorage: return AppLocalStorage();
+      case AppStorageProvider.sharedPreferences: return AppSharedPreferences();
+      default: return null;
+    }
+  }
 }
 
 enum AppVersionTypes {

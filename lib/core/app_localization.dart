@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:timezone/timezone.dart';
 
+import 'core_info/core_defaults.dart';
 import 'core_resources/countries.dart';
 import 'core_resources/core_enums.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
@@ -29,9 +30,9 @@ class AppLocalization {
   LocalizationsDelegate get _cupertino => GlobalCupertinoLocalizations.delegate;
 
   ///Default Variables
-  Locale language = english;
-  String timeZoneAbbreviation = AppCountry.us.timeZoneAbbreviation?.getMiddleElement() ?? '';
-  bool isDst = false;
+  Locale language = CoreDefaults.defaultLanguage;
+  String timeZoneAbbreviation = CoreDefaults.defaultCountry.timeZoneAbbreviation?.getMiddleElement() ?? '';
+  bool isDst = CoreDefaults.defaultCountry.hasDst;
 
   Locale getLocale() {
     var appSettings = const AppSettingData().loadFromStorage();

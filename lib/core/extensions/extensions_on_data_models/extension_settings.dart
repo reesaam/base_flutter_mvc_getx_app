@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 
 import '../../../components/failures/local_exception.dart';
-import '../../../components/storage/app_storage.dart';
+import '../../../components/storage/app_storage_module.dart';
 import '../../../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
 import '../../core_resources/core_enums.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
@@ -15,10 +15,11 @@ extension ExtensionAppSettingsRxStorage on Rx<AppSettingData> {
 extension ExtensionAppSettingsStorage on AppSettingData {
   void saveOnStorage() async => await AppStorage.to.saveSettings(settings: this);
   AppSettingData loadFromStorage() {
-    Either<LocalException, AppSettingData?>? data;
-    AppStorage.to.loadSettings().then((value) => data = value);
     AppSettingData? result;
-    data?.fold((l) => AppExceptionsDialog.local(exception: l), (r) => result = r);
+    Either<LocalException, AppSettingData?>? response;
+
+    AppStorage.to.loadSettings().then((value) => response = value);
+    response?.fold((l) => AppExceptionsDialog.local(exception: l), (r) => result = r);
     return result ?? const AppSettingData();
   }
 }

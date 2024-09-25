@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../ui_kit/theme/app_themes.dart';
-import '../../../ui_kit/theme/app_themes_variables.dart';
+import '../../../ui_kit/theme/themes.dart';
+import '../../../ui_kit/theme/themes_variables.dart';
 
 extension ExtensionTextCopyWith on Text {
   Text copyWith({

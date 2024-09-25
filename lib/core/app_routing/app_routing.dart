@@ -15,18 +15,22 @@ gotoAdminDataFormatCheckPage() => goToPage(AppRoutes.adminDataFormatCheckPage);
 gotoAdminAppCountriesPage() => goToPage(AppRoutes.adminAppCountriesPage);
 
 ///App Pages
-goToSplashScreenPage() => goToPage(AppRoutes.splashScreen);
-goToHomePage() => goToPage(AppRoutes.homepage);
-goToSettingsPage() => goToPage(AppRoutes.settings);
-goToUpdatePage() => goToPage(AppRoutes.update);
-goToAboutPage() => goToPage(AppRoutes.about);
+goToSplashScreenPage({bool? popAll}) => goToPage(AppRoutes.splashScreen);
+goToHomePage({bool? popAll}) => goToPage(AppRoutes.homepage);
+goToSettingsPage({bool? popAll}) => goToPage(AppRoutes.settings);
+goToUpdatePage({bool? popAll}) => goToPage(AppRoutes.update);
+goToAboutPage({bool? popAll}) => goToPage(AppRoutes.about);
 
-goToPage(AppRoutes route) {
+goToPage(AppRoutes route, {bool? popAll}) {
   AppStatistics.to.increasePageOpens();
-  AppRoutes.values.contains(route) ? Get.toNamed(route.route) : Get.toNamed(AppRoutes.notFound.route);
+  if (popAll == true) {
+    AppRoutes.values.contains(route) ? Get.offAllNamed(route.route) : Get.toNamed(AppRoutes.notFound.route);
+  } else {
+    AppRoutes.values.contains(route) ? Get.toNamed(route.route) : Get.toNamed(AppRoutes.notFound.route);
+  }
 }
 
-goToPageWithDelay(AppRoutes route, {int? delayInSeconds}) async {
+goToPageWithDelay(AppRoutes route, {bool? popAll, int? delayInSeconds}) async {
   await Future.delayed(Duration(seconds: delayInSeconds ?? appDefaultPageTransitionDelay));
   goToPage(route);
 }

@@ -32,7 +32,6 @@ abstract class CoreController extends GetxController {
   @override
   void onClose() {
     onCloseFunction();
-    saveAppData();
     super.onClose();
   }
 }

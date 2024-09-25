@@ -4,7 +4,7 @@ import '../../../components/connectivity/app_connectivity.dart';
 import '../../../components/file_functions/app_file_functions.dart';
 import '../../../components/notifications/local_notifications/app_local_notifications.dart';
 import '../../../components/permissions/app_permissions.dart';
-import '../../../components/storage/app_local_storage.dart';
+import '../../../components/storage/app_storage.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
@@ -109,13 +109,8 @@ class AdminTestController extends CoreController {
 
   showPushNotification() {}
 
-  ///AppData
-  saveAppDataTest() async {
-    saveAppData();
-  }
-
-  loadAppDataTest() async {
-    AppData? appData = await loadAppData();
+  loadAppDataTest() {
+    AppData? appData = loadAppData();
     String response = '';
     response += 'Version: ${appData?.appVersions?.versionsList.isEmpty ?? true ? 'Empty' : appData?.appVersions?.versionsList.last.version}\n';
     response += 'Versions Count: ${appData?.appVersions?.versionsList.length ?? 0}\n';
@@ -133,7 +128,7 @@ class AdminTestController extends CoreController {
     _dialog(response);
   }
 
-  importAppDataTest() async => await AppLocalStorage.to.importData();
+  importAppDataTest() async => await AppStorage.to.importData();
 
-  exportAppDataTest() async => await AppLocalStorage().exportData();
+  exportAppDataTest() async => await AppStorage.to.exportData();
 }

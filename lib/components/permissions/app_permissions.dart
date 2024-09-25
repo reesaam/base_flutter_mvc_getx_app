@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../../core/core_models/core_models/permission_base_response_model/permission_base_response.dart';
 import '../../core/extensions/extensions_on_data_models/extension_permission.dart';
-import 'permission_base_response_model/permission_base_response.dart';
 
 class AppPermissions {
   static AppPermissions get to => Get.find();

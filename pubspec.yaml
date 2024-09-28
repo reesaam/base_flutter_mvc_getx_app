@@ -85,6 +85,7 @@ dependencies:
   #Text and Text-Field
   auto_size_text: ^3.0.0
   mask_text_input_formatter: ^2.9.0
+  flutter_regex: ^0.0.3
 
   #Widget
   loading_animation_widget: ^1.2.1

@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
         "adminTestPageName": MessageLookupByLibrary.simpleMessage("Test Page"),
+        "adminVerifiersPageName":
+            MessageLookupByLibrary.simpleMessage("Verifiers Page"),
         "adminWidgetCheckPageName":
             MessageLookupByLibrary.simpleMessage("Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),

@@ -12,6 +12,7 @@ gotoAdminAppInfoPage() => goToPage(AppRoutes.adminAppInfoPage);
 gotoAdminAppResourcesPage() => goToPage(AppRoutes.adminAppResourcesPage);
 gotoAdminWidgetCheckPage() => goToPage(AppRoutes.adminWidgetCheckPage);
 gotoAdminDataFormatCheckPage() => goToPage(AppRoutes.adminDataFormatCheckPage);
+gotoAdminVerifiersPage() => goToPage(AppRoutes.adminVerifiersPage);
 gotoAdminAppCountriesPage() => goToPage(AppRoutes.adminAppCountriesPage);
 
 ///App Pages

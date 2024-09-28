@@ -1,9 +1,13 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 
 import '../../../components/connectivity/connectivity.dart';
 import '../../../components/file_functions/file_functions.dart';
 import '../../../components/notifications/local_notifications/local_notifications.dart';
 import '../../../components/permissions/permissions.dart';
+import '../../../components/share/share.dart';
 import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
@@ -131,4 +135,17 @@ class AdminTestController extends CoreController {
   importAppDataTest() async => await AppStorage.to.importData();
 
   exportAppDataTest() async => await AppStorage.to.exportData();
+
+  shareText() async => await AppShare.shareText('Sample Share Text');
+
+  shareUri() async => await AppShare.shareUrl('Sample link');
+
+  shareFile() async {
+    File? file = await AppFileFunctions().pickFile();
+    if (file == null) {
+      await AppAlertDialogs.withOk(text: 'File is not Picked or Loaded', onTapOk: popPage);
+    } else {
+      await AppShare.shareFile(file: XFile(file.path));
+    }
+  }
 }

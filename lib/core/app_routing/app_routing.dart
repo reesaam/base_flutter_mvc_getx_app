@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../components/statistics/app_statistics.dart';
+import '../../components/statistics/statistics.dart';
 import '../core_resources/core_enums.dart';
 import '../core_resources/defaults.dart';
 import '../extensions/extension_app_routes.dart';

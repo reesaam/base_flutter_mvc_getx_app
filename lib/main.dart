@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'components/notifications/local_notifications/app_local_notifications.dart';
+import 'components/notifications/local_notifications/local_notifications.dart';
 import 'core/app_localization.dart';
 import 'core/app_routing/app_pages.dart';
 import 'core/bindings/core_bindings.dart';

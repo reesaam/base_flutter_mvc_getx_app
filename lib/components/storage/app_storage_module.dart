@@ -18,7 +18,7 @@ import '../../core/extensions/extensions_on_data_types/extension_string.dart';
 import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
 import '../failures/local_exception.dart';
-import '../file_functions/app_file_functions.dart';
+import '../file_functions/file_functions.dart';
 import 'storage_providers/app_local_storage.dart';
 import 'storage_providers/app_shared_preferences.dart';
 

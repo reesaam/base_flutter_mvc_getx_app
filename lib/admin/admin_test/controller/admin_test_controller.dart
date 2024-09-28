@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../../../components/connectivity/app_connectivity.dart';
-import '../../../components/file_functions/app_file_functions.dart';
-import '../../../components/notifications/local_notifications/app_local_notifications.dart';
-import '../../../components/permissions/app_permissions.dart';
+import '../../../components/connectivity/connectivity.dart';
+import '../../../components/file_functions/file_functions.dart';
+import '../../../components/notifications/local_notifications/local_notifications.dart';
+import '../../../components/permissions/permissions.dart';
 import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';

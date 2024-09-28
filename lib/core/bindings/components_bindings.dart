@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
-import '../../components/connectivity/app_connectivity.dart';
-import '../../components/file_functions/app_file_functions.dart';
+import '../../components/connectivity/connectivity.dart';
+import '../../components/file_functions/file_functions.dart';
 import '../../components/network/dio.dart';
-import '../../components/permissions/app_permissions.dart';
-import '../../components/statistics/app_statistics.dart';
+import '../../components/permissions/permissions.dart';
+import '../../components/statistics/statistics.dart';
 import '../../ui_kit/theme/themes.dart';
 import '../app_localization.dart';
 

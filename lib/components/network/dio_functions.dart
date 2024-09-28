@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 import '../../core/app_localization_texts.dart';
 import '../../core/core_functions.dart';
-import '../statistics/app_statistics.dart';
+import '../statistics/statistics.dart';
 import 'dio.dart';
 import '../failures/network_exception.dart';
 

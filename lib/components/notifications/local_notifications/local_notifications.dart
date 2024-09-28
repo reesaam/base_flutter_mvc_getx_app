@@ -1,8 +1,8 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 
-import '../app_notifications_enums.dart';
-import '../app_notifications_repository.dart';
-import 'app_local_notifications_repository.dart';
+import '../notifications_enums.dart';
+import '../notifications_repository.dart';
+import 'local_notifications_repository.dart';
 
 class AppLocalNotifications extends AppNotificationsRepository {
   @override

@@ -13,15 +13,6 @@ enum AppDataVersions {
 enum AppStorageProvider {
   getStorage,
   sharedPreferences,
-  hive;
-
-  getProviderClass() {
-    switch(this) {
-      case AppStorageProvider.getStorage: return AppLocalStorage();
-      case AppStorageProvider.sharedPreferences: return AppSharedPreferences();
-      default: return null;
-    }
-  }
 }
 
 enum AppVersionTypes {

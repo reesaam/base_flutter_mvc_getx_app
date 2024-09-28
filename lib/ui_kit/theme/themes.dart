@@ -97,7 +97,7 @@ class AppThemes {
 
   ///Main Components
   AppBarTheme _appBar() {
-    AppBarTheme generalTheme = AppBarTheme(
+    AppBarTheme generalTheme = const AppBarTheme(
       centerTitle: true,
     );
     return AppThemeDataModel<AppBarTheme>(
@@ -112,7 +112,7 @@ class AppThemes {
   }
 
   BottomAppBarTheme _bottomAppBar() {
-    BottomAppBarTheme generalTheme = BottomAppBarTheme(
+    BottomAppBarTheme generalTheme = const BottomAppBarTheme(
       elevation: 5,
     );
     return AppThemeDataModel<BottomAppBarTheme>(
@@ -122,7 +122,7 @@ class AppThemes {
   }
 
   DrawerThemeData _drawer() {
-    DrawerThemeData generalTheme = DrawerThemeData(
+    DrawerThemeData generalTheme = const DrawerThemeData(
       elevation: 5,
     );
     return AppThemeDataModel<DrawerThemeData>(
@@ -132,7 +132,7 @@ class AppThemes {
   }
 
   BottomNavigationBarThemeData _bottomNavigationBar() {
-    IconThemeData defaultIconThemeData = IconThemeData();
+    IconThemeData defaultIconThemeData = const IconThemeData();
 
     BottomNavigationBarThemeData themeData = BottomNavigationBarThemeData(
       backgroundColor: AppThemesVariables.appError,
@@ -156,7 +156,7 @@ class AppThemes {
   }
 
   NavigationBarThemeData _navigationBar() {
-    NavigationBarThemeData generalTheme = NavigationBarThemeData();
+    NavigationBarThemeData generalTheme = const NavigationBarThemeData();
     return AppThemeDataModel<NavigationBarThemeData>(
       lightThemeData: generalTheme,
       darkThemeData: generalTheme,
@@ -164,7 +164,7 @@ class AppThemes {
   }
 
   NavigationDrawerThemeData _navigationDrawer() {
-    NavigationDrawerThemeData generalTheme = NavigationDrawerThemeData();
+    NavigationDrawerThemeData generalTheme = const NavigationDrawerThemeData();
     return AppThemeDataModel<NavigationDrawerThemeData>(
       lightThemeData: generalTheme,
       darkThemeData: generalTheme,
@@ -172,7 +172,7 @@ class AppThemes {
   }
 
   NavigationRailThemeData _navigationRail() {
-    NavigationRailThemeData generalTheme = NavigationRailThemeData();
+    NavigationRailThemeData generalTheme = const NavigationRailThemeData();
     return AppThemeDataModel<NavigationRailThemeData>(
       lightThemeData: generalTheme,
       darkThemeData: generalTheme,
@@ -196,7 +196,7 @@ class AppThemes {
   }
 
   DialogTheme _dialog() {
-    DialogTheme generalTheme = DialogTheme();
+    DialogTheme generalTheme = const DialogTheme();
 
     return AppThemeDataModel<DialogTheme>(
       lightThemeData: generalTheme,
@@ -205,7 +205,7 @@ class AppThemes {
   }
 
   BottomSheetThemeData _bottomSheet() {
-    BottomSheetThemeData generalTheme = BottomSheetThemeData();
+    BottomSheetThemeData generalTheme = const BottomSheetThemeData();
 
     return AppThemeDataModel<BottomSheetThemeData>(
       lightThemeData: generalTheme,
@@ -214,7 +214,7 @@ class AppThemes {
   }
 
   FloatingActionButtonThemeData _floatingActionButton() {
-    FloatingActionButtonThemeData generalTheme = FloatingActionButtonThemeData();
+    FloatingActionButtonThemeData generalTheme = const FloatingActionButtonThemeData();
 
     return AppThemeDataModel<FloatingActionButtonThemeData>(
       lightThemeData: generalTheme,
@@ -223,33 +223,33 @@ class AppThemes {
   }
 
   MaterialBannerThemeData _banner() => AppThemeDataModel<MaterialBannerThemeData>(
-        lightThemeData: MaterialBannerThemeData(),
-        darkThemeData: MaterialBannerThemeData(),
+        lightThemeData: const MaterialBannerThemeData(),
+        darkThemeData: const MaterialBannerThemeData(),
       ).getMode<MaterialBannerThemeData>(isDark);
 
   BadgeThemeData _badge() => AppThemeDataModel<BadgeThemeData>(
-        lightThemeData: BadgeThemeData(),
-        darkThemeData: BadgeThemeData(),
+        lightThemeData: const BadgeThemeData(),
+        darkThemeData: const BadgeThemeData(),
       ).getMode<BadgeThemeData>(isDark);
 
   ChipThemeData _chip() => AppThemeDataModel<ChipThemeData>(
-        lightThemeData: ChipThemeData(),
-        darkThemeData: ChipThemeData(),
+        lightThemeData: const ChipThemeData(),
+        darkThemeData: const ChipThemeData(),
       ).getMode<ChipThemeData>(isDark);
 
   ProgressIndicatorThemeData _progressIndicator() => AppThemeDataModel<ProgressIndicatorThemeData>(
-        lightThemeData: ProgressIndicatorThemeData(),
-        darkThemeData: ProgressIndicatorThemeData(),
+        lightThemeData: const ProgressIndicatorThemeData(),
+        darkThemeData: const ProgressIndicatorThemeData(),
       ).getMode<ProgressIndicatorThemeData>(isDark);
 
   IconThemeData _icon() => AppThemeDataModel<IconThemeData>(
-        lightThemeData: IconThemeData(),
-        darkThemeData: IconThemeData(),
+        lightThemeData: const IconThemeData(),
+        darkThemeData: const IconThemeData(),
       ).getMode<IconThemeData>(isDark);
 
   ActionIconThemeData _actionIcon() => AppThemeDataModel<ActionIconThemeData>(
-        lightThemeData: ActionIconThemeData(),
-        darkThemeData: ActionIconThemeData(),
+        lightThemeData: const ActionIconThemeData(),
+        darkThemeData: const ActionIconThemeData(),
       ).getMode<ActionIconThemeData>(isDark);
 
   ///Text
@@ -300,7 +300,7 @@ class AppThemes {
 
   ///Buttons
   ButtonThemeData _button() {
-    ButtonThemeData generalTheme = ButtonThemeData();
+    ButtonThemeData generalTheme = const ButtonThemeData();
     return AppThemeDataModel<ButtonThemeData>(
         lightThemeData: generalTheme.copyWith(
           buttonColor: AppThemesVariables.appPrimary,
@@ -360,13 +360,13 @@ class AppThemes {
       ).getMode<IconButtonThemeData>(isDark);
 
   ButtonBarThemeData _buttonBar() => AppThemeDataModel<ButtonBarThemeData>(
-        lightThemeData: ButtonBarThemeData(),
-        darkThemeData: ButtonBarThemeData(),
+        lightThemeData: const ButtonBarThemeData(),
+        darkThemeData: const ButtonBarThemeData(),
       ).getMode<ButtonBarThemeData>(isDark);
 
   ToggleButtonsThemeData _buttonToggle() => AppThemeDataModel<ToggleButtonsThemeData>(
-        lightThemeData: ToggleButtonsThemeData(),
-        darkThemeData: ToggleButtonsThemeData(),
+        lightThemeData: const ToggleButtonsThemeData(),
+        darkThemeData: const ToggleButtonsThemeData(),
       ).getMode<ToggleButtonsThemeData>(isDark);
 
   MenuButtonThemeData _buttonMenu() => AppThemeDataModel<MenuButtonThemeData>(
@@ -376,8 +376,8 @@ class AppThemes {
 
   ///Menus
   DropdownMenuThemeData _buttonDropDown() => AppThemeDataModel<DropdownMenuThemeData>(
-        lightThemeData: DropdownMenuThemeData(),
-        darkThemeData: DropdownMenuThemeData(),
+        lightThemeData: const DropdownMenuThemeData(),
+        darkThemeData: const DropdownMenuThemeData(),
       ).getMode<DropdownMenuThemeData>(isDark);
 
   ///Others
@@ -393,7 +393,7 @@ class AppThemes {
   }
 
   CheckboxThemeData _checkBox() {
-    CheckboxThemeData themeData = CheckboxThemeData();
+    CheckboxThemeData themeData = const CheckboxThemeData();
     return AppThemeDataModel<CheckboxThemeData>(
         lightThemeData: themeData.copyWith(
           checkColor: MaterialStateProperty.all(AppThemesVariables.appBackground),
@@ -407,7 +407,7 @@ class AppThemes {
   }
 
   SwitchThemeData _switch() {
-    SwitchThemeData themeData = SwitchThemeData();
+    SwitchThemeData themeData = const SwitchThemeData();
     return AppThemeDataModel<SwitchThemeData>(
         lightThemeData: themeData.copyWith(
           overlayColor: MaterialStateProperty.all(AppThemesVariables.appBackground),
@@ -422,7 +422,7 @@ class AppThemes {
   }
 
   DividerThemeData _divider() {
-    DividerThemeData themeData = DividerThemeData();
+    DividerThemeData themeData = const DividerThemeData();
     return AppThemeDataModel<DividerThemeData>(
         lightThemeData: themeData.copyWith(
           color: AppThemesVariables.appSecondary,

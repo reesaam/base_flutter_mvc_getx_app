@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../core_functions.dart';
 import '../core_models/core_models/app_page_detail/app_page_detail.dart';
 
 abstract class CoreController extends GetxController {

@@ -19,10 +19,14 @@ import '../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../features/versions/models/app_version/app_version.dart';
 import '../failures/local_exception.dart';
 import '../file_functions/app_file_functions.dart';
+import 'storage_providers/app_local_storage.dart';
+import 'storage_providers/app_shared_preferences.dart';
 
 class AppStorage {
-
-  final _storage = CoreDefaults.defaultStorageProvider.getProviderClass();
+  final _storage = switch (CoreDefaults.defaultStorageProvider) {
+    AppStorageProvider.getStorage => AppLocalStorage(),
+    AppStorageProvider.sharedPreferences => AppSharedPreferences(),
+  };
 
   static AppStorage get to => Get.find();
 
@@ -152,7 +156,7 @@ class AppStorage {
       if (detailsIncluded == true) {
         appLogPrint('==> Details:');
         appLogPrint('Settings / Dark Mode: ${appData.settings?.darkMode}');
-        appLogPrint('Settings / Language: ${appData.settings?.language.languageName}');
+        appLogPrint('Settings / Language: ${appData.settings?.language?.languageName}');
       }
     }
 

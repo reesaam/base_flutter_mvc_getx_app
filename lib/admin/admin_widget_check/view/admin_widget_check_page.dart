@@ -39,7 +39,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _dividers(),
         _iconButtons(),
         _popUpMenu(),

@@ -7,6 +7,7 @@ import 'components/notifications/local_notifications/local_notifications.dart';
 import 'core/app_localization.dart';
 import 'core/app_routing/app_pages.dart';
 import 'core/bindings/core_bindings.dart';
+import 'core/core_functions.dart';
 import 'core/core_info/app_info.dart';
 import 'core/core_resources/core_enums.dart';
 import 'core/core_resources/defaults.dart';
@@ -22,6 +23,7 @@ void initProject() async {
   await GetStorage.init().withStatusPrint(isLog: true, featureName: 'Get Storage Initialization');
   await AppLocalNotifications().init().withStatusPrint(isLog: true, featureName: 'App Local Notifications Initialization');
   CoreBindings().dependencies();
+  appInitializationFunction();
   runApp(const MainApp());
 }
 

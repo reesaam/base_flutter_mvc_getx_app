@@ -30,7 +30,7 @@ class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _appInfo(),
         _appDeveloperInfo(),
         _appStatisticsInfo(),

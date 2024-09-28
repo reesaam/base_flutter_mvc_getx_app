@@ -27,7 +27,7 @@ class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         Column(
             children: List<Widget>.generate(
           controller.countries.length,

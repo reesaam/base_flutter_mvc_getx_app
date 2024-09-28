@@ -18,7 +18,7 @@ class AppDocsPage extends CoreView<AppDocsController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _mainDocs(),
       ]);
 

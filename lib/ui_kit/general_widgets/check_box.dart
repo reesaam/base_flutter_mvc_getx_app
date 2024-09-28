@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../resources/elements.dart';
+
 class AppCheckBox extends StatelessWidget {
   const AppCheckBox({
     super.key,

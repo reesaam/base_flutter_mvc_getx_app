@@ -1,9 +1,15 @@
 {
   "de": [
+    "adminVerifiersPageName",
+    "dash",
+    "incorrect",
     "endOfFile"
   ],
 
   "fa": [
+    "adminVerifiersPageName",
+    "dash",
+    "incorrect",
     "endOfFile"
   ]
 }

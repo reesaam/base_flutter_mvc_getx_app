@@ -190,6 +190,16 @@ class S {
     );
   }
 
+  /// `Verifiers Page`
+  String get adminVerifiersPageName {
+    return Intl.message(
+      'Verifiers Page',
+      name: 'adminVerifiersPageName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `App Countries Page`
   String get adminAppCountriesPageName {
     return Intl.message(
@@ -215,6 +225,16 @@ class S {
     return Intl.message(
       '',
       name: 'empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `-`
+  String get dash {
+    return Intl.message(
+      '-',
+      name: 'dash',
       desc: '',
       args: [],
     );
@@ -355,6 +375,16 @@ class S {
     return Intl.message(
       'Info',
       name: 'info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect`
+  String get incorrect {
+    return Intl.message(
+      'Incorrect',
+      name: 'incorrect',
       desc: '',
       args: [],
     );

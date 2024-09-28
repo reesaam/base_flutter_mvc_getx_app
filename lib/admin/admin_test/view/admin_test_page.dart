@@ -21,7 +21,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _appPages(),
         _themes(),
         _checkConnection(),

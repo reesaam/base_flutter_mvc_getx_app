@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_int.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_locale.dart';
 import '../../../core/app_localization.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/resources/app_countries.dart';
-import '../../../data/resources/app_paddings.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_resources/countries.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_int.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_locale.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_data_format_check_controller.dart';
 

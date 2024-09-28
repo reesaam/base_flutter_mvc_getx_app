@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../app/components/buttons/app_general_button.dart';
-import '../app/components/general_widgets/app_dividers.dart';
-import '../core/app_extensions/extensions_on_data_types/extension_string.dart';
 import '../core/app_localization_texts.dart';
-import '../core/core_widgets.dart';
-import '../data/resources/app_paddings.dart';
-import '../data/resources/app_spaces.dart';
+import '../core/extensions/extensions_on_data_types/extension_string.dart';
+import '../ui_kit/buttons/app_general_button.dart';
+import '../ui_kit/core_widgets.dart';
+import '../ui_kit/general_widgets/dividers.dart';
+import '../ui_kit/resources/paddings.dart';
+import '../ui_kit/resources/spaces.dart';
 
 class AdminFunctions {
   static section(List<Widget> section, {bool? isRow, String? title, Color? backgroundColor}) => Column(children: [

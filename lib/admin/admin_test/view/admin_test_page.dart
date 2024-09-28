@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/buttons/app_general_button.dart';
-import '../../../app/components/general_widgets/app_dividers.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/info/app_page_details.dart';
-import '../../../data/resources/app_paddings.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_resources/page_details.dart';
+import '../../../ui_kit/buttons/app_general_button.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_test_controller.dart';
 
@@ -69,7 +69,6 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   _appData() => Column(children: [
         AdminFunctions.sectionGrid(items: [
-          AdminFunctions.itemButton(text: 'Save Appdata', function: controller.saveAppDataTest),
           AdminFunctions.itemButton(text: 'Load AppData', function: controller.loadAppDataTest),
           AdminFunctions.itemButton(text: 'Import AppData', function: controller.importAppDataTest),
           AdminFunctions.itemButton(text: 'Export AppData', function: controller.exportAppDataTest),

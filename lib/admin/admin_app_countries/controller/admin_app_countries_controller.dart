@@ -1,7 +1,7 @@
-import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
-import '../../../core/elements/core_controller.dart';
-import '../../../data/info/app_page_details.dart';
-import '../../../data/resources/app_countries.dart';
+import '../../../core/core_elements/core_controller.dart';
+import '../../../core/core_resources/page_details.dart';
+import '../../../core/core_resources/countries.dart';
+import '../../../core/extensions/extensions_on_enums/extension_on_countries.dart';
 
 class AdminAppCountriesController extends CoreController {
   List<AppCountry> countries = AppCountry.values.getSortedCountriesList;

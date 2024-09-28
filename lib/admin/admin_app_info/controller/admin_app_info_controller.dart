@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../../../core/app_extensions/extensions_on_data_models/extension_statistics.dart';
-import '../../../core/elements/core_controller.dart';
-import '../../../data/info/app_page_details.dart';
-import '../../../data/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
+import '../../../core/core_elements/core_controller.dart';
+import '../../../core/core_models/core_models/app_statistics_data/app_statistics_data.dart';
+import '../../../core/core_resources/page_details.dart';
+import '../../../core/extensions/extensions_on_data_models/extension_statistics.dart';
 
 class AdminAppInfoController extends CoreController {
   Rx<AppStatisticsData> statisticsData = const AppStatisticsData().obs;

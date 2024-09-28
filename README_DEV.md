@@ -1,8 +1,8 @@
 # Base Flutter MVC GetX App
 
 ### A Flutter Base Project using:
- - All Architectures Compatible
- - All State-Managements Compatible (Current is GetX)
+ - MVC Architecture
+ - GetX State-Managements
  - Freezed, Dartz
  - Dependency Injection
  - Dio, Retrofit, Interceptor

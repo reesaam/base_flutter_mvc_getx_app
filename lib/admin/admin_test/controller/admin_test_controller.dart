@@ -1,23 +1,22 @@
 import 'package:get/get.dart';
 
-import '../../../app/components/dialogs/app_alert_dialogs.dart';
-import '../../../app/functional_components/connectivity/app_connectivity.dart';
-import '../../../app/functional_components/file_functions/app_file_functions.dart';
-import '../../../app/functional_components/notifications/local_notifications/app_local_notifications.dart';
-import '../../../app/functional_components/permissions/app_permissions.dart';
-import '../../../core/app_extensions/extensions_on_data_models/extension_permission.dart';
-import '../../../core/app_extensions/extensions_on_data_models/extension_settings.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_date_time.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../components/connectivity/app_connectivity.dart';
+import '../../../components/file_functions/app_file_functions.dart';
+import '../../../components/notifications/local_notifications/app_local_notifications.dart';
+import '../../../components/permissions/app_permissions.dart';
+import '../../../components/storage/app_storage_module.dart';
+import '../../../core/core_elements/core_controller.dart';
+import '../../../core/core_models/core_models/app_data/app_data.dart';
+import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
+import '../../../core/extensions/extensions_on_data_models/extension_settings.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../ui_kit/dialogs/app_alert_dialogs.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/core_functions.dart';
-import '../../../core/elements/core_controller.dart';
-import '../../../data/info/app_page_details.dart';
-import '../../../data/resources/app_logos.dart';
-import '../../../data/resources/app_theme/app_themes.dart';
-import '../../../data/shared_models/core_models/app_data/app_data.dart';
-import '../../../data/storage/app_local_storage.dart';
+import '../../../core/core_resources/page_details.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
+import '../../../ui_kit/theme/themes.dart';
 
 class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;
@@ -33,7 +32,7 @@ class AdminTestController extends CoreController {
   }
 
   ///Internal
-  _dialog(String text) async => await AppAlertDialogs().withOk(text: text, onTapOk: popPage);
+  _dialog(String text) async => await AppAlertDialogs.withOk(text: text, onTapOk: popPage);
   String unknownStatus = 'Unknown';
 
   ///Connections
@@ -110,13 +109,8 @@ class AdminTestController extends CoreController {
 
   showPushNotification() {}
 
-  ///AppData
-  saveAppDataTest() async {
-    saveAppData();
-  }
-
-  loadAppDataTest() async {
-    AppData? appData = await loadAppData();
+  loadAppDataTest() {
+    AppData? appData = loadAppData();
     String response = '';
     response += 'Version: ${appData?.appVersions?.versionsList.isEmpty ?? true ? 'Empty' : appData?.appVersions?.versionsList.last.version}\n';
     response += 'Versions Count: ${appData?.appVersions?.versionsList.length ?? 0}\n';
@@ -134,7 +128,7 @@ class AdminTestController extends CoreController {
     _dialog(response);
   }
 
-  importAppDataTest() async => await AppLocalStorage.to.importData();
+  importAppDataTest() async => await AppStorage.to.importData();
 
-  exportAppDataTest() async => await AppLocalStorage().exportData();
+  exportAppDataTest() async => await AppStorage.to.exportData();
 }

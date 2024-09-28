@@ -5,7 +5,7 @@
 **> Based on MVC and GetX**
 
 ### Specifications:
-- MVC Architectures
+- MVC Architecture
 - GetX State-Managements
 - Centralized, Fully-Modular, Object-Oriented
 - Generalized UI Elements and Widgets 

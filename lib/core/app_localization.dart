@@ -3,15 +3,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:timezone/timezone.dart';
 
-import '../core/app_extensions/extensions_on_data_types/extension_app_languages.dart';
-import '../core/app_extensions/extensions_on_data_models/extension_settings.dart';
-import '../data/resources/app_countries.dart';
-import '../data/resources/app_enums.dart';
+import 'core_info/core_defaults.dart';
+import 'core_resources/countries.dart';
+import 'core_resources/core_enums.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
-import 'app_extensions/extensions_on_data_types/extension_on_list.dart';
-import 'app_extensions/extensions_on_data_types/extension_time_zone.dart';
-import 'core_functions.dart';
+import 'extensions/extensions_on_data_models/extension_settings.dart';
+import 'extensions/extensions_on_data_types/extension_app_languages.dart';
+import 'extensions/extensions_on_data_types/extension_on_list.dart';
+import 'extensions/extensions_on_data_types/extension_time_zone.dart';
 
 class AppLocalization {
   static AppLocalization get to => Get.find();
@@ -30,9 +30,9 @@ class AppLocalization {
   LocalizationsDelegate get _cupertino => GlobalCupertinoLocalizations.delegate;
 
   ///Default Variables
-  Locale language = english;
-  String timeZoneAbbreviation = AppCountry.us.timeZoneAbbreviation?.getMiddleElement() ?? '';
-  bool isDst = false;
+  Locale language = CoreDefaults.defaultLanguage;
+  String timeZoneAbbreviation = CoreDefaults.defaultCountry.timeZoneAbbreviation?.getMiddleElement() ?? '';
+  bool isDst = CoreDefaults.defaultCountry.hasDst;
 
   Locale getLocale() {
     var appSettings = const AppSettingData().loadFromStorage();

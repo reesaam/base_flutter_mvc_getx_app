@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/app_extensions/extensions_on_enums/extension_on_countries.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_custom_duration.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_duration.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_on_list.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_string.dart';
-import '../../../core/core_widgets.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/resources/app_countries.dart';
-import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_spaces.dart';
-import '../../../data/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_custom_duration.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_on_list.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_string.dart';
+import '../../../core/extensions/extensions_on_enums/extension_on_countries.dart';
+import '../../../ui_kit/core_widgets.dart';
+import '../../../core/core_resources/countries.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
+import '../../../ui_kit/resources/spaces.dart';
 import '../controller/admin_app_countries_controller.dart';
 
 class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {

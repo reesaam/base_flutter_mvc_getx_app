@@ -1,17 +1,17 @@
+import 'package:base_flutter_all_app/ui_kit/theme/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'app/functional_components/notifications/local_notifications/app_local_notifications.dart';
-import 'core/app_extensions/extension_app_routes.dart';
-import 'core/app_extensions/extension_for_prints/extension_for_prints.dart';
+import 'components/notifications/local_notifications/app_local_notifications.dart';
 import 'core/app_localization.dart';
-import 'core/app_bindings/core_bindings.dart';
 import 'core/app_routing/app_pages.dart';
-import 'data/info/app_defaults.dart';
-import 'data/info/app_info.dart';
-import 'data/resources/app_enums.dart';
-import 'data/resources/app_theme/app_themes.dart';
+import 'core/bindings/core_bindings.dart';
+import 'core/core_info/app_info.dart';
+import 'core/core_resources/core_enums.dart';
+import 'core/core_resources/defaults.dart';
+import 'core/extensions/extension_app_routes.dart';
+import 'core/extensions/extension_for_prints/extension_for_prints.dart';
 
 // import 'generated/l10n.dart';
 

@@ -30,7 +30,7 @@ dependencies:
 
   #Tools
   dartz: ^0.10.1
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
 
   #DataBase
   #mongo_dart: ^0.9.4

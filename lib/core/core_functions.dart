@@ -5,23 +5,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../app/components/dialogs/app_alert_dialogs.dart';
-import '../app/components/dialogs/app_alert_widget_dialogs.dart';
-import '../app/components/general_widgets/app_progress_indicator.dart';
-import '../app/components/general_widgets/app_snackbar.dart';
-import '../app/functional_components/specific_dialogs/exceptions_dialog.dart';
-import '../data/info/app_core_flags.dart';
-import '../data/shared_models/core_models/app_data/app_data.dart';
-import '../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
-import '../data/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
-import '../data/storage/app_local_storage.dart';
+import '../components/storage/app_storage_module.dart';
+import '../ui_kit/dialogs/app_alert_dialogs.dart';
+import '../ui_kit/dialogs/app_alert_widget_dialogs.dart';
+import '../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
+import '../ui_kit/main_widgets/progress_indicator.dart';
+import '../ui_kit/main_widgets/snackbar.dart';
+import 'app_routing/app_routing.dart';
+import 'core_models/core_models/app_data/app_data.dart';
+import 'core_models/core_models/app_page_detail/app_page_detail.dart';
+import 'core_resources/core_flags.dart';
 import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
 import 'app_localization_texts.dart';
-import 'failures/local_exception.dart';
 
-void appDebugPrint(message) => isRelease ? null : debugPrint('$message');
+void appDebugPrint(message) => isRelease ? null : debugPrint('[Debug] $message');
 void appLogPrint(message) => debugPrint('[LOG] $message');
 
 void popPage() {
@@ -30,17 +29,28 @@ void popPage() {
 
 nullFunction() => null;
 
-void saveAppData() => AppLocalStorage.to.saveAllDataToStorage();
+bool? clearAppData() {
+  bool result = false;
+  final response = AppStorage.to.clearStorage();
+  response.fold((l) => AppExceptionsDialog.local(exception: l), (r) => result = r);
+  return result;
+}
 
-Future<AppData?> loadAppData() => AppLocalStorage.to.loadAllDataFromStorage();
+bool? saveAppData(AppData appData) {
+  bool response = false;
+  AppStorage.to.saveAppData(appData: appData).then((value) => response = value);
+  return response;
+}
 
-void clearAppData() => AppLocalStorage.to.clearStorage();
+AppData? loadAppData() {
+  AppData? appData;
+  AppStorage.to.loadAppData().then((value) => appData = value);
+  return appData;
+}
 
 void printAllData({bool? detailsIncluded}) async {
-  AppData? appData = await AppLocalStorage.to.loadAllDataFromStorage();
-  AppStatisticsData? statisticsData =
-      AppLocalStorage.to.loadAppStatisticsData().fold((l) => AppExceptionsDialog<LocalException>().local(exception: l), (r) => r);
-  AppLocalStorage.to.printData(appData: appData, statisticsData: statisticsData, detailsIncluded: detailsIncluded);
+  AppData? appData = loadAppData();
+  AppStorage.to.printData(appData: appData, detailsIncluded: detailsIncluded);
 }
 
 Future<AppVersionsList?> getVersions() async {
@@ -55,19 +65,24 @@ Future<AppVersion?> checkAvailableVersion() async {
   return response?.versionsList.isEmpty ?? false ? null : response?.versionsList.last;
 }
 
-Future<void> checkForceUpdate() async {}
+Future<void> checkForceUpdate() async {
+  AppVersion? version = await checkAvailableVersion();
+  if (version != null) {
+    if (version.isForceUpdate == true) {
+      goToUpdatePage(popAll: true);
+    }
+  }
+}
 
-noInternetConnectionSnackBar() => AppSnackBar().show(message: Texts.to.connectionInternetNotAvailableText);
+noInternetConnectionSnackBar() => AppSnackBar.show(message: Texts.to.connectionInternetNotAvailableText);
 
-showLoadingDialog() => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear());
+showLoadingDialog({bool? isDismissible}) => AppAlertWidgetDialogs().withoutButton(widget: AppProgressIndicator.linear(), dismissible: isDismissible);
 
-appExitDialog() => AppAlertDialogs().withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
+appExitDialog() => AppAlertDialogs.withOkCancel(title: Texts.to.appExit, text: Texts.to.areYouSure, onTapOk: appExit, dismissible: true);
 
 appRestart({AppPageDetail? bootPage}) async {
   showLoadingDialog();
   appLogPrint('App Reset Triggered');
-  AppLocalStorage.to.saveAllDataToStorage();
-  appLogPrint('All App Data Saved');
   Get.reloadAll();
 }
 
@@ -75,7 +90,5 @@ appReset() {}
 
 appExit() {
   appLogPrint('App Exit Triggered');
-  AppLocalStorage.to.saveAllDataToStorage();
-  appLogPrint('All App Data Saved');
   exit(0);
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/info/app_defaults.dart';
-import '../../../data/info/app_info.dart';
-import '../../../data/resources/app_enums.dart';
-import '../../../data/resources/app_paddings.dart';
-import '../../../data/resources/app_theme/app_themes.dart';
-import '../../../data/resources/app_theme/app_themes_variables.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_info/app_info.dart';
+import '../../../core/core_resources/core_enums.dart';
+import '../../../core/core_resources/defaults.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/resources/paddings.dart';
+import '../../../ui_kit/theme/themes.dart';
+import '../../../ui_kit/theme/themes_variables.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_app_resources_controller.dart';
 

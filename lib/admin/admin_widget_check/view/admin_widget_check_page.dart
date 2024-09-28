@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/components/buttons/app_general_button.dart';
-import '../../../app/components/buttons/app_icon_button.dart';
-import '../../../app/components/dialogs/app_alert_dialogs.dart';
-import '../../../app/components/dialogs/app_alert_widget_dialogs.dart';
-import '../../../app/components/dialogs/app_bottom_dialogs.dart';
-import '../../../app/components/general_widgets/app_check_box.dart';
-import '../../../app/components/general_widgets/app_dividers.dart';
-import '../../../app/components/general_widgets/app_image.dart';
-import '../../../app/components/general_widgets/app_popup_menu.dart';
-import '../../../app/components/general_widgets/app_popup_menu_item.dart';
-import '../../../app/components/general_widgets/app_progress_indicator.dart';
-import '../../../app/components/general_widgets/app_snackbar.dart';
-import '../../../app/components/general_widgets/app_switch.dart';
-import '../../../app/components/general_widgets/app_text_field.dart';
-import '../../../app/components/main_components/app_bottom_navigation_bar.dart';
-import '../../../core/app_extensions/extensions_on_data_types/extension_icon.dart';
-import '../../../core/app_extensions/extensions_on_material_widgets/extension_on_text.dart';
+import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_icon.dart';
+import '../../../core/extensions/extensions_on_material_widgets/extension_on_text.dart';
+import '../../../ui_kit/buttons/app_general_button.dart';
+import '../../../ui_kit/buttons/app_icon_button.dart';
+import '../../../ui_kit/dialogs/app_alert_dialogs.dart';
+import '../../../ui_kit/dialogs/app_alert_widget_dialogs.dart';
+import '../../../ui_kit/dialogs/app_bottom_dialogs.dart';
 import '../../../core/core_functions.dart';
-import '../../../core/elements/core_view.dart';
-import '../../../app/components/main_components/app_bar.dart';
-import '../../../data/resources/app_logos.dart';
-import '../../../data/resources/app_theme/app_themes.dart';
-import '../../../data/shared_models/core_models/app_page_detail/app_page_detail.dart';
-import '../../../data/resources/app_enums.dart';
-import '../../../data/resources/app_icons.dart';
-import '../../../data/resources/app_paddings.dart';
+import '../../../core/core_resources/logos.dart';
+import '../../../core/core_resources/core_enums.dart';
+import '../../../core/core_resources/icons.dart';
+import '../../../ui_kit/general_widgets/app_image.dart';
+import '../../../ui_kit/general_widgets/app_popup_menu_item.dart';
+import '../../../ui_kit/general_widgets/app_switch.dart';
+import '../../../ui_kit/general_widgets/app_text_field.dart';
+import '../../../ui_kit/general_widgets/check_box.dart';
+import '../../../ui_kit/general_widgets/dividers.dart';
+import '../../../ui_kit/general_widgets/popup_menu.dart';
+import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/main_widgets/bottom_navigation_bar.dart';
+import '../../../ui_kit/main_widgets/progress_indicator.dart';
+import '../../../ui_kit/main_widgets/snackbar.dart';
+import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_widget_check_controller.dart';
 
@@ -267,12 +266,12 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with OK',
-          onTap: () => AppAlertDialogs().withOk(title: 'Alert Dialog Title', text: 'App Alert Dialog with Yes/No', onTapOk: popPage),
+          onTap: () => AppAlertDialogs.withOk(title: 'Alert Dialog Title', text: 'App Alert Dialog with Yes/No', onTapOk: popPage),
         )),
         AdminFunctions.item(
             widget: AppGeneralButton(
           text: 'Alert Dialog with Ok/Cancel',
-          onTap: () => AppAlertDialogs().withOkCancel(title: 'Alert Dialog Title', text: 'App Alert Dialog with Ok/Cancel', onTapOk: popPage),
+          onTap: () => AppAlertDialogs.withOkCancel(title: 'Alert Dialog Title', text: 'App Alert Dialog with Ok/Cancel', onTapOk: popPage),
         )),
         AdminFunctions.item(
             widget: AppGeneralButton(
@@ -326,20 +325,20 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Simple Snackbar',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Simple Snackbar with Title',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingText',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingText',
                       title: 'AppSnackBar Title',
                       leadingText: 'Leading Text',
@@ -348,7 +347,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with LeadingIcon',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with LeadingIcon',
                       title: 'AppSnackBar Title',
                       leadingIcon: AppIcons.info,
@@ -357,7 +356,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Button',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                       buttonText: 'Button',
@@ -366,7 +365,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Icon',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                       icon: AppIcons.settings,
@@ -374,7 +373,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Snackbar with Progress Indicator',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       message: 'App SnackBar with Progress Indicator',
                       title: 'AppSnackBar Title',
                       withProgressIndicator: true,
@@ -382,7 +381,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Progress Indicator Snackbar',
-                onTap: () => AppSnackBar().show(
+                onTap: () => AppSnackBar.show(
                       title: 'Progress Indicator Snackbar Title',
                       widget: Padding(
                         padding: const EdgeInsets.only(top: 20),
@@ -392,14 +391,14 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Error Snackbar',
-                onTap: () => AppSnackBar().showError(
+                onTap: () => AppSnackBar.showError(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                     ))),
         AdminFunctions.item(
             widget: AppGeneralButton(
                 text: 'Warning Snackbar',
-                onTap: () => AppSnackBar().showWarning(
+                onTap: () => AppSnackBar.showWarning(
                       message: 'App SnackBar with Button',
                       title: 'AppSnackBar Title',
                     ))),

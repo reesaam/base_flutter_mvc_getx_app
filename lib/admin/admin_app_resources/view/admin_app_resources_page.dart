@@ -23,7 +23,7 @@ class AdminAppResourcesPage extends CoreView<AdminAppResourcesController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _appDefaults(),
         _appAPIs(),
         _appTheme(),

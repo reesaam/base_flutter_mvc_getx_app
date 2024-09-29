@@ -21,7 +21,7 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _appPages(),
         _themes(),
         _checkConnection(),
@@ -29,14 +29,15 @@ class AdminTestPage extends CoreView<AdminTestController> {
         _permissions(),
         _notifications(),
         _appData(),
+        _share(),
       ]);
 
   _appPages() => AdminFunctions.sectionGrid(
       items: List.generate(
-          AppPageDetails().listPages.length,
+          AppPageDetails.listPages.length,
           (index) => AppGeneralButton(
-                text: AppPageDetails().listPages[index].pageName ?? 'Unknown',
-                onTap: () => goToPage(AppPageDetails().listPages[index].pageRoute),
+                text: AppPageDetails.listPages[index].pageName ?? 'Unknown',
+                onTap: () => goToPage(AppPageDetails.listPages[index].pageRoute),
               )),
       title: 'App All Pages');
 
@@ -72,6 +73,14 @@ class AdminTestPage extends CoreView<AdminTestController> {
           AdminFunctions.itemButton(text: 'Load AppData', function: controller.loadAppDataTest),
           AdminFunctions.itemButton(text: 'Import AppData', function: controller.importAppDataTest),
           AdminFunctions.itemButton(text: 'Export AppData', function: controller.exportAppDataTest),
+        ], title: 'AppData - Save and Load'),
+      ]);
+
+  _share() => Column(children: [
+        AdminFunctions.sectionGrid(items: [
+          AdminFunctions.itemButton(text: 'Share Text', function: controller.shareText),
+          AdminFunctions.itemButton(text: 'Share Url', function: controller.shareUri),
+          AdminFunctions.itemButton(text: 'Share File', function: controller.shareFile),
         ], title: 'AppData - Save and Load'),
       ]);
 }

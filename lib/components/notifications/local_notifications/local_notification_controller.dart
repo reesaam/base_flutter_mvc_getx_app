@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
 import '../../../../core/core_functions.dart';
-import '../app_notifications_enums.dart';
+import '../notifications_enums.dart';
 
 class AppLocalNotificationController {
   AppLocalNotificationController() {

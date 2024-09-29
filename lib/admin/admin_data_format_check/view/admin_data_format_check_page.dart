@@ -23,7 +23,7 @@ class AdminDataFormatCheckPage extends CoreView<AdminDataFormatCheckController> 
 
   @override
   Widget get body => Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         _locale(),
         _dateTime(),
         _currency(),

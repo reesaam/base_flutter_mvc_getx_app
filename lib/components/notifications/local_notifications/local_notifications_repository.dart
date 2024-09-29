@@ -6,8 +6,8 @@ import '../../../../core/core_functions.dart';
 import '../../../core/core_resources/core_flags.dart';
 import '../../../core/extensions/extension_for_prints/extension_for_prints.dart';
 import '../../../ui_kit/theme/themes.dart';
-import '../app_notifications_enums.dart';
-import 'app_local_notification_controller.dart';
+import '../notifications_enums.dart';
+import 'local_notification_controller.dart';
 
 class AppLocalNotificationsRepository {
   String? channelName = 'channelName';

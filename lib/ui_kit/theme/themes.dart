@@ -16,7 +16,7 @@ class AppThemes {
 
   ThemeData importTheme({ThemeData? themeData}) => themeData ?? getTheme();
 
-  bool isDark = false;
+  static bool isDark = false;
 
   ///Get Variables and Decide about Theme
   ThemeData getTheme({bool? isSystemDark}) {

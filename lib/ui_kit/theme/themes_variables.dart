@@ -21,8 +21,8 @@ class AppThemesVariables {
   static Color get appTertiaryDark => _white;
   static Color get appDisabled => _grey.withOpacity(0.8);
   static Color get appDisabledDark => _grey.withOpacity(0.8);
-  static Color get appOnDisabled => _white.withOpacity(0.6);
-  static Color get appOnDisabledDark => _white.withOpacity(0.6);
+  static Color get appOnDisabled => _grey.withOpacity(0.6);
+  static Color get appOnDisabledDark => _grey.withOpacity(0.6);
   static Color get appError => _red;
   static Color get appErrorDark => _red;
   static Color get appWarning => _orange;

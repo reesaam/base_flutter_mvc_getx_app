@@ -1,5 +1,5 @@
 import '../../features/versions/models/app_version/app_version.dart';
-import '../extensions/extensions_on_data_models/extension_app_version.dart';
+import '../extensions/extensions_on_data_models/extension_version.dart';
 
 class AppInfo {
   static String get appName => 'Base Flutter MVC GetX App';

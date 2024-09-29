@@ -7,11 +7,15 @@ import '../../../core/core_resources/page_details.dart';
 
 class AdminVerifiersController extends CoreController {
 
-  TextEditingController mobileController = TextEditingController();
+  TextEditingController generalController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController numericController = TextEditingController();
 
-  Rx<String> mobile = Texts.to.empty.obs;
+  Rx<String> general = Texts.to.empty.obs;
+  Rx<String> password = Texts.to.empty.obs;
+  Rx<String> phone = Texts.to.empty.obs;
   Rx<String> email = Texts.to.empty.obs;
   Rx<String> numeric = Texts.to.empty.obs;
 
@@ -22,6 +26,6 @@ class AdminVerifiersController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminVerifiersPage;
+    pageDetail = AppPageDetails.adminVerifiersPage;
   }
 }

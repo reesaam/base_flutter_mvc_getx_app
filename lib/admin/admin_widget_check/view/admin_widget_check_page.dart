@@ -13,10 +13,11 @@ import '../../../core/core_functions.dart';
 import '../../../core/core_resources/logos.dart';
 import '../../../core/core_resources/core_enums.dart';
 import '../../../core/core_resources/icons.dart';
-import '../../../ui_kit/general_widgets/app_image.dart';
-import '../../../ui_kit/general_widgets/app_popup_menu_item.dart';
-import '../../../ui_kit/general_widgets/app_switch.dart';
-import '../../../ui_kit/general_widgets/app_text_field.dart';
+import '../../../ui_kit/general_widgets/image.dart';
+import '../../../ui_kit/general_widgets/popup_menu_item.dart';
+import '../../../ui_kit/general_widgets/switch.dart';
+import '../../../ui_kit/general_widgets/text_field.dart';
+import '../../../ui_kit/general_widgets/text_field_widget.dart';
 import '../../../ui_kit/general_widgets/check_box.dart';
 import '../../../ui_kit/general_widgets/dividers.dart';
 import '../../../ui_kit/general_widgets/popup_menu.dart';
@@ -120,10 +121,11 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
 
     return AdminFunctions.section([
       AdminFunctions.item(
-          title: 'TextField Editable with Leading Icon', widget: AppTextField(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
+          title: 'TextField Editable with Leading Icon',
+          widget: AppTextField.general(controller: ctrl, hint: textFieldHint, leadingIcon: AppIcons.info)),
       AdminFunctions.item(
           title: 'TextField Editable with Prefix and Suffix',
-          widget: AppTextField(
+          widget: AppTextField.general(
               controller: ctrl,
               hint: textFieldHint,
               prefixIcon: AppIcons.add,
@@ -132,7 +134,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
               suffixAction: controller.functionCalledDialog)),
       AdminFunctions.item(
           title: 'TextField Not Editable',
-          widget: AppTextField(
+          widget: AppTextField.general(
             editable: false,
             controller: ctrl,
             hasCounter: true,
@@ -143,7 +145,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
           )),
       AdminFunctions.item(
         title: 'TextField with Data',
-        widget: AppTextField(
+        widget: AppTextField.general(
           controller: ctrlWithData,
           hasCounter: true,
           hint: textFieldHint,
@@ -153,7 +155,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
       ),
       AdminFunctions.item(
           title: 'TextField Expandable',
-          widget: AppTextField(
+          widget: AppTextField.general(
             controller: ctrlWithMultipleLinesData,
             hasCounter: true,
             maxLength: 100,
@@ -165,7 +167,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
           )),
       AdminFunctions.item(
           title: 'TextField Whole Widget Function',
-          widget: AppTextField(
+          widget: AppTextField.general(
             controller: ctrl,
             label: textFieldLabel,
             hint: textFieldHint,
@@ -173,7 +175,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
           )),
       AdminFunctions.item(
           title: 'TextField with Error',
-          widget: AppTextField(
+          widget: AppTextField.general(
             controller: ctrlWithData,
             label: textFieldLabel,
             hint: textFieldHint,

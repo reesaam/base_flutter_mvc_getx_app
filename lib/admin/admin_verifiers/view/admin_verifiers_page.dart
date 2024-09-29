@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/core_elements/core_view.dart';
-import '../../../core/verifiers/regexes.dart';
-import '../../../ui_kit/general_widgets/app_text_field.dart';
+import '../../../ui_kit/general_widgets/text_field.dart';
 import '../../../ui_kit/general_widgets/dividers.dart';
 import '../../../ui_kit/main_widgets/app_bar.dart';
 import '../../../ui_kit/resources/paddings.dart';
@@ -27,28 +26,39 @@ class AdminVerifiersPage extends CoreView<AdminVerifiersController> {
 
   _textFields() => Obx(() => AdminFunctions.section([
         AdminFunctions.item(
+            title: 'General',
+            widget: AppTextField.general(
+              hint: 'Text',
+              label: controller.general.value,
+              controller: controller.generalController,
+            )),
+    AdminFunctions.item(
+        title: 'Password',
+        widget: AppTextField.password(
+          hint: 'Password',
+          label: controller.password.value,
+          controller: controller.passwordController,
+        )),
+        AdminFunctions.item(
             title: 'Phone',
-            widget: AppTextField(
+            widget: AppTextField.phone(
               hint: '0987654321',
-              label: controller.mobile.value,
-              controller: controller.mobileController,
-              regexValidator: AppRegexes.phoneNumber,
+              label: controller.phone.value,
+              controller: controller.phoneController,
             )),
         AdminFunctions.item(
             title: 'Email',
-            widget: AppTextField(
+            widget: AppTextField.email(
               hint: 'r@r.R',
               label: controller.email.value,
               controller: controller.emailController,
-              regexValidator: AppRegexes.email,
             )),
-    AdminFunctions.item(
-        title: 'Numeric',
-        widget: AppTextField(
-          hint: '123456',
-          label: controller.numeric.value,
-          controller: controller.numericController,
-          regexValidator: AppRegexes.numeric,
-        )),
+        AdminFunctions.item(
+            title: 'Numeric',
+            widget: AppTextField.numeric(
+              hint: '123456',
+              label: controller.numeric.value,
+              controller: controller.numericController,
+            )),
       ], title: 'Verifiers'));
 }

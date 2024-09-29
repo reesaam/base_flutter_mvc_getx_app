@@ -33,7 +33,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
 
   Widget get _pageScaffold => Scaffold(
         backgroundColor: AppThemes.to.canvasColor,
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         appBar: appBar,
         drawer: drawer,
         drawerEnableOpenDragGesture: true,

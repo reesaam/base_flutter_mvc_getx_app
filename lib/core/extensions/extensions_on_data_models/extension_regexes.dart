@@ -1,13 +1,17 @@
-import '../../core_models/verifier_models/regexes.dart';
+import '../../core_models/verifier_models/regex_model/regex_model.dart';
 
-extension Equal on AppRegexes {
-  bool equalTo(AppRegexes regExp) => regexValue == regExp.regexValue;
+extension Equal on AppRegexModel {
+  bool equalTo(AppRegexModel regExp) => regexValue == regExp.regexValue;
 }
 
-extension GetRegExp on AppRegexes {
+extension GetRegExp on AppRegexModel {
   RegExp get regExp => RegExp(regexValue);
 }
 
-extension ListContain on List<AppRegexes> {
-  bool contains(AppRegexes regExp) => where((element) => element.equalTo(regExp)).isNotEmpty;
+extension ListContains on List<AppRegexModel> {
+  bool contains(AppRegexModel regExp) => where((element) => element.equalTo(regExp)).isNotEmpty;
+}
+
+extension ListModelContains on AppRegexModelsList {
+  bool contains(AppRegexModel regExp) => regexesList?.where((element) => element.equalTo(regExp)).isNotEmpty ?? false;
 }

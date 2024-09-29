@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../core/core_models/verifier_models/regexes.dart';
-import '../../core/extensions/extensions_on_data_models/extension_regexes.dart';
+import '../../core/core_models/verifier_models/regex_model/regex_model.dart';
 import 'text_field_abstraction.dart';
 import 'text_field_widget.dart';
 
@@ -58,7 +57,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
     Function()? suffixAction,
     Function()? wholeWidgetAction,
     Function(String)? onChangedAction,
-    AppRegexes? regexValidator,
+    AppRegexModel? regexValidator,
     List<TextInputFormatter>? inputFormatters,
     bool? editable,
     bool? hasCounter,
@@ -117,7 +116,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
     Function()? suffixAction,
     Function()? wholeWidgetAction,
     Function(String)? onChangedAction,
-    AppRegexes? regexValidator,
+    AppRegexModel? regexValidator,
     List<TextInputFormatter>? inputFormatters,
     bool? editable,
     bool? hasCounter,
@@ -172,7 +171,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
     Function()? suffixAction,
     Function()? wholeWidgetAction,
     Function(String)? onChangedAction,
-    AppRegexes? regexValidator,
+    AppRegexModel? regexValidator,
     List<TextInputFormatter>? inputFormatters,
     bool? editable,
     bool? hasCounter,
@@ -199,7 +198,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
         suffixAction: suffixAction,
         wholeWidgetAction: wholeWidgetAction,
         onChangedAction: onChangedAction,
-        regexValidator: regexValidator ?? AppRegexes.phoneNumber(),
+        regexValidator: regexValidator ?? AppRegexModel.phoneNumber(),
         inputFormatters: inputFormatters,
         editable: editable,
         hasCounter: hasCounter,
@@ -226,7 +225,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
     Function()? suffixAction,
     Function()? wholeWidgetAction,
     Function(String)? onChangedAction,
-    AppRegexes? regexValidator,
+    AppRegexModel? regexValidator,
     List<TextInputFormatter>? inputFormatters,
     bool? editable,
     bool? hasCounter,
@@ -253,7 +252,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
         suffixAction: suffixAction,
         wholeWidgetAction: wholeWidgetAction,
         onChangedAction: onChangedAction,
-        regexValidator: regexValidator ?? AppRegexes.email(),
+        regexValidator: regexValidator ?? AppRegexModel.email(),
         inputFormatters: inputFormatters,
         editable: editable,
         hasCounter: hasCounter,
@@ -280,7 +279,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
     Function()? suffixAction,
     Function()? wholeWidgetAction,
     Function(String)? onChangedAction,
-    AppRegexes? regexValidator,
+    AppRegexModel? regexValidator,
     List<TextInputFormatter>? inputFormatters,
     bool? editable,
     bool? hasCounter,
@@ -308,7 +307,7 @@ class AppTextField extends AppTextFieldWidget implements AppTextFieldAbstraction
         suffixAction: suffixAction,
         wholeWidgetAction: wholeWidgetAction,
         onChangedAction: onChangedAction,
-        regexValidator: regexValidator ?? AppRegexes.numeric(),
+        regexValidator: regexValidator ?? AppRegexModel.numeric(),
         inputFormatters: inputFormatters,
         editable: editable,
         hasCounter: hasCounter,

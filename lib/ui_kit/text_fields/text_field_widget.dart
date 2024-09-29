@@ -4,9 +4,9 @@ import 'package:flutter_regex/flutter_regex.dart';
 
 import '../../../core/core_functions.dart';
 import '../../core/app_localization_texts.dart';
+import '../../core/core_models/verifier_models/regex_model/regex_model.dart';
 import '../../core/extensions/extensions_on_data_models/extension_regexes.dart';
 import '../../core/extensions/extensions_on_data_types/extension_icon.dart';
-import '../../core/core_models/verifier_models/regexes.dart';
 import '../resources/elements.dart';
 import '../resources/paddings.dart';
 import '../resources/text_styles.dart';
@@ -67,11 +67,11 @@ abstract class AppTextFieldWidget extends StatelessWidget {
   final Function()? suffixAction;
   final Function()? wholeWidgetAction;
   final Function(String)? onChangedAction;
-  final AppRegexes? regexValidator;
+  final AppRegexModel? regexValidator;
   final List<TextInputFormatter>? inputFormatters;
   final bool? editable; // Default is false
   final bool? hasCounter; // Default is false
-  final String? errorText; // Being null means it has no error
+  final String? errorText; // Being null means it has no Error
   final int? maxLines; // Default is 1
   final int? maxLength; // Default is Infinite
   final bool? showMaxLength; // Default is false
@@ -190,11 +190,11 @@ abstract class AppTextFieldWidget extends StatelessWidget {
   }
 
   List<TextInputFormatter>? _formatters() {
-    AppRegexesList exceptionRegexes = AppRegexesList.exceptionsForFormatting();
     List<TextInputFormatter>? formatters = List<TextInputFormatter>.empty(growable: true);
-    if (regexValidator != null && !(exceptionRegexes.regexesList?.contains(regexValidator) ?? true)) {
+    if (regexValidator != null && !AppRegexModelsList.exceptionsOfFormatting().contains(regexValidator!)) {
       formatters.add(FilteringTextInputFormatter.allow(regexValidator!.regExp));
     }
+
     return formatters.isEmpty ? null : formatters;
   }
 

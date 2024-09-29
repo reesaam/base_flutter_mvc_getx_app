@@ -41,7 +41,7 @@ class AppDrawer extends Drawer {
       ]));
 
   Widget body() {
-    List<AppPageDetail> drawerList = AppPageDetails().listPages.where((element) => element.drawerPresence == true).toList();
+    List<AppPageDetail> drawerList = AppPageDetails.listPages.where((element) => element.drawerPresence == true).toList();
     return Column(children: List.generate(drawerList.length, (index) => _bodyItem(drawerList[index])));
   }
 

@@ -4,7 +4,7 @@ import 'core_enums.dart';
 import 'icons.dart';
 
 class AppPageDetails {
-  List<AppPageDetail> get listPages => [
+  static List<AppPageDetail> get listPages => [
         splashScreen,
         homepage,
         settings,
@@ -13,65 +13,71 @@ class AppPageDetails {
         notFound,
       ];
 
-  List<AppPageDetail> get listAdminPages => [
+  static List<AppPageDetail> get listAdminPages => [
         adminStartPage,
         adminTestPage,
         adminAppInfoPage,
         adminAppResourcesPage,
         adminWidgetCheckPage,
         adminDataFormatCheckPage,
+        adminVerifiersPage,
         adminAppCountriesPage,
         appDocs,
       ];
 
   ///Admin Pages
-  AppPageDetail adminStartPage = AppPageDetail(
+  static AppPageDetail adminStartPage = AppPageDetail(
     pageName: Texts.to.adminStartPagePageName,
     pageRoute: AppRoutes.adminStartPage,
   );
 
-  AppPageDetail adminTestPage = AppPageDetail(
+  static AppPageDetail adminTestPage = AppPageDetail(
     pageName: Texts.to.adminTestPageName,
     pageRoute: AppRoutes.adminTestPage,
   );
 
-  AppPageDetail adminAppInfoPage = AppPageDetail(
+  static AppPageDetail adminAppInfoPage = AppPageDetail(
     pageName: Texts.to.adminAppInfoPageName,
     pageRoute: AppRoutes.adminAppInfoPage,
   );
 
-  AppPageDetail adminAppResourcesPage = AppPageDetail(
+  static AppPageDetail adminAppResourcesPage = AppPageDetail(
     pageName: Texts.to.adminAppResourcesPageName,
     pageRoute: AppRoutes.adminAppResourcesPage,
   );
 
-  AppPageDetail adminWidgetCheckPage = AppPageDetail(
+  static AppPageDetail adminWidgetCheckPage = AppPageDetail(
     pageName: Texts.to.adminWidgetCheckPageName,
     pageRoute: AppRoutes.adminWidgetCheckPage,
   );
 
-  AppPageDetail adminDataFormatCheckPage = AppPageDetail(
+  static AppPageDetail adminDataFormatCheckPage = AppPageDetail(
     pageName: Texts.to.adminDataFormatCheckPageName,
     pageRoute: AppRoutes.adminDataFormatCheckPage,
   );
 
-  AppPageDetail adminAppCountriesPage = AppPageDetail(
+  static AppPageDetail adminVerifiersPage = AppPageDetail(
+    pageName: Texts.to.adminVerifiersPageName,
+    pageRoute: AppRoutes.adminVerifiersPage,
+  );
+
+  static AppPageDetail adminAppCountriesPage = AppPageDetail(
     pageName: Texts.to.adminAppCountriesPageName,
     pageRoute: AppRoutes.adminAppCountriesPage,
   );
 
-  AppPageDetail appDocs = AppPageDetail(
+  static AppPageDetail appDocs = AppPageDetail(
     pageName: Texts.to.appDocsPageName,
     pageRoute: AppRoutes.appDocs,
   );
 
   ///Main Pages
-  AppPageDetail splashScreen = AppPageDetail(
+  static AppPageDetail splashScreen = AppPageDetail(
     pageName: Texts.to.splashScreenPageName,
     pageRoute: AppRoutes.splashScreen,
   );
 
-  AppPageDetail homepage = AppPageDetail(
+  static AppPageDetail homepage = AppPageDetail(
     pageName: Texts.to.homePageName,
     pageRoute: AppRoutes.homepage,
     iconCode: AppIcons.home.icon!.codePoint,
@@ -79,7 +85,7 @@ class AppPageDetails {
     drawerPresence: true,
   );
 
-  AppPageDetail settings = AppPageDetail(
+  static AppPageDetail settings = AppPageDetail(
     pageName: Texts.to.settingsPageName,
     pageRoute: AppRoutes.settings,
     iconCode: AppIcons.settings.icon!.codePoint,
@@ -87,21 +93,21 @@ class AppPageDetails {
     drawerPresence: true,
   );
 
-  AppPageDetail about = AppPageDetail(
+  static AppPageDetail about = AppPageDetail(
     pageName: Texts.to.aboutPageName,
     pageRoute: AppRoutes.about,
     iconCode: AppIcons.about.icon!.codePoint,
     drawerPresence: true,
   );
 
-  AppPageDetail update = AppPageDetail(
+  static AppPageDetail update = AppPageDetail(
     pageName: Texts.to.updatePageName,
     pageRoute: AppRoutes.update,
     iconCode: AppIcons.update.icon!.codePoint,
     drawerPresence: true,
   );
 
-  AppPageDetail notFound = AppPageDetail(
+  static AppPageDetail notFound = AppPageDetail(
     pageName: Texts.to.notFoundPageName,
     pageRoute: AppRoutes.notFound,
   );

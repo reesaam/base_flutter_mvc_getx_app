@@ -1,12 +1,17 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 
-import '../../../components/connectivity/app_connectivity.dart';
-import '../../../components/file_functions/app_file_functions.dart';
-import '../../../components/notifications/local_notifications/app_local_notifications.dart';
-import '../../../components/permissions/app_permissions.dart';
+import '../../../components/connectivity/connectivity.dart';
+import '../../../components/file_functions/file_functions.dart';
+import '../../../components/notifications/local_notifications/local_notifications.dart';
+import '../../../components/permissions/permissions.dart';
+import '../../../components/share/share.dart';
 import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
+import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_settings.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
@@ -22,14 +27,7 @@ class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;
 
   @override
-  void dataInit() {
-    // clearAppData();
-  }
-
-  @override
-  void pageInit() {
-    pageDetail = AppPageDetails().adminTestPage;
-  }
+  AppPageDetail get pageDetail => AppPageDetails.adminTestPage;
 
   ///Internal
   _dialog(String text) async => await AppAlertDialogs.withOk(text: text, onTapOk: popPage);
@@ -131,4 +129,17 @@ class AdminTestController extends CoreController {
   importAppDataTest() async => await AppStorage.to.importData();
 
   exportAppDataTest() async => await AppStorage.to.exportData();
+
+  shareText() async => await AppShare.shareText('Sample Share Text');
+
+  shareUri() async => await AppShare.shareUrl('Sample link');
+
+  shareFile() async {
+    File? file = await AppFileFunctions().pickFile();
+    if (file == null) {
+      await AppAlertDialogs.withOk(text: 'File is not Picked or Loaded', onTapOk: popPage);
+    } else {
+      await AppShare.shareFile(file: XFile(file.path));
+    }
+  }
 }

@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "adminStartPagePageName":
             MessageLookupByLibrary.simpleMessage("Admin Start Page"),
         "adminTestPageName": MessageLookupByLibrary.simpleMessage("Test Page"),
+        "adminVerifiersPageName":
+            MessageLookupByLibrary.simpleMessage("Verifiers Page"),
         "adminWidgetCheckPageName":
             MessageLookupByLibrary.simpleMessage("Widget Check Page"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
@@ -63,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Internet Connection is not Available!\nPlease Check your Connection."),
         "connectionInternetNotAvailableTitle":
             MessageLookupByLibrary.simpleMessage("Internet Connection"),
+        "dash": MessageLookupByLibrary.simpleMessage("-"),
         "empty": MessageLookupByLibrary.simpleMessage(""),
         "endOfFile": MessageLookupByLibrary.simpleMessage("END OF FILE"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
@@ -71,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalNotAvailableInitials":
             MessageLookupByLibrary.simpleMessage("N/A"),
         "homePageName": MessageLookupByLibrary.simpleMessage("Home"),
+        "incorrect": MessageLookupByLibrary.simpleMessage("Incorrect"),
         "info": MessageLookupByLibrary.simpleMessage("Info"),
         "information": MessageLookupByLibrary.simpleMessage("Information"),
         "languageName": MessageLookupByLibrary.simpleMessage("English"),

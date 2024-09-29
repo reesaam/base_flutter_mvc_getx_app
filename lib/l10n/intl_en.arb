@@ -16,10 +16,12 @@
     "adminAppResourcesPageName": "App Resources Page",
     "adminWidgetCheckPageName": "Widget Check Page",
     "adminDataFormatCheckPageName": "Data Format Check Page",
+    "adminVerifiersPageName": "Verifiers Page",
     "adminAppCountriesPageName": "App Countries Page",
     "appDocsPageName": "App Docs Page",
 
     "empty": "",
+    "dash": "-",
     "version": "Version",
     "ok": "Ok",
     "cancel": "Cancel",
@@ -34,6 +36,7 @@
     "alert": "Alert",
     "information": "Information",
     "info": "Info",
+    "incorrect": "Incorrect",
     "totalBalance": "Total Balance",
 
     "areYouSure": "Are you sure ?",

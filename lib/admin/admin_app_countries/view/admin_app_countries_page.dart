@@ -5,7 +5,7 @@ import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_custom_duration.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
-import '../../../core/extensions/extensions_on_data_types/extension_on_list.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_list.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_string.dart';
 import '../../../core/extensions/extensions_on_enums/extension_on_countries.dart';
 import '../../../ui_kit/core_widgets.dart';
@@ -27,7 +27,7 @@ class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
 
   @override
   Widget get body => Column(children: [
-        AppDividers.general(),
+        AppDividers.generalWithDisabledColor,
         Column(
             children: List<Widget>.generate(
           controller.countries.length,

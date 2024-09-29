@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../components/storage/app_storage_module.dart';
@@ -19,6 +20,10 @@ import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';
 import '../features/versions/models/app_version/app_version.dart';
 import 'app_localization_texts.dart';
+
+appInitializationFunction() {
+  kIsWeb ? null : SystemChannels.textInput.invokeMethod('TextInput.hide');
+}
 
 void appDebugPrint(message) => isRelease ? null : debugPrint('[Debug] $message');
 void appLogPrint(message) => debugPrint('[LOG] $message');

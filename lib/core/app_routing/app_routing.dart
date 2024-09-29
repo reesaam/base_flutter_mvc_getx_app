@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../components/statistics/app_statistics.dart';
+import '../../components/statistics/statistics.dart';
 import '../core_resources/core_enums.dart';
 import '../core_resources/defaults.dart';
 import '../extensions/extension_app_routes.dart';
@@ -12,6 +12,7 @@ gotoAdminAppInfoPage() => goToPage(AppRoutes.adminAppInfoPage);
 gotoAdminAppResourcesPage() => goToPage(AppRoutes.adminAppResourcesPage);
 gotoAdminWidgetCheckPage() => goToPage(AppRoutes.adminWidgetCheckPage);
 gotoAdminDataFormatCheckPage() => goToPage(AppRoutes.adminDataFormatCheckPage);
+gotoAdminVerifiersPage() => goToPage(AppRoutes.adminVerifiersPage);
 gotoAdminAppCountriesPage() => goToPage(AppRoutes.adminAppCountriesPage);
 
 ///App Pages

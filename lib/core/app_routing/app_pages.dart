@@ -6,6 +6,7 @@ import '../../admin/admin_app_resources/view/admin_app_resources_page.dart';
 import '../../admin/admin_data_format_check/view/admin_data_format_check_page.dart';
 import '../../admin/admin_start/view/admin_start_page.dart';
 import '../../admin/admin_test/view/admin_test_page.dart';
+import '../../admin/admin_verifiers/view/admin_verifiers_page.dart';
 import '../../admin/admin_widget_check/view/admin_widget_check_page.dart';
 import '../../admin/app_docs/view/app_docs_page.dart';
 import '../core_resources/core_enums.dart';
@@ -26,6 +27,7 @@ class AppPages {
         GetPage(name: AppRoutes.adminAppResourcesPage.route, page: AdminAppResourcesPage.new),
         GetPage(name: AppRoutes.adminWidgetCheckPage.route, page: AdminWidgetCheckPage.new),
         GetPage(name: AppRoutes.adminDataFormatCheckPage.route, page: AdminDataFormatCheckPage.new),
+        GetPage(name: AppRoutes.adminVerifiersPage.route, page: AdminVerifiersPage.new),
         GetPage(name: AppRoutes.adminAppCountriesPage.route, page: AdminAppCountriesPage.new),
         GetPage(name: AppRoutes.appDocs.route, page: AppDocsPage.new),
 

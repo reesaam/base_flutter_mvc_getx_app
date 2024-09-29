@@ -12,7 +12,7 @@ import '../../../core/extensions/extensions_on_data_types/extension_custom_durat
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_locale.dart';
-import '../../../core/extensions/extensions_on_data_types/extension_on_list.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_list.dart';
 import '../../../ui_kit/general_widgets/dividers.dart';
 import '../../../ui_kit/main_widgets/app_bar.dart';
 import '../../../ui_kit/resources/paddings.dart';

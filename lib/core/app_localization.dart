@@ -9,8 +9,8 @@ import 'core_resources/core_enums.dart';
 import '../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../generated/l10n.dart';
 import 'extensions/extensions_on_data_models/extension_settings.dart';
-import 'extensions/extensions_on_data_types/extension_app_languages.dart';
-import 'extensions/extensions_on_data_types/extension_on_list.dart';
+import 'extensions/extensions_on_data_types/extension_languages.dart';
+import 'extensions/extensions_on_data_types/extension_list.dart';
 import 'extensions/extensions_on_data_types/extension_time_zone.dart';
 
 class AppLocalization {

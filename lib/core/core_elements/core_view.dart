@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../ui_kit/resources/paddings.dart';
+import '../../ui_kit/theme/themes.dart';
 import '../core_functions.dart';
 import '../../ui_kit/core_widgets.dart';
 import 'core_controller.dart';
@@ -17,6 +18,8 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
   Widget? get footer => null;
   Widget? get bottomNavigationBar => null;
   Widget? get floatingActionButton => null;
+  FloatingActionButtonLocation? get floatingActionButtonLocation => null;
+  Widget? get bottomSheet => null;
 
   ///Variables
   EdgeInsets? get pagePadding => null;
@@ -29,6 +32,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
       );
 
   Widget get _pageScaffold => Scaffold(
+        backgroundColor: AppThemes.to.canvasColor,
         resizeToAvoidBottomInset: false,
         appBar: appBar,
         drawer: drawer,
@@ -37,6 +41,8 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
         body: _pageBody,
         bottomNavigationBar: bottomNavigationBar,
         floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation ?? FloatingActionButtonLocation.endFloat,
+        bottomSheet: bottomSheet,
       );
 
   Widget get _pageBody => SafeArea(

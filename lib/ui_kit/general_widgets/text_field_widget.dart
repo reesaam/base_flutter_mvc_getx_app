@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_regex/flutter_regex.dart';
-import 'package:get/get.dart';
 
 import '../../../core/core_functions.dart';
 import '../../core/app_localization_texts.dart';
 import '../../core/extensions/extensions_on_data_types/extension_icon.dart';
-import '../../core/verifiers/regexes.dart';
 import '../resources/elements.dart';
 import '../resources/paddings.dart';
 import '../resources/text_styles.dart';
 import '../theme/theme_functions.dart';
 import '../theme/themes.dart';
 
-class AppTextField extends StatelessWidget {
-  const AppTextField({
+abstract class AppTextFieldWidget extends StatelessWidget {
+  const AppTextFieldWidget({
     super.key,
     required this.controller,
     this.undoController,
@@ -88,7 +86,11 @@ class AppTextField extends StatelessWidget {
         cursorColor: AppThemes.to.primaryColor,
         keyboardType: textInputType ?? TextInputType.text,
         textInputAction: textInputAction,
-        maxLines: expandable == true ? null : maxLines,
+        maxLines: expandable == true
+            ? null
+            : isPassword == true
+                ? 1
+                : maxLines,
         maxLength: maxLength,
         expands: expandable == true,
         enableInteractiveSelection: editable == false || wholeWidgetAction != null ? false : true,

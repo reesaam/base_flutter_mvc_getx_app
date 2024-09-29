@@ -13,5 +13,5 @@ extension ListContains on List<AppRegexModel> {
 }
 
 extension ListModelContains on AppRegexModelsList {
-  bool contains(AppRegexModel regExp) => regexesList?.where((element) => element.equalTo(regExp)).isNotEmpty ?? false;
+  bool contains(AppRegexModel regExp) => regexesList.where((element) => element.equalTo(regExp)).isNotEmpty ?? false;
 }

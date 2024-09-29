@@ -4,12 +4,20 @@ import 'package:flutter_regex/flutter_regex.dart';
 
 import '../../../core/core_functions.dart';
 import '../../core/app_localization_texts.dart';
+import '../../core/extensions/extensions_on_data_models/extension_regexes.dart';
 import '../../core/extensions/extensions_on_data_types/extension_icon.dart';
+import '../../core/core_models/verifier_models/regexes.dart';
 import '../resources/elements.dart';
 import '../resources/paddings.dart';
 import '../resources/text_styles.dart';
 import '../theme/theme_functions.dart';
 import '../theme/themes.dart';
+import 'text_field.dart';
+import 'text_field_abstraction.dart';
+
+/// General and Complete Widget for [AppTextField]
+/// All TextField in the App will generate with this Widget in [AppTextField]
+/// [AppTextField] also uses [AppTextFieldAbstraction] for Abstraction which has been explained
 
 abstract class AppTextFieldWidget extends StatelessWidget {
   const AppTextFieldWidget({
@@ -59,7 +67,7 @@ abstract class AppTextFieldWidget extends StatelessWidget {
   final Function()? suffixAction;
   final Function()? wholeWidgetAction;
   final Function(String)? onChangedAction;
-  final String? regexValidator;
+  final AppRegexes? regexValidator;
   final List<TextInputFormatter>? inputFormatters;
   final bool? editable; // Default is false
   final bool? hasCounter; // Default is false
@@ -73,6 +81,7 @@ abstract class AppTextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// This detects DarkMode to change the Colors and Modes
     bool isDark = AppThemeFunctions.getMode();
 
     return TextFormField(
@@ -86,6 +95,9 @@ abstract class AppTextFieldWidget extends StatelessWidget {
         cursorColor: AppThemes.to.primaryColor,
         keyboardType: textInputType ?? TextInputType.text,
         textInputAction: textInputAction,
+
+        /// if [expandable] it could not been set, and if [obscured] it must be 1
+        /// And it can't set in parent function, it should be set in the widget itself
         maxLines: expandable == true
             ? null
             : isPassword == true
@@ -103,9 +115,11 @@ abstract class AppTextFieldWidget extends StatelessWidget {
         onTapOutside: (event) => FocusScope.of(context).previousFocus(),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) => _errorDetector(),
-        inputFormatters: inputFormatters,
+        inputFormatters: inputFormatters ?? _formatters(),
         buildCounter: (context, {required currentLength, required isFocused, required maxLength}) =>
             hasCounter == true || showMaxLength == true ? _buildCounter(currentLength) : null,
+
+        /// All Decoration Customizations
         decoration: InputDecoration(
           constraints: const BoxConstraints(maxHeight: double.maxFinite),
           contentPadding: AppPaddings.textFieldContent,
@@ -161,6 +175,8 @@ abstract class AppTextFieldWidget extends StatelessWidget {
           child: suffixIcon?.withSecondaryColor,
         );
 
+  /// All Errors would Detect by this function
+  /// Even multiple conditions will Check and shows by their priority
   String? _errorDetector() {
     String? text;
 
@@ -173,8 +189,22 @@ abstract class AppTextFieldWidget extends StatelessWidget {
     return text;
   }
 
-  bool _regexValidator(String value) => value == Texts.to.empty ? true : RegexVal.hasMatch(value, regexValidator!);
+  List<TextInputFormatter>? _formatters() {
+    AppRegexesList exceptionRegexes = AppRegexesList.exceptionsForFormatting();
+    List<TextInputFormatter>? formatters = List<TextInputFormatter>.empty(growable: true);
+    if (regexValidator != null && !(exceptionRegexes.regexesList?.contains(regexValidator) ?? true)) {
+      formatters.add(FilteringTextInputFormatter.allow(regexValidator!.regExp));
+    }
+    return formatters.isEmpty ? null : formatters;
+  }
 
+  /// Regex Checker
+  bool _regexValidator(String value) => value == Texts.to.empty ? true : RegexVal.hasMatch(value, regexValidator!.regexValue);
+
+  /// Counter Builder
+  /// [Counter], [MaxLength] and [CurrentLength] has Specific and Complicated Conditions
+  /// Counter with [ShowMaxLength == False] and [maxLength != null] will show Counter but without showing its limitation but it has the limitation
+  /// Counter with [MaxLength == null] would just unlimited counts the Chars
   Widget _buildCounter(int currentLength) {
     String text = '';
     if (hasCounter == true) {

@@ -11,6 +11,7 @@ import '../../../components/share/share.dart';
 import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
+import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_settings.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
@@ -26,14 +27,7 @@ class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;
 
   @override
-  void dataInit() {
-    // clearAppData();
-  }
-
-  @override
-  void pageInit() {
-    pageDetail = AppPageDetails.adminTestPage;
-  }
+  AppPageDetail get pageDetail => AppPageDetails.adminTestPage;
 
   ///Internal
   _dialog(String text) async => await AppAlertDialogs.withOk(text: text, onTapOk: popPage);

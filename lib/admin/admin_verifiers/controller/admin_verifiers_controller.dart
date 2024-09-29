@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 
 import '../../../core/app_localization_texts.dart';
 import '../../../core/core_elements/core_controller.dart';
+import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/core_resources/page_details.dart';
 
 class AdminVerifiersController extends CoreController {
+
+  @override
+  AppPageDetail get pageDetail => AppPageDetails.adminVerifiersPage;
 
   TextEditingController generalController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -18,14 +22,4 @@ class AdminVerifiersController extends CoreController {
   Rx<String> phone = Texts.to.empty.obs;
   Rx<String> email = Texts.to.empty.obs;
   Rx<String> numeric = Texts.to.empty.obs;
-
-  @override
-  void dataInit() {
-    // clearAppData();
-  }
-
-  @override
-  void pageInit() {
-    pageDetail = AppPageDetails.adminVerifiersPage;
-  }
 }

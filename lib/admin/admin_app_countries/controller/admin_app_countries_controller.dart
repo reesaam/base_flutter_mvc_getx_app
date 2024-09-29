@@ -13,6 +13,6 @@ class AdminAppCountriesController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminAppCountriesPage;
+    pageDetail = AppPageDetails.adminAppCountriesPage;
   }
 }

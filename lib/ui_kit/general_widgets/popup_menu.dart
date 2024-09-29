@@ -4,7 +4,7 @@ import '../../core/extensions/extensions_on_data_types/extension_icon.dart';
 import '../resources/elements.dart';
 import '../../core/core_resources/icons.dart';
 import '../resources/paddings.dart';
-import 'app_popup_menu_item.dart';
+import 'popup_menu_item.dart';
 
 class AppPopupMenu extends StatelessWidget {
   const AppPopupMenu({

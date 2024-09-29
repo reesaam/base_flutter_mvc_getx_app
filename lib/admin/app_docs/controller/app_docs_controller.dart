@@ -16,6 +16,6 @@ class AppDocsController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().appDocs;
+    pageDetail = AppPageDetails.appDocs;
   }
 }

@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../core/app_localization_texts.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_resources/icons.dart';
+import '../../../core/extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../ui_kit/buttons/app_general_button.dart';
 import '../../../ui_kit/core_widgets.dart';
 import '../../../core/core_resources/page_details.dart';
 import '../../../ui_kit/main_widgets/app_bar.dart';
+import '../../../ui_kit/main_widgets/floating_buttons.dart';
 import '../../../ui_kit/resources/paddings.dart';
 import '../controller/admin_start_controller.dart';
 
@@ -17,6 +20,9 @@ class AdminStartPage extends CoreView<AdminStartController> {
   PreferredSizeWidget? get appBar => AppAppBar(pageDetail: controller.pageDetail);
 
   @override
+  Widget? get floatingActionButton => AppFloatingActionButtons(icon: AppIcons.add, onPressed: () {});
+
+  @override
   Widget get body => Column(children: [
         _sectionsButtons(),
       ]);
@@ -25,7 +31,7 @@ class AdminStartPage extends CoreView<AdminStartController> {
       padding: AppPaddings.buttonLarge,
       child: Column(
           children: List<Widget>.generate(
-              AppPageDetails().listAdminPages.length,
+              AppPageDetails.listAdminPages.length,
               (index) => index == 0
                   ? shrinkSizedBox
                   : AppGeneralButton(

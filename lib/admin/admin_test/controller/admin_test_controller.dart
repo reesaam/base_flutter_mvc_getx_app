@@ -32,7 +32,7 @@ class AdminTestController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminTestPage;
+    pageDetail = AppPageDetails.adminTestPage;
   }
 
   ///Internal

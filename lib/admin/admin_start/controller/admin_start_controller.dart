@@ -8,11 +8,11 @@ class AdminStartController extends CoreController {
   @override
   void dataInit() {
     // clearAppData();
-    pages = AppPageDetails().listAdminPages;
+    pages = AppPageDetails.listAdminPages;
   }
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminStartPage;
+    pageDetail = AppPageDetails.adminStartPage;
   }
 }

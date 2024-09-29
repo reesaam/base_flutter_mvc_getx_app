@@ -9,6 +9,6 @@ class AdminAppResourcesController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminAppResourcesPage;
+    pageDetail = AppPageDetails.adminAppResourcesPage;
   }
 }

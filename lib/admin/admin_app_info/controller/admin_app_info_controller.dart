@@ -16,6 +16,6 @@ class AdminAppInfoController extends CoreController {
 
   @override
   void pageInit() {
-    pageDetail = AppPageDetails().adminAppInfoPage;
+    pageDetail = AppPageDetails.adminAppInfoPage;
   }
 }

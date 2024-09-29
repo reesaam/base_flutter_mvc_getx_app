@@ -23,6 +23,6 @@ class AppDocsPage extends CoreView<AppDocsController> {
       ]);
 
   _mainDocs() => AdminFunctions.sectionGrid(items: [
-        AdminFunctions.itemButton(text: 'Docs Generate', function: () {}),
+        AdminFunctions.itemButton(text: 'Docs Generate', function: controller.generateDocs),
       ], title: 'Main Docs');
 }

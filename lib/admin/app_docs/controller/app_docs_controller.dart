@@ -7,13 +7,16 @@ import '../../../core/core_resources/page_details.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_statistics.dart';
 
 class AppDocsController extends CoreController {
-  Rx<AppStatisticsData> statisticsData = const AppStatisticsData().obs;
 
   @override
   AppPageDetail get pageDetail => AppPageDetails.appDocs;
+
+  Rx<AppStatisticsData> statisticsData = const AppStatisticsData().obs;
 
   @override
   void dataInit() {
     statisticsData.value = statisticsData.value.loadFromStorage();
   }
+
+  generateDocs() {}
 }

@@ -48,6 +48,7 @@ class AppRegexModelsList with _$AppRegexModelsList {
     AppRegexModel.github(),
     AppRegexModel.youTube(),
   ]));
+
   factory AppRegexModelsList.exceptionsOfFormatting() =>
       AppRegexModelsList(regexesList: AppRegexModelsList.all().regexesList.where((element) => element.isExceptionOfFormatting == true).toList());
 }

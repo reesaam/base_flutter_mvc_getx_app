@@ -56,6 +56,8 @@ class AdminVerifiersPage extends CoreView<AdminVerifiersController> {
         AdminFunctions.item(
             title: 'Numeric',
             widget: AppTextField.numeric(
+              width: 200,
+              height: 20,
               hint: '123456',
               label: controller.numeric.value,
               controller: controller.numericController,

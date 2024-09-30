@@ -143,5 +143,7 @@ class AdminTestController extends CoreController {
     }
   }
 
-  tempTestFunction() {}
+  tempTestFunctionOne() {}
+
+  tempTestFunctionTwo() {}
 }

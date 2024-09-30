@@ -89,7 +89,8 @@ class AdminTestPage extends CoreView<AdminTestController> {
 
   _tempTest() => Column(children: [
         AdminFunctions.sectionGrid(items: [
-          AdminFunctions.itemButton(text: 'Temp Test Function', function: controller.tempTestFunction),
+          AdminFunctions.itemButton(text: 'Temp Test One', function: controller.tempTestFunctionOne),
+          AdminFunctions.itemButton(text: 'Temp Test Two', function: controller.tempTestFunctionTwo),
         ], title: 'Temp Test'),
       ]);
 }

@@ -47,6 +47,12 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-#for main branch:
-/lib/features/
+# Generated
 /lib/generated/
+
+# Localization
+/lib/generated/intl/
+/lib/l10n/untranslated.txt
+
+# For main branch:
+/lib/features/

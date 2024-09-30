@@ -1,4 +1,4 @@
-import '../../app_localization_texts.dart';
+import '../../app_localization.dart';
 import '../../core_models/helper_models/duration_custom_model/duration_custom_model.dart';
 
 extension ExtensionDateTimeDurationCalculation on Duration {

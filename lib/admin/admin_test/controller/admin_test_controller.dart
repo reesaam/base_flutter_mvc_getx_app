@@ -17,7 +17,7 @@ import '../../../core/extensions/extensions_on_data_models/extension_settings.da
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../ui_kit/dialogs/app_alert_dialogs.dart';
-import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_resources/page_details.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';

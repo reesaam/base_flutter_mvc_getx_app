@@ -13,6 +13,11 @@ import 'extensions/extensions_on_data_types/extension_languages.dart';
 import 'extensions/extensions_on_data_types/extension_list.dart';
 import 'extensions/extensions_on_data_types/extension_time_zone.dart';
 
+class Texts {
+  Texts._();
+  static S get to => S.of(Get.context!);
+}
+
 class AppLocalization {
   static AppLocalization get to => Get.find();
 

@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
-import '../../core/app_localization_texts.dart';
+import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../../core/core_info/app_info.dart';
 import '../../core/core_info/core_defaults.dart';

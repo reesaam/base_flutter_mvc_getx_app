@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../app_localization.dart';
 import '../../core_resources/icons.dart';
-import '../../app_localization_texts.dart';
 
 extension ExtensionIconFunction on int? {
   Icon toIcon() => this == null ? AppIcons.none : Icon(IconData(this!, fontFamily: 'MaterialIcons'));

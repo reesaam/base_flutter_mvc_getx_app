@@ -26,6 +26,9 @@ abstract class AppTextFieldWidget extends StatelessWidget {
     this.undoController,
     this.label,
     this.hint,
+    this.width,
+    this.height,
+    this.padding,
     this.textInputType,
     this.textInputAction,
     this.textDirection,
@@ -55,6 +58,9 @@ abstract class AppTextFieldWidget extends StatelessWidget {
   final UndoHistoryController? undoController;
   final String? label;
   final String? hint;
+  final double? width;
+  final double? height;
+  final EdgeInsets? padding;
   final TextInputType? textInputType;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
@@ -84,74 +90,79 @@ abstract class AppTextFieldWidget extends StatelessWidget {
     /// This detects DarkMode to change the Colors and Modes
     bool isDark = AppThemeFunctions.getMode();
 
-    return TextFormField(
-        controller: controller,
-        undoController: undoController,
-        textAlign: TextAlign.start,
-        textAlignVertical: TextAlignVertical.center,
-        textDirection: textDirection,
-        obscureText: isPassword ?? false,
-        style: errorText == null ? AppTextStyles.textFieldText() : AppTextStyles.textError(),
-        cursorColor: AppThemes.to.primaryColor,
-        keyboardType: textInputType ?? TextInputType.text,
-        textInputAction: textInputAction,
+    return Container(
+      width: width,
+      height: height,
+      padding: padding,
+      child: TextFormField(
+          controller: controller,
+          undoController: undoController,
+          textAlign: TextAlign.start,
+          textAlignVertical: TextAlignVertical.center,
+          textDirection: textDirection,
+          obscureText: isPassword ?? false,
+          style: errorText == null ? AppTextStyles.textFieldText() : AppTextStyles.textError(),
+          cursorColor: AppThemes.to.primaryColor,
+          keyboardType: textInputType ?? TextInputType.text,
+          textInputAction: textInputAction,
 
-        /// if [expandable] it could not been set, and if [obscured] it must be 1
-        /// And it can't set in parent function, it should be set in the widget itself
-        maxLines: expandable == true
-            ? null
-            : isPassword == true
-                ? 1
-                : maxLines,
-        maxLength: maxLength,
-        expands: expandable == true,
-        enableInteractiveSelection: editable == false || wholeWidgetAction != null ? false : true,
-        autofocus: autoFocus ?? false,
-        focusNode: focusNode,
-        canRequestFocus: editable == false || wholeWidgetAction != null ? false : true,
-        scrollPhysics: const BouncingScrollPhysics(),
-        onTap: wholeWidgetAction == null ? () {} : () => wholeWidgetAction!(),
-        onChanged: (value) => onChangedAction == null ? () {} : onChangedAction!(value),
-        onTapOutside: (event) => FocusScope.of(context).previousFocus(),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        validator: (value) => _errorDetector(),
-        inputFormatters: inputFormatters ?? _formatters(),
-        buildCounter: (context, {required currentLength, required isFocused, required maxLength}) =>
-            hasCounter == true || showMaxLength == true ? _buildCounter(currentLength) : null,
-
-        /// All Decoration Customizations
-        decoration: InputDecoration(
-          constraints: const BoxConstraints(maxHeight: double.maxFinite),
-          contentPadding: AppPaddings.textFieldContent,
-          labelText: label,
-          labelStyle: errorText == null ? AppTextStyles.textFieldText() : AppTextStyles.textError(),
-          hintText: hint,
-          hintStyle: AppTextStyles.textFieldHint(),
-          alignLabelWithHint: true,
-          hintMaxLines: 1,
-          icon: _leading,
-          prefixIcon: _prefix,
-          suffixIcon: _suffix,
-          border: isDark ? AppElements.borderOutlinedDark : AppElements.borderOutlinedLight,
-          enabledBorder: _errorDetector() == null
-              ? isDark
-                  ? AppElements.borderOutlinedDark
-                  : AppElements.borderOutlinedLight
-              : isDark
-                  ? AppElements.borderOutlinedErrorDark
-                  : AppElements.borderOutlinedErrorLight,
-          disabledBorder: isDark ? AppElements.borderOutlinedDisabledDark : AppElements.borderOutlinedDisabledLight,
-          focusedBorder: isDark ? AppElements.borderOutlinedFocusedDark : AppElements.borderOutlinedFocusedLight,
-          isDense: true,
-          isCollapsed: true,
-          errorStyle: _errorDetector() == null ? null : AppTextStyles.textError(),
-          errorBorder: _errorDetector() == null
+          /// if [expandable] it could not been set, and if [obscured] it must be 1
+          /// And it can't set in parent function, it should be set in the widget itself
+          maxLines: expandable == true
               ? null
-              : isDark
-                  ? AppElements.borderOutlinedErrorDark
-                  : AppElements.borderOutlinedErrorLight,
-          errorText: _errorDetector(),
-        ));
+              : isPassword == true
+                  ? 1
+                  : maxLines,
+          maxLength: maxLength,
+          expands: expandable == true,
+          enableInteractiveSelection: editable == false || wholeWidgetAction != null ? false : true,
+          autofocus: autoFocus ?? false,
+          focusNode: focusNode,
+          canRequestFocus: editable == false || wholeWidgetAction != null ? false : true,
+          scrollPhysics: const BouncingScrollPhysics(),
+          onTap: wholeWidgetAction == null ? () {} : () => wholeWidgetAction!(),
+          onChanged: (value) => onChangedAction == null ? () {} : onChangedAction!(value),
+          onTapOutside: (event) => FocusScope.of(context).previousFocus(),
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (value) => _errorDetector(),
+          inputFormatters: inputFormatters ?? _formatters(),
+          buildCounter: (context, {required currentLength, required isFocused, required maxLength}) =>
+              hasCounter == true || showMaxLength == true ? _buildCounter(currentLength) : null,
+
+          /// All Decoration Customizations
+          decoration: InputDecoration(
+            constraints: const BoxConstraints(maxHeight: double.maxFinite),
+            contentPadding: AppPaddings.textFieldContent,
+            labelText: label,
+            labelStyle: errorText == null ? AppTextStyles.textFieldText() : AppTextStyles.textError(),
+            hintText: hint,
+            hintStyle: AppTextStyles.textFieldHint(),
+            alignLabelWithHint: true,
+            hintMaxLines: 1,
+            icon: _leading,
+            prefixIcon: _prefix,
+            suffixIcon: _suffix,
+            border: isDark ? AppElements.borderOutlinedDark : AppElements.borderOutlinedLight,
+            enabledBorder: _errorDetector() == null
+                ? isDark
+                    ? AppElements.borderOutlinedDark
+                    : AppElements.borderOutlinedLight
+                : isDark
+                    ? AppElements.borderOutlinedErrorDark
+                    : AppElements.borderOutlinedErrorLight,
+            disabledBorder: isDark ? AppElements.borderOutlinedDisabledDark : AppElements.borderOutlinedDisabledLight,
+            focusedBorder: isDark ? AppElements.borderOutlinedFocusedDark : AppElements.borderOutlinedFocusedLight,
+            isDense: true,
+            isCollapsed: true,
+            errorStyle: _errorDetector() == null ? null : AppTextStyles.textError(),
+            errorBorder: _errorDetector() == null
+                ? null
+                : isDark
+                    ? AppElements.borderOutlinedErrorDark
+                    : AppElements.borderOutlinedErrorLight,
+            errorText: _errorDetector(),
+          )),
+    );
   }
 
   Widget? get _leading => leadingIcon == null

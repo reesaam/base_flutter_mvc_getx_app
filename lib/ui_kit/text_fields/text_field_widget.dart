@@ -29,6 +29,7 @@ abstract class AppTextFieldWidget extends StatelessWidget {
     this.width,
     this.height,
     this.padding,
+    this.margin,
     this.textInputType,
     this.textInputAction,
     this.textDirection,
@@ -61,6 +62,7 @@ abstract class AppTextFieldWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsets? padding;
+  final EdgeInsets? margin;
   final TextInputType? textInputType;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
@@ -94,6 +96,7 @@ abstract class AppTextFieldWidget extends StatelessWidget {
       width: width,
       height: height,
       padding: padding,
+      margin: margin,
       child: TextFormField(
           controller: controller,
           undoController: undoController,

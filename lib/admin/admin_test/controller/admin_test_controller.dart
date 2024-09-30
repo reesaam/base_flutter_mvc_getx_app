@@ -12,6 +12,7 @@ import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
 import '../../../core/core_models/core_models/app_data/app_data.dart';
 import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../core/extensions/extension_for_all/extension_all_variable_name.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_settings.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
@@ -142,4 +143,6 @@ class AdminTestController extends CoreController {
       await AppShare.shareFile(file: XFile(file.path));
     }
   }
+
+  tempTestFunction() {}
 }

@@ -16,7 +16,7 @@ import '../../features/not_found/view/not_found_view.dart';
 import '../../features/settings/view/settings_view.dart';
 import '../../features/splash_screen/view/splash_screen_view.dart';
 import '../../features/update/view/update_view.dart';
-import '../extensions/extension_app_routes.dart';
+import '../extensions/extenstions_for_core/extension_app_routes.dart';
 
 class AppPages {
   static List<GetPage> get pages => [

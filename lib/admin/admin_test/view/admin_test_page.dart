@@ -30,6 +30,9 @@ class AdminTestPage extends CoreView<AdminTestController> {
         _notifications(),
         _appData(),
         _share(),
+
+        ///Always Exist at Last
+        _tempTest()
       ]);
 
   _appPages() => AdminFunctions.sectionGrid(
@@ -82,5 +85,11 @@ class AdminTestPage extends CoreView<AdminTestController> {
           AdminFunctions.itemButton(text: 'Share Url', function: controller.shareUri),
           AdminFunctions.itemButton(text: 'Share File', function: controller.shareFile),
         ], title: 'AppData - Save and Load'),
+      ]);
+
+  _tempTest() => Column(children: [
+        AdminFunctions.sectionGrid(items: [
+          AdminFunctions.itemButton(text: 'Temp Test Function', function: controller.tempTestFunction),
+        ], title: 'Temp Test'),
       ]);
 }

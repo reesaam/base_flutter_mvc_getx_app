@@ -30,6 +30,7 @@ dependencies:
 
   #Tools
   dartz: ^0.10.1
+  dart_eval: ^0.6.0
   json_annotation: ^4.9.0
 
   #DataBase

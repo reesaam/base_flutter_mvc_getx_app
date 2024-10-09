@@ -36,6 +36,8 @@ pubspec.lock
 *.freezed.dart
 *.g.dart
 
+
+
 # Symbolication related
 app.*.symbols
 
@@ -47,8 +49,11 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Generated
+# Generated ans System
 /lib/generated/
+/linux/
+/windows/
+/macos/
 
 # Localization
 /lib/generated/intl/

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../components/statistics/statistics.dart';
 import '../core_resources/core_enums.dart';
 import '../core_resources/defaults.dart';
-import '../extensions/extension_app_routes.dart';
+import '../extensions/extenstions_for_core/extension_app_routes.dart';
 
 ///Admin Pages
 gotoAdminStartPage() => goToPage(AppRoutes.adminStartPage);

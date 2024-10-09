@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_functions.dart';
 import '../../core/core_info/app_info.dart';
-import '../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../core/core_resources/icons.dart';
 import '../../core/core_resources/logos.dart';
 import '../../core/core_resources/page_details.dart';

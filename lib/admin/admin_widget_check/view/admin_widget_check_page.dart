@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/core_elements/core_view.dart';
-import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../core/extensions/extensions_on_material_widgets/extension_on_text.dart';
 import '../../../ui_kit/buttons/app_general_button.dart';

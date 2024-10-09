@@ -1,11 +1,13 @@
 name: base_flutter_all_app
 description: Base of All Flutter Apps
+homepage: https://resam.site
+repository: https://github.com/reesaam/base_flutter_all_app
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.1
+version: 0.0.2
 
 environment:
-  sdk: '>=3.1.4 <4.0.0'
+  sdk: ^3.5.3
 
 dependencies:
   flutter:
@@ -19,17 +21,15 @@ dependencies:
   #flutter_bloc: ^8.1.5
   #riverpod: ^2.5.1
 
-  #Flutter Version Manager
-  fvm: ^3.2.1
-
   #Dependency Injection
   #get_it: ^7.6.7
 
   #Code Generator
-  freezed: ^2.4.7
+  freezed: ^2.5.7
 
   #Tools
   dartz: ^0.10.1
+  dart_eval: ^0.6.0
   json_annotation: ^4.9.0
 
   #DataBase
@@ -91,13 +91,13 @@ dependencies:
   loading_animation_widget: ^1.2.1
 
   #Localization
-  intl: ^0.18.1
+  intl: ^0.19.0
   timezone: ^0.9.4
   country_flags: ^3.0.0
   persian_datetime_picker: ^2.6.0
 
   #Docs
-  dartdoc: ^6.3.0
+  dartdoc: ^8.0.7
 
   #Sharing
   share_plus: ^7.2.2
@@ -118,7 +118,7 @@ dev_dependencies:
     sdk: flutter
 
   #Code Generator
-  build_runner: ^2.4.9
+  build_runner: ^2.4.13
   json_serializable: ^6.7.1
   freezed_annotation: ^2.4.1
   injectable_generator: ^2.2.0
@@ -142,7 +142,6 @@ flutter_intl:
 
 flutter:
   generate: true
-
   uses-material-design: true
 
   assets:

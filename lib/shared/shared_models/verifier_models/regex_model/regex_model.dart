@@ -1,7 +1,7 @@
 import 'package:flutter_regex/flutter_regex.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../annotations/freezed_custom_annotation.dart';
+import '../../../../core/annotations/freezed_custom_annotation.dart';
 
 part 'regex_model.freezed.dart';
 part 'regex_model.g.dart';

@@ -1,4 +1,3 @@
-import 'package:base_flutter_all_app/ui_kit/theme/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -11,8 +10,9 @@ import 'core/core_functions.dart';
 import 'core/core_info/app_info.dart';
 import 'core/core_resources/core_enums.dart';
 import 'core/core_resources/defaults.dart';
-import 'core/extensions/extension_app_routes.dart';
+import 'core/extensions/extenstions_for_core/extension_app_routes.dart';
 import 'core/extensions/extension_for_prints/extension_for_prints.dart';
+import 'ui_kit/theme/themes.dart';
 
 // import 'generated/l10n.dart';
 

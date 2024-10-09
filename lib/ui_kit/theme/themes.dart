@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../components/storage/app_storage_module.dart';
 import '../../core/core_resources/defaults.dart';
 import '../resources/elements.dart';
-import '../../core/core_models/core_models/theme_data_model/theme_data_model.dart';
+import '../../shared/shared_models/core_models/theme_data_model/theme_data_model.dart';
 import 'themes_variables.dart';
 
 class AppThemes {

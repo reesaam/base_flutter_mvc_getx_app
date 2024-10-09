@@ -56,3 +56,4 @@ app.*.map.json
 
 # For main branch:
 /lib/features/
+/lib/shared/

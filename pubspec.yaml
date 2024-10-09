@@ -21,9 +21,6 @@ dependencies:
   #flutter_bloc: ^8.1.5
   #riverpod: ^2.5.1
 
-  #Flutter Version Manager
-#  fvm: ^3.2.1
-
   #Dependency Injection
   #get_it: ^7.6.7
 
@@ -121,7 +118,7 @@ dev_dependencies:
     sdk: flutter
 
   #Code Generator
-  build_runner: ^2.4.9
+  build_runner: ^2.4.13
   json_serializable: ^6.7.1
   freezed_annotation: ^2.4.1
   injectable_generator: ^2.2.0

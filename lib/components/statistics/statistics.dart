@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../core/core_models/core_models/app_statistics_data/app_statistics_data.dart';
+import '../../shared/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../../core/extensions/extensions_on_data_models/extension_statistics.dart';
 
 class AppStatistics {

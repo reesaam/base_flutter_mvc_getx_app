@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../shared/shared_models/verifier_models/regex_model/regex_model.dart';
 import '../../../ui_kit/text_fields/text_field.dart';
-import '../../core_models/verifier_models/regex_model/regex_model.dart';
 
 extension ExtensionTextFieldWidgetCopyWith on AppTextField {
   AppTextField copyWith({

@@ -1,5 +1,5 @@
+import '../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../app_localization.dart';
-import '../core_models/core_models/app_page_detail/app_page_detail.dart';
 import 'core_enums.dart';
 import 'icons.dart';
 

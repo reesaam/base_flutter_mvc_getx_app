@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/app_localization.dart';
-import '../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../resources/paddings.dart';
 
 class AppAppBar extends AppBar {

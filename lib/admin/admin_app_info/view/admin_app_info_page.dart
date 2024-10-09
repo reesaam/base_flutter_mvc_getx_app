@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/app_localization.dart';
 import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_info/app_info.dart';
-import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../shared/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../../../core/core_resources/core_flags.dart';
 import '../../../core/core_info/developer_info.dart';
 import '../../../core/core_resources/countries.dart';

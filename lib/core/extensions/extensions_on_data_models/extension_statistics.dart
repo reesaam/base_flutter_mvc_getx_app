@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../../../components/failures/local_exception.dart';
 import '../../../components/storage/app_storage_module.dart';
+import '../../../shared/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../../../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
-import '../../core_models/core_models/app_statistics_data/app_statistics_data.dart';
 
 
 extension ExtensionAppStatisticsRxStorage on Rx<AppStatisticsData> {

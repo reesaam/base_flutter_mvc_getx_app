@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../core/core_resources/core_enums.dart';
 import '../../core/core_resources/page_details.dart';
 import '../../core/extensions/extensions_on_data_types/extension_int.dart';

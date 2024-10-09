@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../annotations/freezed_custom_annotation.dart';
+import '../../../../core/annotations/freezed_custom_annotation.dart';
 
 part 'duration_custom_model.freezed.dart';
 part 'duration_custom_model.g.dart';

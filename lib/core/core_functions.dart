@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../components/storage/app_storage_module.dart';
+import '../shared/shared_models/core_models/app_data/app_data.dart';
+import '../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../ui_kit/dialogs/app_alert_dialogs.dart';
 import '../ui_kit/dialogs/app_alert_widget_dialogs.dart';
 import '../ui_kit/dialogs/specific_dialogs/exceptions_dialog.dart';
@@ -14,8 +16,6 @@ import '../ui_kit/main_widgets/progress_indicator.dart';
 import '../ui_kit/main_widgets/snackbar.dart';
 import 'app_localization.dart';
 import 'app_routing/app_routing.dart';
-import 'core_models/core_models/app_data/app_data.dart';
-import 'core_models/core_models/app_page_detail/app_page_detail.dart';
 import 'core_resources/core_flags.dart';
 import '../features/versions/data/versions_local_data_source.dart';
 import '../features/versions/data/versions_remote_data_source.dart';

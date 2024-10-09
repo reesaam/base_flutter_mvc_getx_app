@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/core_elements/core_view.dart';
-import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../shared/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_custom_duration.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_list.dart';

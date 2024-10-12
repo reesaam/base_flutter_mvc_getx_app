@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
-import '../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../core/core_resources/core_enums.dart';
 import '../../core/core_resources/page_details.dart';
 import '../../core/extensions/extensions_on_data_types/extension_int.dart';
@@ -28,7 +28,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
 
   void _onItemTap(int index) {
     selectedIndex.value = index;
-    goToPage(pagesList[index].pageRoute);
+    goToPage(pagesList[index]);
   }
 
   @override
@@ -39,16 +39,16 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
         onTap: (index) => _onItemTap(index),
         items: List<BottomNavigationBarItem>.generate(
           pagesList.length,
-          (index) => _generateBottomNavigationBarItem(pagesList[index].pageRoute),
+          (index) => _generateBottomNavigationBarItem(pagesList[index]),
         ));
   }
 
-  BottomNavigationBarItem _generateBottomNavigationBarItem(AppRoutes route) => BottomNavigationBarItem(
-        icon: _createIcon(route),
-        label: _createLabel(route),
+  BottomNavigationBarItem _generateBottomNavigationBarItem(AppPageDetail page) => BottomNavigationBarItem(
+        icon: _createIcon(page),
+        label: _createLabel(page),
       );
 
-  Icon _createIcon(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).iconCode.toIcon();
+  Icon _createIcon(AppPageDetail page) => pagesList.singleWhere((element) => element == page).iconCode.toIcon();
 
-  String _createLabel(AppRoutes route) => pagesList.singleWhere((element) => element.pageRoute == route).pageName ?? Texts.to.empty;
+  String _createLabel(AppPageDetail page) => pagesList.singleWhere((element) => element == page).pageName ?? Texts.to.empty;
 }

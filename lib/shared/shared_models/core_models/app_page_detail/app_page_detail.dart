@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../annotations/freezed_custom_annotation.dart';
-import '../../../core_resources/core_enums.dart';
+import '../../../../core/annotations/freezed_custom_annotation.dart';
+import '../../../../core/core_resources/core_enums.dart';
+
 
 part 'app_page_detail.freezed.dart';
 part 'app_page_detail.g.dart';
@@ -9,7 +10,7 @@ part 'app_page_detail.g.dart';
 @FreezedCustom.model
 class AppPageDetail with _$AppPageDetail {
   const factory AppPageDetail({
-    required final AppRoutes pageRoute,
+    required final String pageRoute,
     final String? pageName,
     final int? bottomBarItemNumber,
     final bool? drawerPresence,

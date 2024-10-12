@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/annotations/freezed_custom_annotation.dart';
+import '../../../../core/core_resources/core_enums.dart';
 import '../../../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../../../features/versions/models/app_version/app_version.dart';
-import '../../../annotations/freezed_custom_annotation.dart';
-import '../../../core_resources/core_enums.dart';
 import '../app_statistics_data/app_statistics_data.dart';
 
 part 'app_data.freezed.dart';

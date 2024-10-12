@@ -1,8 +1,8 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/app_localization_texts.dart';
 import '../../../../core/core_functions.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_resources/core_flags.dart';
 import '../../../core/extensions/extension_for_prints/extension_for_prints.dart';
 import '../../../ui_kit/theme/themes.dart';
@@ -100,7 +100,7 @@ class AppLocalNotificationsRepository {
     String? largeIcon,
     bool? locked,
     Map<String, String?>? payload,
-    int? progress,
+    double? progress,
     bool? roundedBigPicture,
     bool? roundedLargeIcon,
     bool? showWhen,

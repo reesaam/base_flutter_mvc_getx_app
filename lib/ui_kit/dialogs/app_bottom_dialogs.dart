@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/app_localization_texts.dart';
+import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../buttons/app_general_button.dart';
 import '../core_widgets.dart';

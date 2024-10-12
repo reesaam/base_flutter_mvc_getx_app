@@ -1,11 +1,13 @@
 name: base_flutter_all_app
 description: Base of All Flutter Apps
+homepage: https://resam.site
+repository: https://github.com/reesaam/base_flutter_all_app
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.1
+version: 0.0.2
 
 environment:
-  sdk: '>=3.1.4 <4.0.0'
+  sdk: ^3.5.3
 
 dependencies:
   flutter:
@@ -19,17 +21,16 @@ dependencies:
   #flutter_bloc: ^8.1.5
   #riverpod: ^2.5.1
 
-  #Flutter Version Manager
-  fvm: ^3.2.1
-
   #Dependency Injection
   #get_it: ^7.6.7
 
   #Code Generator
-  freezed: ^2.4.7
+  freezed: ^2.5.7
+  getx_binding_annotation: ^0.0.5
 
   #Tools
   dartz: ^0.10.1
+  dart_eval: ^0.6.0
   json_annotation: ^4.9.0
 
   #DataBase
@@ -46,7 +47,7 @@ dependencies:
   #permission_handler_web: ^0.0.2
   mobile_number: ^2.1.1
   device_info_plus: ^9.1.2
-  package_info_plus: ^5.0.1
+  package_info_plus: ^8.0.3
   flutter_contacts: ^1.1.7+1
   camera: ^0.10.5+9
 
@@ -65,7 +66,7 @@ dependencies:
   chopper: ^7.4.0
 
   #Notifications
-  awesome_notifications: ^0.8.2
+  awesome_notifications: ^0.9.3+1
   #awesome_notifications_core: ^0.8.2
   #awesome_notifications_fcm: ^0.8.2
 
@@ -91,13 +92,13 @@ dependencies:
   loading_animation_widget: ^1.2.1
 
   #Localization
-  intl: ^0.18.1
+  intl: ^0.19.0
   timezone: ^0.9.4
   country_flags: ^3.0.0
   persian_datetime_picker: ^2.6.0
 
   #Docs
-  dartdoc: ^6.3.0
+  dartdoc: ^8.0.7
 
   #Sharing
   share_plus: ^7.2.2
@@ -118,13 +119,14 @@ dev_dependencies:
     sdk: flutter
 
   #Code Generator
-  build_runner: ^2.4.9
+  build_runner: ^2.4.13
   json_serializable: ^6.7.1
   freezed_annotation: ^2.4.1
   injectable_generator: ^2.2.0
   #realm_generator: ^2.2.1
   retrofit_generator: ^8.1.0
   chopper_generator: ^7.4.0
+  getx_binding_annotation_generator: ^0.0.5
 
   #Test
   build_test: ^2.2.2
@@ -142,7 +144,6 @@ flutter_intl:
 
 flutter:
   generate: true
-
   uses-material-design: true
 
   assets:

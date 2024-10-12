@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../components/storage/app_storage_module.dart';
 import '../../core/core_resources/defaults.dart';
 import '../resources/elements.dart';
-import '../../core/core_models/core_models/theme_data_model/theme_data_model.dart';
+import '../../shared/shared_models/core_models/theme_data_model/theme_data_model.dart';
 import 'themes_variables.dart';
 
+@GetPut.component()
 class AppThemes {
   ///Main Theme Functions
   static ThemeData get to => Get.find<AppThemes>().getTheme();

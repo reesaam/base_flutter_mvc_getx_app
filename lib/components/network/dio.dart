@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../core/core_resources/texts.dart';
 
+@GetPut.component()
 class DioCore {
   static DioCore get to => Get.find();
 

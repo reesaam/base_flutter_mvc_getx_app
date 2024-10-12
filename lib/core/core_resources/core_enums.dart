@@ -34,28 +34,28 @@ enum APISections {
   String get getName => name;
 }
 
-enum AppRoutes {
-  ///App Pages
-  splashScreen,
-  homepage,
-  settings,
-  update,
-  about,
-
-  ///General Pages
-  notFound,
-
-  ///Admin Pages
-  adminStartPage,
-  adminTestPage,
-  adminAppInfoPage,
-  adminAppResourcesPage,
-  adminWidgetCheckPage,
-  adminDataFormatCheckPage,
-  adminVerifiersPage,
-  adminAppCountriesPage,
-  appDocs,
-}
+// enum AppRoutes {
+//   ///App Pages
+//   splashScreen,
+//   homepage,
+//   settings,
+//   update,
+//   about,
+//
+//   ///General Pages
+//   notFound,
+//
+//   ///Admin Pages
+//   adminStartPage,
+//   adminTestPage,
+//   adminAppInfoPage,
+//   adminAppResourcesPage,
+//   adminWidgetCheckPage,
+//   adminDataFormatCheckPage,
+//   adminVerifiersPage,
+//   adminAppCountriesPage,
+//   appDocs,
+// }
 
 enum AppLanguages {
   english('English', Locale('en')),

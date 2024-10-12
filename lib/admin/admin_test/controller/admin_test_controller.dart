@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../components/connectivity/connectivity.dart';
 import '../../../components/file_functions/file_functions.dart';
@@ -10,19 +11,20 @@ import '../../../components/permissions/permissions.dart';
 import '../../../components/share/share.dart';
 import '../../../components/storage/app_storage_module.dart';
 import '../../../core/core_elements/core_controller.dart';
-import '../../../core/core_models/core_models/app_data/app_data.dart';
-import '../../../core/core_models/core_models/app_page_detail/app_page_detail.dart';
+import '../../../shared/shared_models/core_models/app_data/app_data.dart';
+import '../../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_permission.dart';
 import '../../../core/extensions/extensions_on_data_models/extension_settings.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_date_time.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_duration.dart';
 import '../../../ui_kit/dialogs/app_alert_dialogs.dart';
-import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_resources/page_details.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../../ui_kit/theme/themes.dart';
 
+@GetPut.controller()
 class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;
 
@@ -142,4 +144,8 @@ class AdminTestController extends CoreController {
       await AppShare.shareFile(file: XFile(file.path));
     }
   }
+
+  tempTestFunctionOne() {}
+
+  tempTestFunctionTwo() {}
 }

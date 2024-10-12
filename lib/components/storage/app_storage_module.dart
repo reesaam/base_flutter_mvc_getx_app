@@ -3,13 +3,14 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
-import '../../core/app_localization_texts.dart';
+import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
 import '../../core/core_info/app_info.dart';
 import '../../core/core_info/core_defaults.dart';
-import '../../core/core_models/core_models/app_data/app_data.dart';
-import '../../core/core_models/core_models/app_statistics_data/app_statistics_data.dart';
+import '../../shared/shared_models/core_models/app_data/app_data.dart';
+import '../../shared/shared_models/core_models/app_statistics_data/app_statistics_data.dart';
 import '../../core/core_resources/core_enums.dart';
 import '../../core/core_resources/texts.dart';
 import '../../core/extensions/extensions_on_data_types/extension_date_time.dart';
@@ -22,6 +23,7 @@ import '../file_functions/file_functions.dart';
 import 'storage_providers/app_local_storage.dart';
 import 'storage_providers/app_shared_preferences.dart';
 
+@GetPut.component()
 class AppStorage {
   final _storage = switch (CoreDefaults.defaultStorageProvider) {
     AppStorageProvider.getStorage => AppLocalStorage(),

@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../core/core_models/base_models/permission_base_response_model/permission_base_response.dart';
+import '../../shared/shared_models/base_models/permission_base_response_model/permission_base_response.dart';
 import '../../core/extensions/extensions_on_data_models/extension_permission.dart';
 
+@GetPut.component()
 class AppPermissions {
   static AppPermissions get to => Get.find();
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_resources/page_details.dart';
@@ -10,6 +12,7 @@ import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_test_controller.dart';
 
+@GetPut.page()
 class AdminTestPage extends CoreView<AdminTestController> {
   const AdminTestPage({super.key});
 
@@ -30,14 +33,17 @@ class AdminTestPage extends CoreView<AdminTestController> {
         _notifications(),
         _appData(),
         _share(),
+
+        ///Always Exist at Last
+        _tempTest()
       ]);
 
   _appPages() => AdminFunctions.sectionGrid(
       items: List.generate(
           AppPageDetails.listPages.length,
           (index) => AppGeneralButton(
-                text: AppPageDetails.listPages[index].pageName ?? 'Unknown',
-                onTap: () => goToPage(AppPageDetails.listPages[index].pageRoute),
+                text: AppPageDetails.listPages[index].pageName ?? Texts.to.notAvailableInitials,
+                onTap: () => goToPage(AppPageDetails.listPages[index]),
               )),
       title: 'App All Pages');
 
@@ -82,5 +88,12 @@ class AdminTestPage extends CoreView<AdminTestController> {
           AdminFunctions.itemButton(text: 'Share Url', function: controller.shareUri),
           AdminFunctions.itemButton(text: 'Share File', function: controller.shareFile),
         ], title: 'AppData - Save and Load'),
+      ]);
+
+  _tempTest() => Column(children: [
+        AdminFunctions.sectionGrid(items: [
+          AdminFunctions.itemButton(text: 'Temp Test One', function: controller.tempTestFunctionOne),
+          AdminFunctions.itemButton(text: 'Temp Test Two', function: controller.tempTestFunctionTwo),
+        ], title: 'Temp Test'),
       ]);
 }

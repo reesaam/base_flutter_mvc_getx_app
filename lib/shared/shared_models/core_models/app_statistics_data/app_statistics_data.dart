@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../annotations/freezed_custom_annotation.dart';
-import '../../../extensions/extensions_on_data_models/extension_statistics.dart';
+import '../../../../core/annotations/freezed_custom_annotation.dart';
+import '../../../../core/extensions/extensions_on_data_models/extension_statistics.dart';
 
 
 part 'app_statistics_data.freezed.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../core/app_localization.dart';
-import '../../../core/app_localization_texts.dart';
 import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_info/app_info.dart';
-import '../../../core/core_models/helper_models/duration_custom_model/duration_custom_model.dart';
+import '../../../shared/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
 import '../../../core/core_resources/core_flags.dart';
 import '../../../core/core_info/developer_info.dart';
 import '../../../core/core_resources/countries.dart';
@@ -19,6 +19,7 @@ import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_app_info_controller.dart';
 
+@GetPut.page()
 class AdminAppInfoPage extends CoreView<AdminAppInfoController> {
   const AdminAppInfoPage({super.key});
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
-import '../../../core/app_localization_texts.dart';
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_resources/icons.dart';
-import '../../../core/extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../ui_kit/buttons/app_general_button.dart';
 import '../../../ui_kit/core_widgets.dart';
 import '../../../core/core_resources/page_details.dart';
@@ -13,6 +13,7 @@ import '../../../ui_kit/main_widgets/floating_buttons.dart';
 import '../../../ui_kit/resources/paddings.dart';
 import '../controller/admin_start_controller.dart';
 
+@GetPut.page()
 class AdminStartPage extends CoreView<AdminStartController> {
   const AdminStartPage({super.key});
 
@@ -36,6 +37,6 @@ class AdminStartPage extends CoreView<AdminStartController> {
                   ? shrinkSizedBox
                   : AppGeneralButton(
                       text: controller.pages[index].pageName ?? Texts.to.notAvailableInitials,
-                      onTap: () => goToPage(controller.pages[index].pageRoute),
+                      onTap: () => goToPage(controller.pages[index]),
                     ))));
 }

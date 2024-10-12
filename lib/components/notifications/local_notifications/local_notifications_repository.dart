@@ -100,7 +100,7 @@ class AppLocalNotificationsRepository {
     String? largeIcon,
     bool? locked,
     Map<String, String?>? payload,
-    int? progress,
+    double? progress,
     bool? roundedBigPicture,
     bool? roundedLargeIcon,
     bool? showWhen,

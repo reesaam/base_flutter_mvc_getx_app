@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../core/app_localization.dart';
 import '../../core/core_functions.dart';
@@ -22,6 +23,7 @@ import '../file_functions/file_functions.dart';
 import 'storage_providers/app_local_storage.dart';
 import 'storage_providers/app_shared_preferences.dart';
 
+@GetPut.component()
 class AppStorage {
   final _storage = switch (CoreDefaults.defaultStorageProvider) {
     AppStorageProvider.getStorage => AppLocalStorage(),

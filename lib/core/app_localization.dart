@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 import 'package:timezone/timezone.dart';
 
 import 'core_info/core_defaults.dart';
@@ -18,6 +19,7 @@ class Texts {
   static S get to => S.of(Get.context!);
 }
 
+@GetPut.component()
 class AppLocalization {
   static AppLocalization get to => Get.find();
 

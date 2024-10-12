@@ -26,6 +26,7 @@ dependencies:
 
   #Code Generator
   freezed: ^2.5.7
+  getx_binding_annotation: ^0.0.5
 
   #Tools
   dartz: ^0.10.1
@@ -46,7 +47,7 @@ dependencies:
   #permission_handler_web: ^0.0.2
   mobile_number: ^2.1.1
   device_info_plus: ^9.1.2
-  package_info_plus: ^5.0.1
+  package_info_plus: ^8.0.3
   flutter_contacts: ^1.1.7+1
   camera: ^0.10.5+9
 
@@ -65,7 +66,7 @@ dependencies:
   chopper: ^7.4.0
 
   #Notifications
-  awesome_notifications: ^0.8.2
+  awesome_notifications: ^0.9.3+1
   #awesome_notifications_core: ^0.8.2
   #awesome_notifications_fcm: ^0.8.2
 
@@ -125,6 +126,7 @@ dev_dependencies:
   #realm_generator: ^2.2.1
   retrofit_generator: ^8.1.0
   chopper_generator: ^7.4.0
+  getx_binding_annotation_generator: ^0.0.5
 
   #Test
   build_test: ^2.2.2

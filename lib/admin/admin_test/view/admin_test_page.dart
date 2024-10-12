@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_elements/core_view.dart';
@@ -10,6 +11,7 @@ import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_test_controller.dart';
 
+@GetPut.page()
 class AdminTestPage extends CoreView<AdminTestController> {
   const AdminTestPage({super.key});
 

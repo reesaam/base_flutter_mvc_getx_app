@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../core/core_elements/core_view.dart';
 import '../../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
@@ -17,7 +18,6 @@ import '../../../ui_kit/general_widgets/image.dart';
 import '../../../ui_kit/general_widgets/popup_menu_item.dart';
 import '../../../ui_kit/general_widgets/switch.dart';
 import '../../../ui_kit/text_fields/text_field.dart';
-import '../../../ui_kit/text_fields/text_field_widget.dart';
 import '../../../ui_kit/general_widgets/check_box.dart';
 import '../../../ui_kit/general_widgets/dividers.dart';
 import '../../../ui_kit/general_widgets/popup_menu.dart';
@@ -29,6 +29,7 @@ import '../../../ui_kit/resources/paddings.dart';
 import '../../admin_general_functions.dart';
 import '../controller/admin_widget_check_controller.dart';
 
+@GetPut.page()
 class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
   const AdminWidgetCheckPage({super.key});
 

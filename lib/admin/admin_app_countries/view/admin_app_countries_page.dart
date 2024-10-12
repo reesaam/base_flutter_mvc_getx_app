@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../core/core_elements/core_view.dart';
 import '../../../shared/shared_models/helper_models/duration_custom_model/duration_custom_model.dart';
@@ -16,6 +17,7 @@ import '../../../ui_kit/resources/paddings.dart';
 import '../../../ui_kit/resources/spaces.dart';
 import '../controller/admin_app_countries_controller.dart';
 
+@GetPut.page()
 class AdminAppCountriesPage extends CoreView<AdminAppCountriesController> {
   const AdminAppCountriesPage({super.key});
 

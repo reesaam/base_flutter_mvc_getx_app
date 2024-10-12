@@ -12,6 +12,7 @@ import 'core/core_resources/core_enums.dart';
 import 'core/core_resources/defaults.dart';
 import 'core/extensions/extenstions_for_core/extension_app_routes.dart';
 import 'core/extensions/extension_for_prints/extension_for_prints.dart';
+import 'main.get_put.dart';
 import 'ui_kit/theme/themes.dart';
 
 // import 'generated/l10n.dart';
@@ -22,7 +23,7 @@ void initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init().withStatusPrint(isLog: true, featureName: 'Get Storage Initialization');
   await AppLocalNotifications().init().withStatusPrint(isLog: true, featureName: 'App Local Notifications Initialization');
-  CoreBindings().dependencies();
+  GetPutBindings().dependencies();
   appInitializationFunction();
   runApp(const MainApp());
 }
@@ -34,10 +35,10 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppInfo.appName,
-      initialBinding: CoreBindings(),
-      getPages: AppPages.pages,
-      initialRoute: AppRoutes.splashScreen.route,
-      unknownRoute: AppPages.unknownRoute,
+      initialBinding: GetPutBindings(),
+      getPages: GetPutPages.pages,
+      initialRoute: GetPutPages.initialRoute.name,
+      unknownRoute: GetPutPages.unknownRoute,
       defaultTransition: Transition.fadeIn,
       transitionDuration: appDefaultTransitionDuration,
       color: AppThemes.to.primaryColor,

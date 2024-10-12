@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:get/get.dart';
+import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../components/connectivity/connectivity.dart';
 import '../../../components/file_functions/file_functions.dart';
@@ -23,6 +24,7 @@ import '../../../core/core_resources/page_details.dart';
 import '../../../features/settings/models/app_settings_data/app_setting_data.dart';
 import '../../../ui_kit/theme/themes.dart';
 
+@GetPut.controller()
 class AdminTestController extends CoreController {
   Rx<bool> darkMode = false.obs;
 

@@ -37,6 +37,6 @@ class AdminStartPage extends CoreView<AdminStartController> {
                   ? shrinkSizedBox
                   : AppGeneralButton(
                       text: controller.pages[index].pageName ?? Texts.to.notAvailableInitials,
-                      onTap: () => goToPage(controller.pages[index].pageRoute),
+                      onTap: () => goToPage(controller.pages[index]),
                     ))));
 }

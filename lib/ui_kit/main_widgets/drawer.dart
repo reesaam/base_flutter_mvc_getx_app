@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +45,7 @@ class AppDrawer extends Drawer {
   }
 
   Widget _bodyItem(AppPageDetail page) =>
-      ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon(), onTap: () => {popPage(), goToPage(page.pageRoute)});
+      ListTile(title: Text(page.pageName ?? Texts.to.empty), leading: page.iconCode.toIcon(), onTap: () => {popPage(), goToPage(page)});
 
   Widget footer() => Container(
       padding: AppPaddings.drawerFooter,

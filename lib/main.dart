@@ -4,13 +4,9 @@ import 'package:get_storage/get_storage.dart';
 
 import 'components/notifications/local_notifications/local_notifications.dart';
 import 'core/app_localization.dart';
-import 'core/app_routing/app_pages.dart';
-import 'core/bindings/core_bindings.dart';
 import 'core/core_functions.dart';
 import 'core/core_info/app_info.dart';
-import 'core/core_resources/core_enums.dart';
 import 'core/core_resources/defaults.dart';
-import 'core/extensions/extenstions_for_core/extension_app_routes.dart';
 import 'core/extensions/extension_for_prints/extension_for_prints.dart';
 import 'main.get_put.dart';
 import 'ui_kit/theme/themes.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getx_binding_annotation/annotation.dart';
 
+import '../../../core/app_localization.dart';
 import '../../../core/app_routing/app_routing.dart';
 import '../../../core/core_elements/core_view.dart';
 import '../../../core/core_resources/page_details.dart';
@@ -41,8 +42,8 @@ class AdminTestPage extends CoreView<AdminTestController> {
       items: List.generate(
           AppPageDetails.listPages.length,
           (index) => AppGeneralButton(
-                text: AppPageDetails.listPages[index].pageName ?? 'Unknown',
-                onTap: () => goToPage(AppPageDetails.listPages[index].pageRoute),
+                text: AppPageDetails.listPages[index].pageName ?? Texts.to.notAvailableInitials,
+                onTap: () => goToPage(AppPageDetails.listPages[index]),
               )),
       title: 'App All Pages');
 

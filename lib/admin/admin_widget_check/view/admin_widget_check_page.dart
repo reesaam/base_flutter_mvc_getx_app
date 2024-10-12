@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getx_binding_annotation/annotation.dart';
 
 import '../../../core/core_elements/core_view.dart';
+import '../../../core/core_resources/page_details.dart';
 import '../../../shared/shared_models/core_models/app_page_detail/app_page_detail.dart';
 import '../../../core/extensions/extensions_on_data_types/extension_icon.dart';
 import '../../../core/extensions/extensions_on_material_widgets/extension_on_text.dart';
@@ -12,7 +13,6 @@ import '../../../ui_kit/dialogs/app_alert_widget_dialogs.dart';
 import '../../../ui_kit/dialogs/app_bottom_dialogs.dart';
 import '../../../core/core_functions.dart';
 import '../../../core/core_resources/logos.dart';
-import '../../../core/core_resources/core_enums.dart';
 import '../../../core/core_resources/icons.dart';
 import '../../../ui_kit/general_widgets/image.dart';
 import '../../../ui_kit/general_widgets/popup_menu_item.dart';
@@ -411,7 +411,7 @@ class AdminWidgetCheckPage extends CoreView<AdminWidgetCheckController> {
         AdminFunctions.item(
             fullWidth: true,
             widget: AppAppBar(
-              pageDetail: const AppPageDetail(pageRoute: AppRoutes.adminWidgetCheckPage, pageName: 'Page Name'),
+              pageDetail: AppPageDetail(pageRoute: AppPageDetails.adminWidgetCheckPage.pageRoute, pageName: 'Page Name'),
               barLeading: AppIconButton(icon: AppIcons.list, onTap: nullFunction),
               barAction: AppIconButton(icon: AppIcons.add, onTap: nullFunction),
             )),
